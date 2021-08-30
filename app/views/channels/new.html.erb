@@ -1,0 +1,24 @@
+
+<div class="wallpaper">
+    <div class="add-channel-box">
+        <h2>建立頻道</h2>
+        <button class="close" >X</button>
+        <h4>頻道是你的團隊進行通訊的地方。以主題來分類頻道最有效，舉例來說，#行銷。</h4>
+        <%= form_for :channel do |f| %>
+        <p>
+            <%= f.label :title, "名稱" %> <br>
+            <%= f.text_field :title %>
+        </p>
+
+        <p>
+            <%= f.label :description, "說明" %> <br>
+            <%= f.text_area :description %>
+        </p>
+        <p>此頻道的內容是什麼？</p>
+
+        <%= f.submit "送出" %>
+        
+        <% end %>
+        
+    </div>
+</div>

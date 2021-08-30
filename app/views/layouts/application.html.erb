@@ -11,6 +11,17 @@
   </head>
 
   <body>
+
+    <div id="sidebar">
+
+      <ul>
+        <li class="category">頻道</li>
+        <li><%= link_to "+ 新增頻道", new_channel_path %></li>
+      </ul>
+
+    </div>
+
+
     <%= yield %>
     <p class=”notice”><%= notice %></p>
     <p class=”alert”><%= alert %></p>

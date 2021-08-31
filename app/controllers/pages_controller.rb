@@ -68,3 +68,4 @@ class PagesController < ApplicationController
         params.require(:channel).permit(:name, :space_id);
     end
 end
+end

@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: "homes#index"
 
   resources :channels
-  root "channels#index"
+  #root "channels#index"
 
 end

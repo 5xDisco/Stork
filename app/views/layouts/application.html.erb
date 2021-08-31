@@ -39,19 +39,32 @@
   </head>
 
   <body>
-    <div id="sidebar">
+      <div id="sidebar" data-controller="baritem" data-baritem-target="center">
 
-      <ul>
-        <li class="category">頻道</li>
-        <%= yield :my_channel %>
-        <li><%= link_to "+ 新增頻道", new_channel_path, remote: true %></li>
-      </ul>
+        <ul>
+          <span class="category">頻道</span>
+          <hr>
+          <%= yield :my_channel %>
+          <li><%= link_to "+ 新增頻道", new_channel_path, remote: true %></li>
+        </ul>
 
-    </div>
+        <div class="menu" data-baritem-target="menu">
+          <ul class="menu-options" data-baritem-target="menuoptions">
+            <li class="menu-option">離開頻道</li>
+            <li class="menu-option">查看頻道資料</li>
+          </ul>
+        </div>
 
-    <%= yield %>
+
+
     <p class=”notice”><%= notice %></p>
     <p class=”alert”><%= alert %></p>
+
+      </div>
+
+
+
+      <%= yield %>
   </body>
 </html>
 >>>>>>> 6e2671b... 渲染新增畫面

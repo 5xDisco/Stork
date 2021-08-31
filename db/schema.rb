@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_03_023215) do
+=======
+ActiveRecord::Schema.define(version: 2021_08_30_100003) do
+>>>>>>> 7a75056... 修正   db:migrate 錯誤
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "space_members", force: :cascade do |t|
     t.bigint "space_id", null: false
     t.bigint "user_id", null: false
@@ -28,6 +33,12 @@ ActiveRecord::Schema.define(version: 2021_09_03_023215) do
     t.string "name"
     t.string "icon"
     t.integer "created_by"
+=======
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.string "topic"
+    t.text "description"
+>>>>>>> 7a75056... 修正   db:migrate 錯誤
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -4,11 +4,11 @@ export default class extends Controller {
     static targets = [ "page" ]
 
     connect() {
-        console.log("hello from StimulusJS")
+        console.log(`new.js.erb do stimulus js`);
     }
 
     close(){
-        console.log(this.pageTarget);
-        console.log(this.pageTarget.classList.add('close-page'));
+        this.pageTarget.remove();
+        console.log(`new.js.erb destory self`)
     }
 }

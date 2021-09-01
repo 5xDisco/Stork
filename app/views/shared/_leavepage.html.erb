@@ -1,0 +1,14 @@
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+    <div class="channel-box">
+       
+        <button data-action="click->channelbox#close" class="close" >X</button>
+
+        <%= form_for(leave, :method => :delete, :remote => false) do |f| %>
+        <h2>離開 # <%= leave.name %> </h2>
+        <p>頻道成員不會收到你已經離開的通知。你隨時可以重新加入。</p>
+        <button data-action="click->channelbox#close">取消</button>
+        <%= f.submit "離開" %>
+        <% end %>
+
+    </div>
+</div>

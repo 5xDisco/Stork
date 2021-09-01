@@ -1,11 +1,10 @@
-<div>123</div>
-<div data-controller="addbox">
-    <div class="wallpaper" data-addbox-target="page">
-        <div class="add-channel-box">
+
+    <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+        <div class="channel-box">
             <h2>建立頻道</h2>
-            <button data-action="click->addbox#close" class="close" >X</button>
+            <button data-action="click->channelbox#close" class="close" >X</button>
             <h4>頻道是你的團隊進行通訊的地方。以主題來分類頻道最有效，舉例來說，#行銷。</h4>
-            <%= form_for :channel, url: channels_path do |f| %>
+            <%= form_for channel do |f| %>
             <p>
                 <%= f.label :name, "名稱" %> <br>
                 <%= f.text_field :name %>
@@ -23,4 +22,4 @@
             
         </div>
     </div>
-</div>
+

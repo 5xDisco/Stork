@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :channels
   #root "channels#index"
 
+	get "/leave/:id(.:format)", to: "channels#leave", as: "leave"
 end

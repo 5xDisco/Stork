@@ -11,18 +11,21 @@
     left: 0;
     bottom: 0;
     margin: auto;
+    display: flex;
+    align-items: center;
+    
 
-    .add-channel-box{
-        position: absolute;
+    .channel-box{
+        position: relative;
+        margin: auto;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
-        margin: auto;
+        left: 0;
         z-index: 2;
         background-color: white;
         width: 530px;
-        height: 530px;
+        height: auto;
         padding: 30px;
         border-radius: 1rem;
     }

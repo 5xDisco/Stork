@@ -1,8 +1,7 @@
 class SpacesController < ApplicationController
 
-
     def list
-        @spaces = Space.all
+        @spaces = Space.all.order(id: :desc)
     end
 
 
@@ -26,6 +25,30 @@ class SpacesController < ApplicationController
     def show
         @space = Space.find_by(id: params[:id])
     end
+
+    def edit
+        @space = Space.find_by(id: params[:id])
+    end
+
+    def update
+        @space = Space.find_by(id: params[:id])
+        
+        if @space.update(clean_params)
+            flash[:notice] = "編輯成功"
+            redirect_to "/list" 
+        else
+            flash[:notice] = "編輯失敗"
+            render :edit
+        end
+    end
+
+    def destroy
+        @space = Space.find_by(id: params[:id])
+        @space.destroy
+        flash[:notice] = "刪除了"
+        redirect_to "/list" 
+    end
+
 
 private
     def clean_params

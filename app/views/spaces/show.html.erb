@@ -1,7 +1,23 @@
-圖示:<%= @space.icon %>
-
-<h1>工作空間名稱: <%= @space.name %></h1>
-
-誰創立的: <%= @space.created_by %>
-
-暫時放這行: <%= link_to "回工作空間列表", list_path %>
+<table width=100%>
+<tr>
+    <td class="ch-show">
+        現空間圖示(<%= @space.icon %>)<p>
+        ＋按鈕預留
+    </td>
+    <td>
+            <h3>空間名: <%= @space.name %></h3>
+            誰創立的: <%= @space.created_by %><br>
+            暫時放這行: <%= link_to "回工作空間列表", list_path %><br>
+            <table style="background-color: lightskyblue;">
+                <br><br>
+                頻道<br>
+                <br><br><br>
+                私訊<br>
+                <br><br><br>
+            </table>
+    </td>
+    <td width=70% style="background-color: beige;">
+        聊天室區域
+    </td>
+</tr>
+</table>

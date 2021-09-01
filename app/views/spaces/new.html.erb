@@ -1,21 +1,35 @@
-<h1>在這裡新增工作空間</h1>
+<table width=100%>
+<tr>
+<td class="step1">
+    <p>新工作區的名字</p>
+</td>
+<td>
 
 <%= form_for(@space) do |f|%>
-<div>
-  <%= f.label :name, "新空間名稱" %>
-  <%= f.text_field :name %>
-</div>
+  <div>
+    <span style="font-size:50px;"><%= f.label :name, "你的公司或團隊的名稱是什麼？" %></span><p>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <span style="font-size:12px;"><%= f.label :icon, "自動產生圖像" %></span>
+    <%= f.text_field :icon %>
+  </div>
+  
+  <div>
+  <span style="font-size:12px;"><%= f.label :created_by, "建立者" %></span>
+    <%= f.text_field :created_by %>
+  </div>
+  
+    <%= f.submit value="下一步"%>
+  <% end %>
 
-<div>
-  <%= f.label :icon, "自動產生圖像" %>
-  <%= f.text_field :icon %>
-</div>
 
-<div>
-  <%= f.label :created_by, "建立者" %>
-  <%= f.text_field :created_by %>
-</div>
+</td>
+</tr>
+</table>
 
-  <%= f.submit %>
-<% end %>
+
+
+
 

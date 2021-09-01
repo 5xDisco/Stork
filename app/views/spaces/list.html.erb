@@ -1,9 +1,28 @@
-list
-
-<ul>
-<% @spaces.each do |s| %>
-    <li><%= link_to s.name, space_path(s.id) %></li>
-<% end %>
-</ul>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>打開一個工作區</h1>
+<table border="3" class="list-table" >
+    <caption><%= current_user.email %>的工作區</caption>
+    <thead>
+        <tr>
+            <th scope="col">
+                <% @spaces.each do |s| %>
+                <li><span style="font-size:20px;"><%= link_to s.name, space_path(s.id) %></span>
+                <p><span style="font-size:12px;"><%= link_to "編輯", edit_space_path(s.id) %>／<%= link_to "刪除", space_path(s.id),
+		    method: 'delete',
+		    "data-confirm": "確定嗎？" %> </span>
+                <% end %>
+            </th>
+        </tr>
+    </thead>
 </table>
+</body>
+</html>
+

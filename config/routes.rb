@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/signin", to: "spaces#signin"
   get "/login", to: "spaces#login"
   get "/list", to: "spaces#list"
+  get "/imgs", to: "spaces#imgs"
+  get "/invite", to: "spaces#invite"
 
   resources :spaces
 

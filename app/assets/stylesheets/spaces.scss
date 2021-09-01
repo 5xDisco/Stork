@@ -1,3 +1,16 @@
 // Place all the styles related to the spaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.field_with_error{
+    display: inline-block;
+    
+    input[type="text"]{
+        border-color: red;
+        border-width:1px;
+    }
+
+    label{
+      color: red;
+    }
+}

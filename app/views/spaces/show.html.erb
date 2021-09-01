@@ -1,4 +1,7 @@
-<p><%= @space.icon %></p>
-<h1>工作空間: <%= @space.title %> </h1>
-<p><%= @space.created_by %></p>
+圖示:<%= @space.icon %>
 
+<h1>工作空間名稱: <%= @space.name %></h1>
+
+誰創立的: <%= @space.created_by %>
+
+暫時放這行: <%= link_to "回工作空間列表", list_path %>

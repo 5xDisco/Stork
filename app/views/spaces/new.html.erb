@@ -1,18 +1,18 @@
 <h1>在這裡新增工作空間</h1>
 
-<%= form_for(Space.new) do |f|%>
+<%= form_for(@space) do |f|%>
 <div>
-  <%= f.label :新空間名稱 %>
+  <%= f.label :name, "新空間名稱" %>
   <%= f.text_field :name %>
 </div>
 
 <div>
-  <%= f.label :自動產生圖像 %>
+  <%= f.label :icon, "自動產生圖像" %>
   <%= f.text_field :icon %>
 </div>
 
 <div>
-  <%= f.label :建立者 %>
+  <%= f.label :created_by, "建立者" %>
   <%= f.text_field :created_by %>
 </div>
 

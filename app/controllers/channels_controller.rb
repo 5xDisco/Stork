@@ -12,9 +12,26 @@ class ChannelsController < ApplicationController
     if(@channel.save)
       redirect_to @channel
     else
-      redirect_to html: '123'
+      redirect_to "/channels"
     end
-    
+  end
+
+  def new
+    @channel = Channel.new 
+  end
+
+  def leave
+    @channel = Channel.find(params[:id])
+    # render json: @leave
+  end
+
+  def destroy
+    @channel = Channel.find(params[:id])
+    if(@channel.destroy)
+      redirect_to "/channels"
+    else
+      redirect_to @channel
+    end
   end
 
   private

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
 
@@ -17,3 +18,8 @@ class ApplicationController < ActionController::Base
     # end
 
 end
+=======
+class ApplicationController < ActionController::Base
+    #before_action :authenticate_user!
+end
+>>>>>>> 8826ab7... 新增假刪除功能

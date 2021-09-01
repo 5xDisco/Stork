@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = [ "center","menu","menuoptions" ]
+    static targets = [ "center","menu","menuoptions","linkpath" ]
 
     connect() {
 
@@ -18,6 +18,7 @@ export default class extends Controller {
                   };
 
                   if(e.target.id == "item"){
+                    changelinkid(e.target.dataset.chanid);
                     setPosition(origin);
                   }
                   return false;
@@ -26,6 +27,11 @@ export default class extends Controller {
           
           const hideMenu = ()=>{
             if (menuVisible) toggleMenu("hide");
+          };
+
+          const changelinkid = (id)=>{
+            console.log("leave channel id" + id); // channel id 用於變更 linkpath 物件 hrer 網址
+            this.linkpathTarget.href = `/leave/${id}`;
           };
 
           window.addEventListener("click", e => {
@@ -41,6 +47,7 @@ export default class extends Controller {
             const setPosition = ({ top, left }) => {
               menu.style.left = `${left}px`;
               menu.style.top = `${top}px`;
+              
               toggleMenu("show");
             };
 

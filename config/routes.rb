@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -23,3 +24,16 @@ Rails.application.routes.draw do
 
 
 end
+=======
+Rails.application.routes.draw do
+
+  devise_for :users
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "homes#index"
+
+  resources :channels
+  #root "channels#index"
+
+	get "/leave/:id(.:format)", to: "channels#leave", as: "leave"
+end
+>>>>>>> 8826ab7... 新增假刪除功能

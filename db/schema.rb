@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_03_023215) do
 =======
 ActiveRecord::Schema.define(version: 2021_08_30_100003) do
 >>>>>>> 7a75056... 修正   db:migrate 錯誤
+=======
+ActiveRecord::Schema.define(version: 2021_08_31_103300) do
+>>>>>>> 8826ab7... 新增假刪除功能
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_08_30_100003) do
 >>>>>>> 7a75056... 修正   db:migrate 錯誤
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_channels_on_deleted_at"
   end
 
   create_table "users", force: :cascade do |t|

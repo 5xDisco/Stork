@@ -1,2 +1,1 @@
-
-document.querySelector("body").insertAdjacentHTML('afterbegin','<%= j render(partial: "shared/newpage", locals: { channel: @channel }) %>');
+document.querySelector("body").insertAdjacentHTML('afterbegin','<%= j render(partial: "shared/newpage", locals: { channel: @channel, errors: @errors }) %>');

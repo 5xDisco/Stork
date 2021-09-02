@@ -11,7 +11,9 @@
       <li class="menu-option">
         <%= link_to "離開頻道", leave_path(0), "data-baritem-target" => "linkpath", remote: true %>
       </li>
-      <li class="menu-option">查看頻道資料</li>
+      <li class="menu-option">
+          <%= link_to "查看頻道資料", edit_channel_path(0), "data-baritem-target" => "linkpath", remote: true %>
+      </li>
     </ul>
 </div>
 

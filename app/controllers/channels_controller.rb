@@ -11,9 +11,9 @@ class ChannelsController < ApplicationController
     @channel = Channel.new(channel_params);
     if(@channel.save)
       redirect_to @channel
-    else
-      redirect_to "/channels"
     end
+    @errors = @channel.errors.full_messages
+    # render remote:false ? create.html.erb : create.js.erb 
   end
 
   def new
@@ -25,18 +25,25 @@ class ChannelsController < ApplicationController
     # render json: @leave
   end
 
+
   def destroy
     @channel = Channel.find(params[:id])
+    cant_delete_channel = Channel.find_by(status:2)
+
     if(@channel.destroy)
-      redirect_to "/channels"
+      #導向不能刪的那一個
+      redirect_to cant_delete_channel 
     else
       redirect_to @channel
     end
   end
 
+  def update
+  end
+
   private
   def channel_params
-    params.require(:channel).permit(:name, :description)
+    params.require(:channel).permit(:name, :description, :status)
   end
 end
 

@@ -1,4 +1,5 @@
 class ChannelsController < ApplicationController
+
   def index
     @channels = Channel.all.order('created_at')
   end
@@ -39,7 +40,11 @@ class ChannelsController < ApplicationController
   end
 
   def update
-
+    @channel = Channel.find(params[:id])
+    if @channel.update(channel_params)
+      redirect_to @channel
+		end
+    @errors = @channel.errors.full_messages
   end
 
   def edit
@@ -47,6 +52,11 @@ class ChannelsController < ApplicationController
   end
 
   private
+  #先準備好到時改
+  def find_user_channel
+    @channel = Channel.find(params[:id])
+	end
+
   def channel_params
     params.require(:channel).permit(:name, :description, :status)
   end

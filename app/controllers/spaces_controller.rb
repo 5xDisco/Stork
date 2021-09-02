@@ -12,9 +12,9 @@ class SpacesController < ApplicationController
 
     def create        
         @space = Space.new(clean_params)
-        
+
         if @space.save
-            redirect_to "/list" 
+            redirect_to @space
         else
             flash[:notice] = "新增失敗"
             render :new
@@ -53,6 +53,10 @@ class SpacesController < ApplicationController
 private
     def clean_params
         params.require(:space).permit(:name, :icon, :created_by) #require的hash是從 create 來的？
+    end
+
+    def find_user_space
+        @space = current_user.find(params[:note_id])
     end
 
 end

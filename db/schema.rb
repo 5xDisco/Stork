@@ -12,6 +12,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_03_023215) do
 =======
 ActiveRecord::Schema.define(version: 2021_08_30_100003) do
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2021_08_30_100003) do
 =======
 ActiveRecord::Schema.define(version: 2021_08_31_103300) do
 >>>>>>> 8826ab7... 新增假刪除功能
+=======
+ActiveRecord::Schema.define(version: 2021_09_02_045007) do
+>>>>>>> 9832bf5... 增加 新增防呆 刪除防呆
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_103300) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
+    t.integer "status"
     t.index ["deleted_at"], name: "index_channels_on_deleted_at"
   end
 

@@ -39,6 +39,11 @@ class ChannelsController < ApplicationController
   end
 
   def update
+
+  end
+
+  def edit
+    @channel = Channel.find(params[:id])
   end
 
   private

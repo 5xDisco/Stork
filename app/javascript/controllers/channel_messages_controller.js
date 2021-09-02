@@ -33,7 +33,13 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log("_cableReceived");
-
-    this.messagesTarget.innerHTML = this.messages.innerHTML + data.message;
+    const newMessage = data.message;
+    // const newMessageDOM = new DOMParser().parseFromString(
+    //   newMessage,
+    //   "text/xml"
+    // );
+    document
+      .querySelector("#messages")
+      .insertAdjacentHTML("beforeend", newMessage);
   }
 }

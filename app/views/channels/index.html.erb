@@ -27,8 +27,8 @@
           </div>
         </nav>
 
-        <div class="chat-channel" data-controller="channel-messages" data-channel-messages-channelid=<%= @channel.id %> >
-          <div id="messages" data-channel-messages-target='messages'>
+        <div class="chat-channel" data-controller="channel-messages" data-channel-messages-channelid=<%= @channel.id %>>
+          <div id="messages">
             <% @channel.messages.each do |message| %>
               <%= render "messages/message", message: message %>
             <% end %> 

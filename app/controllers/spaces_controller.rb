@@ -11,7 +11,8 @@ class SpacesController < ApplicationController
 
 
     def create        
-        @space = Space.new(clean_params)
+        #@space = Space.new(clean_params)
+        @space = current_user.spaces.new
 
         if @space.save
             redirect_to @space

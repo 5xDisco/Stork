@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
 
+devise_for :users 
+root to: "homes#index"
   # namespace :user do
   #   root :to => "spaces#list"
   # end
@@ -9,8 +10,8 @@ Rails.application.routes.draw do
 
   # root to: "spaces#index"
 
-  get "/", to: "spaces#index"
-  get "/spaces", to: "spaces#index"
+  #get "/", to: "spaces#index"
+  get "/spaces", to: "spaces#index", as: "logout"
   get "/signin", to: "spaces#signin"
   get "/login", to: "spaces#login"
   get "/list", to: "spaces#list"

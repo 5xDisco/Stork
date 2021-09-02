@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
         request.referrer
     end
 
+    def login_in?
+        authenticate_user!
+    end
+
+    # def destroy
+    #     redirect_to logout_path
+    # end
+
 end

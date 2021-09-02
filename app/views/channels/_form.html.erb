@@ -1,0 +1,20 @@
+<%= form_with(model: channel) do |form| %>
+  <% if channel.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% channel.errors.full_message each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add channel", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

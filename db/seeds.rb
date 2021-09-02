@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# users = User.create([{email: 'mobydick@example.com', encrypted_password: '123456789'}, {email: 'cruelshoes@example.com', encrypted_password: '123456789'}])
+
+channels = Channel.create([{name: 'channel 1'}, {name: 'channel 2'}])

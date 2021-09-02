@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = [ "center","menu","menuoptions","linkpath" ]
+    static targets = [ "center","menu","menuoptions","deletepath","editpath" ]
 
     connect() {
 
@@ -31,7 +31,8 @@ export default class extends Controller {
 
           const changelinkid = (id)=>{
             console.log("leave channel id" + id); // channel id 用於變更 linkpath 物件 hrer 網址
-            this.linkpathTarget.href = `/leave/${id}`;
+            this.deletepathTarget.href = `/leave/${id}`;
+            this.editpathTarget.href = `/channels/${id}/edit`;
           };
 
           window.addEventListener("click", e => {

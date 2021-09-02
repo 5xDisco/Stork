@@ -1,0 +1,39 @@
+
+  
+  .tabs {
+    position: relative;
+    color: #d6dce0;
+    clear: both;
+    font-size: 17px;
+
+    .tab {
+        float: left;
+      }
+      .tab label {
+        //background: #f8f1fb; /* LABEL */
+        padding: 5px;
+        //color: #d0bdd9;
+        //border-bottom: 1px solid #ffffff;
+        margin-left: -1px;
+        position: relative;
+        font-weight: bold;
+        left: 1px;
+      }
+      .tab [type="radio"] {
+        display: none;
+      }
+
+      [type="radio"]:checked ~ label {
+        border-bottom: 1px solid #33acb7;
+        color: #33acb7;
+        z-index: 2;
+      }
+      [type="radio"]:checked ~ label ~ .content {
+        z-index: 1;
+      }
+  }
+
+  .content {
+    padding: 15px 0;
+    margin-top: 30px;
+  }

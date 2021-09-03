@@ -13,8 +13,7 @@ class ChannelsController < ApplicationController
     if(@channel.save)
       redirect_to @channel
     end
-    @errors = @channel.errors.full_messages
-    # render remote:false ? create.html.erb : create.js.erb 
+    @errors = @channel.errors.full_messages 
   end
 
   def new
@@ -23,17 +22,16 @@ class ChannelsController < ApplicationController
 
   def leave
     @channel = Channel.find(params[:id])
-    # render json: @leave
   end
 
 
   def destroy
     @channel = Channel.find(params[:id])
-    cant_delete_channel = Channel.find_by(status:2)
+    lobby_channel = Channel.find_by(status:2)
 
     if(@channel.destroy)
       #導向不能刪的那一個
-      redirect_to cant_delete_channel 
+      redirect_to "/channels" 
     else
       redirect_to @channel
     end

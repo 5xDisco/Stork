@@ -15,7 +15,7 @@
     align-items: center;
     
 
-    .channel-box{
+    .dialog-box{
         position: relative;
         margin: auto;
         top: 0;
@@ -35,7 +35,7 @@
             margin-bottom: 10px;
         }
 
-        .textbody{
+        .dialog-content{
             margin-top: 0 !important;
             overflow: auto;
             max-height: 300px;

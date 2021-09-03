@@ -1,5 +1,5 @@
 <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
-    <div class="channel-box">
+    <div class="dialog-box">
             <div class="head">
                 <h2># <%=  channel.name %></h2>
                 <button data-action="click->channelbox#close" class="close" >X</button>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="textbody">
+            <div class="dialog-content">
                 <%= render "shared/setting", channel: channel %>
             </div>
     </div>

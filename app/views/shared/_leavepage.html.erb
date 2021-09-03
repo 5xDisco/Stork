@@ -1,5 +1,5 @@
 <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
-    <div class="channel-box">
+    <div class="dialog-box">
        
         <button data-action="click->channelbox#close" class="close" >X</button>
 
@@ -7,9 +7,9 @@
         <h2>離開 # <%= leave.name %> </h2>
         <p> 
             <% if leave.status == 2 %>
-            <%= "每个工作区都有一个频道，包含此工作区中的所有成员，这就是你的频道。" %>
+            <%= "每個工作區都有一個頻道，包含此工作區中的所有成員，這就是你的頻道。" %>
             <% else %>
-            <%= "频道成员不会收到你退出的通知。你可以随时重新加入。" %>
+            <%= "頻道成員不會收到你退出的通知。你可以隨時重新加入。" %>
             <% end %>
         </p>
         <button data-action="click->channelbox#close">取消</button>

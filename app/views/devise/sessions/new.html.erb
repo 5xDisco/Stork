@@ -1,7 +1,13 @@
-
-
-
-<div class="text-center"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stork</title>
+</head>
+<body>
+  <div class="text-center"> 
   <div class="text-center"></div>
 
   <div class="text-center"> 
@@ -13,25 +19,25 @@
   <div class="right">
     
     <div>
-     <p class="text-right"><h5>第一次使用Stork嗎？</h5></p>
+    <p class="text-right"><h5>第一次使用Stork嗎？</h5></p>
     </div>
     
     <div>
-     <a target="_self" class="c-link bold" href="/post-devise/sessions#create" rel="noopener noreferrer"><h5>建立帳號<h5>
-     </a>
+    <a target="_self" class="c-link bold" href="/post-devise/sessions#create" rel="noopener noreferrer"><h5>建立帳號<h5>
+    </a>
     </div>
 
     
 
-</div>
+  </div>
 
-<div>
+  <div>
   <h1>登入Stork</h1>
   <h3>建議使用你工作用的電子郵件地址</h3>
-</div>
+  </div>
 
 
-<%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
+  <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
   <div class="field">
     <%= f.label :帳號 %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -52,6 +58,8 @@
   <div class="actions">
     <%= f.submit "登入" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</body>
+</html>

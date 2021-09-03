@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   #root "channels#index"
 
 	get "/leave/:id(.:format)", to: "channels#leave", as: "leave"
+  get "/member", to: "channels#member", as: "member"
+  get "/setting/:id(.:format)", to: "channels#setting", as: "setting"
 end

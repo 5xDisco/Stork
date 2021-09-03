@@ -51,6 +51,14 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
   end
 
+  def member
+    @members = User.all; #這邊先撈假資料
+  end
+
+  def setting
+    @channel = Channel.find(params[:id])
+  end
+
   private
   #先準備好到時改
   def find_user_channel
@@ -58,7 +66,7 @@ class ChannelsController < ApplicationController
 	end
 
   def channel_params
-    params.require(:channel).permit(:name, :description, :status)
+    params.require(:channel).permit(:name, :description, :status, :topic)
   end
 end
 

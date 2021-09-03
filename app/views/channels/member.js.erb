@@ -1,0 +1,4 @@
+
+//console.log(document.querySelector(".textbody"));
+document.querySelector(".textbody").innerHTML = "";
+document.querySelector(".textbody").insertAdjacentHTML('beforeend','<%= j render(partial: "shared/member", locals: { members: @members  }) %>');

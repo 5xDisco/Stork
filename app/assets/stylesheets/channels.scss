@@ -26,8 +26,20 @@
         background-color: white;
         width: 530px;
         height: auto;
-        padding: 30px;
+        padding: 20px;
         border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        .head{
+            margin-bottom: 10px;
+        }
+
+        .textbody{
+            margin-top: 0 !important;
+            overflow: auto;
+            max-height: 300px;
+        }
     }
 
     .close{

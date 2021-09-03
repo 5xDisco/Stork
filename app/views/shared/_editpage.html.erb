@@ -1,45 +1,24 @@
 <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
     <div class="channel-box">
-        <h2># <%=  channel.name %></h2>
-        <button data-action="click->channelbox#close" class="close" >X</button>
-        <div class="tabs">
-            
-            <div class="tab">
-              <input type="radio" id="tab-1" name="tab-group-1" checked>
-              <label for="tab-1">編輯頻道</label>
+            <div class="head">
+                <h2># <%=  channel.name %></h2>
+                <button data-action="click->channelbox#close" class="close" >X</button>
+                <div class="tabs">
+                    <div class="tab">
+                      <!-- <input type="radio" id="tab-1" name="tab-group-1" checked='true'>
+                      <label for="tab-1">
+                        
+                      </label> -->
+                      <%= link_to "查看頻道資料", setting_path(channel.id), remote: true %>
+                    </div>
+                
+                    <div class="tab">
+                        <%= link_to "頻道會員", member_path, remote: true %>
+                    </div>
+                </div>
             </div>
-          
-            <div class="tab">
-              <input type="radio" id="tab-2" name="tab-group-1">
-              <label for="tab-2">頻道會員</label>
+            <div class="textbody">
+                <%= render "shared/setting", channel: channel %>
             </div>
-        </div>
-        <div class="content">
-
-            <%= form_for channel, remote: true do |f| %>
-
-            <% if channel.status != 2 %>
-            <p>
-                <%= f.label :name, "名稱", "id"=>"nameerror" %> 
-                <span class="error">頻道名稱為必填！！！</span> <br>
-                <%= f.text_field :name, "id"=>"nameerror" %>
-            </p>
-            <% end %>
-
-            <p>
-                <%= f.label :topic, "主題" %> <br>
-                <%= f.text_field :topic %>
-            </p>
-    
-            <p>
-                <%= f.label :description, "說明" %> <br>
-                <%= f.text_area :description %>
-            </p>
-    
-            <%= f.submit "送出" %>
-            
-            <% end %>
-
-        </div>
     </div>
 </div>

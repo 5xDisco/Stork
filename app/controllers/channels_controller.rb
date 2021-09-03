@@ -43,7 +43,7 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
     if @channel.update(channel_params)
       redirect_to @channel
-		end
+    end
     @errors = @channel.errors.full_messages
   end
 
@@ -63,7 +63,7 @@ class ChannelsController < ApplicationController
   #先準備好到時改
   def find_user_channel
     @channel = Channel.find(params[:id])
-	end
+  end
 
   def channel_params
     params.require(:channel).permit(:name, :description, :status, :topic)

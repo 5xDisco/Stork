@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "homes#index"
-
   resources :channels
-  #root "channels#index"
 
-	get "/leave/:id(.:format)", to: "channels#leave", as: "leave"
+	get "/leave/:id", to: "channels#leave", as: "leave"
   get "/member", to: "channels#member", as: "member"
-  get "/setting/:id(.:format)", to: "channels#setting", as: "setting"
+  get "/setting/:id", to: "channels#setting", as: "setting"
 end

@@ -1,27 +1,29 @@
 
-<div class="flex-col"> # 怎麼橫排？
-  <div class="left-col"></div> #左空白
 
-  <div class="center-col"> 
-      <a target="_self" class="c-link" href="https://slack.com" rel="noopener noreferrer">
+
+<div class="text-center"> 
+  <div class="text-center"></div>
+
+  <div class="text-center"> 
+      <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
         <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
       </a>
   </div>
 
-  <div class="right-col">
+  <div class="right">
     
-   <div>
+    <div>
+     <p class="text-right"><h5>第一次使用Stork嗎？</h5></p>
+    </div>
+    
+    <div>
      <a target="_self" class="c-link bold" href="/post-devise/sessions#create" rel="noopener noreferrer"><h5>建立帳號<h5>
      </a>
     </div>
 
-    <div>
-     <p class="text-right"><h5>第一次使用Stork嗎？</h5></p>
-    </div>
+    
 
 </div>
-
-
 
 <div>
   <h1>登入Stork</h1>
@@ -31,12 +33,12 @@
 
 <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :帳號 %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div> 
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :密碼 %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -48,7 +50,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "登入" %>
   </div>
 <% end %>
 

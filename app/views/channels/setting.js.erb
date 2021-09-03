@@ -1,0 +1,2 @@
+document.querySelector(".textbody").innerHTML = "";
+document.querySelector(".textbody").insertAdjacentHTML('beforeend','<%= j render(partial: "shared/setting", locals: { channel: @channel  }) %>');

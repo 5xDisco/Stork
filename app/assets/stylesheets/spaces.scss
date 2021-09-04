@@ -1,6 +1,30 @@
 // Place all the styles related to the spaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+  margin:0px;
+  padding: 0px;
+     
+}
+
+html,body
+{
+    height:100%;
+}
+
+#list-head
+{
+  height: 50px;
+  background-color: #EBD3E8;
+  font-size: 20px;
+}
+
+#caption{
+  font-size: 50px;
+  text-align: left;
+  color: #fff;
+  font-weight:bold;
+}
 
 .field_with_error{
     display: inline-block;
@@ -27,6 +51,20 @@ a:visited{
 a:hover {
   color:#fe1b42;
   text-decoration:underline;
+}
+
+
+nav{
+  width: 100%;
+  background-color: purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  position: sticky;
+  top: 0;
+  margin-bottom: 0px;
+  z-index: 1;
 }
 
 .index-m0-header{
@@ -68,16 +106,34 @@ a:hover {
 }
 
 .list-table{
-  margin-left:auto; 
-  margin-right:auto;
-  border-style: solid gray;
+  width: 760px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
-.step1{
-  width: 100px;
+.spaces-container{
+  height:100%;
+
+}
+
+.spaces-steps{
+  width: 200px;
   background-color: purple;
   color:white;
   margin-left: 0px; 
+  padding: 20px;
+  vertical-align:text-top;
+}
+
+.spaces-step-content{
+  padding: 20px;
+  padding-left: 100px;
+  vertical-align: text-top;
 }
 
 .ch-show{

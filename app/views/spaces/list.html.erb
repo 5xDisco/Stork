@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>打開一個工作區</h1>
-<table border="3" class="list-table" >
-    <caption><%#= current_user.email %>的工作區</caption>
+
+<body bgcolor="#800080">
+
+<table class="list-table" >
+
+    <tr>
+        <td id="caption" colspan="6">歡迎回來</td>
+    </tr>
+    <td id="list-head" colspan="5" style="padding:10px"><%= current_user.email %> 的工作空間</td>
     <% @spaces.each do |s| %>
         <tr>
-            <td>icon</td>            
-            <td>                
-                <span style="font-size:20px;"><%= link_to s.name, space_path(s.id) %></span>
+            <td bgcolor="#fff" style="padding:10px"><%= link_to "icons", space_path(s.id) %></td>            
+            <td width="450px" height="60px" bgcolor="#fff">                
+                <span style="font-size:20px;" style="padding:10px"><%= link_to s.name, space_path(s.id) %></span>
             </td>
-            <td>
+            <td width="150px" bgcolor="#fff" style="padding:10px">                
+            <span style="font-size:20px;"><%= link_to "啟動STORK", space_path(s.id) %></span>
+            </td>
+            <td style="display: none;">                
+                <span style="font-size:20px;"><%= s.created_by %></span>
+            </td>
+            <td style="display: none;">
                 <p><span style="font-size:12px;"><%= link_to "編輯", edit_space_path(s.id) %>／<%= link_to "刪除", space_path(s.id),
 		    method: 'delete',
 		    "data-confirm": "確定嗎？" %> </span>
                 <% end %>
             </td>
         </tr>
+        <tr height="100px">
+            
+         </tr>
+        <tr>
+        <td colspan="6" width="450px" height="60px" bgcolor="#fff" style="padding:10px">                  
+        <span style="font-size:20px;"><%= link_to "建立新的工作空間", new_space_path %></span>
+        </td>
+        </tr>
 </table>
 
-<h2>或是 新增工作空間</h2>
-<p><%= link_to "新增工作空間", new_space_path %> </p>
-
 </body>
-</html>
-

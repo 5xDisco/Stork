@@ -10,20 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_045007) do
+ActiveRecord::Schema.define(version: 2021_09_03_023215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "channels", force: :cascade do |t|
-    t.string "name"
-    t.string "topic"
-    t.text "description"
+  create_table "space_members", force: :cascade do |t|
+    t.bigint "space_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "deleted_at"
-    t.integer "status"
-    t.index ["deleted_at"], name: "index_channels_on_deleted_at"
+    t.index ["space_id"], name: "index_space_members_on_space_id"
+    t.index ["user_id"], name: "index_space_members_on_user_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -46,4 +44,6 @@ ActiveRecord::Schema.define(version: 2021_09_02_045007) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "space_members", "spaces"
+  add_foreign_key "space_members", "users"
 end

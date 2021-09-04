@@ -1,7 +1,10 @@
 class SpacesController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:index]
 
     def list
-        @spaces = Space.all.order(id: :desc)
+        @spaces = Space.where(created_by: current_user.id).order(id: :desc)
+        # @spaces = Space.all.order(id: :desc).where(created_by: current_user.id)
+        # @spaces = Space.includes(:user).order(id: :desc)
     end
 
 
@@ -11,11 +14,13 @@ class SpacesController < ApplicationController
 
 
     def create        
-        #@space = Space.new(clean_params)
-        @space = current_user.spaces.new
-
+        @space = Space.new(clean_params)
+        # @space = current_user.spaces.new
+        # Rails.logger.info "params: #{params[:space], #{@space.insect}}"
+        # render clean_params.inspect
+        # byebug
         if @space.save
-            redirect_to @space
+            redirect_to '/crt_channel'
         else
             flash[:notice] = "新增失敗"
             render :new
@@ -26,6 +31,7 @@ class SpacesController < ApplicationController
     def show
         @space = Space.find_by(id: params[:id])
     end
+    
 
     def edit
         @space = Space.find_by(id: params[:id])
@@ -53,7 +59,10 @@ class SpacesController < ApplicationController
 
 private
     def clean_params
-        params.require(:space).permit(:name, :icon, :created_by) #require的hash是從 create 來的？
+        if params[:space][:created_by].empty?
+            params[:space][:created_by] = current_user.id
+        params.require(:space).permit(:name, :icon, :created_by)
+        end
     end
 
     def find_user_space

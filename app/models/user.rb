@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :spaces
+  has_many :space_members
+  has_many :spaces, through: :space_members
+  
 
 end

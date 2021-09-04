@@ -13,9 +13,11 @@
   <body>
   <nav>
     <%= link_to "登入", new_user_session_path%>
-    <%#= link_to "註冊", new_user_registration_path%>
+    <%= link_to "註冊", new_user_registration_path%>
     <%= link_to "登出", destroy_user_session_path, method: :delete %>
-    
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+    <% end %>
   </nav>
     <%= yield %>
     <p class=”notice”><%= notice %></p>

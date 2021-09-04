@@ -1,26 +1,22 @@
-<table width=100%>
+<nav></nav>
+
+<table class="spaces-container" height="100%">
 <tr>
-<td class="step1">
+<td class="spaces-steps">
     <p>新工作區的名字</p>
 </td>
-<td>
-
+<td class="spaces-step-content">
+  步驟3之1
 <%= form_for(@space) do |f|%>
   <div>
     <span style="font-size:50px;"><%= f.label :name, "你的公司或團隊的名稱是什麼？" %></span><p>
     <%= f.text_field :name %>
   </div>
-  
-  <div>
-    <span style="font-size:12px;"><%= f.label :icon, "自動產生圖像" %></span>
-    <%= f.text_field :icon %>
-  </div>
-  
-  <div>
+    
+  <div style="display: none;">
   <span style="font-size:12px;"><%= f.label :created_by, "建立者" %></span>
     <%= f.text_field :created_by %>
   </div>
-  
     <%= f.submit value="下一步"%>
   <% end %>
 

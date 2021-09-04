@@ -1,6 +1,8 @@
 class Space < ApplicationRecord
     validates :name, presence: true
 
-    belongs_to :user
+    has_many :space_members
+    has_many :user, through: :space_members
+
 
 end

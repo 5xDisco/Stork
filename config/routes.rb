@@ -28,7 +28,9 @@ end
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "homes#index"
+  #root to: "homes#index"
+
+  root to: "channels#index"
   resources :channels
 
 	get "/leave/:id", to: "channels#leave", as: "leave"

@@ -1,0 +1,12 @@
+.tabs {
+    position: relative;
+    color: #d6dce0;
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+
+    .tab {
+        padding: 0 5px;
+        color: #33acb7;
+      }
+  }

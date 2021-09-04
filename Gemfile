@@ -21,7 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Mode  l has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# 新增假刪除套件
+gem "paranoia", "~> 2.2"
 # 新增登入系統套件
 gem 'devise', '~> 4.8'
 

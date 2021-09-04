@@ -1,0 +1,21 @@
+<% content_for :my_channel do %>
+<% @channels.each do |channel| %>
+<li>
+    <%= link_to "# #{channel.name}", channel_path(channel),"id" => "item", "data-chanid" => "#{channel.id}" %>
+</li>
+
+<% end %>
+
+<div class="menu" data-baritem-target="menu">
+    <ul class="menu-options" data-baritem-target="menuoptions">
+      <li class="menu-option">
+        <%= link_to "離開頻道", leave_path(0), "data-baritem-target" => "deletepath", remote: true %>
+      </li>
+      <li class="menu-option">
+          <%= link_to "查看頻道資料", edit_channel_path(0), "data-baritem-target" => "editpath", remote: true %>
+      </li>
+    </ul>
+</div>
+
+<% end %>
+

@@ -6,6 +6,9 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.2",
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.2.9",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
@@ -13,6 +16,11 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
     "webpack-dev-server": "^3.11.2"
+  }
+  "scripts": {
+    "tailwind": "npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css",
+    "postcss": "postcss ./src/css/tailwind.css -o ./src/css/style.css"
   }
 }

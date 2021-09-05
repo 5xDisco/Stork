@@ -1,7 +1,8 @@
 <<<<<<< HEAD
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
-
+    before_action :space_find_id, only: [:show, :edit, :update, :destory]
+    
     private
     # Overwriting the sign_out redirect path method
     def after_sign_in_path_for(resource)
@@ -11,11 +12,6 @@ class ApplicationController < ActionController::Base
     def after_sign_out_path_for(resource_or_scope)
         request.referrer
     end
-
-
-    # def destroy
-    #     redirect_to logout_path
-    # end
 
 end
 =======

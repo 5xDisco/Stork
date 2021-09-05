@@ -1,16 +1,27 @@
 <nav></nav>
 
+<script> 
+      //同步函式 
+      function synchronize(){ 
+        document.getElementById('i1').innerHTML =document.getElementById('i2').value; 
+        //alert("同步成功"); 
+     } 
+  
+      //執行同步 
+      setInterval(synchronize,500);//同步的時間間隔,每0.5秒同步一次 
+      </script> 
+
 <table class="spaces-container" height="100%">
 <tr>
 <td class="spaces-steps">
-    <p>新工作區的名字</p>
+    <p id="i1">新工作區的名字</p>
 </td>
 <td class="spaces-step-content">
   步驟3之1
 <%= form_for(@space) do |f|%>
   <div>
     <span style="font-size:50px;"><%= f.label :name, "你的公司或團隊的名稱是什麼？" %></span><p>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, id: 'i2'%>
   </div>
     
   <div style="display: none;">
@@ -20,6 +31,7 @@
     <%= f.submit value="下一步"%>
   <% end %>
 
+  
 
 </td>
 </tr>

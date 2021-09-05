@@ -120,5 +120,9 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+<<<<<<< HEAD
 gem 'tzinfo-data' , platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 >>>>>>> 8826ab7... 新增假刪除功能
+=======
+gem 'tzinfo-data' , platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+>>>>>>> 9d8e038... fix and step3-1 synchronize

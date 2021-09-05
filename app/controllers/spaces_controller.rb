@@ -3,8 +3,6 @@ class SpacesController < ApplicationController
 
     def list
         @spaces = Space.where(created_by: current_user.id).order(id: :desc)
-        # @spaces = Space.all.order(id: :desc).where(created_by: current_user.id)
-        # @spaces = Space.includes(:user).order(id: :desc)
     end
 
 
@@ -14,11 +12,9 @@ class SpacesController < ApplicationController
 
 
     def create        
-        @space = Space.new(clean_params)
+        @space = Space.new(space_params)
         # @space = current_user.spaces.new
-        # Rails.logger.info "params: #{params[:space], #{@space.insect}}"
-        # render clean_params.inspect
-        # byebug
+
         if @space.save
             redirect_to '/crt_channel'
         else
@@ -29,18 +25,18 @@ class SpacesController < ApplicationController
 
 
     def show
-        @space = Space.find_by(id: params[:id])
+        @space = space_find_id
     end
     
 
     def edit
-        @space = Space.find_by(id: params[:id])
+        @space = space_find_id
     end
 
     def update
-        @space = Space.find_by(id: params[:id])
+        @space = space_find_id
         
-        if @space.update(clean_params)
+        if @space.update(space_params_update)
             flash[:notice] = "編輯成功"
             redirect_to "/list" 
         else
@@ -50,23 +46,30 @@ class SpacesController < ApplicationController
     end
 
     def destroy
-        @space = Space.find_by(id: params[:id])
+        @space = space_find_id
         @space.destroy
         flash[:notice] = "刪除了"
         redirect_to "/list" 
     end
 
-
 private
-    def clean_params
+    def space_params
         if params[:space][:created_by].empty?
             params[:space][:created_by] = current_user.id
         params.require(:space).permit(:name, :icon, :created_by)
         end
     end
 
-    def find_user_space
-        @space = current_user.find(params[:note_id])
+    def space_params_update       
+        params.require(:space).permit(:name, :icon, :created_by)
     end
+
+    def space_find_id
+        @space = Space.find_by(id: params[:id])
+    end
+
+    # def find_user_space
+    #     @space = current_user.find(params[:note_id])
+    # end
 
 end

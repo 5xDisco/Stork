@@ -1,19 +1,12 @@
 // Place all the styles related to the spaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-*{
-  margin:0px;
-  padding: 0px;
-     
+
+html,body{
+  height:100%;
 }
 
-html,body
-{
-    height:100%;
-}
-
-#list-head
-{
+#list_head{
   height: 50px;
   background-color: #EBD3E8;
   font-size: 20px;
@@ -39,7 +32,7 @@ html,body
     }
 }
 
-a:link {
+a:link{
   color:#000;
   text-decoration:none;
 }
@@ -48,7 +41,7 @@ a:visited{
   color:#000;
 }
 
-a:hover {
+a:hover{
   color:#fe1b42;
   text-decoration:underline;
 }
@@ -67,16 +60,7 @@ nav{
   z-index: 1;
 }
 
-.index-m0-header{
-  width: 100%;
-  background: #F6EFE8;
-  // align-items: center;
-  // margin-left: auto;
-  // margin-right: auto;
-  // top: 0;
-}
-
-.index-m1-header{
+.index-m-header{
   width: 1150px;
   align-items: center;
   margin-left: auto;
@@ -85,7 +69,6 @@ nav{
 }
 
 .index-main-header{
-  // width: 1150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,7 +88,7 @@ nav{
   padding: 20px;
 }
 
-.list-table{
+.list_table{
   width: 760px;
   height: 70px;
   position: absolute;
@@ -118,7 +101,6 @@ nav{
 
 .spaces-container{
   height:100%;
-
 }
 
 .spaces-steps{

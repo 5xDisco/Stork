@@ -1,12 +1,12 @@
 
 <body bgcolor="#800080">
 
-<table class="list-table" >
+<table class="list_table" >
 
     <tr>
         <td id="caption" colspan="6">歡迎回來</td>
     </tr>
-    <td id="list-head" colspan="5" style="padding:10px"><%= current_user.email %> 的工作空間</td>
+    <td id="list_head" colspan="5" style="padding:10px"><%= current_user.email %> 的工作空間</td>
     <% @spaces.each do |s| %>
         <tr>
             <td bgcolor="#fff" style="padding:10px"><%= link_to "icons", space_path(s.id) %></td>            
@@ -19,7 +19,7 @@
             <td style="display: none;">                
                 <span style="font-size:20px;"><%= s.created_by %></span>
             </td>
-            <td style="display: none;">
+            <td style="">
                 <p><span style="font-size:12px;"><%= link_to "編輯", edit_space_path(s.id) %>／<%= link_to "刪除", space_path(s.id),
 		    method: 'delete',
 		    "data-confirm": "確定嗎？" %> </span>

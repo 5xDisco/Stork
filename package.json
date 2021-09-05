@@ -16,4 +16,8 @@
   "devDependencies": {
     "webpack-dev-server": "3.11.2"
   }
+  "scripts": {
+    "tailwind": "npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css",
+    "postcss": "postcss ./src/css/tailwind.css -o ./src/css/style.css"
+  }
 }

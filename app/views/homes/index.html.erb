@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stork</title>
-</head>
-<body>
-    <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
-    <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
-    </a>
 
-    <br>
-    <br>
+<div class=min-h-screen bg-gray-100 py6 flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+            <div class="max-w-md mx-auto">
+                <div>
+                <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
+                <div>
+                     <p class="text-center"><h1>歡迎回來！記得喝水！</h1></p>
+                     <p class="text-center">從下方擇一個工作空間，以便返回與你的團隊一起工作。</h5></p>
+                </div>
+                    <h5><%= current_user.email %>的工作空間</h5>
+                <div>
+                <div>
+                    <%= link_to '登出', destroy_user_session_path, method: :delete %>
+                </div>
 
-    <div>
-    <p class="text-center"><h1>歡迎回來！記得喝水！</h1></p>
+                </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-
-
-    <div>
-    <p class="text-center">從下方擇一個工作空間，以便返回與你的團隊一起工作。</h5></p>
-    </div>
-
-    <h5><%= current_user.email %>的工作空間</h5>
-    <%= link_to '登出', destroy_user_session_path, method: :delete %>
-</body>
-</html>
+</div>

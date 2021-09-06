@@ -7,12 +7,19 @@
     <td class="spaces-step-content">
 第2步，共3步
 
-<div>
-  <span style="font-size:50px;">你的團隊現在在做什麼？</span>
-</div>
-
 <p>可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易<p>
-<input type="text" name="">
 
-<%= link_to "下一步", stork_step3_path %>
+
+<td class="spaces-step-content">
+  <%= form_for @channel, url: stork_step3_path, html: {method: 'get'} do |f|%>
+
+    <div>
+      <span style="font-size:50px;"><%= f.label :name, "你的團隊現在在做什麼？" %></span>
+      <%= f.text_field :name %>
+    </div>
+  
+  <%= f.submit "下一步" %>
+<% end %>
+
+
 

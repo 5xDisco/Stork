@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_09_06_100339) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key "space_members", "spaces"
   add_foreign_key "space_members", "users"
   add_foreign_key "user_channels", "channels"
@@ -116,4 +117,19 @@ ActiveRecord::Schema.define(version: 2021_09_06_100339) do
   add_foreign_key "users_spaces", "spaces"
   add_foreign_key "users_spaces", "users"
 >>>>>>> 3f4a366... WTFlisttttt
+=======
+  create_table "users_spaces", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["space_id"], name: "index_users_spaces_on_space_id"
+    t.index ["user_id"], name: "index_users_spaces_on_user_id"
+  end
+
+  add_foreign_key "user_channels", "channels"
+  add_foreign_key "user_channels", "users"
+  add_foreign_key "users_spaces", "spaces"
+  add_foreign_key "users_spaces", "users"
+>>>>>>> 5ec9d41... integratedSpaceAndChannel
 end

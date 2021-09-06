@@ -11,7 +11,15 @@ class PagesController < ApplicationController
 
     def step2
         @space = Space.last[:name]
+        @channel = current_user.channels.new();
     end
+
+    def step3
+        @space = Space.last[:name]
+        @channel = current_user.channels.create(channel_params);
+        @channelName = Channel.last[:name]
+    end
+
 
     def show
         space_find_id
@@ -41,6 +49,10 @@ class PagesController < ApplicationController
     def space_find_id
         # byebug
         @space = Space.find_by(id: params[:id])
+    end
+
+    def channel_params
+        params.require(:channel).permit(:name, :description, :status, :topic)
     end
 end
 

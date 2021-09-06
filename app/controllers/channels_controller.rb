@@ -6,7 +6,6 @@ class ChannelsController < ApplicationController
     @channels = Channel.all.order('created_at')
 =======
     #@channels = Channel.all.order('created_at')
-    
     @channels = current_user.channels.order('created_at')
     
     #render layout: "channel"

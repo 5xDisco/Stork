@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index]
-    
+
     def index
     end
 
@@ -14,9 +14,10 @@ class PagesController < ApplicationController
     end
 
     def list
-        # @spaces = Space.where(created_by: current_user.id).order(id: :desc)
-        @spaces = current_user.spaces.order(id: :desc)
+        @spaces = Space.where(created_by: current_user.id).order(id: :desc)
+        # @spaces = current_user.spaces.order(id: :desc)
     end
+
 
     private
     def space_params

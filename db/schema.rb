@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_03_023215) do
 =======
 ActiveRecord::Schema.define(version: 2021_08_30_100003) do
@@ -27,10 +28,14 @@ ActiveRecord::Schema.define(version: 2021_09_02_045007) do
 =======
 ActiveRecord::Schema.define(version: 2021_09_06_110117) do
 >>>>>>> 087ed5e... 增加與 user 關聯性
+=======
+ActiveRecord::Schema.define(version: 2021_09_06_100339) do
+>>>>>>> 3f4a366... WTFlisttttt
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   create_table "space_members", force: :cascade do |t|
     t.bigint "space_id", null: false
@@ -39,11 +44,23 @@ ActiveRecord::Schema.define(version: 2021_09_06_110117) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["space_id"], name: "index_space_members_on_space_id"
     t.index ["user_id"], name: "index_space_members_on_user_id"
+=======
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.string "topic"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.integer "status"
+    t.index ["deleted_at"], name: "index_channels_on_deleted_at"
+>>>>>>> 3f4a366... WTFlisttttt
   end
 
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+<<<<<<< HEAD
     t.integer "created_by"
 =======
   create_table "channels", force: :cascade do |t|
@@ -61,6 +78,8 @@ ActiveRecord::Schema.define(version: 2021_09_06_110117) do
   create_table "user_channels", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "channel_id", null: false
+=======
+>>>>>>> 3f4a366... WTFlisttttt
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["channel_id"], name: "index_user_channels_on_channel_id"
@@ -79,8 +98,22 @@ ActiveRecord::Schema.define(version: 2021_09_06_110117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "space_members", "spaces"
   add_foreign_key "space_members", "users"
   add_foreign_key "user_channels", "channels"
   add_foreign_key "user_channels", "users"
+=======
+  create_table "users_spaces", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["space_id"], name: "index_users_spaces_on_space_id"
+    t.index ["user_id"], name: "index_users_spaces_on_user_id"
+  end
+
+  add_foreign_key "users_spaces", "spaces"
+  add_foreign_key "users_spaces", "users"
+>>>>>>> 3f4a366... WTFlisttttt
 end

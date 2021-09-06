@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 
     def step2
         @space = Space.last[:name]
-        @spaces = current_user
     end
 
     def show
@@ -14,15 +13,13 @@ class PagesController < ApplicationController
     end
 
     def list
-        @spaces = Space.where(created_by: current_user.id).order(id: :desc)
-        # @spaces = current_user.spaces.order(id: :desc)
+        # @spaces = Space.where(created_by: current_user.id).order(id: :desc)
+        @spaces = current_user.spaces.order(id: :desc)
     end
 
     def edit
         @space = space_find_id
     end
-
-
 
     def destroy
         @space = space_find_id
@@ -33,10 +30,7 @@ class PagesController < ApplicationController
 
     private
     def space_params
-        if params[:space][:created_by].empty?
-            params[:space][:created_by] = current_user.id
-        params.require(:space).permit(:name, :icon, :created_by)
-        end
+        params.require(:space).permit(:name, :icon, :user_id)
     end
 
     def space_find_id

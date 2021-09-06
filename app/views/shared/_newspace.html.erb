@@ -1,0 +1,9 @@
+<%= form_for(@space) do |f|%>
+
+<div>
+  <span style="font-size:50px;"><%= f.label :name, "你的公司或團隊的名稱是什麼？" %></span>
+  <%= f.text_field :name, id: 'i2'%>
+</div>
+  
+  <%= f.submit "下一步" %>
+<% end %>

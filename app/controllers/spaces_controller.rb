@@ -8,6 +8,7 @@ class SpacesController < ApplicationController
     def new
         # @space = Space.new
         @space = current_user.spaces.new
+        render layout: "newspace"
     end
 
     def create        
@@ -20,6 +21,7 @@ class SpacesController < ApplicationController
             flash[:notice] = "新增失敗"
             render :new
         end
+
     end
 
     def update
@@ -33,14 +35,11 @@ class SpacesController < ApplicationController
             render :edit
         end
     end
-    
+
 
 private
     def space_params
-        if params[:space][:created_by].empty?
-            params[:space][:created_by] = current_user.id
-        params.require(:space).permit(:name, :icon, :created_by)
-        end
+        params.require(:space).permit(:name, :icon)
     end
 
     def space_params_update       

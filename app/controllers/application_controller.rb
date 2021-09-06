@@ -1,7 +1,6 @@
 <<<<<<< HEAD
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
-    before_action :space_find_id, only: [:show, :edit, :update, :destory]
     
     private
     # Overwriting the sign_out redirect path method

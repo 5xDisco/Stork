@@ -7,62 +7,56 @@
     <title>Stork</title>
 </head>
 <body>
-  <div class="container mx-auto flex flex-col items-center text-center">
-  <div class="text-center"> 
-  <div class="text-center"></div>
 
-  <div class="text-center"> 
-      <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
-        <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
+  <div> 
+      <center><a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
+        <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
       </a>
   </div>
 
-  <div class="right">
+  <div>
     
     <div>
-    <p class="text-right"><h5>第一次使用Stork嗎？</h5></p>
+    <center><p><h5>第一次使用Stork嗎？</h5></p>
     </div>
     
     <div>
-    <a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5>
-
-  
-    </a>
+      <center><a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
     </div>
     
   </div>
 
   <div>
-    <h1>登入Stork</h1>
-    <h3>建議使用你工作用的電子郵件地址</h3>
+    <center><h1>登入Stork</h1>
+    <center><h3>建議使用你工作用的電子郵件地址</h3>
   </div>
 
 
   <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
  
   <div class="HR mb-6 flex items-center">
-    <hr class="flex-grow"><p class="px-2">或</p><hr class="flex-grow">
+    <center><hr class="flex-grow"><p class="px-2">或</p><hr class="flex-grow">
   </div>
 
   <div class="field">
-  <%= f.label :帳號 %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "name@work-email.com",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
+    <center><%= f.label :帳號 %><br />
+    <center><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "name@work-email.com",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
 </div>
-<div class="field">
-<%= f.label :密碼 %><br />
-  <%= f.password_field :password, autocomplete: "current-password",placeholder: "password",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
+ 
+  <center><%= f.label :密碼 %><br />
+  <center><%= f.password_field :password, autocomplete: "current-password",placeholder: "password",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
 </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="text-sm flex justify-between">
       <div class="field">
-        <%= f.check_box :remember_me %>
+        <center><%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       
   <% end %>
 
   <div class="actions">
-    <%= f.submit "登入" %>
+    <center><%= f.submit "登入" %>
   </div>
   <% end %>
 

@@ -1,6 +1,0 @@
-/* 基本 HTML 樣式，包含調整過的 Normalize.css */
-@tailwind base;
-/* 組件區塊 */
-@tailwind components;
-/* Utility區塊 */
-@tailwind utilities;

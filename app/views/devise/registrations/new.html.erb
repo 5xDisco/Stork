@@ -1,48 +1,66 @@
-<div class="text-center"> 
-<a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
-  <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
-</a>
-</div>
-
-<div>
-
-  <center><h1>首先, 輸入你的電子郵件</h1>
-  <center><h4>我們建議使用你的工作電子郵件地址。</h4>
-  <center><h2>註冊 Stork</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>  
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div>
-    <center><%= f.label :電子信箱 %><br />
-    <center><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <center><%= f.label :輸入密碼 %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <center><%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <center><%= f.label :再次確認密碼 %><br />
-    <center><%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
   <br>
+  <br>
+  <br>
+  <br>
+  <div class="text-center"> 
+  <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
+    <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
+  </a>
+  </div>
 
-  <div class="tactions">
-    <center><%= f.submit "註冊" %>
-    <% end %>
-  </div>
-<br>
   <div>
-    <%= render "devise/shared/links" %>
-    <center><h5>可以向我發送有關Stork的電子郵件</h5>
-    <center><h5>選擇繼續,代表你同意我們的客戶服務條款、 隱私權政策和<br>Cookie 政策</h5>
-  </div>
+    <center><h1>首先, 輸入你的電子郵件</h1>
+    <center><h4>我們建議使用你的工作電子郵件地址。</h4>
+    <center><h2>註冊 Stork</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>  
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div>
+      <center><%= f.label :電子信箱 %><br />
+      <center><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <center><%= f.label :輸入密碼 %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <center><%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <center><%= f.label :再次確認密碼 %><br />
+      <center><%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <br>
+
+    <div class="tactions">
+      <center><%= f.submit "註冊" %>
+      <% end %>
+    </div>
+  <br>
+    <div>
+      <%= render "devise/shared/links" %>
+      <center><h5>可以向我發送有關Stork的電子郵件</h5>
+      <center><h5>選擇繼續,代表你同意我們的客戶服務條款、 隱私權政策和<br>Cookie 政策</h5>
+    </div>
 
 
 
     
+
+
+
+
+</body>
+</html>

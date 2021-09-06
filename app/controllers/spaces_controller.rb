@@ -2,32 +2,25 @@ class SpacesController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index]
 
     def list
-        @spaces = Space.where(created_by: current_user.id).order(id: :desc)
+        @spaces = current_user.spaces.order(id: :desc)
     end
-
 
     def new
-        @space = Space.new
+        # @space = Space.new
+        @space = current_user.spaces.new
     end
 
-
     def create        
-        @space = Space.new(space_params)
-        # @space = current_user.spaces.new
+        # @space = Space.new(space_params)
+        @space = current_user.spaces.new(space_params)
 
         if @space.save
-            redirect_to '/crt_channel'
+            redirect_to stork_step2_path
         else
             flash[:notice] = "新增失敗"
             render :new
         end
     end
-
-
-    def show
-        @space = space_find_id
-    end
-    
 
     def edit
         @space = space_find_id
@@ -67,9 +60,4 @@ private
     def space_find_id
         @space = Space.find_by(id: params[:id])
     end
-
-    # def find_user_space
-    #     @space = current_user.find(params[:note_id])
-    # end
-
 end

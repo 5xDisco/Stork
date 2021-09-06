@@ -3,7 +3,7 @@ class HomesController < ApplicationController
         # if login_in?
         #     has_space = current_user.spaces.count
         #     if(has_space > 0)
-        #         redirect_to list_path
+        #         redirect_to stork_list_path
         #     else
         #         redirect_to new_space_path
         #     end

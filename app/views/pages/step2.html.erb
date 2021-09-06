@@ -2,7 +2,7 @@
 <table class="spaces-container" height="100%">
 <tr>
 <td class="spaces-steps">
-    <p>新工作區的名字</p>
+    <p><%= @space %></p>
 </td>
 <td class="spaces-step-content">
 第2步，共3步
@@ -12,5 +12,5 @@
 <p>可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易<p>
 <input type="text" name="">
 
-<%= link_to "下一步", invite_path %>
+<%= link_to "下一步", stork_step3_path %>
 

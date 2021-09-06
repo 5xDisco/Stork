@@ -10,22 +10,19 @@
     <div>
     <br>
     <br>
-      <div> 
-          <center><a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
-            <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
-          </a>
-      </div>
+      <div class="login_box">
+        <div class="text_center"> 
+            <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
+            <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
+            </a>
+        </div>
 
-      <div>
-        
-        <div>
-        <center><p><h5>第一次使用Stork嗎？</h5></p>
+        <div class="text_right">
+          
+            <p><h5>第一次使用Stork嗎？</h5></p>
+            <a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
+ 
         </div>
-        
-        <div>
-          <center><a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
-        </div>
-        
       </div>
 
       <div>
@@ -36,8 +33,8 @@
 
       <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
     
-      <div>
-        <center><p>------- 或 -------</p>
+      <div class="login_line">
+        <center><hr> 或 </p>
       </div>
 
       <div class="field">

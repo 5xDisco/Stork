@@ -13,6 +13,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_03_023215) do
 =======
 ActiveRecord::Schema.define(version: 2021_08_30_100003) do
@@ -23,6 +24,9 @@ ActiveRecord::Schema.define(version: 2021_08_31_103300) do
 =======
 ActiveRecord::Schema.define(version: 2021_09_02_045007) do
 >>>>>>> 9832bf5... 增加 新增防呆 刪除防呆
+=======
+ActiveRecord::Schema.define(version: 2021_09_06_110117) do
+>>>>>>> 087ed5e... 增加與 user 關聯性
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +58,15 @@ ActiveRecord::Schema.define(version: 2021_09_02_045007) do
     t.index ["deleted_at"], name: "index_channels_on_deleted_at"
   end
 
+  create_table "user_channels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "channel_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_user_channels_on_channel_id"
+    t.index ["user_id"], name: "index_user_channels_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,4 +81,6 @@ ActiveRecord::Schema.define(version: 2021_09_02_045007) do
 
   add_foreign_key "space_members", "spaces"
   add_foreign_key "space_members", "users"
+  add_foreign_key "user_channels", "channels"
+  add_foreign_key "user_channels", "users"
 end

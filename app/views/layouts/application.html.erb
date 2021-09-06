@@ -12,6 +12,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
   <nav>
     <%= link_to "登入", new_user_session_path%>
     <%= link_to "註冊", new_user_registration_path%>
@@ -23,6 +24,14 @@
     <%= yield %>
     <p class=”notice”><%= notice %></p>
     <p class=”alert”><%= alert %></p>
+=======
+    <% if user_signed_in? && controller.controller_name == "channels" %>
+    <%= render "shared/slidebar" %>
+    <% end %>
+    <p class=”notice”><%= notice %></p>
+    <p class=”alert”><%= alert %></p>
+    <%= yield %>
+>>>>>>> 087ed5e... 增加與 user 關聯性
   </body>
 </html>
 =======

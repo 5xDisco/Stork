@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :space_members
   has_many :spaces, through: :space_members
-  
 
+  has_many :user_channels
+  has_many :channels, through: :user_channels
 end

@@ -7,7 +7,7 @@
     <title>Stork</title>
 </head>
 <body>
-    <a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
+    <center><a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
     <img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
     </a>
 
@@ -15,15 +15,21 @@
     <br>
 
     <div>
-    <p class="text-center"><h1>歡迎回來！記得喝水！</h1></p>
+    <center><p><h1>歡迎回來！記得喝水！</h1></p>
     </div>
-
 
     <div>
-    <p class="text-center">從下方擇一個工作空間，以便返回與你的團隊一起工作。</h5></p>
+    <center><p><h5>從下方擇一個工作空間，以便返回與你的團隊一起工作。</h5></p>
     </div>
 
-    <h5><%= current_user.email %>的工作空間</h5>
-    <%= link_to '登出', destroy_user_session_path, method: :delete %>
+    <div>
+        <center><h5>的工作空間</h5>
+
+    </div>
+
+    <div>
+        <center><%= link_to '登出', destroy_user_session_path, method: :delete %>
+    </div>
+
 </body>
 </html>

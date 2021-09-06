@@ -16,9 +16,6 @@
             <td width="150px" bgcolor="#fff" style="padding:10px">                
             <span style="font-size:20px;"><%= link_to "啟動STORK", page_path(s.id) %></span>
             </td>
-            <td style="display: none;">                
-                <span style="font-size:20px;"><%= s.created_by %></span>
-            </td>
             <td style="">
                 <p><span style="font-size:12px;"><%= link_to "編輯", edit_page_path(s.id) %>／<%= link_to "刪除", page_path(s.id),
 		    method: 'delete',
@@ -31,7 +28,7 @@
          </tr>
         <tr>
         <td colspan="6" width="450px" height="60px" bgcolor="#fff" style="padding:10px">                  
-        <span style="font-size:20px;"><%= link_to "建立新的工作空間", new_space_path %></span>
+        <span style="font-size:20px;"><%= link_to "建立新的工作空間", stork_step1_path %></span>
         </td>
         </tr>
 </table>

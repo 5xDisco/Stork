@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   root to: "spaces#index"
   resources :channels
   resources :spaces
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
   get "/crt_channel", to: "spaces#crt_channel"
 =======
   root to: "pages#index"
+=======
+  root to: "pages#home"
+>>>>>>> ad33461... 0906night
   
   resources :spaces 
   resources :channels
@@ -30,9 +34,9 @@ Rails.application.routes.draw do
 
 
   #get "/", to: "spaces#index"
-  get "/spaces", to: "pages#index", as: "logout"
+ 
   get "/stork/list", to: "pages#list"
-  get "/stork/step1", to: "pages#new"
+  get "/stork/step1", to: "pages#step1"
   get "/stork/step2", to: "pages#step2"
   get "/stork/step3", to: "pages#step3"
 >>>>>>> 50d94c1... AddPagesController

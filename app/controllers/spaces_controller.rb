@@ -5,17 +5,13 @@ class SpacesController < ApplicationController
         @spaces = current_user.spaces.order(id: :desc)
     end
 
-    def new
-        # @space = Space.new
-        @space = current_user.spaces.new
-        render layout: "newspace"
-    end
+
 
     def create        
         # @space = Space.new(space_params)
         @space = current_user.spaces.new(space_params)
 
-        if @space.save
+        if current_user.save
             redirect_to stork_step2_path
         else
             flash[:notice] = "新增失敗"

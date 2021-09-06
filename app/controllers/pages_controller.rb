@@ -1,7 +1,12 @@
 class PagesController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index]
 
-    def index
+    def home
+    end
+
+    def step1
+        # @space = Space.new
+        @space = current_user.spaces.new
     end
 
     def step2

@@ -22,28 +22,18 @@ class SpacesController < ApplicationController
         end
     end
 
-    def edit
-        @space = space_find_id
-    end
-
     def update
         @space = space_find_id
         
         if @space.update(space_params_update)
             flash[:notice] = "編輯成功"
-            redirect_to "/list" 
+            redirect_to stork_list_path 
         else
             flash[:notice] = "編輯失敗"
             render :edit
         end
     end
-
-    def destroy
-        @space = space_find_id
-        @space.destroy
-        flash[:notice] = "刪除了"
-        redirect_to "/list" 
-    end
+    
 
 private
     def space_params

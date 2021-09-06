@@ -18,6 +18,18 @@ class PagesController < ApplicationController
         # @spaces = current_user.spaces.order(id: :desc)
     end
 
+    def edit
+        @space = space_find_id
+    end
+
+
+
+    def destroy
+        @space = space_find_id
+        @space.destroy
+        flash[:notice] = "刪除了"
+        redirect_to root_path 
+    end
 
     private
     def space_params

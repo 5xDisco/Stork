@@ -31,8 +31,6 @@ Rails.application.routes.draw do
 
   #get "/", to: "spaces#index"
   get "/spaces", to: "pages#index", as: "logout"
-  # get "/signin", to: "spaces#signin"
-  # get "/login", to: "spaces#login"
   get "/stork/list", to: "pages#list"
   get "/stork/step1", to: "pages#new"
   get "/stork/step2", to: "pages#step2"

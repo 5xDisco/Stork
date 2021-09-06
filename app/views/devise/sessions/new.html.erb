@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stork</title>
-</head>
-<body>
-
-  <div> 
-      <center><a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
-        <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
-      </a>
-  </div>
-
-  <div>
-    
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Stork</title>
+  </head>
+  <body>
     <div>
-    <center><p><h5>第一次使用Stork嗎？</h5></p>
-    </div>
+    <br>
+    <br>
+      <div> 
+          <center><a target="_self" class="c-link" href="http://127.0.0.1:3000/users/sign_in" rel="noopener noreferrer">
+            <center><img alt="Stork" src="https://a.slack-edge.com/bv1-9/slack_logo-ebd02d1.svg" height="34" title="Stork">
+          </a>
+      </div>
+
+      <div>
+        
+        <div>
+        <center><p><h5>第一次使用Stork嗎？</h5></p>
+        </div>
+        
+        <div>
+          <center><a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
+        </div>
+        
+      </div>
+
+      <div>
+        <center><h1>登入Stork</h1>
+        <center><h3>建議使用你工作用的電子郵件地址</h3>
+      </div>
+
+
+      <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
     
-    <div>
-      <center><a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
-    </div>
-    
-  </div>
+      <div>
+        <center><p>------- 或 -------</p>
+      </div>
 
-  <div>
-    <center><h1>登入Stork</h1>
-    <center><h3>建議使用你工作用的電子郵件地址</h3>
-  </div>
-
-
-  <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
- 
-  <div class="HR mb-6 flex items-center">
-    <center><hr class="flex-grow"><p class="px-2">或</p><hr class="flex-grow">
-  </div>
-
-  <div class="field">
-    <center><%= f.label :帳號 %><br />
-    <center><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "name@work-email.com",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
-</div>
- 
-  <center><%= f.label :密碼 %><br />
-  <center><%= f.password_field :password, autocomplete: "current-password",placeholder: "password",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
-</div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="text-sm flex justify-between">
       <div class="field">
-        <center><%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      
-  <% end %>
+        <center><%= f.label :帳號 %><br />
+        <center><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "name@work-email.com",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
 
-  <div class="actions">
-    <center><%= f.submit "登入" %>
-  </div>
-  <% end %>
+      <div>
+        <center><%= f.label :密碼 %><br />
+        <center><%= f.password_field :password, autocomplete: "current-password",placeholder: "password",class: "w-full py-2 px-2 mb-6 border border-gray-700 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
 
-  <%= render "devise/shared/links" %>
-</body>
+      <div>
+        <% if devise_mapping.rememberable? %>
+              <center><%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <center><%= f.submit "登入" %><% end %>
+      </div>
+    </div>
+  </body>
 </html>

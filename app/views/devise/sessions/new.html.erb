@@ -18,12 +18,7 @@
             </a>
         </div>
 
-        <div class="text_right">
-          
-            <p><h5>第一次使用Stork嗎？</h5></p>
-            <a target="_self" class="c-link bold" href="/get-devise/registrations#new" rel="noopener noreferrer"><h5>建立帳號<h5></a>
- 
-        </div>
+        
       </div>
 
       <div>
@@ -57,9 +52,16 @@
       </div>
 
       <div class="actions">
-        <center><%= f.submit "登入" %><% end %>
-        <%= render "devise/shared/links" %>
+      <center><%= f.submit "登入" %><% end %>
       </div>
+
+      <div>   
+        <center><p><h5>第一次使用Stork嗎？</h5></p>    
+        <%= render "devise/shared/links" %>
+        
+      </div>
+
+
 
     </div>
   </body>

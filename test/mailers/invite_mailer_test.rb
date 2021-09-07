@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UsersSpaceTest < ActiveSupport::TestCase
+class InviteMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end

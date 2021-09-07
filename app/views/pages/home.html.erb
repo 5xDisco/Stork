@@ -34,7 +34,7 @@
 
         <table>
         <% if user_signed_in? %>
-            <%= render partial: "shared/list", locals: {spaces: @spaces} %>
+            <%= render partial: "shared/list", locals: {channels: @channels} %>
         <% end %>
         </table>
 

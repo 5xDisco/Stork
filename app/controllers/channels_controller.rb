@@ -3,6 +3,7 @@ class ChannelsController < ApplicationController
 
   def index
     #@channels = Channel.all.order('created_at')
+    
     @channels = current_user.channels.order('created_at')
     
     #render layout: "channel"
@@ -15,6 +16,7 @@ class ChannelsController < ApplicationController
   end
 
   def create
+    #要加space_id
     @channel = current_user.channels.new(channel_params);
 
     if(current_user.save)
@@ -33,7 +35,6 @@ class ChannelsController < ApplicationController
 
 
   def destroy
-   
     lobby_channel = Channel.find_by(status:2)
 
     if(@channel.destroy)
@@ -45,7 +46,6 @@ class ChannelsController < ApplicationController
   end
 
   def update
-
     if @channel.update(channel_params)
       redirect_to @channel
     end

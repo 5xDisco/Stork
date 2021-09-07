@@ -1,21 +1,24 @@
 <div class="steps-nav"></div>
-<table class="spaces-container" height="100%">
-<tr>
-<td class="spaces-steps">
-    <p><%= @space %></p>
-    <br>
-    <p><%= @channelName %></p>
-</td>
-<td class="spaces-step-content">
-第3步，共3步
-<div>
-<span style="font-size:50px;">您最常向誰發送有關(頻道名稱)的電子郵件?</span>
-</div>
-<p>如須給Stork一個小變化，請添加幾位你經常與其交談的同事：<p>
-<input type="text" name="">
 
-<p>
-<%= link_to "「添加團隊成員」", channel_path(@channel) %>（進列表）
-預備一個link邀請其他user加入
-<p></p>
-<%= link_to "跳過這一步", channel_path(@channel) %>（進列表）
+<table class="spaces-container" height="100%">
+    <tr>
+        <td class="spaces-steps">
+            <p><%= @space %></p>
+            <br>
+            <p><%= @channelName %></p>
+        </td>    
+        <td class="spaces-step-content">
+        第3步，共3步
+        <div>
+            <span style="font-size:50px;">您最常向誰發送有關(頻道名稱)的電子郵件?</span>
+        </div>
+        <p>如須給Stork一個小變化，請添加幾位你經常與其交談的同事：<p>
+
+    <input type="text" name="">
+    <div>
+        <%= link_to "「添加團隊成員」", channel_path(@channel) %>（進列表）
+            預備一個link邀請其他user加入
+        <p></p>
+        <%= link_to "跳過這一步", channel_path(@channel) %>（進列表）
+    </div>
+</table>

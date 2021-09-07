@@ -55,6 +55,3 @@ class PagesController < ApplicationController
         params.require(:channel).permit(:name, :description, :status, :topic)
     end
 end
-
-
-

@@ -1,6 +1,10 @@
 <div id="sidebar" data-controller="baritem" data-baritem-target="center">
 
     <ul>
+      <div class="spacename_at_channel">
+        <%= current_space_name %> 
+      </div>
+      <br>
       <span class="category">頻道</span>
       <hr class="line">
       <%= yield :my_channel %>

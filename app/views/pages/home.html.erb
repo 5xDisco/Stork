@@ -6,11 +6,13 @@
                 <%= image_tag 'logo_index.png' %>
             </a>
         
+
             <nav class="main-nav">
-                <%= link_to "登入", new_user_session_path %>
-                <%= link_to "登出", destroy_user_session_path, method: :delete %>
-                <a href="#">與業務團隊交談</a>
+                <%= link_to "登入", new_user_session_path %>              
                 <%= link_to "免費試用", new_user_registration_path %>
+                <% if user_signed_in? %>
+                    <%= link_to "登出", destroy_user_session_path, method: :delete %>
+                <% end %>
             </nav>
         </div>
     
@@ -21,14 +23,22 @@
             <td width=50%>
                 <h1>Stork 即是未來工作型態</h1>
                 <p>徹底改造你的工作方式，將完成工作所需的一切人員和要素都集中於同一空間。</p>
-                <p><%= link_to '免費試用=註冊會員', signin_path %></p>
+                <p><%= link_to '免費試用（註冊）', new_user_registration_path %></p>
                 <p>或
                 <br>
-                <%= link_to '登入', login_path %></p>
+                <%= link_to '登入', new_user_session_path %></p>
             </td>
             <td width=50%><%= image_tag 'img-campaign-hero.zh-TW.jpg' %></td>
             </tr>
         </table>
+
+        <table>
+        <% if user_signed_in? %>
+            <%= render partial: "shared/list", locals: {spaces: @spaces} %>
+        <% end %>
+        </table>
+
+
         </div>
     </div>
 </div>

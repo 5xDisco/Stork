@@ -2,14 +2,10 @@ class ChannelsController < ApplicationController
   before_action :find_user_channel, only: [:leave, :update, :destroy, :edit, :setting]
 
   def index
-<<<<<<< HEAD
-    @channels = Channel.all.order('created_at')
-=======
     #@channels = Channel.all.order('created_at')
     @channels = current_user.channels.order('created_at')
     
     #render layout: "channel"
->>>>>>> 087ed5e... 增加與 user 關聯性
   end
 
   def show

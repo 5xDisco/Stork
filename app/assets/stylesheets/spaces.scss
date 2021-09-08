@@ -19,6 +19,13 @@ html,body{
   font-weight:bold;
 }
 
+#home-list{
+  width: 450px;
+  height: 60px;
+  background-color: #fff;
+  padding: 10px;  
+}
+
 .field_with_error{
     display: inline-block;
     
@@ -91,12 +98,18 @@ a:hover{
 .list_table{
   width: 760px;
   height: 70px;
+  margin: auto;
+}
+
+.cover-home{
+  width: 100%;
+  height: 100%;
+  background-color: purple;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
 }
 
 .spaces-container{

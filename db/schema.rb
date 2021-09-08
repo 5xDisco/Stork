@@ -10,41 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_09_03_023215) do
-=======
-ActiveRecord::Schema.define(version: 2021_08_30_100003) do
->>>>>>> 7a75056... 修正   db:migrate 錯誤
-=======
-ActiveRecord::Schema.define(version: 2021_08_31_103300) do
->>>>>>> 8826ab7... 新增假刪除功能
-=======
-ActiveRecord::Schema.define(version: 2021_09_02_045007) do
->>>>>>> 9832bf5... 增加 新增防呆 刪除防呆
-=======
-ActiveRecord::Schema.define(version: 2021_09_06_110117) do
->>>>>>> 087ed5e... 增加與 user 關聯性
-=======
-ActiveRecord::Schema.define(version: 2021_09_06_100339) do
->>>>>>> 3f4a366... WTFlisttttt
+ActiveRecord::Schema.define(version: 2021_09_07_051353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  create_table "space_members", force: :cascade do |t|
-    t.bigint "space_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["space_id"], name: "index_space_members_on_space_id"
-    t.index ["user_id"], name: "index_space_members_on_user_id"
-=======
   create_table "channels", force: :cascade do |t|
     t.string "name"
     t.string "topic"
@@ -52,34 +22,22 @@ ActiveRecord::Schema.define(version: 2021_09_06_100339) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
-    t.integer "status"
+    t.bigint "space_id"
+    t.integer "is_public"
     t.index ["deleted_at"], name: "index_channels_on_deleted_at"
->>>>>>> 3f4a366... WTFlisttttt
+    t.index ["space_id"], name: "index_channels_on_space_id"
   end
 
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-<<<<<<< HEAD
-    t.integer "created_by"
-=======
-  create_table "channels", force: :cascade do |t|
-    t.string "name"
-    t.string "topic"
-    t.text "description"
->>>>>>> 7a75056... 修正   db:migrate 錯誤
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "deleted_at"
-    t.integer "status"
-    t.index ["deleted_at"], name: "index_channels_on_deleted_at"
   end
 
   create_table "user_channels", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "channel_id", null: false
-=======
->>>>>>> 3f4a366... WTFlisttttt
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["channel_id"], name: "index_user_channels_on_channel_id"
@@ -98,13 +56,6 @@ ActiveRecord::Schema.define(version: 2021_09_06_100339) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  add_foreign_key "space_members", "spaces"
-  add_foreign_key "space_members", "users"
-  add_foreign_key "user_channels", "channels"
-  add_foreign_key "user_channels", "users"
-=======
   create_table "users_spaces", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "space_id", null: false
@@ -114,22 +65,9 @@ ActiveRecord::Schema.define(version: 2021_09_06_100339) do
     t.index ["user_id"], name: "index_users_spaces_on_user_id"
   end
 
-  add_foreign_key "users_spaces", "spaces"
-  add_foreign_key "users_spaces", "users"
->>>>>>> 3f4a366... WTFlisttttt
-=======
-  create_table "users_spaces", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "space_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["space_id"], name: "index_users_spaces_on_space_id"
-    t.index ["user_id"], name: "index_users_spaces_on_user_id"
-  end
-
+  add_foreign_key "channels", "spaces"
   add_foreign_key "user_channels", "channels"
   add_foreign_key "user_channels", "users"
   add_foreign_key "users_spaces", "spaces"
   add_foreign_key "users_spaces", "users"
->>>>>>> 5ec9d41... integratedSpaceAndChannel
 end

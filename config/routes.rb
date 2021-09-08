@@ -10,10 +10,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   
-  resources :spaces do
-    resources :channels
-  end
-
+  resources :spaces 
+  
+  resources :channels
 
   resources :pages
 

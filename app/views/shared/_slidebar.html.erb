@@ -2,13 +2,13 @@
 
     <ul>
       <div class="spacename_at_channel">
-        <%= current_space_name %> 
+      
       </div>
       <br>
       <span class="category">頻道</span>
       <hr class="line">
       <%= yield :my_channel %>
-      <li><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></li>
+      <li><%= link_to "+ 新增頻道", new_channel_path, remote: true %></li>
     </ul>
 
     <ul>
@@ -25,7 +25,7 @@
           <%= link_to "離開頻道", leave_path(0), "data-baritem-target" => "deletepath", remote: true %>
         </li>
         <li class="menu-option">
-            <%= link_to "查看頻道資料", edit_space_channel_path(0), "data-baritem-target" => "editpath", remote: true %>
+            <%= link_to "查看頻道資料", edit_channel_path(0), "data-baritem-target" => "editpath", remote: true %>
         </li>
       </ul>
     </div>

@@ -15,7 +15,7 @@
                             <span style="font-size:20px;" style="padding:10px"><%= s.space.name %></span>
                         </td>
                     <td width="150px" bgcolor="#fff" style="padding:10px">                
-                        <span style="font-size:20px;"><%= link_to "啟動STORK", space_channel_path(s.space.id, s.id) %></span>
+                        <span style="font-size:20px;"><%= link_to "啟動STORK", channel_path(s.id) %></span>
                     </td>
                     <td style="display: none;">
                         <p><span style="font-size:12px;"><%= link_to "編輯", edit_page_path(s.id) %>／<%= link_to "刪除", page_path(s.id),

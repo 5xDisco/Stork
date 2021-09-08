@@ -39,10 +39,10 @@ $ rails db:migrate
 
 
 
-###
-
-
-
-
 ## 使用技術
-## 開發團隊
+### gem we use
+- foreman
+
+### database 
+- PostgreSQL
+

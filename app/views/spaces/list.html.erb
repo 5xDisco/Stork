@@ -1,0 +1,22 @@
+list
+
+<table>
+  <tr>
+    <td>工作空間</td>
+    <td></td>
+
+  <% @spaces.each do |s| %>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= s.icon %></td>
+      <td><%= s.created_by %></td>
+
+      <%= link_to @spaces.name, space_path %>
+      <%= link_to "編輯", edit_space_path %>
+      <%= link_to "刪除", space_path,
+                                              method: 'delete',
+                                              data: { confirm: '確定嗎？', id: space.id }
+                                          %>
+    </tr>
+  <% end %>
+</table>

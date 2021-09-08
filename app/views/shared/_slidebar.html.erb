@@ -1,12 +1,33 @@
 <div id="sidebar" data-controller="baritem" data-baritem-target="center">
 
     <ul>
+      <div class="spacename_at_channel">
+      
+      </div>
+      <br>
       <span class="category">頻道</span>
       <hr class="line">
       <%= yield :my_channel %>
       <li><%= link_to "+ 新增頻道", new_channel_path, remote: true %></li>
     </ul>
 
+    <ul>
+      <% if user_signed_in? %>
+      <li> <%= current_user.email %> </li>
+      <li>    <%= link_to "登入", new_user_session_path%> </li>
+      <li>    <%= link_to "登出", destroy_user_session_path, method: :delete %></li>
+      <% end %>
+    </ul>
 
+    <div class="menu" data-baritem-target="menu">
+      <ul class="menu-options" data-baritem-target="menuoptions">
+        <li class="menu-option">
+          <%= link_to "離開頻道", leave_path(0), "data-baritem-target" => "deletepath", remote: true %>
+        </li>
+        <li class="menu-option">
+            <%= link_to "查看頻道資料", edit_channel_path(0), "data-baritem-target" => "editpath", remote: true %>
+        </li>
+      </ul>
+    </div>
 
 </div>

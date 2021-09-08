@@ -1,0 +1,20 @@
+<div class="steps-nav"></div>
+<table class="spaces-container" height="100%">
+  <tr>
+    <td class="spaces-steps">
+        <p id="step1-txtshow">新工作區的名字</p>
+    </td>
+    <td class="spaces-step-content">
+      「步驟3之1」
+        <%= form_for(@space) do |f|%>
+        <div>
+          <%= f.label :name, class: "spaces-step-title", value: "你的公司或團隊的名稱是什麼？" %>
+        </div>
+        <div>
+            <%= f.text_field :name, id: 'step1-txtinput'%>
+          <%= f.submit "下一步" %>
+        <% end %>
+        </div>
+    </td>
+  </tr>
+</table>

@@ -1,32 +1,39 @@
 class ChannelsController < ApplicationController
+  before_action :find_user_channel, only: [:leave, :update, :destroy, :edit, :setting]
 
   def index
-    @channels = Channel.all.order('created_at')
+    #@channels = Channel.all.order('created_at')
+    @channels = current_user.channels.order('created_at')
+    
+    #render layout: "channel"
   end
 
   def show
-    @channels = Channel.all.order('created_at')
+    #@channels = Channel.all.order('created_at')
+
+    @channels = current_user.channels.order('created_at')
   end
 
   def create
-    @channel = Channel.new(channel_params);
-    if(@channel.save)
+    @channel = current_user.channels.new(channel_params);
+
+    if(current_user.save)
       redirect_to @channel
     end
     @errors = @channel.errors.full_messages 
   end
 
   def new
-    @channel = Channel.new 
+    @channel = current_user.channels.new 
   end
 
   def leave
-    @channel = Channel.find(params[:id])
+    
   end
 
 
   def destroy
-    @channel = Channel.find(params[:id])
+   
     lobby_channel = Channel.find_by(status:2)
 
     if(@channel.destroy)
@@ -38,7 +45,7 @@ class ChannelsController < ApplicationController
   end
 
   def update
-    @channel = Channel.find(params[:id])
+
     if @channel.update(channel_params)
       redirect_to @channel
     end
@@ -46,7 +53,7 @@ class ChannelsController < ApplicationController
   end
 
   def edit
-    @channel = Channel.find(params[:id])
+
   end
 
   def member
@@ -54,13 +61,14 @@ class ChannelsController < ApplicationController
   end
 
   def setting
-    @channel = Channel.find(params[:id])
+
   end
 
   private
   #先準備好到時改
   def find_user_channel
-    @channel = Channel.find(params[:id])
+    
+    @channel = current_user.channels.find(params[:id])
   end
 
   def channel_params

@@ -5,6 +5,23 @@
         <%#= current_space_name %> 
       </div>
       <br>
+            <%# test start  測試tailwind css 能不能套用的區塊 之後會刪掉%>
+            <h2 class="bg-[color:var(--stork-primary)]">custom color</h2>
+            <h2 class="bg-secondary">123455667</h2>
+            <h2 class="bg-black border-2 border-red-500">123455667</h2>
+            <h2 class="bg-red-200 text-blue-800">紫色</h2>
+      
+            <div class="dropdown w-full">
+            <%# daisyui 的 Dropdown list 測試 目前已安裝daisyui但尚未引入,主要是tailwind.config.js 設定檔 加上 plugin require('daisyui') 
+            會有錯誤尚未解決 %>
+            <div tabindex="0" class="m-1 ">Dropdown list 測試</div> 
+            <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-full">
+              <li><a>Item 1</a></li> 
+              <li><a>Item 2</a></li> 
+              <li><a>Item 3</a></li>
+            </ul>
+          </div>
+          <%# test end %>
       <span class="category">頻道</span>
       <hr class="line">
       <% channels.each do |c| %>

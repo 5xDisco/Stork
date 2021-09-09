@@ -21,13 +21,13 @@ Rails.application.routes.draw do
 
   #get "/", to: "spaces#index"
  
+  get "/stork/list", to: "pages#list"
   get "/stork/step1", to: "pages#step1"
   get "/stork/step2", to: "pages#step2"
   get "/stork/step3", to: "pages#step3"
-  get "/invite", to: "invite_mailer#invite"
-	get "/leave/:id", to: "channels#leave", as: "leave"
+	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member", to: "channels#member", as: "member"
-  get "/setting/:id", to: "channels#setting", as: "setting"
+  get "/spaces/:space_id/setting/:id", to: "channels#setting", as: "setting"
 
 
 end

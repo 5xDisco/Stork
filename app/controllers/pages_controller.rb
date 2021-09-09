@@ -16,6 +16,7 @@ class PagesController < ApplicationController
         @space = Space.last
         @channel = current_user.channels.new;
         @channel.space_id = @space.id
+        @channel.is_public = false
         pulic_space = Channel.create(name: "公開區", is_public: true, space_id: Space.last[:id]);
     end
 
@@ -65,7 +66,7 @@ class PagesController < ApplicationController
     end
 
     def channel_params
-        params.require(:channel).permit(:name, :space_id);
+        params.require(:channel).permit(:name, :space_id, :is_public);
     end
 end
 end

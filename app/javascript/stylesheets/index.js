@@ -1,2 +1,10 @@
 /* import all css files */
-import "./application"
+import "./_temp_layout.css"
+import "./home.scss"
+import "./channels.scss"
+import "./contentmenu.scss"
+import "./member.scss"
+import "./pages.scss"
+import "./sliderbar.scss"
+import "./spaces.scss"
+import "./tabmenu.scss"

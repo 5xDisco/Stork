@@ -8,7 +8,12 @@
 
 
 /*  以下 outline 測試用 */
-
+div {
+    /* outline: 1px solid lightgreen; */
+}
+i {
+    /* outline: 1px solid orange; */
+}
 
 span {
     outline: 1px dotted orchid;

@@ -5,28 +5,7 @@
       
       </div>
       <br>
-      <%# test start %>
-      <h2 class="bg-[color:var(--stork-primary)]">custom color</h2>
-      <h2 class="bg-secondary">123455667</h2>
-      <h2 class="bg-black border-2 border-red-500">123455667</h2>
-      <h2 class="text-purple-lighter">紫色</h2>
-
-      			<div class="dropdown w-full">
-						<div tabindex="0" class="m-1 ">Dropdown</div> 
-						<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-full">
-							<li>
-								<a>Item 1</a>
-							</li> 
-							<li>
-								<a>Item 2</a>
-							</li> 
-							<li>
-								<a>Item 3</a>
-							</li>
-						</ul>
-					</div>
-      <%# test end %>
-      <span class="category boder-red">頻道</span>
+      <span class="category">頻道</span>
       <hr class="line">
       <%= yield :my_channel %>
       <li><%= link_to "+ 新增頻道", new_channel_path, remote: true %></li>

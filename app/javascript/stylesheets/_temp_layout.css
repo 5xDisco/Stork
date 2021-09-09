@@ -1,0 +1,23 @@
+/* 宣告可共用的變數 */
+:root {
+    --stork-primary : #246A73;
+    --stork-second: #5E4B56;
+}
+
+
+
+
+/*  以下 outline 測試用 */
+
+
+span {
+    outline: 1px dotted orchid;
+}
+
+svg {
+    outline: 3px dotted red; 
+}
+
+a {
+    outline: 1px solid yellow;
+}

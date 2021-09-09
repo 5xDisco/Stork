@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* import all css files */
+@import "./_temp_layout";
+@import "home";
+@import "channels";
+@import "contentmenu";
+@import "member";
+@import "pages";
+@import "slidebar";
+@import "spaces";
+@import "tabmenu";

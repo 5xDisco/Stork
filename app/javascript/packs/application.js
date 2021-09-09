@@ -6,15 +6,14 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "tailwindcss/base";  
-import "tailwindcss/components";
-import "tailwindcss/utilities";
-import "stylesheets"
-import "channels"
-import 'spaces'
-import "controllers"
-
+// import "tailwindcss/base";  
+// import "tailwindcss/components";
+// import "tailwindcss/utilities";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+import "stylesheets"
+import "channels"
+import 'spaces'
+import "controllers"

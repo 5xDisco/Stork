@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   end
   
   resources :pages
-  resources :pages
 
   #get "/", to: "spaces#index"
  

@@ -7,7 +7,6 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.2",
     "autoprefixer": "^10.3.4",
-    "daisyui": "^1.14.0",
     "normalize.css": "^8.0.1",
     "postcss": "^8.3.6",
     "stimulus": "^2.0.0",

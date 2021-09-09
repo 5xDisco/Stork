@@ -44,15 +44,6 @@ ActiveRecord::Schema.define(version: 2021_09_07_051353) do
     t.index ["user_id"], name: "index_user_channels_on_user_id"
   end
 
-  create_table "user_channels", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "channel_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["channel_id"], name: "index_user_channels_on_channel_id"
-    t.index ["user_id"], name: "index_user_channels_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

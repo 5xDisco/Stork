@@ -10,14 +10,12 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   
-  resources :spaces 
+  resources :spaces do 
+    resources :channels
+  end
   
-  resources :channels
   resources :pages
-
-
   resources :pages
-
 
   #get "/", to: "spaces#index"
  

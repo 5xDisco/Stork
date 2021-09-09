@@ -15,7 +15,7 @@
 <input type="text" name="">
 
 <p>
-<%= link_to "「添加團隊成員」", channel_path(@channel) %>（進列表）
+<%= link_to "「添加團隊成員」", space_channel_path( @space.id, @channel.id) %>（進列表）
 預備一個link邀請其他user加入
 <p></p>
-<%= link_to "跳過這一步", channel_path(@channel) %>（進列表）
+<%= link_to "跳過這一步", space_channel_path( @space.id, @channel.id) %>（進列表）

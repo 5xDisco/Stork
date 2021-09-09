@@ -69,4 +69,3 @@ class PagesController < ApplicationController
         params.require(:channel).permit(:name, :space_id, :is_public);
     end
 end
-end

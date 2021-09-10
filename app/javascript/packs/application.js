@@ -13,13 +13,3 @@ import "../controllers"
 import "@fortawesome/fontawesome-free/css/all";
 import '@fortawesome/fontawesome-free/scss/solid';
 import '@fortawesome/fontawesome-free/css/v4-shims';
-
-
-jQuery(function() {
-
-    $("#font_question").on("click", function(){
-        alert(1);
-    });
-
-
- });

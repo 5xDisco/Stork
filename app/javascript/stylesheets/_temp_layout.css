@@ -4,7 +4,15 @@
     --stork-second: #5E4B56;
 }
 
+/* common  */
+#dropdown_stork ul li a:hover{
+    background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
+    text-decoration-line: none;
+}
 
+#stork_header{
+    background-color: #8170CF;
+}
 
 
 /*  以下 outline 測試用 */

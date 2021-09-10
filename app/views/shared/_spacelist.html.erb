@@ -1,26 +1,19 @@
-<div class="font-sans antialiased h-screen flex flex-grow">
-			
+<div class="font-sans antialiased h-screen flex">
+    
     <!-- Sidebar / Space list 目前不要更動-->
     <div id="wspace-icons-lists" class="
     bg-blue-900 text-white outline-[color:#abc] flex-none w-20 p-2 hidden md:block">
     
+    <% spaces.each do |space| %>
     <!-- Space icon 切換工作空間按鈕 -->
-    <div data-tip="##spaceName##" class="cursor-pointer mb-4 tooltip  tooltip-right z-10" >
+    <div data-tip="<%= space.name%>" class="cursor-pointer mb-4 tooltip  tooltip-right z-10" >
         <!-- 先移除透明度 opacity-25 -->
         <div class="active:ring-4 bg-red-900 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 hover:bg-red  h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+        <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=<%= space.name%>">
         </div>
-        
-        <!-- 先移除透明度 opacity-50 -->
-        <!-- <div  class="text-center text-white  text-sm  tooltip tooltip-open tooltip-right"></div> -->
     </div>			
+    <% end %>
     
-    <!-- Space icon 切換工作空間按鈕 -->
-    <div data-tip="##spaceName##" class="cursor-pointer mb-4 tooltip  tooltip-right z-10">
-        <div class="active:ring bg-indigo-light transition duration-150 ease-in-out transform motion-safe:hover:scale-110 hover:bg-indigo-lightest opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-            <!-- <img src="https://fakeimg.pl/48x48/62B6CB/FFF/?text=avatar" alt="Space Icon"> -->
-            
-        </div>
-    </div>
     <!-- Space icon 新增工作空間 -->
     <div class="cursor-pointer">
         <div class="bg-white hover:opacity-50 opacity-25 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">

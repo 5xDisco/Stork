@@ -10,25 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_02_054932) do
+=======
+ActiveRecord::Schema.define(version: 2021_09_07_051353) do
+>>>>>>> develop
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "channels", force: :cascade do |t|
     t.string "name"
+<<<<<<< HEAD
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
+=======
+    t.string "topic"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.bigint "space_id"
+    t.integer "is_public"
+    t.index ["deleted_at"], name: "index_channels_on_deleted_at"
+    t.index ["space_id"], name: "index_channels_on_space_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_channels", force: :cascade do |t|
+>>>>>>> develop
     t.bigint "user_id", null: false
     t.bigint "channel_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
     t.index ["channel_id"], name: "index_messages_on_channel_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+=======
+    t.index ["channel_id"], name: "index_user_channels_on_channel_id"
+    t.index ["user_id"], name: "index_user_channels_on_user_id"
+>>>>>>> develop
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +74,23 @@ ActiveRecord::Schema.define(version: 2021_09_02_054932) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
+=======
+  create_table "users_spaces", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["space_id"], name: "index_users_spaces_on_space_id"
+    t.index ["user_id"], name: "index_users_spaces_on_user_id"
+  end
+
+  add_foreign_key "channels", "spaces"
+  add_foreign_key "user_channels", "channels"
+  add_foreign_key "user_channels", "users"
+  add_foreign_key "users_spaces", "spaces"
+  add_foreign_key "users_spaces", "users"
+>>>>>>> develop
 end

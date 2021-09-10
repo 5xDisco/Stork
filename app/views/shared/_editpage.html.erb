@@ -1,0 +1,20 @@
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+    <div class="dialog-box">
+            <div class="head">
+                <h2># <%=  channel.name %></h2>
+                <button data-action="click->channelbox#close" class="close" >X</button>
+                <div class="tabs">
+                    <div class="tab">
+                      <%= link_to "查看頻道資料", setting_path(id: channel.id), remote: true %>
+                    </div>
+                
+                    <div class="tab">
+                        <%= link_to "頻道會員", member_path, remote: true %>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-content">
+                <%= render "shared/setting", channel: channel %>
+            </div>
+    </div>
+</div>

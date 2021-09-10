@@ -1,0 +1,26 @@
+<div class="steps-nav"></div>
+<table class="spaces-container" height="100%">
+  <tr>
+    <td class="spaces-steps">
+      <p>
+        <%= @space.name %>
+      </p>
+    </td>
+    <td class="spaces-step-content">
+      「第2步，共3步」
+      <%= form_for @channel, url: stork_step3_path, html: { method: 'get' } do |f|%>
+        <div>
+          <%= f.hidden_field :space_id %>
+        </div>
+        <div>
+          <%= f.label :name, class: "spaces-step-title" , value: "你的團隊現在在做什麼？" %>
+            <div>可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易</div>
+        </div>
+        <div>
+          <%= f.text_field :name %>
+            <%= f.submit "下一步" %>
+              <% end %>
+        </div>
+    </td>
+  </tr>
+</table>

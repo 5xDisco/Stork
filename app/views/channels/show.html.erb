@@ -1,18 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3">
-      <%= render "form", channel: Channel.new %>
-      <hr>
-      <% @channels.each do |channel| %>
-        <%= link_to channel do %>
-          <div class="card mb-2">
-            <div class="card-body">
-              <%= channel.name %>         
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>  
+      <%= render "shared/slidebar", channels: @channels %>
+    </div>
+    
     
     <div class="col-9">
       <% if @channel.present? %>

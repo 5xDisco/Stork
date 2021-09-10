@@ -1,2 +1,29 @@
-<h1>Hello! <%= current_user.email %></h1>
-<%= link_to '登出', destroy_user_session_path, method: :delete %>     
+<div>
+    <div class="pt-8 flex justify-center">  
+        <%= link_to root_path do %>
+        <%= image_tag 'logo_index.png' %>
+        <% end %>
+    </div>
+
+    <div>
+        <p class="py-10 text-center text-5xl  text-purple-700">
+            歡迎回來！記得喝水！
+        </p>  
+    </div>
+
+    <div> 
+        <p class="bt-10 text-center text-1xl  text-gray-600">
+            從下方擇一個工作空間，以便返回與你的團隊一起工作。
+        </p>
+    </div>
+    
+    <div class="py-3 text-center flex-auto">
+        <%= current_user.email %> 的工作空間
+    </div>
+
+    <div class="py-3 text-2xl text-center text-blue-800">
+        <%= link_to "登出", destroy_user_session_path, method: :delete %>
+    </div>
+
+</div>
+

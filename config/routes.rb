@@ -22,9 +22,10 @@ Rails.application.routes.draw do
   get "/stork/step1", to: "pages#step1"
   get "/stork/step2", to: "pages#step2"
   get "/stork/step3", to: "pages#step3"
-	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
+	get "/leave/:id", to: "channels#leave", as: "leave"
   get "/member", to: "channels#member", as: "member"
-  get "/spaces/:space_id/setting/:id", to: "channels#setting", as: "setting"
+  get "/setting/:id", to: "channels#setting", as: "setting"
 
+  post '/invite', to: 'pages#invite'
 
 end

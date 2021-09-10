@@ -3,29 +3,29 @@
 <table class="spaces-container" height="100%">
     <tr>
         <td class="spaces-steps">
-            <p><%= @space.name %></p>
+            <p>
+                <%= @space.name %>
+            </p>
             <br>
-            <p><%= @channelName %></p>
-        </td>    
+            <p>
+                <%= @channelName %>
+            </p>
+        </td>
         <td class="spaces-step-content">
-        第3步，共3步
-        <div>
-            <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
-        </div>
-        <!-- <p>如須給Stork一個小變化，請添加幾位你經常與其交談的同事：<p>
+            第3步，共3步
+            <div>
+                <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
+            </div>
+            <%= form_with url: invite_path, local: true do |f|%>
+                <div>
+                    <%= f.label :email, class: "spaces-step-title" , value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>
+                </div>
+                <div>
+                    <%= f.email_field :email, id: 'step1-txtinput' %>
+                        <%= f.submit "添加團隊成員" %>
+                            <% end %>
 
-    <input type="text" name=""><button type="button">添加團隊成員</button> <%= link_to "測試_添加團隊成員", invite_path %> -->
-
-    <%= form_with model: @invite, local: true do |f|%>
-    <div>
-      <%= f.label :email, class: "spaces-step-title", value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>
-    </div>
-    <div>
-        <%= f.email_field :email, id: 'step1-txtinput'%>
-      <%= f.submit "添加團隊成員" %>
-    <% end %>
-
-    <div>
-        <%= link_to "跳過這一（預定進頻道）", space_channel_path(id: @channel.id) %>
-    </div>
+                                <div>
+                                    <%= link_to "跳過這一（預定進頻道）" , space_channel_path(@channel.space.id ,@channel.id) %>
+                                </div>
 </table>

@@ -7,3 +7,4 @@ function synchronize(){
     } 
     const id = setInterval(synchronize,1000);
     
+    

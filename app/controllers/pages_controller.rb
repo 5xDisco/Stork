@@ -3,12 +3,19 @@ class PagesController < ApplicationController
     before_action :find_space, only: [:show, :edit, :destory]
 
     def home
-        # @spaces = Space.all
-        @channels = Channel.public_channels
+        if user_signed_in?
+            @spaces = current_user.spaces
+            collections = []
+            @spaces.each do |s|
+                # s.channels.where(is_public: true)
+                collections << s.channels.public_channels
+            end
+            
+            @channels = collections.flatten
+        end
     end
 
     def step1
-        # @space = Space.new
         @space = current_user.spaces.new
     end
 
@@ -16,6 +23,7 @@ class PagesController < ApplicationController
         @space = Space.last
         @channel = current_user.channels.new;
         @channel.space_id = @space.id
+        @channel.is_public = false
         pulic_space = Channel.create(name: "公開區", is_public: true, space_id: Space.last[:id]);
     end
 
@@ -29,17 +37,11 @@ class PagesController < ApplicationController
     def show
     end
 
-    def list
-        # @spaces = Space.where(created_by: current_user.id).order(id: :desc)
-        @spaces = current_user.spaces.order(id: :desc)
-        #@channel = current_user.spaces.channels(is_public: true);
-        array = []
-        @spaces.each do |s|
-            array << s.channels.where(is_public: true)
-        end
 
-        @channels = Channel.public_channels
-
+    def invite
+        # 觸發本方法，開始寄信
+        @invite = ContactMailer.invite(email_field).deliver_now
+        redirect_to channel_path(@channel.id), notice: '成功邀請'
     end
 
     def edit
@@ -65,6 +67,6 @@ class PagesController < ApplicationController
     end
 
     def channel_params
-        params.require(:channel).permit(:name, :space_id);
+        params.require(:channel).permit(:name, :space_id, :is_public);
     end
 end

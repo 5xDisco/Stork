@@ -5,11 +5,7 @@
                 <button data-action="click->channelbox#close" class="close" >X</button>
                 <div class="tabs">
                     <div class="tab">
-                      <!-- <input type="radio" id="tab-1" name="tab-group-1" checked='true'>
-                      <label for="tab-1">
-                        
-                      </label> -->
-                      <%= link_to "查看頻道資料", setting_path(channel.id), remote: true %>
+                      <%= link_to "查看頻道資料", setting_path(id: channel.id), remote: true %>
                     </div>
                 
                     <div class="tab">

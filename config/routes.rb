@@ -10,12 +10,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   
-  resources :spaces 
+  resources :spaces do 
+    resources :channels
+  end
   
-  resources :channels
-
   resources :pages
-
 
   #get "/", to: "spaces#index"
  
@@ -23,10 +22,10 @@ Rails.application.routes.draw do
   get "/stork/step1", to: "pages#step1"
   get "/stork/step2", to: "pages#step2"
   get "/stork/step3", to: "pages#step3"
-  get "/invite", to: "invite_mailer#invite"
 	get "/leave/:id", to: "channels#leave", as: "leave"
   get "/member", to: "channels#member", as: "member"
   get "/setting/:id", to: "channels#setting", as: "setting"
 
+  post '/invite', to: 'pages#invite'
 
 end

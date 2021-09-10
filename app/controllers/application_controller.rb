@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
+
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     
     private
     # Overwriting the sign_out redirect path method
@@ -11,4 +13,7 @@ class ApplicationController < ActionController::Base
         request.referrer
     end
 
+	def record_not_found
+		render file: "public/404.html", status: :not_found
+	end
 end

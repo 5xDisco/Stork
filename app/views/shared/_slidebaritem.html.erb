@@ -1,9 +1,0 @@
-<!-- <% content_for :my_channel do %> -->
-<% @channels.each do |c| %>
-<li>
-    <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i,c["id"].to_i),"id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
-</li>
-
-<% end %>
-<!-- <% end %> -->
-

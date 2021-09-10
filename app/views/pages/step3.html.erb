@@ -16,6 +16,7 @@
             <div>
                 <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
             </div>
+
             <%= form_with url: invite_path, local: true do |f|%>
                 <div>
                     <%= f.label :email, class: "spaces-step-title" , value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>

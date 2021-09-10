@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  has_many :messages
-end
-
-# Include default devise modules. Others available are:
-# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-=======
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,4 +11,3 @@ class User < ApplicationRecord
   has_many :user_channels, dependent: :destroy
   has_many :channels, through: :user_channels
 end
->>>>>>> develop

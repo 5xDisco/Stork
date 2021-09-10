@@ -1,12 +1,12 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = [ "center","menu","deletepath","editpath","menuOption"]
+    static targets = [ "center","menu","deletepath","editpath"]
 
     connect() {
 
         const menu =  this.menuTarget;
-        const menuOption =  this.menuoptionsTarget;
+        //const menuOption =  this.menuoptionsTarget;
         let menuVisible = false;
         
         this.centerTarget.addEventListener("contextmenu", e => {
@@ -58,9 +58,6 @@ export default class extends Controller {
                 hideMenu();
               });
             
-            menuOption.addEventListener("click", e => {
-                hideMenu();
-                console.log("mouse-option", e.target.innerHTML);
-            });
+         
     }
 }

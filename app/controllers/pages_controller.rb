@@ -40,7 +40,8 @@ class PagesController < ApplicationController
 
     def invite
         # 觸發本方法，開始寄信
-        @invite = ContactMailer.invite(email_field).deliver_now
+        email = params[:email]
+        @invite = InviteMailer.invite(email).deliver_now
         redirect_to channel_path(@channel.id), notice: '成功邀請'
     end
 

@@ -28,7 +28,7 @@ class SpacesController < ApplicationController
     end
 
 
-private
+    private
     def space_params
         params.require(:space).permit(:name, :icon)
     end

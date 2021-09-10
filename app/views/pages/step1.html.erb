@@ -2,7 +2,7 @@
 <table class="spaces-container" height="100%">
   <tr>
     <td class="spaces-steps">
-        <p id="step1-txtshow">新工作區的名字</p>
+        <p id="new-space-name">新工作區的名字</p>
     </td>
     <td class="spaces-step-content">
       「步驟3之1」
@@ -11,7 +11,7 @@
           <%= f.label :name, class: "spaces-step-title", value: "你的公司或團隊的名稱是什麼？" %>
         </div>
         <div>
-            <%= f.text_field :name, id: 'step1-txtinput'%>
+            <%= f.text_field :name, id: 'inp-space-name'%>
           <%= f.submit "下一步" %>
         <% end %>
         </div>

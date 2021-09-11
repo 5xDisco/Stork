@@ -6,6 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# users = User.create([{email: 'mobydick@example.com', encrypted_password: '123456789'}, {email: 'cruelshoes@example.com', encrypted_password: '123456789'}])
-
-channels = Channel.create([{name: 'channel 1'}, {name: 'channel 2'}])
+users = User.create([{email: '123@example.com', password: '123456789', password_confirmation: '123456789'}, {email: '456@example.com', password: '123456789', password_confirmation: '123456789'}]))

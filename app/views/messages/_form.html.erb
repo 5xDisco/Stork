@@ -1,0 +1,21 @@
+<%= form_with(model: message) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% message.errors.full_messages each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :channel_id, value: channel.id %>
+  <%= form.hidden_field :space_id, value: channel.space_id %>
+
+  <div class="input-group">
+    <%= form.text_field :content, placeholder: "Type your message"%>
+    <div class="input-group-append">
+      <%= form.submit "Sent Message", class: "send-btn" %>
+    </div>
+  </div>
+<% end %>

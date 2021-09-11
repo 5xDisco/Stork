@@ -2,59 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.wallpaper{
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+.wallpaper {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+
+  .dialog-box {
+    position: relative;
+    margin: auto;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
-    margin: auto;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+    width: 530px;
+    height: auto;
+    padding: 20px;
+    border-radius: 1rem;
     display: flex;
-    align-items: center;
-    
+    flex-direction: column;
 
-    .dialog-box{
-        position: relative;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        background-color: white;
-        width: 530px;
-        height: auto;
-        padding: 20px;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-
-        .head{
-            margin-bottom: 10px;
-        }
-
-        .dialog-content{
-            margin-top: 0 !important;
-            overflow: auto;
-            max-height: 300px;
-        }
+    .head {
+      margin-bottom: 10px;
     }
 
-    .close{
-        position: absolute;
-        z-index: 3;
-        top: 0;
-        right: 0;
-        margin-right: 30px;
-        margin-top: 30px;
+    .dialog-content {
+      margin-top: 0 !important;
+      overflow: auto;
+      max-height: 300px;
     }
+  }
 
-    .error{
-        color: rgb(255, 140, 52);
-        font-weight: 700;
-        display: none;
-        
-    }
+  .close {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 30px;
+  }
+
+  .error {
+    color: rgb(255, 140, 52);
+    font-weight: 700;
+    display: none;
+  }
+}
+
+.channel-container {
+  display: flex;
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
 }

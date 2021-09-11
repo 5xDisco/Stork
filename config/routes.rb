@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :channels
   end
   
+  resources :messages
   resources :pages
 
   #get "/", to: "spaces#index"

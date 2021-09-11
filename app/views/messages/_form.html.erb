@@ -10,7 +10,7 @@
   <% end %>
 
   <%= form.hidden_field :channel_id, value: channel.id %>
-  <%= form.hidden_field :space_id, value: channel.space.id %>
+  <%= form.hidden_field :space_id, value: channel.space_id %>
 
   <div class="input-group">
     <%= form.text_field :content, placeholder: "Type your message"%>

@@ -1,0 +1,21 @@
+<div class="converastion-container">
+  <div class="chat-partner">
+    <%= @conversation.with(current_user).name %>
+  </div>
+  
+  <div id="conversation-body">
+    <div id="conversation-content">
+      <%= render @conversation.personal_messages %>
+    </div>
+  
+    <%= form_for @personal_message do |f| %>
+      <%= hidden_field_tag 'conversation_id', @conversation.id %>
+      <%= hidden_field_tag 'space_id', @conversation %>
+
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+  
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

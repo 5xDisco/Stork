@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
         request.referrer
     end
 
+    def current_space
+        Space.find_by(params[:space_id])
+    end
+
 	def record_not_found
 		render file: "public/404.html", status: :not_found
 	end

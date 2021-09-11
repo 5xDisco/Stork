@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_11_055235) do
+ActiveRecord::Schema.define(version: 2021_09_11_064243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 2021_09_11_055235) do
     t.integer "receiver_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "space_id"
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
     t.index ["author_id"], name: "index_conversations_on_author_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["space_id"], name: "index_conversations_on_space_id"
   end
 
   create_table "direct_messages", force: :cascade do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_09_11_055235) do
   end
 
   add_foreign_key "channels", "spaces"
+  add_foreign_key "conversations", "spaces"
   add_foreign_key "direct_messages", "conversations"
   add_foreign_key "direct_messages", "users"
   add_foreign_key "messages", "channels"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_051353) do
+ActiveRecord::Schema.define(version: 2021_09_11_055235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,26 @@ ActiveRecord::Schema.define(version: 2021_09_07_051353) do
     t.integer "is_public"
     t.index ["deleted_at"], name: "index_channels_on_deleted_at"
     t.index ["space_id"], name: "index_channels_on_space_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
+    t.index ["author_id"], name: "index_conversations_on_author_id"
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_direct_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_direct_messages_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -76,6 +96,8 @@ ActiveRecord::Schema.define(version: 2021_09_07_051353) do
   end
 
   add_foreign_key "channels", "spaces"
+  add_foreign_key "direct_messages", "conversations"
+  add_foreign_key "direct_messages", "users"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
   add_foreign_key "user_channels", "channels"

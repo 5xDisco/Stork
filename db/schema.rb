@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2021_09_07_051353) do
     t.index ["space_id"], name: "index_channels_on_space_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "channel_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "icon"
@@ -66,6 +76,8 @@ ActiveRecord::Schema.define(version: 2021_09_07_051353) do
   end
 
   add_foreign_key "channels", "spaces"
+  add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_channels", "channels"
   add_foreign_key "user_channels", "users"
   add_foreign_key "users_spaces", "spaces"

@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
 
   def index
-    @messages = Message.all
   end
   
   def new
@@ -13,7 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.save
-    redirect_to channel_path(@message.channel_id)
+    redirect_to space_channel_path(@message.channel.space.id, @message.channel_id)
   end
   
   def edit

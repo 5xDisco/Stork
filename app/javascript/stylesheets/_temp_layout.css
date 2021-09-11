@@ -2,16 +2,9 @@
 :root {
     --stork-primary : #246A73;
     --stork-second: #5E4B56;
-}
-
-/* common  */
-#dropdown_stork ul li a:hover{
-    background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
-    text-decoration-line: none;
-}
-
-#stork_header{
-    background-color: #8170CF;
+    --cultured: #ededed;
+    --charcoal: #3e5367;
+    --charcoal-2: #2a3f54;
 }
 
 
@@ -29,3 +22,54 @@ svg {
 a {
     outline: 1px solid yellow;
 }
+
+
+
+
+#dropdown-stork ul li a:hover{
+    background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
+    text-decoration-line: none;
+}
+
+.stork-header, 
+#space-icons-list {
+    background-color: #2a3f54;
+}
+
+
+#space-channels-list {
+    background-color: #3e5367;
+    color:  #EDEDED;
+}
+/* 之後用 apply, layer  */
+/*m-0 flex w-full justify-center items-center text-white border-b-2 border-grey */
+.stork-header {
+    width: 100%;
+    margin:  0 auto;
+    display: flex;
+    justify-content: center;
+    border-bottom:  1px solid #EDEDED;
+}
+
+
+
+/*text-blue-dark mx-2 my-1 text-xl text-white cursor-pointer*/
+.font-history {
+    color: #FFF;
+    margin: 1px 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

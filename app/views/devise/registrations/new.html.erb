@@ -22,6 +22,16 @@
   </div>
 
   <div class="text-center py-6">
+    <%# omniauth-google-oauth2 1.0.0 uses OmniAuth 2 and requires using HTTP Post to initiate authentication: %>
+      <%= link_to "Sign in with Google" , user_google_oauth2_omniauth_authorize_path, method: :post %>
+  
+        <%# omniauth-google-oauth2 prior 1.0.0: %>
+          <!-- <%= link_to "Sign in with Google" , user_google_oauth2_omniauth_authorize_path %> -->
+
+
+  </div>
+  
+  <div class="text-center py-6">
       <%= f.label :信箱 %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "輸入電子信箱", class: "text-xl  px-4 py-2 text-xl px-4 py-2 border-solid border-4 border-blue-700 border-light-purple-400" %>
   </div>

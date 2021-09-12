@@ -1,16 +1,12 @@
 /* 宣告可共用的變數 */
 :root {
-    --stork-primary : #246A73;
-    --stork-second: #5E4B56;
+  --stork-primary: #246a73;
+  --stork-second: #5e4b56;
 }
-
-
-
 
 /*  以下 outline 測試用 */
 
-
-span {
+/* span {
     outline: 1px dotted orchid;
 }
 
@@ -20,4 +16,4 @@ svg {
 
 a {
     outline: 1px solid yellow;
-}
+} */

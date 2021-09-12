@@ -2,7 +2,7 @@
   
   <div class="pt-10 flex justify-center">  
     <%= link_to root_path do %>
-    <%= image_tag 'logo_index.png' %>
+    <%= image_tag 'stork_logo_s.png' %>
     <% end %>
   </div>
 
@@ -23,7 +23,8 @@
 
   <div class="text-center py-6">
     <%# omniauth-google-oauth2 1.0.0 uses OmniAuth 2 and requires using HTTP Post to initiate authentication: %>
-      <%= link_to "Sign in with Google" , user_google_oauth2_omniauth_authorize_path, method: :post %>
+      <!-- <%= link_to "以GOOGLE登入(1)", '/auth/google_auth2' %> -->
+      <%= link_to "以GOOGLE登入(2)" , user_google_oauth2_omniauth_authorize_path, method: :post %>
   
         <%# omniauth-google-oauth2 prior 1.0.0: %>
           <!-- <%= link_to "Sign in with Google" , user_google_oauth2_omniauth_authorize_path %> -->

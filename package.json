@@ -9,6 +9,7 @@
     "autoprefixer": "^10.3.4",
     "normalize.css": "^8.0.1",
     "postcss": "^8.3.6",
+    "redis": "^3.1.2",
     "stimulus": "^2.0.0",
     "tailwindcss": "^2.2.14",
     "turbolinks": "^5.2.0",

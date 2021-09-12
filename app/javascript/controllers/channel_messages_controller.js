@@ -25,6 +25,7 @@ export default class extends Controller {
 
   _cableConnected() {
     console.log("_cableConnected");
+    this.scrollToBottom();
   }
 
   _cableDisconnected() {
@@ -33,8 +34,13 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log("_cableReceived");
-    if(data.message){
+    if (data.message) {
+      console.log(data.message);
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
+      this.scrollToBottom();
     }
+  }
+  scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
   }
 }

@@ -49,9 +49,9 @@ class ChannelsController < ApplicationController
   def member
     channel = Channel.find(params[:id])
     if(channel.is_public == true)
-      @members = channel.users
+      @members = Space.find(channel.space_id).users 
     else
-      @members = Space.find(channel.space_id).users
+      @members = channel.users
     end
 
     #UserChannel.where(channel_id: params[:id]).users
@@ -64,7 +64,7 @@ class ChannelsController < ApplicationController
   end
 
   def memberdoadd
-    byebug
+    #還沒做完的部分，禮拜一繼續
     render json: params
   end
 

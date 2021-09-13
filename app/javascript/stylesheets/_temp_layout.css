@@ -329,6 +329,8 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
     /*outline: 1px soid #a1e2d9;*/
 }
 
+svg {
+    outline: 3px dotted red; 
 
 
 
@@ -451,4 +453,5 @@ hr {
 
 
 /* 
+------------------------------------------*/
 ------------------------------------------*/

@@ -41,8 +41,7 @@
   <div class="font-sans antialiased h-screen flex flex-grow">
     
     <!-- Sidebar / Space list 目前不要更動-->
-    <div id="space-icons-list" class="
-    bg-blue-900 text-white flex-none w-20 p-4 hidden md:block">
+    <div id="space-icons-list" class="md:block">
     
     <!-- Space icon 切換工作空間按鈕 -->
     <div data-tip="##spaceName##" class="cursor-pointer mb-4 tooltip  tooltip-right z-10" >
@@ -73,31 +72,30 @@
   <div id="space-channels-list" class="bg-blue-800 text-purple-lighter flex-none w-72 pb-6 hidden md:block overflow-y-auto">
     <div class="text-white mb-2 mt-3 px-2 flex justify-between">
       <div class="flex-auto">
-        <!-- ##spaceName## -->
-                        <!-- <h1 class="ont-semibold text-xl leading-tight mb-1">
-                          <div class="relative dropdown-menu"> -->
-                            <!-- <span class="px-2"><i class="fa fa-caret-down" aria-hidden="true"></i>這是箭頭</span> -->
-                                <!-- <a id="space_setting" tabindex="0" class="flex items-center space-x-1 cursor-pointer select-none">
-                                    <span class="font-semibold text-xl leading-tight mb-1">##spaceName##</span>
-                                    <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </a>
-                                <div id="dropdown_space" tabindex="0" class="absolute mt-1 hidden top-full min-w-max shadow rounded bg-gray-300 border border-gray-400  delay-75 ease-in-out z-10">
-                                    <ul class="text-base block text-left text-black bg-white">
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-red-700">邀請人員至新的工作空間</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">建立頻道</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">偏好設定</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">管理</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">工具</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">登出 工作空間</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">新增工作空間</a></li>
-                                        <li><a href="#" class="block px-3 py-2 hover:bg-gray">切換工作空間</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                          </h1> -->
-
+        			<!-- ##spaceName## -->
+					<h1 class="ont-semibold text-xl leading-tight mb-1">
+						<div class="relative dropdown-menu">
+							<!-- <span class="px-2"><i class="fa fa-caret-down" aria-hidden="true"></i>這是箭頭</span> -->
+							<a id="space_setting" tabindex="0" class="flex items-center space-x-1 cursor-pointer select-none">
+								<span class="font-semibold text-xl leading-tight mb-1">##spaceName##</span>
+								<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+								</svg>
+							</a>
+							<div id="dropdown_space" tabindex="0" class="absolute mt-1 hidden top-full min-w-max shadow rounded bg-gray-300 border border-gray-400  delay-75 ease-in-out z-10">
+								<ul class="text-base block text-left text-black bg-white">
+									<li><a href="#" class="block px-3 py-2 hover:bg-red-700">邀請人員至新的工作空間</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">建立頻道</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">偏好設定</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">管理</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">工具</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">登出 工作空間</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">新增工作空間</a></li>
+									<li><a href="#" class="block px-3 py-2 hover:bg-gray">切換工作空間</a></li>
+								</ul>
+							</div>
+						</div>
+					</h1>
                           <!-- Tailwind select -->
                         <!-- <div class="relative">
                             <select class="...">
@@ -115,7 +113,7 @@
                           <!-- test start -->
                           <div class="dropdown">
                             <div tabindex="0" class="m-1 btn">Dropdown</div> 
-                            <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                            <ul tabindex="0" class="hidden p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
                               <li>
                                 <a>Item 1</a>
                               </li> 
@@ -136,7 +134,7 @@
                             <!-- online -->
                             <span class="bg-green-400 rounded-full block w-2 h-2 mr-2"></span>
                             <!-- do not disturb -->
-                            <span class="bg-red-400 rounded-full block w-2 h-2 mr-2"></span>
+                            <span class="bg-red-400 rounded-full block w-2 h-2 h-8 mr-2"></span>
                             <!-- offline ##currentUser## 加上 opacity-50 -->
                             <span class="border border-white rounded-full block w-2 h-2 mr-2"></span>
                             <span class="text-white text-sm">##currentUser##</span>

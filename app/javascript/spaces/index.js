@@ -3,6 +3,3 @@ jQuery(function() {
         $("#new-space-name").html($(this).val());
     });
  });
-
-
-    

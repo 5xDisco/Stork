@@ -1,17 +1,20 @@
 <div class="home-area-signed">
     <div class="list-container">
-        <div class="list-caption">歡迎回來</div>
+        <div class="list-caption">就緒！</div>
         <table class="list-table">
-            <td id="list-head" colspan="4">
+            <td id="list-head" colspan="4" style="border-spacing:10px;" border="1">
                 <%= current_user.email %> 的工作空間
             </td>
             <% spaces.each do |s| %>
-                <tr>
-                    <td id="home-list">icons　<%= s.name %>
+                <tr>                   
+                    <td id="list-spaces">icons　<%= s.name %>
                     </td>
-                    <td id="home-list-start-stork">
-                        <%= link_to "啟動STORK" %>
+                    <td id="list-spaces-start-stork">
+                        <%= link_to "啟動STORK"%>
                     </td>
+                    <tr>
+                        <td></td>
+                    </tr>
                 </tr>
                 <!-- <tr>
                     <td style="display: none;">
@@ -23,9 +26,14 @@
                 <% end %>
         </table>
         <table class="list-table">
-            <td id="list-head">
-                <%= link_to "建立新的工作空間" , stork_step1_path %>　<%= link_to "登出" , destroy_user_session_path, method:
-                        :delete %>
+            <tr id="list-head">
+                <td id="list-spaces-start-stork">
+                    <%= link_to "建立新空間" , stork_step1_path %>
+                </td>
+                <td>
+                    <%= link_to "登出" , destroy_user_session_path, method: :delete %>
+                </td>
+            </tr>
         </table>
         <div>
             　

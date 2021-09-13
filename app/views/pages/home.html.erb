@@ -1,34 +1,63 @@
 <body class="home-area">
     <div class="home-container">
         <div class="home-header">
-            <a href="#" class="logo">
-                <%= image_tag 'logo_index.png' %>
+            <a href="#" class="logo" id="D1">
+                <%= image_tag 'stork_banner_2_index.png' %>
             </a>
-            <div>
-                <%= link_to "登入" , new_user_session_path %>
-                    <%= link_to "免費試用" , new_user_registration_path, class: "home-btn" %>
-                        <% if user_signed_in? %>
-                            <%= link_to "登出" , destroy_user_session_path, method: :delete %>
-                                <% end %>
-            </div>
         </div>
 
-        <div class="home-welcome">Stork 即為你的虛擬總部。瞭解我們的全新功能，讓團隊成員不論在何處辦公，都能始終保持連線。</div>
-        <div style="display: flex">
-            <div width=50% style="padding-left:30px; padding-right:10px">
-                <h1>Stork 即是未來工作型態</h1>
-                <p>徹底改造你的工作方式，將完成工作所需的一切人員和要素都集中於同一空間。</p>
-                <p>
-                    <%= link_to '免費試用（註冊）' , new_user_registration_path %>
+        <div style="display: flex; text-align:right" >
+            <div width=50% style="padding-left:30px; padding-right:10px;" id="D2">
+                <div class="home-btn"><%= link_to 'Start' , new_user_registration_path %></div>
+                <br>
+                <div class="home-btn"><%= link_to 'Sign-in' , new_user_session_path %></div>
+               <p>
+                    
                 </p>
-                <p>或
+                <p>
                     <br>
-                    <%= link_to '登入' , new_user_session_path %>
+                    <% if user_signed_in? %>
+                        <%= link_to "登出" , destroy_user_session_path, method: :delete %>
+                    <% end %>
                 </p>
             </div>
             <div width=50%>
-                <%= image_tag 'img-campaign-hero.zh-TW.jpg' %>
-                    </td>
+                <div class="clouds">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve"
+                        class="cloud big front slowest">
+                        <path fill="#FFFFFF" d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106
+                c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529
+                C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5
+                S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z" />
+                    </svg>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve"
+                        class="cloud distant smaller">
+                        <path fill="#FFFFFF" d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106
+                c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529
+                C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5
+                S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z" />
+                    </svg>
+
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve"
+                        class="cloud small slow">
+                        <path fill="#FFFFFF" d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106
+                c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529
+                C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5
+                S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z" />
+                    </svg>
+
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="762px" height="100px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve"
+                        class="cloud distant super-slow massive">
+                        <path fill="#FFFFFF" d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106
+                c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529
+                C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5
+                S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z" />
+                    </svg>
+                </div>
             </div>
 
             <div>

@@ -128,14 +128,12 @@ i {
 
 .pace-search-group {
     /*border: 1px solid #fff;*/
-    /*background-color: red;*/
     
 
 }
 
 .sp-search-icon {
     padding-right: 5px;
-    background-color: red;
 }
 
 .inp-space-search {
@@ -327,7 +325,7 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 /* Message Panel */
 .message-editor-panel {
-    background-color: #a1e2d9;
+    /*background-color: #a1e2d9;*/
     /*outline: 1px soid #a1e2d9;*/
 }
 

@@ -34,7 +34,7 @@ class ChannelsController < ApplicationController
     public_channel = space.channels.find_by!(is_public: true)
     if(@channel.destroy)
       #導向不能刪的那一個
-      redirect_to space_channel_path(id:public_channel)
+      redirect_to space_channel_path(id: public_channel)
     end
   end
 
@@ -60,7 +60,7 @@ class ChannelsController < ApplicationController
   def memberadd
     @userchannel = UserChannel.new()
     # 這個空間底下的使用者
-    @spaceusers = Channel.find(params[:id]).space.users.where.not(id:current_user.id)
+    @spaceusers = Channel.find(params[:id]).space.users.where.not(id: current_user.id)
   end
 
   def memberdoadd
@@ -89,7 +89,7 @@ class ChannelsController < ApplicationController
     @channels = []
     public_channel = space.channels.find_by!(is_public: true)
     @channels << public_channel
-    all_channels = current_user.channels.where(space_id:space.id)
+    all_channels = current_user.channels.where(space_id: space.id)
     all_channels.each do |c|
       @channels << c
     end

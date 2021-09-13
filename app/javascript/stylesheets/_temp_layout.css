@@ -75,16 +75,31 @@ i {
 
 
 
-/* outer wrapper - Container
+/* outer-panel- 原 Container 命名會被
 -----------------------------------*/
 
 
 .container {
+    max-width: 100vw;
     display: flex;
     min-height: 100vh;
     overflow: hidden;
     width: 100vw;
+    background-color: transparent;
+    flex-grow: 1;
 
+}
+
+/*
+.test {
+    background-color: red;
+    outline: 3px solid red;
+}*/
+
+
+
+#editor {
+    /*background-color: red;*/
 }
 
 
@@ -111,9 +126,16 @@ i {
 
 }
 
+.pace-search-group {
+    /*border: 1px solid #fff;*/
+    /*background-color: red;*/
+    
+
+}
 
 .sp-search-icon {
     padding-right: 5px;
+    background-color: red;
 }
 
 .inp-space-search {
@@ -192,10 +214,9 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 .stork-header:hover {
   background-color: #3e5367;
   color: #EDEDED ;
+  /*border: 1px solid yellow;*/
 
 }
-
-
 
 
 
@@ -307,16 +328,14 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 /* Message Panel */
 .message-editor-panel {
     background-color: #a1e2d9;
+    /*outline: 1px soid #a1e2d9;*/
 }
 
-.message-editor {
-    background-color: #fff;
-}
 
 
 
 /* 根據左側欄列表切換右邊 Content 的 title
-     
+
 --------------------------------------*/
 .space-target-title {
   background-color: #EDEDED;

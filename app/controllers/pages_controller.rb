@@ -55,6 +55,12 @@ class PagesController < ApplicationController
         redirect_to root_path 
     end
 
+    # 純頁面參考
+    def test
+
+    end
+
+
     private
     def space_params
         params.require(:space).permit(:name, :icon, :user_id)

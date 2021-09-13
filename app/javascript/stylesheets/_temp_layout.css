@@ -1,23 +1,429 @@
-/* 宣告可共用的變數 */
 :root {
     --stork-primary : #246A73;
     --stork-second: #5E4B56;
+    --cultured: #ededed;
+    --charcoal: #3e5367;
+    --charcoal-2: #2a3f54;
+    --teal-dark:#49A89D;
+    /*#79c7c5 */
+    /* #a1e2d9 */
 }
 
 
-
-
-/*  以下 outline 測試用 */
-
-
-span {
-    outline: 1px dotted orchid;
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: calc(100vw * (9/16));
+    /*h-screen overflow-hidden flex items-center justify-center*/
 }
 
-svg {
-    outline: 3px dotted red; 
-}
+
+/* Style in common 共同樣式
+-----------------------------------*/
 
 a {
-    outline: 1px solid yellow;
+    text-decoration: none;
+    /*color: #2a3f54;*/
+
 }
+
+
+a:hover{
+    background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
+    text-decoration-line: none;
+    color:#2a3f54;
+}
+
+
+i {
+    margin: 2px 5px;
+
+}
+
+
+.space-icons-panel,
+.space-channels-panel {
+    background-color: #2a3f54;
+    border-right: 1px solid #3e5367;
+
+}
+
+
+
+/* Container 最外層
+-----------------------------------*/
+
+
+.container {
+    max-width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+    background-color: transparent;
+    flex-grow: 1;
+
+}
+
+/*
+.test {
+    background-color: red;
+    outline: 3px solid red;
+}*/
+
+
+
+#editor {
+    /*background-color: red;*/
+}
+
+
+/*  Top 搜尋新的工作空間
+-----------------------------------*/
+/* 之後用 apply, layer  */
+/*m-0 flex w-full justify-center items-center text-white border-b-2 border-grey */
+.stork-nav {
+    width: 100%;
+    margin:  0 auto;
+    padding: 2px;
+    display: flex;
+    size: 16px;
+    justify-content: center;
+    border-bottom:  1px solid #3e5367;
+    background-color: #2a3f54;
+    color: #EDEDED;
+
+}
+
+.stork-nav > div {
+    margin: 1px 20px;
+    align-items: center;
+
+}
+
+.pace-search-group {
+    /*border: 1px solid #fff;*/
+
+
+}
+
+.sp-search-icon {
+    padding-right: 5px;
+}
+
+.inp-space-search {
+    padding: 10px;
+    width: 600px;
+}
+
+/* Button m-1 block h-8 w-8 rounded-sm overflow-hidden border-0 border-grey-200*/
+.sp-user-avatar {
+    margin: 1px;
+    display: block;
+    height: 32px;
+    width: 32px;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid #3f3e3f;
+}
+
+/*h-full w-full object-cover*/
+.sp-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sp-user-avatar:hover {
+    /*transform:rotate(45deg);*/
+    border: 1px solid #EDEDED;
+}
+
+
+
+/* Sidebar Left 最左側的 Icon List
+---------------------------------------*/
+.space-icons-panel {
+    /*overflow: auto;*/
+    overflow-y: scroll;
+    padding-right: 1px; 
+    box-sizing: border-box; 
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.space-icon-group div {
+    background-color: #79c7c5;
+    transition: background-color 0.5s ,color 0.5s;
+}
+
+
+.space-icon-group div:hover {
+    background-color: #3e5367;
+    color: #EDEDED ;
+}
+
+/* Sidebar 工作空間 瀏覽 Stork 選單
+-------------------------------------------*/
+
+/*active:ring-4 bg-blue-500 transition duration-150 
+ease-in-out transform motion-safe:hover:scale-110 hover:bg-blue-400  h-12 w-12 flex items-center justify-center text-black 
+text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
+
+
+
+
+.stork-header {
+    border-bottom:  1px solid #3e5367;
+    padding: 7px;
+
+}
+
+.stork-header:hover {
+  background-color: #3e5367;
+  color: #EDEDED ;
+  /*border: 1px solid yellow;*/
+}
+
+
+
+.browse-stork {
+    color: #79c7c5;
+}
+
+
+/*  下拉選單 區塊
+---------------------------------*/
+
+/*absolute mt-1  hidden top-full min-w-max shadow rounded bg-blue-light border border-gray-400  delay-75 ease-in-out z-10*/
+
+
+
+#space-list-func,
+#channel-list-func,
+#dropdown-stork-list,
+#message-notice-list  {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #DEDEDE;
+    z-index: 10;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#space-list-func,
+#channel-list-func,
+#dropdown-stork-list {
+    top: 13%;
+    left: 6%;
+
+}
+#message-notice-list {
+    top: 100%;
+    left: 40%;
+    z-index: 10;
+}
+
+/* 測試。看下拉列表的樣子 start ------------------- */
+
+#space-list-func {
+    left: 50%;
+}
+
+#channel-list-func {
+    left: 80%;
+}
+/* -------------------測試 end */
+
+
+
+/*text-base block text-left text-black bg-white*/
+#space-list-func  div, 
+#stork-list-func div, 
+#dropdown-stork-list div,
+#channel-list-func div,
+#message-notice-list div  {
+    padding: 15px;
+    border-bottom: 1px solid #DDDAAD;
+    color: #2a3f54;
+}
+
+#message-notice-list div {
+    padding: 15px 30px;
+}
+
+
+.stork-list-func, 
+.user-state-list {
+    padding: 5px 16px;
+    /*border-bottom: 1px solid #DDDAAD;*/
+    color: #DEDEDE;
+    cursor: pointer;
+}
+
+
+
+#dropdown-stork-list div:hover,
+#space-list-func  div:hover, 
+#channel-list-func div:hover,
+.stork-list-func:hover, 
+.user-state-list:hover,
+#message-notice-list div:hover {
+    background-color: #DEDEDE;
+}
+
+.stork-list-func:hover, 
+.user-state-list:hover {
+    color: #2a3f54;
+
+}
+
+
+#space-list-func a,
+#channel-list-func a,
+#dropdown-stork-list a,
+#message-notice-list a {
+    color: #2a3f54;
+}
+
+
+
+
+/* Message Panel */
+.message-editor-panel {
+    /*background-color: #a1e2d9;*/
+    /*outline: 1px soid #a1e2d9;*/
+}
+
+
+
+
+/* 根據左側欄列表切換右邊 Content 的 title
+
+--------------------------------------*/
+.space-target-title {
+  background-color: #EDEDED;
+  border-bottom: 1px solid #3e5367;
+  padding: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+/* 測試。看下拉列表的樣子 start ------------------- */
+
+
+.stork-panel {
+    /*outline:  12px solid blue;*/
+}
+
+
+
+.chat-message {
+    /*border: 1px solid red;*/
+}
+
+
+
+/* Test End ------------------------------------- */
+
+
+
+
+
+
+hr {
+    border: 1px solid white;
+}
+
+
+
+
+/* Left 左邊側欄 - 私訊
+-----------------------------*/
+
+.user-status {
+    /*bg-green rounded-full block w-2 h-2 mr-2*/
+}
+
+.online {
+
+}
+
+
+.offline {
+
+}
+
+
+
+
+.user-name {
+    /*.text-white opacity-75*/
+
+}
+
+
+/* Chat Panel
+-------------------------------------*/
+
+
+
+
+
+/* Message 訊息日期標示  ---( msg_date )---
+------------------------------------------*/
+
+.message-notice-group, .message-notice {
+    position: relative;
+}
+
+.message-notice span {
+    display: block;
+    color: #2a3f54;
+    width: 20%;
+    text-align: center;
+    border: 1px solid #ededed;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.message-notice span:before, .message-notice span:after{
+    position: absolute;
+    bottom: 0px;
+    content: "";
+    width: 40%;
+    height: 1px;
+    background-color: #ededed;
+    top: 50%;
+}
+
+.message-notice span:before {
+    left: 0;
+
+}
+
+
+
+.message-notice span:after {
+    right: 0;
+}
+
+
+/* 
+------------------------------------------*/

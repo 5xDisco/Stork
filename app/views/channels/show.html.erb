@@ -1,8 +1,19 @@
-<div class="channel-container">
+<div class="channel-container"></div>
   <div class="col-3">
     <%= render "shared/slidebar", channels: @channels %>
   </div>
+<div class="chat">
+    <h3>
+        #<%= @channel.name  %>
+    </h3>
+    <p>
     
+        <% if  @channel.is_public == 0 %>
+            <%= link_to "加成員", member_add_path(@channel.id), method: :get, remote: true %>
+        <% end %>
+    </p>
+</div>
+
     
   <div class="col-9">
     <% if @channel.present? %>

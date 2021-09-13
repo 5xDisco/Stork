@@ -1,7 +1,7 @@
 class ChannelsController < ApplicationController
   before_action :find_user_channel, only: [:show, :leave, :update, :destroy, :edit, :setting]
   before_action :find_space_user_channel, only:[:show]
-
+  before_action :find_user_spaces, only:[:show]
   def show
   end
 
@@ -47,7 +47,25 @@ class ChannelsController < ApplicationController
 
 
   def member
-    @members = User.all; #這邊先撈假資料
+    channel = Channel.find(params[:id])
+    if(channel.is_public == true)
+      @members = Space.find(channel.space_id).users 
+    else
+      @members = channel.users
+    end
+
+    #UserChannel.where(channel_id: params[:id]).users
+  end
+
+  def memberadd
+    @userchannel = UserChannel.new()
+    # 這個空間底下的使用者
+    @spaceusers = Channel.find(params[:id]).space.users.where.not(id:current_user.id)
+  end
+
+  def memberdoadd
+    #還沒做完的部分，禮拜一繼續
+    render json: params
   end
 
   private
@@ -58,6 +76,10 @@ class ChannelsController < ApplicationController
     @channel.id == params[:id].to_i ? @channel : @channel = current_user.channels.find(params[:id]) 
   end
 
+  def find_user_spaces
+    @spaces = current_user.spaces
+  end
+  
   def channel_params
     params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public)
   end
@@ -67,7 +89,7 @@ class ChannelsController < ApplicationController
     @channels = []
     public_channel = space.channels.find_by!(is_public: true)
     @channels << public_channel
-    all_channels = User.find_by(id:current_user.id).channels.where(space_id:space.id)
+    all_channels = current_user.channels.where(space_id:space.id)
     all_channels.each do |c|
       @channels << c
     end

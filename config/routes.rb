@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :pages
 
   #get "/", to: "spaces#index"
- 
+  get "/stork/test", to: "pages#test"
+
   get "/stork/list", to: "pages#list"
   get "/stork/step1", to: "pages#step1"
   get "/stork/step2", to: "pages#step2"

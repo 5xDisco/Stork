@@ -128,7 +128,7 @@ i {
 
 .pace-search-group {
     /*border: 1px solid #fff;*/
-    
+
 
 }
 
@@ -206,6 +206,7 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 .stork-header {
     border-bottom:  1px solid #3e5367;
+    padding: 7px;
 
 }
 
@@ -213,7 +214,6 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
   background-color: #3e5367;
   color: #EDEDED ;
   /*border: 1px solid yellow;*/
-
 }
 
 
@@ -338,6 +338,7 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 .space-target-title {
   background-color: #EDEDED;
   border-bottom: 1px solid #3e5367;
+  padding: 8px;
 }
 
 

@@ -10,17 +10,6 @@
 }
 
 
-/* 前端引入方式有安裝 postcss 可以這樣寫 */
-/* @import "./normalize"; */  
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-*, html {
-    /*outline: 1px solid blue;*/
-}
-
 body {
     overflow: hidden;
     width: 100vw;
@@ -28,8 +17,9 @@ body {
     /*h-screen overflow-hidden flex items-center justify-center*/
 }
 
-/*  以下 outline 測試用 
-----------------------------------*/
+
+/* Style in common 共同樣式
+-----------------------------------*/
 
 a {
     text-decoration: none;
@@ -51,15 +41,6 @@ i {
 }
 
 
-
-
-/* Style in common 共同樣式
------------------------------------*/
-
-
-
-
-
 .space-icons-panel,
 .space-channels-panel {
     background-color: #2a3f54;
@@ -69,13 +50,7 @@ i {
 
 
 
-
-
-
-
-
-
-/* outer-panel- 原 Container 命名會被
+/* Container 最外層
 -----------------------------------*/
 
 

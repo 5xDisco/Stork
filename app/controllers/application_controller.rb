@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         request.referrer
     end
 
-	def record_not_found
-		render file: "public/404.html", status: :not_found
-	end
+    def record_not_found
+	render file: "public/404.html", status: :not_found
+    end
 end

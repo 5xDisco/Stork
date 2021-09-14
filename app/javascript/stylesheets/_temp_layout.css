@@ -40,19 +40,21 @@ i {
 
 }
 
+hr {
+    border: 1px solid white;
+}
+
 
 .space-icons-panel,
 .space-channels-panel {
+    display:none;
     background-color: #2a3f54;
     border-right: 1px solid #3e5367;
-
 }
-
 
 
 /* Container 最外層
 -----------------------------------*/
-
 
 .container {
     max-width: 100vw;
@@ -65,23 +67,9 @@ i {
 
 }
 
-/*
-.test {
-    background-color: red;
-    outline: 3px solid red;
-}*/
-
-
-
-#editor {
-    /*background-color: red;*/
-}
-
 
 /*  Top 搜尋新的工作空間
 -----------------------------------*/
-/* 之後用 apply, layer  */
-/*m-0 flex w-full justify-center items-center text-white border-b-2 border-grey */
 .stork-nav {
     width: 100%;
     margin:  0 auto;
@@ -101,11 +89,6 @@ i {
 
 }
 
-.pace-search-group {
-    /*border: 1px solid #fff;*/
-
-
-}
 
 .sp-search-icon {
     padding-right: 5px;
@@ -116,7 +99,6 @@ i {
     width: 600px;
 }
 
-/* Button m-1 block h-8 w-8 rounded-sm overflow-hidden border-0 border-grey-200*/
 .sp-user-avatar {
     margin: 1px;
     display: block;
@@ -127,7 +109,6 @@ i {
     border: 1px solid #3f3e3f;
 }
 
-/*h-full w-full object-cover*/
 .sp-user-avatar img {
     width: 100%;
     height: 100%;
@@ -172,13 +153,6 @@ i {
 /* Sidebar 工作空間 瀏覽 Stork 選單
 -------------------------------------------*/
 
-/*active:ring-4 bg-blue-500 transition duration-150 
-ease-in-out transform motion-safe:hover:scale-110 hover:bg-blue-400  h-12 w-12 flex items-center justify-center text-black 
-text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
-
-
-
-
 .stork-header {
     border-bottom:  1px solid #3e5367;
     padding: 7px;
@@ -188,10 +162,7 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 .stork-header:hover {
   background-color: #3e5367;
   color: #EDEDED ;
-  /*border: 1px solid yellow;*/
 }
-
-
 
 .browse-stork {
     color: #79c7c5;
@@ -200,11 +171,6 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 /*  下拉選單 區塊
 ---------------------------------*/
-
-/*absolute mt-1  hidden top-full min-w-max shadow rounded bg-blue-light border border-gray-400  delay-75 ease-in-out z-10*/
-
-
-
 #space-list-func,
 #channel-list-func,
 #dropdown-stork-list,
@@ -246,7 +212,6 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 
 
-/*text-base block text-left text-black bg-white*/
 #space-list-func  div, 
 #stork-list-func div, 
 #dropdown-stork-list div,
@@ -297,18 +262,7 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 
 
-
-/* Message Panel */
-.message-editor-panel {
-    /*background-color: #a1e2d9;*/
-    /*outline: 1px soid #a1e2d9;*/
-}
-
-
-
-
 /* 根據左側欄列表切換右邊 Content 的 title
-
 --------------------------------------*/
 .space-target-title {
   background-color: #EDEDED;
@@ -319,64 +273,8 @@ text-2xl font-semibold rounded-lg mb-1 overflow-hidden*/
 
 
 
-
-
-
-
-
-
-/* 測試。看下拉列表的樣子 start ------------------- */
-
-
-.stork-panel {
-    /*outline:  12px solid blue;*/
-}
-
-
-
-.chat-message {
-    /*border: 1px solid red;*/
-}
-
-
-
-/* Test End ------------------------------------- */
-
-
-
-
-
-
-hr {
-    border: 1px solid white;
-}
-
-
-
-
 /* Left 左邊側欄 - 私訊
 -----------------------------*/
-
-.user-status {
-    /*bg-green rounded-full block w-2 h-2 mr-2*/
-}
-
-.online {
-
-}
-
-
-.offline {
-
-}
-
-
-
-
-.user-name {
-    /*.text-white opacity-75*/
-
-}
 
 
 /* Chat Panel
@@ -388,7 +286,6 @@ hr {
 
 /* Message 訊息日期標示  ---( msg_date )---
 ------------------------------------------*/
-
 .message-notice-group, .message-notice {
     position: relative;
 }

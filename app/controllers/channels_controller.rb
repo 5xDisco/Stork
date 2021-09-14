@@ -3,6 +3,7 @@ class ChannelsController < ApplicationController
   before_action :find_space_user_channel, only:[:show]
   before_action :find_user_spaces, only:[:show]
   def show
+    set_space
   end
 
   def leave
@@ -93,6 +94,10 @@ class ChannelsController < ApplicationController
     all_channels.each do |c|
       @channels << c
     end
+  end
+
+  def set_space
+    @space = Space.find(params[:space_id])
   end
 end
 

@@ -36,8 +36,5 @@ export default class extends Controller {
     if(data.message){
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
     }
-
-
-    console.log(data)
   }
 }

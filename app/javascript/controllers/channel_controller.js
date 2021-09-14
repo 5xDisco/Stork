@@ -2,17 +2,17 @@ import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
 
 export default class extends Controller {
-  static targets = ["messages"];
+  static targets = ["messages", "newMessage"];
 
   connect() {
     console.log(
-      'Will create subscription to: channel: "ChannelMessagesChannel" channel_id: ' +
+      'Will create subscription to: channel: "MessageChannel" channel_id: ' +
         this.data.get("channelid")
     );
 
     this.channel = consumer.subscriptions.create(
       {
-        channel: "ChannelMessagesChannel",
+        channel: "MessageChannel",
         channel_id: this.data.get("channelid"),
       },
       {
@@ -23,25 +23,26 @@ export default class extends Controller {
     );
   }
 
+  disconnect() {
+    consumer.subscriptions.remove(this.subscription);
+  }
+
   _cableConnected() {
     console.log("_cableConnected");
-    this.scrollToBottom();
   }
 
   _cableDisconnected() {
     console.log("_cableDisconnected");
-    consumer.subscriptions.remove(this.subscription);
   }
 
   _cableReceived(data) {
     console.log("_cableReceived");
+    console.log(data.message);
     if (data.message) {
-      console.log(data.message);
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
-      this.scrollToBottom();
     }
   }
-  scrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
+  clearMessage(event) {
+    this.newMessageTarget.value = "";
   }
 }

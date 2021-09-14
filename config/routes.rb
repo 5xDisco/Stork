@@ -11,20 +11,20 @@ Rails.application.routes.draw do
   end
   
   resources :channels do
-    resource :users_channel
+    resource :user_channel
     resources :messages
   end
 
   resources :direct_messages
 
-  resource :pages do
-    get :list
-    get :step1
-    get :step2
-    get :step3
-    get :test
-    post :invite
-  end
+  # resource :pages do
+  #   get :list
+  #   get :step1
+  #   get :step2
+  #   get :step3
+  #   get :test
+  #   post :invite
+  # end
 
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"
@@ -34,11 +34,11 @@ Rails.application.routes.draw do
 
   get "/spaces/:space_id/setting/:id", to: "channels#setting", as: "setting"
 
-  # post '/invite', to: 'pages#invite'
-  # get "/stork/test", to: "pages#test"
+  post '/invite', to: 'pages#invite'
+  get "/stork/test", to: "pages#test"
 
-  # get "/stork/list", to: "pages#list"
-  # get "/stork/step1", to: "pages#step1"
-  # get "/stork/step2", to: "pages#step2"
-  # get "/stork/step3", to: "pages#step3"
+  get "/stork/list", to: "pages#list"
+  get "/stork/step1", to: "pages#step1"
+  get "/stork/step2", to: "pages#step2"
+  get "/stork/step3", to: "pages#step3"
 end

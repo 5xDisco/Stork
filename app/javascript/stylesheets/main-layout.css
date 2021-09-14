@@ -1,30 +1,14 @@
-:root {
-    --stork-primary : #246A73;
-    --stork-second: #5E4B56;
-    --cultured: #ededed;
-    --charcoal: #3e5367;
-    --charcoal-2: #2a3f54;
-    --teal-dark:#49A89D;
-    /*#79c7c5 */
-    /* #a1e2d9 */
-}
-
-
 body {
     overflow: hidden;
     width: 100vw;
     height: calc(100vw * (9/16));
-    /*h-screen overflow-hidden flex items-center justify-center*/
 }
 
 
 /* Style in common 共同樣式
 -----------------------------------*/
-
 a {
     text-decoration: none;
-    /*color: #2a3f54;*/
-
 }
 
 
@@ -37,7 +21,6 @@ a:hover{
 
 i {
     margin: 2px 5px;
-
 }
 
 hr {
@@ -55,7 +38,6 @@ hr {
 
 /* Container 最外層
 -----------------------------------*/
-
 .container {
     max-width: 100vw;
     display: flex;
@@ -64,7 +46,6 @@ hr {
     width: 100vw;
     background-color: transparent;
     flex-grow: 1;
-
 }
 
 
@@ -80,13 +61,11 @@ hr {
     border-bottom:  1px solid #3e5367;
     background-color: #2a3f54;
     color: #EDEDED;
-
 }
 
 .stork-nav > div {
     margin: 1px 20px;
     align-items: center;
-
 }
 
 
@@ -124,7 +103,6 @@ hr {
 /* Sidebar Left 最左側的 Icon List
 ---------------------------------------*/
 .space-icons-panel {
-    /*overflow: auto;*/
     overflow-y: scroll;
     padding-right: 1px; 
     box-sizing: border-box; 
@@ -156,7 +134,6 @@ hr {
 .stork-header {
     border-bottom:  1px solid #3e5367;
     padding: 7px;
-
 }
 
 .stork-header:hover {
@@ -191,7 +168,6 @@ hr {
 #dropdown-stork-list {
     top: 13%;
     left: 6%;
-
 }
 #message-notice-list {
     top: 100%;
@@ -237,7 +213,6 @@ hr {
 
 .user-state-list a {
     color: #DEDEDE;
-
 }
 
 #dropdown-stork-list div:hover,
@@ -252,7 +227,6 @@ hr {
 .stork-list-func:hover, 
 .user-state-list:hover {
     color: #2a3f54;
-
 }
 
 
@@ -272,19 +246,6 @@ hr {
   border-bottom: 1px solid #3e5367;
   padding: 8px;
 }
-
-
-
-
-/* Left 左邊側欄 - 私訊
------------------------------*/
-
-
-/* Chat Panel
--------------------------------------*/
-
-
-
 
 
 /* Message 訊息日期標示  ---( msg_date )---
@@ -315,15 +276,7 @@ hr {
 
 .message-notice span:before {
     left: 0;
-
 }
-
-
-
 .message-notice span:after {
     right: 0;
 }
-
-
-/* 
-------------------------------------------*/

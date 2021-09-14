@@ -30,6 +30,7 @@ export default class extends Controller {
 
   _cableDisconnected() {
     console.log("_cableDisconnected");
+    consumer.subscriptions.remove(this.subscription);
   }
 
   _cableReceived(data) {

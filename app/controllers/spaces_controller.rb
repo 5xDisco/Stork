@@ -7,14 +7,12 @@ class SpacesController < ApplicationController
 
     def create
         @space = current_user.spaces.new(space_params)
-
         if current_user.save
             redirect_to stork_step2_path
         else
             flash[:notice] = "新增失敗"
             redirect_to stork_step1_path
         end
-
     end
 
     def update
@@ -26,7 +24,6 @@ class SpacesController < ApplicationController
             render :edit
         end
     end
-
 
     private
     def space_params

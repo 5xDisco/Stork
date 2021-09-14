@@ -67,8 +67,8 @@ Rails.application.configure do
     address:              'smtp.gmail.org',
     port:                 587,
     domain:               'localhost:3000',
-    user_name:            '',
-    password:             '',
+    user_name:            'fortda.game@gmail.com',
+    password:             'fb750420',
     authentication:       'plain',
     enable_starttls_auto: true
   }

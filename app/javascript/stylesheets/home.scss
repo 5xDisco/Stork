@@ -211,8 +211,9 @@ svg {
 }
 
 .home-area-signed {
+  overflow: scroll;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background: linear-gradient(#ededed, #79c7c5);
   position: absolute;
   top: 0;

@@ -5,7 +5,7 @@
         <%= @channelName %>
     </div>
     <div class="spaces-step-content">
-        第3步，共3步
+        <h1>Step 3-3</h1>
         <div>
             <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
         </div>
@@ -13,115 +13,18 @@
         <div>
             <%= f.label :email, class: "spaces-step-title" , value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>
         </div>
-        <div>
-            <%= f.email_field :email, id: 'step1-txtinput' %>
-            <%= f.submit "添加團隊成員" %>
-            <% end %>
+        <div class="spaces-step-form">
             <div>
-                <%= link_to "跳過這一（預定進頻道）" , space_channel_path(@channel.space.id ,@channel.id) %>
+                <%= f.email_field :email, id: 'step1-txtinput', :style=> "width:100%; height:40px; margin-bottom:10px" %>
+                <br><%= f.submit "添加團隊成員" %>
+                <% end %>
+                <div>
+                    <%= link_to "跳過這一（預定進頻道）" , space_channel_path(@channel.space.id ,@channel.id) %>
+                </div>
+            </div>
+            <div class="spaces-step-waver">
+                <%= image_tag 'stork_logo_s.png' %>
             </div>
         </div>
-            <div class="particle-wrap">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
         </div>
 </div>

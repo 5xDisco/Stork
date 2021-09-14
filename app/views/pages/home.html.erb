@@ -64,9 +64,8 @@
                 <%= @spaces %>
                     <%= @channels %>
                         <% if user_signed_in? %>
-            
                             <%= render(partial: "shared/list" , locals: { channels: @channels }) %>
-                                <% end %>
+                        <% end %>
             </div>
         </div>
     </div>

@@ -33,11 +33,6 @@ class PagesController < ApplicationController
         @channelName = Channel.last[:name]
     end
 
-
-    def show
-    end
-
-
     def invite
         # 觸發本方法，開始寄信
         email = params[:email]
@@ -56,9 +51,8 @@ class PagesController < ApplicationController
         redirect_to root_path 
     end
 
-    # 純頁面參考
+    # views/pages/test.html.erb 存放公版頁面參考
     def test
-
     end
 
 

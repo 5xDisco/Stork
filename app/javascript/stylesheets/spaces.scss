@@ -71,10 +71,14 @@ body {
   }
 }
 
+.spaces-step-content .field input {
+  width: 800 px;
+}
+
 .spaces-steps {
   width: 200px;
   // height: 800px;
-  background: linear-gradient(#2a3f54, #79c7c5);
+  background-color: #2a3f54;
   line-height: 2;
   text-align: center;
   padding: 20px 0;
@@ -87,9 +91,38 @@ body {
 .spaces-step-content {
   padding: 20px;
   padding-left: 100px;
-  vertical-align: text-top;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .spaces-step-title {
   font-size: 50px;
+}
+
+.spaces-step-form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.spaces-step-waver {
+  font-size: 95pt;
+  text-align: center;
+  animation: waver 0.65s alternate infinite;
+  transform-origin: 50% 90%;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  left: -150px;
+  top: -300px;
+}
+
+@keyframes waver {
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
 }

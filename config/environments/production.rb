@@ -100,8 +100,8 @@ Rails.application.configure do
     address:              'smtp.mailgun.org',
     port:                 587,
     domain:               'localhost:3000',
-    user_name:            '',
-    password:             '',
+    user_name:            'postmaster@sandboxcf6e7336bc4949c5a0d4b94b9b9d7b6f.mailgun.org',
+    password:             'a69cde952ed42dd0970285407a6f6fa1-a3c55839-9e598480',
     authentication:       'plain',
     enable_starttls_auto: true
   }

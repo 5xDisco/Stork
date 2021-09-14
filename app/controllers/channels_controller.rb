@@ -5,9 +5,9 @@ class ChannelsController < ApplicationController
   def show
   end
 
-  def index
-    @channels = User.find(params[:space_id]).channels  
-  end
+  # def index
+  #   @channels = User.find(params[:space_id]).channels  
+  # end
 
   def leave
   end

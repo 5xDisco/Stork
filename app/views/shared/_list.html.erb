@@ -7,19 +7,16 @@
             </td>
             <% channels.each do |channel| %>
                 <tr>
-                    <td id="home-list">icons</td>
-                    <td width="450px" height="60px" bgcolor="#fff" >
-                        <span style="font-size:20px;" style="padding:10px">
+                    <td id="list-spaces">
                             <%= channel.space.name %>
-                        </span>
+                        </td>
+                        <td id="list-spaces-start-stork">
+                            <%= link_to "啟動STORK" , space_channel_path(channel.space.id ,channel.id) %>
                     </td>
-                </tr>
-            
-                <td width="150px" bgcolor="#fff" style="padding:10px">
-                    <span style="font-size:20px;">
-                        <%= link_to "啟動STORK" , space_channel_path(channel.space.id ,channel.id) %>
-                    </span>
-                </td>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    </tr>
                 <!-- <td style="display: none;">
                                     <span style="font-size:12px;"><%#= link_to "編輯", edit_page_path(s.id) %>／<%#= link_to "刪除", page_path(s.id),
                                 method: 'delete',

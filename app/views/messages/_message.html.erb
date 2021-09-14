@@ -1,11 +1,13 @@
-<div class="message">
-  <div class="message-container">
-    <div class="content">
-      <%= message.content %>
+<!-- A message -->
+<div class="flex items-start mb-4 text-sm">
+  <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
+  <div class="flex-1 overflow-hidden">
+    <div>
+      <span class="font-bold" data-channel-username="##channel_user[id]##"><%= message.user.name %></span>
+      <span class="text-grey text-xs" data-channel-user-message-create-time="##message_created_time##">##channel_user[id].message_created_time##</span>
     </div>
-    <div class="author">
-      <%= message.user.email %>
-    </div>
+    <p class="text-black leading-normal"><%= message.content %></p>
   </div>
 </div>
+
 

@@ -1,33 +1,140 @@
-<div id="sidebar" data-controller="baritem" data-baritem-target="center" class="bg-red-500 text-purple-lighter  w-72 pb-6 hidden md:block overflow-y-auto">
-    <ul>
-      <div class="spacename_at_channel">
-        <%#= current_space_name %> 
+<!-- 側邊欄開始 -->
+<div class="space-channels-panel flex-none  w-64  overflow-y-scroll md:block">
+
+              <div class="stork-header text-white">
+                  <div class="space-setting-group  ">
+                      <h1 class="space-title font-semibold mb-1 text-xl   text-center truncate">##spaceName##<i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                      <div id="space-list-func" tabindex="0">
+                          <div><span>新的工作空間</span></div>
+                          <div><a href="#">邀請人員至新的工作空間</a></div>
+                          <div><a href="#">建立頻道</a></div>
+                          <div><a href="#">偏好設定</a></div>
+                          <div><a href="#">管理</a></div>
+                          <div><a href="#">工具</a></div>
+                          <div><a href="#">登出 工作空間</a></div>
+                          <div><a href="#">新增工作空間</a></div>
+                          <div><a href="#">切換工作空間</a></div>
+                      </div>
+                  </div>
+              </div>
+  
+    <div class="mb-8">
+      <div class="browse-stork px-4 py-2 mb-2 text-white flex justify-between items-center">
+          <div class="opacity-75"><i class="fa fa-bars" aria-hidden="true"></i>瀏覽Stork</div>
       </div>
-      <span class="category">頻道</span>
-      <hr class="line">
-      <% channels.each do |c| %>
-      <li>
-          <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i,c["id"].to_i),"id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
-      </li>
-      <% end %>
-      <li><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></li>
-    </ul>
-    <ul>
-      <% if user_signed_in?%>
-      <li> <%= current_user.email %> </li>
-      <li> <%= link_to "登入", new_user_session_path%> </li>
-      <li> <%= link_to "登出", destroy_user_session_path, method: :delete %></li>
-      <% end %>
-    </ul>
-    <div class="menu" data-baritem-target="menu">
-      <ul class="menu-options" >
-        <li class="menu-option">
-          <%= link_to "離開頻道", leave_path, "data-baritem-target" => "deletepath", remote: true %>
-        </li>
-        <li class="menu-option">
-            <%= link_to "查看頻道資料", edit_space_channel_path, "data-baritem-target" => "editpath", remote: true %>
-        </li>
-      </ul>
+
+      <!-- <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+          <div><i class="fas fa-sms"></i> 所有未讀私訊</div>
+
+      </div>
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-comments-o" aria-hidden="true"></i> 所有私訊</div>
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-at" aria-hidden="true"></i> 提及與回應</div>
+      </div>
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+
+          <div><i class="fa fa-bookmark-o" aria-hidden="true"></i> 已儲存項目</div>
+
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-television" aria-hidden="true"></i> 頻道瀏覽器</div>
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-file-o" aria-hidden="true"></i> 檔案瀏覽器</div>
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-address-book-o" aria-hidden="true"></i> 人員與使用者群組</div>
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div><i class="fa fa-folder-open-o" aria-hidden="true"></i> 應用程式</div>
+
+      </div>
+
+      <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
+
+          <div>在你的偏好設定中自訂此清單</div>
+      </div> -->
+      <!-- <div class="bg-teal-dark py-1 px-4 text-white"># general</div> -->
+
+
+
+      <!-- hidden -->
+
+      <!-- <div id="dropdown-stork-list">
+          <div><a href="#"><i class="fa fa-th-divst" aria-hidden="true"></i> 所有未讀私訊</a></div>
+          <div><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 所有私訊</a></div>
+          <div><a href="#"><i class="fa fa-at" aria-hidden="true"></i> 提及與回應</a></div>
+          <div><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i> 已儲存項目</a></div>
+          <div><a href="#"><i class="fa fa-television" aria-hidden="true"></i> 頻道瀏覽器</a></div>
+          <div><a href="#"><i class="fa fa-file-o" aria-hidden="true"></i> 檔案瀏覽器</a></div>
+          <div><a href="#"><i class="fa fa-address-book-o" aria-hidden="true"></i> 人員與使用者群組</a></div>
+          <div><a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i> 應用程式</a></div>
+          <div><a href="#">在你的偏好設定中自訂此清單</a></div>
+      </div> -->
+
+      <!-- hidden end -->
     </div>
+
+  <div class="mb-8">
+    <div class="stork-list-func px-4 mb-2 text-white flex justify-between items-center">
+      <div class="opacity-75"><i class="fa fa-caret-down" aria-hidden="true"></i><i class="fas fa-caret-right"></i>頻道<i class="far fa-plus-square"></i></div>
+      <div id="channel-list-func">
+        <div>建立新頻道</div>
+        <div>瀏覽所有頻道</div>
+        <div># 公開區</div>
+      </div>
+    </div>
+  <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
+      <!-- 頻道開始 -->
+      <div data-controller="baritem" data-baritem-target="center">
+        <!-- 頻道列表開始 -->
+        <%# <ul> %>
+          <% channels.each do |c| %>
+          <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
+              <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i,c["id"].to_i),"id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" , :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
+          </div>
+          <% end %>
+          <div><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></div>
+        <%# </ul> %>
+        <!-- 頻道列表結束 -->
+
+        <!-- 按右鍵視窗 -->
+        <div class="menu" data-baritem-target="menu">
+          <ul class="menu-options" >
+            <li class="menu-option">
+              <%= link_to "離開頻道", leave_path, "data-baritem-target" => "deletepath", remote: true %>
+            </li>
+            <li class="menu-option">
+                <%= link_to "查看頻道資料", edit_space_channel_path, "data-baritem-target" => "editpath", remote: true %>
+            </li>
+          </ul>
+        </div>
+        <!-- 按右鍵視窗結束 -->
+        
+      </div>
+      <!-- 頻道結束 -->
+  </div>
+
+
 </div>
-</div>
+<!-- 側邊欄結束 -->
+
+
+
+
+
+

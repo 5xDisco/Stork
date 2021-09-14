@@ -235,7 +235,10 @@ hr {
     cursor: pointer;
 }
 
+.user-state-list a {
+    color: #DEDEDE;
 
+}
 
 #dropdown-stork-list div:hover,
 #space-list-func  div:hover, 
@@ -257,7 +260,7 @@ hr {
 #channel-list-func a,
 #dropdown-stork-list a,
 #message-notice-list a {
-    color: #2a3f54;
+    /* color: #2a3f54; */
 }
 
 

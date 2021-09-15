@@ -82,7 +82,7 @@ class ChannelsController < ApplicationController
   end
   
   def channel_params
-    params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public)
+    params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public, :direct_message)
   end
 
   def find_space_user_channel
@@ -90,7 +90,7 @@ class ChannelsController < ApplicationController
     @channels = []
     public_channel = space.channels.find_by!(is_public: true)
     @channels << public_channel
-    all_channels = current_user.channels.where(space_id: space.id)
+    all_channels = current_user.channels.where(space_id: space.id, )
     all_channels.each do |c|
       @channels << c
     end

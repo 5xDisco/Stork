@@ -7,24 +7,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
   
   resources :spaces do 
-    resources :channels
-  end
+    resources :channels do
+      resource :user_channels
+      resources :messages
+    end
   
-  resources :channels do
-    resource :user_channel
-    resources :messages
+    resources :direct_messages
   end
-
-  resources :direct_messages
-
-  # resource :pages do
-  #   get :list
-  #   get :step1
-  #   get :step2
-  #   get :step3
-  #   get :test
-  #   post :invite
-  # end
 
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"

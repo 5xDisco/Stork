@@ -1,31 +1,30 @@
-<div class="steps-nav"></div>
-
-<table class="spaces-container" height="100%">
-    <tr>
-        <td class="spaces-steps">
-            <p>
-                <%= @space.name %>
-            </p>
-            <br>
-            <p>
-                <%= @channelName %>
-            </p>
-        </td>
-        <td class="spaces-step-content">
-            第3步，共3步
+<div class="spaces_container">
+    <div class="spaces_steps">
+        <%= @space.name %>
+        <br>
+        <%= @channelName %>
+    </div>
+    <div class="spaces_step_content">
+        <h1>Step 3-3</h1>
+        <div>
+            <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
+        </div>
+        <%= form_with url: invite_path, local: true do |f|%>
+        <div>
+            <%= f.label :email, class: "spaces_step_title" , value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>
+        </div>
+        <div class="spaces_step_form">
             <div>
-                <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
-            </div>
-            <%= form_with url: invite_path, local: true do |f|%>
+                <%= f.email_field :email, id: 'inp_space_name' %>
+                <br><%= f.submit "添加團隊成員" %>
+                <% end %>
                 <div>
-                    <%= f.label :email, class: "spaces-step-title" , value: "如須給Stork一個小變化，請添加幾位你經常與其交談的同事：" %>
+                    <%= link_to "跳過這一（預定進頻道）" , space_channel_path(@channel.space.id ,@channel.id) %>
                 </div>
-                <div>
-                    <%= f.email_field :email, id: 'step1-txtinput' %>
-                        <%= f.submit "添加團隊成員" %>
-                            <% end %>
-
-                                <div>
-                                    <%= link_to "跳過這一（預定進頻道）" , space_channel_path(@channel.space.id ,@channel.id) %>
-                                </div>
-</table>
+            </div>
+            <div class="spaces_step_waver">
+                <%= image_tag 'stork_logo_s.png' %>
+            </div>
+        </div>
+        </div>
+</div>

@@ -44,13 +44,13 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
      </div>
 
-      <%= f.submit "註冊", class: "signupInput bg-blue-700 bg-opacity-50" %> 
+      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white" %> 
       <% end %>
 
 
-      <div class="pt-5 text-right">
+      <div class="pt-5 text-right" >
         <%- if controller_name != 'sessions' %>
-          <%= link_to "登入", new_session_path(resource_name), class: 'text-blue-600' %>
+          <%= link_to "登入", new_session_path(resource_name), class: '' %>
         <% end %>
       </div>
 

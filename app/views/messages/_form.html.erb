@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+<%= form_with(model: message) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% message.errors.full_messages each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :channel_id, value: channel.id %>
+  <%= form.hidden_field :space_id, value: channel.space_id %>
+
+  <div class="input-group">
+    <%= form.text_field :content, placeholder: "Type your message"%>
+    <div class="input-group-append">
+      <%= form.submit "Sent Message", class: "send-btn" %>
+    </div>
+  </div>
+<% end %>
+=======
 <%= form_with(model: message) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
@@ -21,3 +44,4 @@
     <%= form.submit "Sent Message", class: "send-btn" %>
 
 <% end %>
+>>>>>>> 52d18186cc4157bd8ff3d5c5d1751a2b4cd13a40

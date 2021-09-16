@@ -26,7 +26,7 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-
+      'stork-blue': '#3E5367'
     },
     spacing: {
       px: '1px',

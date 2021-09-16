@@ -1,40 +1,46 @@
-<div class="home">
-    <div class="home-container">
-        <div class="home-header">
-            <a href="#" class="logo">
-                <%= image_tag 'logo_index.png' %>
-            </a>        
-            <div>
-                <%= link_to "登入", new_user_session_path %>              
-                <%= link_to "免費試用", new_user_registration_path %>
-                <% if user_signed_in? %>
-                    <%= link_to "登出", destroy_user_session_path, method: :delete %>
-                <% end %>
+<div class="home_area">
+    <div class="home_container">
+        <div class="home_header">
+            <div class="home_header_inner">
+                <%= image_tag 'stork_banner_150px_index.png' %>
+                    <div class="home_header_inner">
+                        <p><a herf="#">產品</a></p>
+                        <p><a herf="#">企業</a></p>
+                        <p><a herf="#">定價</a></p>
+                    </div> 
+            </div>
+            <div class="home_header_right">
+                <p><%= link_to "登入" , new_user_session_path %></p>
+                <p><%= link_to "免費試用" , new_user_registration_path %></p>
+                <p><% if user_signed_in? %>
+                    <%= link_to "登出" , destroy_user_session_path, method: :delete %>
+                <% end %></p>
             </div>
         </div>
-    
-        <div class="home-welcome">Stork 即為你的虛擬總部。瞭解我們的全新功能，讓團隊成員不論在何處辦公，都能始終保持連線。</div>
-        <div style="display: flex">
-            <div width=50% style="padding-left:30px; padding-right:10px">
+        
+        <div class="home_welcome">Stork 即為你的虛擬總部。瞭解我們的全新功能，讓團隊成員不論在何處辦公，都能始終保持連線。</div>
+        <div class="home_welcome_inner">
+            <div class="home_welcome_inner_helf">
                 <h1>Stork 即是未來工作型態</h1>
                 <p>徹底改造你的工作方式，將完成工作所需的一切人員和要素都集中於同一空間。</p>
-                <p><%= link_to '免費試用（註冊）', new_user_registration_path %></p>
+                <p>
+                    <%= link_to '免費試用（註冊）' , new_user_registration_path %>
+                </p>
                 <p>或
-                <br>
-                <%= link_to '登入', new_user_session_path %></p>
+                    <br>
+                    <%= link_to '登入' , new_user_session_path %>
+                </p>
             </div>
-            <div width=50%><%= image_tag 'img-campaign-hero.zh-TW.jpg' %></td>
+            <div  class="home_welcome_inner_helf">
+                <%= image_tag 'img-campaign-hero.zh-TW.jpg' %>
             </div>
-
             <div>
                 <%= @spaces %>
-                <%= @channels %>
-                <% if user_signed_in? %>
-                
-                    <%= render(partial: "shared/list", locals: { channels: @channels }) %>
-                <% end %>
+                    <%= @channels %>
+                        <% if user_signed_in? %>
+                            <%= render(partial: "shared/list" , locals: { channels: @channels }) %>
+                        <% end %>
             </div>
         </div>
     </div>
-    <!-- 123 -->
 </div>

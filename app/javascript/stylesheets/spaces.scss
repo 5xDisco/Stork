@@ -1,34 +1,5 @@
-// Place all the styles related to the spaces controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-html,
-body {
-  height: 100%;
-}
-
-#list_head {
-  height: 50px;
-  background-color: #ebd3e8;
-  font-size: 20px;
-}
-
-#caption {
-  font-size: 50px;
-  text-align: left;
-  color: #fff;
-  font-weight: bold;
-}
-
-#home-list {
-  width: 450px;
-  height: 60px;
-  background-color: #fff;
-  padding: 10px;
-}
-
 .field_with_error {
-  display: inline-block;
+  display: inline_block;
 
   input[type="text"] {
     border-color: red;
@@ -40,112 +11,70 @@ body {
   }
 }
 
-a:link {
-  color: #000;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #000;
-}
-
-a:hover {
-  color: #fe1b42;
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 60px;
-  font-weight: bold;
-}
-
-.steps-nav {
-  width: 100%;
-  background-color: purple;
+.spaces_container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  position: sticky;
-  top: 0;
-  margin-bottom: 0px;
-  z-index: 1;
-}
-
-.home-container {
-  width: 1150px;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 20px;
-  background-color: #f4ede3;
-}
-
-.home-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  position: sticky;
-  margin-left: auto;
-  margin-right: auto;
-  top: 0;
-}
-
-.home-welcome {
-  background-color: #1264a3;
-  text-align: left;
-  font-weight: bold;
-  color: white;
-  border-radius: 50px;
-  padding: 20px;
-}
-
-.list_table {
-  width: 760px;
-  height: 70px;
-  margin: auto;
-}
-
-.cover-home {
+  background: linear-gradient(#ededed, #79c7c5);
+  position: relative;
   width: 100%;
-  height: 100%;
-  background-color: purple;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  min-height: 100%;
+  transform-style: preserve-3d;
 }
 
-.spaces-container {
-  height: 100%;
+.spaces_step_content .field input {
+  width: 800 px;
 }
 
-.spaces-steps {
+.spaces_steps {
   width: 200px;
-  background-color: purple;
+  background-color: #2a3f54;
+  line-height: 2;
+  text-align: center;
+  padding: 20px 0;
   color: white;
   margin-left: 0px;
-  padding: 20px;
   vertical-align: text-top;
 }
 
-.spaces-step-content {
+.spaces_step_content {
   padding: 20px;
   padding-left: 100px;
-  vertical-align: text-top;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.spaces-step-title {
+.spaces_step_title {
   font-size: 50px;
 }
 
-.ch-show {
-  width: 100px;
-  background-color: purple;
-  color: white;
-  margin-left: 0px;
+.spaces_step_form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.spaces_step_waver {
+  font-size: 95pt;
+  text-align: center;
+  animation: waver 0.65s alternate infinite;
+  transform-origin: 50% 90%;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  left: -150px;
+  top: -300px;
+}
+
+@keyframes waver {
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+#inp_space_name {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
 }

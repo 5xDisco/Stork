@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="channel-container"></div>
   <div class="col-3">
     <%= render "shared/slidebar", channels: @channels %>
@@ -43,3 +44,136 @@
     <% end %>
   </div>  
 </div>
+=======
+<!-- 0 -->
+<!-- TOP 最上層 搜尋 新的工作空間 -->
+<div class="border-b stork-nav px-6 py-2 flex items-center justify-between">
+    <div class="stork-wrapper">
+        <div class="flex  items-center">
+            <div class="mb-1 font-extrabold">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+
+            <div class="space-search-group mx-3 mb-1 font-extrabold flex items-center">
+                <span class="sp-search-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input class="inp-space-search" placeholder="搜尋 新的工作空間 # select2">
+            </div>
+
+            <!-- ＴＯＰ 右邊的問號圖式 -->
+            <div class="mb-1 font-extrabold">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </div>
+
+            <!-- ＴＯＰ 最右側的頭像 User Avatar -->
+            <div class="online-user">
+                <span tabindex="0" class="sp-user-avatar">
+                    <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 0 TOP 最上層 搜尋 end -->
+
+
+<!-- 公版開始 -->
+<div class="outer-panel container font-sans antialiased h-screen">
+    <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+    <div class="space-icons-panel flex-none w-24 p-6 md:block">
+
+        <div class="space-icon-group cursor-pointer mb-4">
+            <div
+                class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+                <img src="https://pbs.twimg.com/profile_images/895274026783866881/E1G1nNb0_400x400.jpg" alt="">
+                ST
+            </div>
+        </div>
+
+        <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
+        <div class="cursor-pointer">
+            <div
+                class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+                <i class="fas fa-plus"></i>
+            </div>
+        </div>
+        <!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
+    </div>
+    <!-- 1 end -->
+
+    <!-- 側邊欄部分開始 -->
+    <%= render "shared/slidebar" , channels: @channels %>
+    <!-- 側邊欄部分結束 -->
+<%# </div> %>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="stork--panel  flex flex-col flex-1 bg-white overflow-hidden" data-controller="channel-messages" data-channel-messages-channelid=<%=@channel.id %>>
+      
+      <!-- 2 start -->
+      <!-- Top bar -->
+      <div class="space-target-title  border-b items-center flex-none bg-gray">
+        
+        <div class="flex justify-between items-center">
+          <div class="flex flex-col">
+            <h3 class="mb-1 font-extrabold"><%= @channel.name %>
+              <i class="fa fa-bell-o" aria-hidden="true"></i>
+              <!-- <i class="fa fa-bell-slash-o" aria-hidden="true"></i> -->
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+            </h3>
+            <!--      <div class="text-grey-dark text-sm truncate">
+              Chit-chattin' about ugly HTML and mixing of concerns.
+            </div> -->
+          </div>
+          <div class="online-users text-yellow-darker" data-user="<%= current_user.email %>"><i class="fas fa-user-plus"></i></div>
+          
+        </div>    
+      </div>
+      <!-- 2 end -->
+      
+      
+      
+      <!-- 2 start -->
+      <!-- Chat messages -->
+      <div class="chat-message px-6 py-4 flex-1 overflow-y-scroll" data-channel-messages-target="messages">
+        <% @channel.messages.each do |message| %>
+          <%= render "messages/message" , message: message %>
+        <% end %>
+
+      </div>
+      <!-- 2 end -->
+
+
+
+      <!-- 2 start -->
+      <div class="message-editor-panel mb-8 pb-6 px-4 flex-none">
+        <%= render "messages/form" , message: Message.new, channel: @channel %>
+      </div>
+      <!-- 2 end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 公版結束 -->
+
+>>>>>>> 52d18186cc4157bd8ff3d5c5d1751a2b4cd13a40

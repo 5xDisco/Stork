@@ -33,17 +33,14 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     
       <div class="py-1 text-center">
-        <%= f.label :email, '信箱' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "輸入電子信箱", class: "signupInput" %>
       </div>
 
       <div class="py-3 text-center">
-        <%= f.label :password, '密碼' %>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "輸入密碼", class: "signupInput" %>
       </div>
 
       <div class="py-4 text-center">
-        <%= f.label :password_confirmation, '再次確認密碼' %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
       </div>
 

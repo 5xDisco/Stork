@@ -1,16 +1,16 @@
-<div class="home-area-signed">
-    <div class="list-container">
-        <div class="list-caption">就緒！</div>
-        <table class="list-table">
-            <td id="list-head" colspan="4" style="border-spacing:10px;" border="1">
+<div class="home_area_signed">
+    <div class="list_container">
+        <div class="list_caption">就緒！</div>
+        <table class="list_table">
+            <td id="list_head" colspan="4" style="border-spacing:10px;" border="1">
                 <%= current_user.email %> 的工作空間
             </td>
             <% channels.each do |channel| %>
                 <tr>
-                    <td id="list-spaces">
+                    <td id="list_spaces">
                             <%= channel.space.name %>
                         </td>
-                        <td id="list-spaces-start-stork">
+                        <td id="list_spaces_start_stork">
                             <%= link_to "啟動STORK" , space_channel_path(channel.space.id ,channel.id) %>
                     </td>
                     <tr>
@@ -24,9 +24,9 @@
                                 </td> -->
                 <% end %>
         </table>
-        <table class="list-table">
-            <tr id="list-head">
-                <td id="list-spaces-start-stork">
+        <table class="list_table">
+            <tr id="list_head">
+                <td id="list_spaces_start_stork">
                     <%= link_to "建立新空間" , stork_step1_path %>
                 </td>
                 <td>

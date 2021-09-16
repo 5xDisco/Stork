@@ -1,24 +1,24 @@
-<div class="spaces-container">
-    <div class="spaces-steps">
+<div class="spaces_container">
+    <div class="spaces_steps">
         <%= @space.name %>
     </div>
-    <div class="spaces-step-content">
+    <div class="spaces_step_content">
       <h1>Step 3-2</h1>
       <%= form_for @channel, url: stork_step3_path, html: { method: 'get' } do |f|%>
         <div>
           <%= f.hidden_field :space_id %>
         </div>
         <div>
-          <%= f.label :name, class: "spaces-step-title" , value: "你的團隊現在在做什麼？" %>
+          <%= f.label :name, class: "spaces_step_title" , value: "你的團隊現在在做什麼？" %>
             <div>可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易</div>
         </div>
-        <div class="spaces-step-form">
+        <div class="spaces_step_form">
           <div>
-          <%= f.text_field :name, id: 'inp-space-name' %>
+          <%= f.text_field :name, id: 'inp_space_name' %>
             <br><%= f.submit "下一步" %>
                 <% end %>
           </div>
-          <div class="spaces-step-waver">
+          <div class="spaces_step_waver">
             <%= image_tag 'stork_logo_s.png' %>
           </div>
         </div>

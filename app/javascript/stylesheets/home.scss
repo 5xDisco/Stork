@@ -1,8 +1,8 @@
-#home-area {
+#home_area {
   background: linear-gradient(#ededed, #79c7c5);
 }
 
-.home-container {
+.home_container {
   width: 1150px;
   align-items: center;
   margin-left: auto;
@@ -12,7 +12,7 @@
   padding: 20px;
 }
 
-.home-header {
+.home_header {
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -23,12 +23,12 @@
   z-index: 5;
 }
 
-#D1 {
+#logo_animation {
   position: relative;
-  animation: LogoMove 5s;
+  animation: logo_move 5s;
   animation-iteration-count: 1;
 }
-@keyframes LogoMove {
+@keyframes logo_move {
   from {
     left: -50%;
   }
@@ -37,11 +37,11 @@
   }
 }
 
-#D2 {
+#btn_animation {
   position: relative;
-  animation: TestMove 2s infinite;
+  animation: btn_move 2s infinite;
 }
-@keyframes TestMove {
+@keyframes btn_move {
   0% {
     transform: translate(0px, 0px);
   }
@@ -53,7 +53,7 @@
   }
 }
 
-.home-btn {
+.home_btn {
   display: inline-block;
   padding: 0px 75px;
   background-color: #ededed;
@@ -66,12 +66,12 @@
   margin-top: 80px;
 }
 
-.home-btn:link .home-btn:visited {
+.home_btn:link .home_btn:visited {
   color: #a1e2d9;
   text-decoration: none;
 }
 
-.home-btn:hover {
+.home_btn:hover {
   color: #ededed;
   background-color: #3e5367;
   box-shadow: inset 0px -10px #ededed;
@@ -146,19 +146,19 @@ svg {
 }
 
 .cloud {
-  -webkit-animation-name: cloud-movement;
+  -webkit-animation-name: cloud_movement;
   -webkit-animation-timing-function: linear;
   -webkit-animation-direction: forwards;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 8s;
 
-  -moz-animation-name: cloud-movement;
+  -moz-animation-name: cloud_movement;
   -moz-animation-timing-function: linear;
   -moz-animation-direction: forwards;
   -moz-animation-iteration-count: infinite;
   -moz-animation-duration: 8s;
 
-  animation-name: cloud-movement;
+  animation-name: cloud_movement;
   animation-timing-function: linear;
   animation-direction: forwards;
   animation-iteration-count: infinite;
@@ -189,7 +189,7 @@ svg {
   animation-duration: 20.5s;
 }
 
-@-webkit-keyframes cloud-movement {
+@-webkit-keyframes cloud_movement {
   0% {
     opacity: 0.1;
     -webkit-transform: translateX(300px);
@@ -210,11 +210,11 @@ svg {
   }
 }
 
-.home-area-signed {
+.home_area_signed {
   overflow: scroll;
   width: 100%;
   height: 120%;
-  background: linear-gradient(#ededed, #79c7c5);
+  background-color: purple;
   position: absolute;
   top: 0;
   right: 0;
@@ -222,7 +222,7 @@ svg {
   left: 0;
 }
 
-#list-head {
+#list_head {
   // display: flex;
   text-align: left;
   font-size: 20px;
@@ -234,7 +234,7 @@ svg {
   padding: 20px;
 }
 
-.list-caption {
+.list_caption {
   text-align: right;
   font-size: 50px;
   color: #2a3f54;
@@ -243,20 +243,22 @@ svg {
   margin: auto;
 }
 
-.list-container {
+.list_container {
   text-align: left;
   width: 760px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.list-table {
+.list_table {
+  margin-left: auto;
+  margin-right: auto;
   width: 960px;
   height: 70px;
   margin: auto;
 }
 
-#list-spaces {
+#list_spaces {
   padding-left: 20px;
   height: 60px;
   font-size: 25px;
@@ -268,7 +270,7 @@ svg {
   border: black 10px;
 }
 
-#list-spaces-start-stork {
+#list_spaces_start_stork {
   width: 150px;
   font-size: 20px;
   text-align: center;
@@ -283,12 +285,12 @@ svg {
   margin-top: 10px;
 }
 
-#list-spaces-start-stork:link #list-spaces-start-stork:visited {
+#list_spaces_start_stork:link #list_spaces_start_stork:visited {
   color: #a1e2d9;
   text-decoration: none;
 }
 
-#list-spaces-start-stork:hover {
+#list_spaces_start_stork:hover {
   color: #3e5367;
   background-color: #ededed;
   box-shadow: inset 0px -10px #ededed;

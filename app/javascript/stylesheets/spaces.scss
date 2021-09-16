@@ -1,14 +1,5 @@
-// Place all the styles related to the spaces controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-html,
-body {
-  height: 100%;
-}
-
 .field_with_error {
-  display: inline-block;
+  display: inline_block;
 
   input[type="text"] {
     border-color: red;
@@ -20,20 +11,8 @@ body {
   }
 }
 
-body {
-  min-height: 100%;
-  overflow: hidden;
-}
-
-@keyframes move {
-  100% {
-    transform: translate3d(0, 0, -1000px);
-  }
-}
-
-.spaces-container {
+.spaces_container {
   display: flex;
-  // flex-direction: column;
   background: linear-gradient(#ededed, #79c7c5);
   position: relative;
   width: 100%;
@@ -41,24 +20,22 @@ body {
   transform-style: preserve-3d;
 }
 
-.spaces-step-content .field input {
+.spaces_step_content .field input {
   width: 800 px;
 }
 
-.spaces-steps {
+.spaces_steps {
   width: 200px;
-  // height: 800px;
   background-color: #2a3f54;
   line-height: 2;
   text-align: center;
   padding: 20px 0;
-  // border-radius: 100%;
   color: white;
   margin-left: 0px;
   vertical-align: text-top;
 }
 
-.spaces-step-content {
+.spaces_step_content {
   padding: 20px;
   padding-left: 100px;
   vertical-align: middle;
@@ -66,18 +43,18 @@ body {
   margin-bottom: auto;
 }
 
-.spaces-step-title {
+.spaces_step_title {
   font-size: 50px;
 }
 
-.spaces-step-form {
+.spaces_step_form {
   width: 600px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.spaces-step-waver {
+.spaces_step_waver {
   font-size: 95pt;
   text-align: center;
   animation: waver 0.65s alternate infinite;
@@ -96,7 +73,7 @@ body {
     transform: rotate(30deg);
   }
 }
-#inp-space-name {
+#inp_space_name {
   width: 100%;
   height: 40px;
   margin-bottom: 10px;

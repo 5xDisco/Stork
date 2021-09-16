@@ -8,11 +8,11 @@ class MessagesController < ApplicationController
 
   private
 
-    def set_channel
-      @channel = current_user.channels.find(params[:channel_id])
-    end
+  def set_channel
+     @channel = current_user.channels.find(params[:channel_id])
+  end
 
-    def message_params
-      params.require(:message).permit(:content).merge(user: current_user)
-    end
+  def message_params
+    params.require(:message).permit(:content).merge(user: current_user)
+  end
 end

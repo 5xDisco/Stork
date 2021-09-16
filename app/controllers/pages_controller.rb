@@ -20,11 +20,11 @@ class PagesController < ApplicationController
   end
 
   def step2
-    @space = Space.last
+    @space = current_user.spaces.last
     @channel = current_user.channels.new;
     @channel.space_id = @space.id
     @channel.is_public = false
-    pulic_space = Channel.create(name: "公開區", is_public: true, space_id: Space.last[:id]);
+    public_space = Channel.create(name: "公開區", is_public: true, space_id: @space.id);
   end
 
   def step3

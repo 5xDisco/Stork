@@ -1,8 +1,9 @@
 import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
+import axios from "../lib/http/axios";
 
 export default class extends Controller {
-  static targets = ["messages", "newMessage"];
+  static targets = ["messages"];
 
   connect() {
     console.log(
@@ -24,7 +25,7 @@ export default class extends Controller {
   }
 
   disconnect() {
-    consumer.subscriptions.remove(this.subscription);
+    consumer.subscriptions.remove(this.channel);
   }
 
   _cableConnected() {
@@ -41,8 +42,33 @@ export default class extends Controller {
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
     }
+    this.scrollToBottom();
   }
-  clearMessage(event) {
-    this.newMessageTarget.value = "";
+
+  sendMessage(e) {
+    e.preventDefault();
+    const channelId = this.data.get("channelid");
+    const spaceId = this.data.get("spaceid");
+
+    if (e.target[1].value != "") {
+      console.log(e.target[1].value);
+      const params = { content: e.target[1].value };
+      axios.post(`/spaces/${spaceId}/channels/${channelId}/messages`, params);
+
+      setTimeout(() => {
+        e.target[2].removeAttribute("disabled");
+      }, 200);
+
+      e.target[1].value = "";
+    } else {
+      e.target[2].getAttribute("disabled");
+    }
+  }
+
+  scrollToBottom() {
+    const { scrollHeight, clientHeight } = this.messagesTarget;
+    if (scrollHeight >= clientHeight) {
+      this.messagesTarget.scrollTop = scrollHeight - clientHeight;
+    }
   }
 }

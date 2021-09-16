@@ -1,4 +1,4 @@
-<div class='w-full md:w-2/3 mx-auto>
+<div class='w-full md:w-2/3 mx-auto'>
   <div class="py-8 pt-12 flex justify-center">  
     <%= link_to root_path do %>
     <%= image_tag 'logo_index.png' %>
@@ -13,7 +13,8 @@
   <div class="pt-6 w-2/3 md:w-1/2 mx-auto">
     <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
-      <div class='w-5 h-5 mr-4'>
+
+      <div class= "w-5 h-5 mr-4">
         <%= image_tag 'google123', class: 'w-full h-full' %>
       </div>
       <p class='text-blue-600'>使用Google登入</p>
@@ -22,9 +23,9 @@
   </div>
 
   <div class="py-8 text-xl flex justify-center items-center">
-    <div class='border-t-2 w-20 border-gray-400'></div>
+    <div class='border-t-2 w-60 border-gray-400'></div>
     <p class="px-3 block "> 或 </p>
-    <div class='border-t-2 w-20 border-gray-400'></div>
+    <div class='border-t-2 w-60 border-gray-400'></div>
   </div>
   
   <div class="py-3 focus:text-center w-2/3 md:w-1/2 mx-auto">

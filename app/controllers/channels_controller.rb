@@ -1,9 +1,10 @@
 class ChannelsController < ApplicationController
   before_action :find_user_channel, only: [:show, :leave, :update, :destroy, :edit, :setting]
-  before_action :find_space_user_channel, only:[:show]
-  before_action :find_user_spaces, only:[:show]
+  before_action :find_space_user_channel, only: [:show]
+  before_action :find_user_spaces, only: [:show]
+  before_action :set_space, only:[:show]
+  
   def show
-    set_space
   end
 
   def leave
@@ -90,7 +91,7 @@ class ChannelsController < ApplicationController
     @channels = []
     public_channel = space.channels.find_by!(is_public: true)
     @channels << public_channel
-    all_channels = current_user.channels.where(space_id: space.id, )
+    all_channels = current_user.channels.where(space_id: space.id, direct_message: false)
     all_channels.each do |c|
       @channels << c
     end

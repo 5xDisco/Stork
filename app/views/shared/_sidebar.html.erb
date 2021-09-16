@@ -143,7 +143,6 @@
               <%= link_to "#{user.name}", space_direct_message_path(@space.id, user.id), class: "user-state-list bg-teal-dark py-1 px-4 text-white", data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
           </div>
           <% end %>
-          <div><%= link_to "加新成員", "#", remote: true %></div>
         <%# </ul> %>
         <!-- 頻道列表結束 -->
       </div>

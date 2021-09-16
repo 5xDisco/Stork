@@ -5,6 +5,7 @@ class DirectMessagesController < ApplicationController
 
   def show
     users = [current_user, User.find(params[:id])]
+    @recipient = User.find(params[:id])
     @channel = Channel.direct_message_for_users(users, @space.id)
     @messages = @channel.messages
     @user_channel = current_user.user_channels.find_by(channel_id: @channel.id)

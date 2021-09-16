@@ -62,7 +62,6 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-=======
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 

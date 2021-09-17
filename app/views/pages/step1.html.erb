@@ -1,4 +1,45 @@
-<div class="steps-nav"></div>
+<div class="steps-container">
+  <div class="top-nav"></div>
+
+
+  <div class="steps-layout">
+
+    <div class="steps-sidebar">
+      <div class="new-name-box">
+        <span class="new-name">新工作區的名字</span>
+      </div>
+    </div>
+
+    <div class="steps-content">
+      <div class="steps-one">步驟 3 之 1</div>
+
+      <h2>你的公司或團隊名稱是什麼？</h2>
+      <p>這是你 Stork 空間的名稱，請選擇你團隊認得的名稱。</p>
+
+
+
+      <%= form_for(@space) do |f| %>
+
+      <div class="steps-one-text-box">
+        <%= f.text_field :name, class: "steps-one-text-field", placeholder: "例如公司A或團隊B" %>
+      </div>
+
+      <div class="steps-one-submit">
+        <%= f.submit "下一步", class: "steps-one-submit-btn" %>
+      </div>
+
+      <% end %>
+   
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="steps-nav"></div>
 <table class="spaces-container" height="100%">
   <tr>
     <td class="spaces-steps">
@@ -17,4 +58,4 @@
         </div>
     </td>
   </tr>
-</table>
+</table> -->

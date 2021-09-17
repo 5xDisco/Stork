@@ -1,5 +1,5 @@
-jQuery(function() {
-    $("#inp-space-name").on("input",function(e){
-        $("#new-space-name").html($(this).val());
-    });
- });
+jQuery(function () {
+  $(".steps-one-text-field").on("input", function (e) {
+    $(".new-name").html($(this).val());
+  });
+});

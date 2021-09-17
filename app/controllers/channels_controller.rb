@@ -1,7 +1,9 @@
 class ChannelsController < ApplicationController
   before_action :find_user_channel, only: [:show, :leave, :update, :destroy, :edit, :setting]
-  before_action :find_space_user_channel, only:[:show]
-  before_action :find_user_spaces, only:[:show]
+  before_action :find_space_user_channel, only: [:show]
+  before_action :find_user_spaces, only: [:show]
+  before_action :set_space, only:[:show]
+  
   def show
   end
 
@@ -34,7 +36,7 @@ class ChannelsController < ApplicationController
     public_channel = space.channels.find_by!(is_public: true)
     if(@channel.destroy)
       #導向不能刪的那一個
-      redirect_to space_channel_path(id:public_channel)
+      redirect_to space_channel_path(id: public_channel)
     end
   end
 
@@ -60,7 +62,7 @@ class ChannelsController < ApplicationController
   def memberadd
     @userchannel = UserChannel.new()
     # 這個空間底下的使用者
-    @spaceusers = Channel.find(params[:id]).space.users.where.not(id:current_user.id)
+    @spaceusers = Channel.find(params[:id]).space.users.where.not(id: current_user.id)
   end
 
   def memberdoadd
@@ -81,7 +83,7 @@ class ChannelsController < ApplicationController
   end
   
   def channel_params
-    params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public)
+    params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public, :direct_message)
   end
 
   def find_space_user_channel
@@ -89,10 +91,14 @@ class ChannelsController < ApplicationController
     @channels = []
     public_channel = space.channels.find_by!(is_public: true)
     @channels << public_channel
-    all_channels = current_user.channels.where(space_id:space.id)
+    all_channels = current_user.channels.where(space_id: space.id, direct_message: false)
     all_channels.each do |c|
       @channels << c
     end
+  end
+
+  def set_space
+    @space = Space.find(params[:space_id])
   end
 end
 

@@ -1,4 +1,4 @@
-class ChannelUsersController < ApplicationController
+class UesrChannelsController < ApplicationController
   before_action :set_channel
 
   def create
@@ -13,7 +13,7 @@ class ChannelUsersController < ApplicationController
 
   private
 
-    def set_channel
-      @channel = Channel.find(params[:channel_id])
-    end
+  def set_channel
+    @channel = Channel.find(params[:channel_id])
+  end
 end

@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   private
 
   def set_channel
-     @channel = current_user.channels.find(params[:channel_id])
+    @channel = current_user.channels.find(params[:channel_id])
   end
 
   def message_params

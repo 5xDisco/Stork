@@ -1,26 +1,32 @@
-<div class="steps-nav"></div>
-<table class="spaces-container" height="100%">
-  <tr>
-    <td class="spaces-steps">
-      <p>
-        <%= @space.name %>
-      </p>
-    </td>
-    <td class="spaces-step-content">
-      「第2步，共3步」
-      <%= form_for @channel, url: stork_step3_path, html: { method: 'get' } do |f|%>
-        <div>
-          <%= f.hidden_field :space_id %>
+<div class="steps-container">
+  <div class="top-nav"></div>
+
+  <div class="steps-layout">
+
+    <div class="steps-sidebar">
+      <div class="new-name-box">
+        <p><%= @space.name %></p>
+      </div>
+    </div>
+
+    <div class="step1-form-content">
+      <div class="steps-text">步驟 2 之 2</div>
+      <h2>你的團隊現在在做什麼？</h2>
+      <p>建立你空間下的頻道，可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易。</p>
+
+      <%= form_for @channel, url: space_channels_path(@channel.space), html: { method: 'post' } do |f| %>
+<!-- 
+        <div class="steps-error-explanation invisible text-red-800">
+          頻道名稱為必填欄位
+        </div> -->
+        <%= f.hidden_field :space_id %>
+        <div class="step1-text-field-box">
+          <%= f.text_field :name, class: "steps-text-field" , placeholder: "例如：夏季行銷活動" %>
         </div>
-        <div>
-          <%= f.label :name, class: "spaces-step-title" , value: "你的團隊現在在做什麼？" %>
-            <div>可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易</div>
+        <div class="steps-submit-box">
+          <%= f.submit "準備進入空間" , class: "steps-submit" %>
         </div>
-        <div>
-          <%= f.text_field :name %>
-            <%= f.submit "下一步" %>
-              <% end %>
-        </div>
-    </td>
-  </tr>
-</table>
+        <% end %>
+    </div>
+  </div>
+</div>

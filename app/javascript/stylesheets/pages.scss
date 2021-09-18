@@ -1,3 +1,71 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.steps-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-nav {
+  background-color: #3e5367;
+  width: 100%;
+  height: 30px;
+}
+
+.steps-layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.steps-sidebar {
+  width: 20%;
+  background-color: #3e5367;
+}
+
+.new-name-box {
+  color: #fff;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.step1-form-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 30px 80px 64px 80px;
+}
+
+.steps-text {
+  margin-bottom: 24px;
+}
+
+.step1-form-content h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step1-form-content p {
+  margin-bottom: 24px;
+}
+
+.steps-text-field {
+  padding: 12px 24px 12px 12px;
+  width: 100%;
+  outline: auto;
+  outline-color: #ccc;
+  margin-bottom: 20px;
+}
+
+.steps-submit {
+  background-color: #3e5367;
+  margin-top: 48px;
+  padding: 10px 48px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 0.5em;
+}
+
+.steps-submit:hover {
+  background-color: #405f6f;
+}

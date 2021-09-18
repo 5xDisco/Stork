@@ -1,61 +1,32 @@
 <div class="steps-container">
   <div class="top-nav"></div>
 
-
   <div class="steps-layout">
 
     <div class="steps-sidebar">
       <div class="new-name-box">
-        <span class="new-name">新工作區的名字</span>
+        新工作空間的名字
       </div>
     </div>
 
-    <div class="steps-content">
-      <div class="steps-one">步驟 3 之 1</div>
-
+    <div class="step1-form-content">
+      <div class="steps-text">步驟 2 之 1</div>
       <h2>你的公司或團隊名稱是什麼？</h2>
       <p>這是你 Stork 空間的名稱，請選擇你團隊認得的名稱。</p>
 
-
-
-      <%= form_for(@space) do |f| %>
-
-      <div class="steps-one-text-box">
-        <%= f.text_field :name, class: "steps-one-text-field", placeholder: "例如公司A或團隊B" %>
-      </div>
-
-      <div class="steps-one-submit">
-        <%= f.submit "下一步", class: "steps-one-submit-btn" %>
-      </div>
-
-      <% end %>
+      <%= form_for @space, html: {class:"stepsForm"} do |f| %>
    
-
+        <!-- <div class="steps-error-explanation invisible text-red-800">
+            空間名稱為必填欄位
+        </div> -->
+      
+      <div class="step1-text-field-box">
+        <%= f.text_field :name, class: "steps-text-field", placeholder: "例如：公司 A 或團隊 B" %>
+      </div>
+      <div class="steps-submit-box">
+        <%= f.submit "下一步", class: "steps-submit" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- <div class="steps-nav"></div>
-<table class="spaces-container" height="100%">
-  <tr>
-    <td class="spaces-steps">
-        <p id="new-space-name">新工作區的名字</p>
-    </td>
-    <td class="spaces-step-content">
-      「步驟3之1」
-        <%= form_for(@space) do |f|%>
-        <div>
-          <%= f.label :name, class: "spaces-step-title", value: "你的公司或團隊的名稱是什麼？" %>
-        </div>
-        <div>
-            <%= f.text_field :name, id: 'inp-space-name'%>
-          <%= f.submit "下一步" %>
-        <% end %>
-        </div>
-    </td>
-  </tr>
-</table> -->

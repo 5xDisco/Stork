@@ -44,13 +44,13 @@ class ChannelsController < ApplicationController
     if @channel.update(channel_params)
       redirect_to space_channel_path(id: @channel.id)
     end
-    @errors = @channel.errors.full_messages
+      @errors = @channel.errors.full_messages
   end
 
 
   def member
     channel = Channel.find(params[:id])
-    if(channel.is_public == true)
+    if (channel.is_public == true)
       @members = Space.find(channel.space_id).users 
     else
       @members = channel.users

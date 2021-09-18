@@ -61,7 +61,6 @@ class PagesController < ApplicationController
   end
 
   def find_space
-      # byebug
     @space = Space.find_by(id: params[:id])
   end
 

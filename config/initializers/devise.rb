@@ -27,7 +27,7 @@ Devise.setup do |config|
   config.mailer_sender = 'Stork <信箱>' #改成你想顯示的寄件者'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'

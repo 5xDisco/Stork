@@ -5,13 +5,13 @@ class PagesController < ApplicationController
   def home
     if user_signed_in?
       @spaces = current_user.spaces
-      collections = []
+      spaces = []
       @spaces.each do |s|
           # s.channels.where(is_public: true)
-          collections << s.channels.public_channels
+          spaces << s.channels.public_channels
       end
       
-      @channels = collections.flatten
+      @channels = spaces.flatten
     end
   end
 

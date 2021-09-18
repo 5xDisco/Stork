@@ -32,14 +32,14 @@
 <!-- 公版開始 -->
 <div class="outer-panel container font-sans antialiased h-screen">
     <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
-    <div class="space-icons-panel flex-none w-24 p-6 md:block">
-
-        <div class="space-icon-group cursor-pointer mb-4">
-            <div
-                class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-                <img src="https://pbs.twimg.com/profile_images/895274026783866881/E1G1nNb0_400x400.jpg" alt="">
-                ST
+    <div class="space-icons-pa
+        <div class="space-icon-gr      <div class="space-icon-group cursor-pointer mb-4">
+        <% @spaces.each do |space| %>
+           <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+              <%= link_to space.name, space_channel_path(space.id) %>
             </div>
+            <% end %>
+d %>
         </div>
 
         <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->

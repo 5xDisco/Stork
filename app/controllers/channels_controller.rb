@@ -5,6 +5,7 @@ class ChannelsController < ApplicationController
   before_action :set_space, only:[:show]
   
   def show
+    @spaces = current_user.spaces
   end
 
   def leave

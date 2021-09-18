@@ -5,18 +5,17 @@
 
     <div class="steps-sidebar">
       <div class="new-name-box">
-        <p><%= @space.name %></p>
+        <%= @space.name %>
       </div>
     </div>
 
-    <div class="step1-form-content">
+    <div class="step-form-content">
       <div class="steps-text">步驟 2 之 2</div>
       <h2>你的團隊現在在做什麼？</h2>
       <p>建立你空間下的頻道，可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易。</p>
 
       <%= form_for @channel, url: space_channels_path(@channel.space), html: { method: 'post' } do |f| %>
-<!-- 
-        <div class="steps-error-explanation invisible text-red-800">
+        <!-- <div class="steps-error-explanation invisible text-red-800">
           頻道名稱為必填欄位
         </div> -->
         <%= f.hidden_field :space_id %>
@@ -26,7 +25,7 @@
         <div class="steps-submit-box">
           <%= f.submit "準備進入空間" , class: "steps-submit" %>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -6,7 +6,9 @@ class ChannelsController < ApplicationController
   
   def show
     @spaces = current_user.spaces
+    channel = current_user.channels.ids
   end
+
 
   def leave
   end

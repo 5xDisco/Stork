@@ -1,5 +1,5 @@
 class ChannelsController < ApplicationController
-  before_action :find_user_channel, only: [:show, :leave, :update, :destroy, :edit, :setting]
+  before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting]
   before_action :find_space_user_channel, only: [:show]
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
@@ -22,26 +22,45 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    @channel = current_user.channels.new(channel_params);
-    
-    if(current_user.save)
-      redirect_to space_channel_path(id: @channel.id)
-    end
-    @errors = @channel.errors.full_messages 
+      @channel = current_user.channels.new(channel_params);
+
+      unless Space.find(params[:space_id]).channels.find_by(name: @channel.name)
+        if(params[:is_public] == "public")
+          @channel.is_public = 'public_channel'
+        else
+          @channel.is_public = 'private_channel'
+        end
+        if(current_user.save) 
+          if(@channel.is_public == 'public_channel')
+            space_users = Space.find(params[:space_id]).users
+            space_users.each do |u|
+              unless u.channels.find_by(space_id: params[:space_id], id: @channel.id)
+                UserChannel.create(user_id: u.id, channel_id: @channel.id)
+              end
+            end
+          end
+          redirect_to space_channel_path(id: @channel.id)
+        end
+        @errors = @channel.errors.full_messages 
+      end
+      @errors = "已有此頻道不能同名"
   end
 
   def new
     @channel = current_user.channels.new 
     @channel.space_id = params[:space_id]
-    @channel.is_public = false
   end
 
   def destroy
-    space = Space.find(params[:space_id])
-    public_channel = space.channels.find_by!(is_public: true)
-    if(@channel.destroy)
+    lobby_channel = current_user.channels.find_by(space_id: params[:space_id], is_public: 'lobby_channel')
+     user_channel = UserChannel.find_by(user_id: current_user.id, channel_id: params[:id])
+    if(user_channel.destroy) #退出頻道
+      channel = Channel.find(params[:id])
+      if channel.users.size == 0
+        channel.destroy #剩一個人刪除頻道
+      end
       #導向不能刪的那一個
-      redirect_to space_channel_path(id: public_channel)
+      redirect_to space_channel_path(id: lobby_channel.id)
     end
   end
 
@@ -71,16 +90,13 @@ class ChannelsController < ApplicationController
   end
 
   def memberdoadd
-    #還沒做完的部分，禮拜一繼續
-    render json: params
+
   end
 
   private
   #先準備好到時改
   def find_user_channel
-    space = Space.find(params[:space_id])
-    @channel = space.channels.find_by!(is_public: true) 
-    @channel.id == params[:id].to_i ? @channel : @channel = current_user.channels.find(params[:id]) 
+    @channel = current_user.channels.find(params[:id])
   end
 
   def find_user_spaces
@@ -88,18 +104,12 @@ class ChannelsController < ApplicationController
   end
   
   def channel_params
-    params.require(:channel).permit(:name, :description, :topic, :space_id, :is_public, :direct_message)
+    params.require(:channel).permit(:name, :description, :topic, :space_id, :direct_message)
   end
 
   def find_space_user_channel
     space = Space.find(params[:space_id])
-    @channels = []
-    public_channel = space.channels.find_by!(is_public: true)
-    @channels << public_channel
-    all_channels = current_user.channels.where(space_id: space.id, direct_message: false)
-    all_channels.each do |c|
-      @channels << c
-    end
+    @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 
   def set_space

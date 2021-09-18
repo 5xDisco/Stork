@@ -104,6 +104,8 @@
         <!-- 頻道列表開始 -->
         <%# <ul> %>
           <% channels.each do |c| %>
+          <% icon = c.is_public == "private_channel" ? "&" : "#" %>
+          <% name = c["name"] %>
           <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
               <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
 

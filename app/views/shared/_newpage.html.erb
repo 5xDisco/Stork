@@ -7,10 +7,9 @@
 
             <%= form_for channel, url: space_channels_path, method: "POST", remote: true do |f| %>
             <p><%= f.hidden_field :space_id %></p>
-            <p><%= f.hidden_field :is_public %></p>
             <p>
                 <%= f.label :name, "名稱", "id"=>"nameerror" %> 
-                <span class="error">頻道名稱為必填！！！</span> <br>
+                <span class="error">頻道名稱不可為空或是與已存在頻道同名</span> <br>
                 <%= f.text_field :name, "id"=>"nameerror" %>
             </p>
 
@@ -22,9 +21,16 @@
             <p>
                 <%= f.label :description, "說明(選填)" %> <br>
                 <%= f.text_area :description %>
+                <span>此頻道的內容是什麼？</span>
             </p>
 
-            <p>此頻道的內容是什麼？</p>
+            <p>頻道權限</p>
+            <p>
+                <%= radio_button_tag(:is_public, "public", true) %>
+                <%= label_tag(:is_public_public, "公開頻道") %>
+                <%= radio_button_tag(:is_public, "private") %>
+                <%= label_tag(:is_public_private, "私人頻道") %>
+            </p>
     
             <%= f.submit "送出" %>
             

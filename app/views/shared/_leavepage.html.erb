@@ -4,16 +4,19 @@
         <button data-action="click->channelbox#close" class="close" >X</button>
 
         <%= form_for channel, url: space_channel_path, method: "DELETE" do |f| %>
-        <h2>離開 # <%= channel.name %> </h2>
+        <h2>
+            <%= channel.is_public == "private_channel" ? "&" : "#" %>
+            <%= channel.name %>
+        </h2>
         <p> 
-            <% if channel.is_public == 1 %>
+            <% if channel.is_public == 'lobby_channel' %>
             <%= "每個工作區都有一個頻道，包含此工作區中的所有成員，這就是你的頻道。" %>
             <% else %>
             <%= "頻道成員不會收到你退出的通知。你可以隨時重新加入。" %>
             <% end %>
         </p>
         <button data-action="click->channelbox#close">取消</button>
-        <% if channel.is_public != 1 %>
+        <% if channel.is_public != 'lobby_channel' %>
         <%= f.submit "離開" %>
         <% end %>
         <% end %>

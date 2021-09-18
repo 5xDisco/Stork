@@ -6,8 +6,8 @@ class Channel < ApplicationRecord
 	has_many :user_channels, dependent: :destroy
 	has_many :users, through: :user_channels
 	has_many :messages, -> { order(created_at: :asc) }, dependent: :destroy 
-	
-	scope :public_channels, -> { where(is_public: true, direct_message: false) }
+	enum is_public: { private_channel: 0, public_channel: 1, lobby_channel: 2 }
+	scope :lobby_channels, -> { where(is_public: 'lobby_channel', direct_message: false) }
 	scope :direct_messages, -> { where(direct_message: true) }
 
 	def self.direct_message_for_users(users, space_id)

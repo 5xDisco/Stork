@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_09_19_092845) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
     t.bigint "space_id"
-    t.integer "is_public"
+    t.integer "is_public", default: 1
     t.boolean "direct_message", default: false
     t.index ["deleted_at"], name: "index_channels_on_deleted_at"
     t.index ["space_id"], name: "index_channels_on_space_id"

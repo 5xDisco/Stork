@@ -2,10 +2,10 @@
 
     <%= form_for channel, url: space_channel_path, method: "PATCH", remote: true do |f| %>
 
-    <% if channel.is_public != 1 %>
+    <% if channel.is_public != 'lobby_channel' %>
     <p>
         <%= f.label :name, "名稱", "id"=>"nameerror" %> 
-        <span class="error">頻道名稱為必填！！！</span> <br>
+        <span class="error">頻道名稱不可為空或是與已存在頻道同名</span> <br>
         <%= f.text_field :name, "id"=>"nameerror" %>
     </p>
     <% end %>

@@ -15,11 +15,11 @@ consumer.subscriptions.create("OnlineChannel", {
     console.log(el);
 
     if (data.status == "online") {
-      el.classList.add("bg-green-500");
       el.classList.remove("bg-gray-300");
+      el.classList.add("bg-green-500");
     } else if (data.status == "offline") {
-      el.classList.add("bg-gray-300");
       el.classList.remove("bg-green-500");
+      el.classList.add("bg-gray-300");
     }
   },
 });

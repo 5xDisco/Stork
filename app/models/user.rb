@@ -28,5 +28,9 @@ class User < ApplicationRecord
   def self.online
     ids = ActionCable.server.pubsub.redis_connection_for_subscriptions.smembers "online"
     where(id: ids)
-  end  
+  end
+
+  def online?
+    User.online.ids.include?(id)
+  end
 end

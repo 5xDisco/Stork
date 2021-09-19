@@ -15,11 +15,6 @@
       <p>這是你 Stork 空間的名稱，請選擇你團隊認得的名稱。</p>
 
       <%= form_for @space, html: {class:"stepsForm"} do |f| %>
-   
-        <!-- <div class="steps-error-explanation invisible text-red-800">
-            空間名稱為必填欄位
-        </div> -->
-      
       <div class="step1-text-field-box">
         <%= f.text_field :name, class: "steps-text-field", placeholder: "例如：公司 A 或團隊 B" %>
       </div>

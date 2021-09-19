@@ -15,9 +15,6 @@
       <p>建立你空間下的頻道，可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易。</p>
 
       <%= form_for @channel, url: space_channels_path(@channel.space), html: { method: 'post' } do |f| %>
-        <!-- <div class="steps-error-explanation invisible text-red-800">
-          頻道名稱為必填欄位
-        </div> -->
         <%= f.hidden_field :space_id %>
         <div class="step1-text-field-box">
           <%= f.text_field :name, class: "steps-text-field" , placeholder: "例如：夏季行銷活動" %>

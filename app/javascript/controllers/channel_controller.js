@@ -22,6 +22,7 @@ export default class extends Controller {
         received: this._cableReceived.bind(this),
       }
     );
+    this.scrollToBottom();
   }
 
   disconnect() {

@@ -6,8 +6,8 @@ class ChannelsController < ApplicationController
   
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
-    @last_read_at = @user_channel.last_read_at || @channel.created_at
-    @user_channel.touch(:last_read_at)
+    @last_read_at = @user_channel&.last_read_at || @channel.created_at
+    @user_channel&.touch(:last_read_at)
   end
 
   def leave

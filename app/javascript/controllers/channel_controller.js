@@ -38,8 +38,8 @@ export default class extends Controller {
   }
 
   _cableReceived(data) {
+    console.log(data);
     console.log("_cableReceived");
-    console.log(data.message);
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
 

@@ -5,6 +5,9 @@ class ChannelsController < ApplicationController
   before_action :set_space, only:[:show]
   
   def show
+    @user_channel = current_user.user_channels.find_by(channel: @channel)
+    @last_read_at = @user_channel.last_read_at || @channel.created_at
+    @user_channel.touch(:last_read_at)
   end
 
   def leave

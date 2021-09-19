@@ -7,5 +7,9 @@ class MessageChannel < ApplicationCable::Channel
   def unsubscribed
     stop_all_streams
   end
+
+  def touch
+    @user_channel.touch(:last_read_at)
+  end
 end
 

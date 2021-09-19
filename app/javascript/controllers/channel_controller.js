@@ -42,6 +42,10 @@ export default class extends Controller {
     console.log(data.message);
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
+
+      if (!document.hidden) {
+        this.channel.perform("touch");
+      }
     }
     this.scrollToBottom();
   }

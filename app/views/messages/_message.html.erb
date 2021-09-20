@@ -1,6 +1,6 @@
-<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at %>
+<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at && message.user_id != current_user.id %>
   <% @bar_shown == true %>
-  <div class="border-b-2 border-red-500"></div>
+  <div class="border-b-2 border-red-500 mb-1"></div>
 <% end %>
 
 <div class="flex items-start mb-4 text-sm">

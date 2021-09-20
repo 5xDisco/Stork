@@ -56,7 +56,6 @@ export default class extends Controller {
     const spaceId = this.data.get("spaceid");
 
     if (e.target[1].value != "") {
-      console.log(e.target[1].value);
       const params = { content: e.target[1].value };
       axios.post(`/spaces/${spaceId}/channels/${channelId}/messages`, params);
 

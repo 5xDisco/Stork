@@ -1,27 +1,27 @@
 <!-- 側邊欄開始 -->
-<div class="space-channels-panel flex-none  w-64  overflow-y-scroll md:block">
+<div class="space-channels-panel flex-none w-64 overflow-y-scroll md:block">
 
-              <div class="stork-header text-white">
-                  <div class="space-setting-group  ">
-                      <h1 class="space-title font-semibold mb-1 text-xl   text-center truncate"><%= @space.name %><i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                      <div id="space-list-func" tabindex="0">
-                          <div><span>新的工作空間</span></div>
-                          <div><a href="#">邀請人員至新的工作空間</a></div>
-                          <div><a href="#">建立頻道</a></div>
-                          <div><a href="#">偏好設定</a></div>
-                          <div><a href="#">管理</a></div>
-                          <div><a href="#">工具</a></div>
-                          <div><a href="#">登出 工作空間</a></div>
-                          <div><a href="#">新增工作空間</a></div>
-                          <div><a href="#">切換工作空間</a></div>
-                      </div>
-                  </div>
-              </div>
-  
-    <div class="mb-8">
-      <div class="browse-stork px-4 py-2 mb-2 text-white flex justify-between items-center">
-          <div class="opacity-75"><i class="fa fa-bars" aria-hidden="true"></i>瀏覽Stork</div>
+  <div class="stork-header text-white">
+    <div class="space-setting-group  ">
+      <h1 class="space-title font-semibold mb-1 text-xl   text-center truncate"><%= @space.name %><i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+      <div id="space-list-func" tabindex="0">
+        <div><span>新的工作空間</span></div>
+        <div><a href="#">邀請人員至新的工作空間</a></div>
+        <div><a href="#">建立頻道</a></div>
+        <div><a href="#">偏好設定</a></div>
+        <div><a href="#">管理</a></div>
+        <div><a href="#">工具</a></div>
+        <div><a href="#">登出 工作空間</a></div>
+        <div><a href="#">新增工作空間</a></div>
+        <div><a href="#">切換工作空間</a></div>
       </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <div class="browse-stork px-4 py-2 mb-2 text-white flex justify-between items-center">
+        <div class="opacity-75"><i class="fa fa-bars" aria-hidden="true"></i>瀏覽Stork</div>
+    </div>
 
       <!-- <div class="stork-list-func px-4 mb-2  flex justify-between items-center">
           <div><i class="fas fa-sms"></i> 所有未讀私訊</div>
@@ -87,7 +87,7 @@
       </div> -->
 
       <!-- hidden end -->
-    </div>
+  </div>
 
   <div class="mb-8">
     <div class="stork-list-func px-4 mb-2 text-white flex justify-between items-center">
@@ -104,15 +104,20 @@
         <!-- 頻道列表開始 -->
         <%# <ul> %>
           <% channels.each do |c| %>
-          <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
+            <div class="user-state-list bg-teal-dark py-1 px-4 text-white" data-controller="unreads" data-unreads-id="<%= c.id %>">
+
               <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
 
               <% if c.has_unread_message?(current_user, @space)%>
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"
-                  data-unreads-id="<%= c.id %>"><%= c.unread_message_count(current_user) %></div>
+
+                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-unreads-target="unreadCount"><%= c.unread_message_count(current_user) %></div>
+
+              <% else %>
+                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount"></div>
+
               <% end %>
               
-          </div>
+            </div>
           <% end %>
           <div><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></div>
         <%# </ul> %>

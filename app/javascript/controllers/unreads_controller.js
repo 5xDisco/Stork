@@ -2,6 +2,8 @@ import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
 
 export default class extends Controller {
+  static targets = ["unreadCount"];
+
   connect() {
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
@@ -35,8 +37,26 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log("_cableReceived");
-    this.element.classList.remove("invisible");
-    this.element.classList.add("visible");
-    this.element.innerHTML = +this.element.innerHTML + 1;
+    console.log(data);
+    let channel_id = this.data.get("id");
+    if (data.channel_id == channel_id) {
+      let count = parseInt(this.unreadCountTarget.textContent);
+
+      this.unreadCountTarget.classList.remove("invisible");
+      this.unreadCountTarget.classList.add("visible");
+      this.unreadCountTarget.textContent = count + 1;
+    }
+
+    if (data.mentions) {
+      this.notify(data.content);
+    }
+  }
+
+  notify(message) {
+    if (!("Notification" in window)) {
+      console.error("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      var notification = new Notification(message);
+    }
   }
 }

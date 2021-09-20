@@ -3,6 +3,7 @@ class ChannelsController < ApplicationController
   before_action :find_space_user_channel, only: [:show]
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
+  before_action :find_lobby_channel, only:[:show]
   
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
@@ -93,24 +94,36 @@ class ChannelsController < ApplicationController
 
   def member_doadd
     invite_ids = params["user_channel"]["user_ids"].reject { |i| i.empty? }
+    if invite_ids 
     invite_ids.each do |id|
       @invite = Invitation.new()
-      @invite.assign_attributes(
-        user_id: id,
-        space_id: params[:space_id],
-        channel_id: params[:id],
-        status: 0
-      )
-      @invite.save
-      @userchannel = UserChannel.new()
-      @userchannel.assign_attributes(
-        user_id: id,
-        channel_id: params[:id],
-      )
-      @userchannel.save
-      InviteMailer.invite(User.find(id)).deliver_now
+           if id.include?('@')
+            @invite.assign_attributes( 
+              invite_email: id,
+              space_id: params[:space_id],
+              channel_id: params[:id],
+              status: 'space',
+            )
+            @invite.save
+            InviteMailer.invite(email: id).deliver_now
+          else
+            @invite.assign_attributes(
+              user_id: id,
+              space_id: params[:space_id],
+              channel_id: params[:id],
+              status: 'channel',
+            )
+            @invite.save
+            @userchannel = UserChannel.new()
+            @userchannel.assign_attributes(
+              user_id: id,
+              channel_id: params[:id],
+            )
+            @userchannel.save
+            InviteMailer.invite(user: User.find(id)).deliver_now
+          end
+      end
     end
-    byebug
     redirect_to space_channel_path(params[:space_id], params[:id])
   end
 
@@ -148,6 +161,10 @@ class ChannelsController < ApplicationController
 
   def set_space
     @space = current_user.spaces.find(params[:space_id])
+  end
+
+  def find_lobby_channel
+    @lobby_channel = Space.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
   end
 end
 

@@ -156,6 +156,9 @@
           </div>
           <% end %>
         <!-- 頻道列表結束 -->
+        <div>
+          <%= link_to "+空間成員", edit_space_channel_path(id: lobby_channel.id), "data-baritem-target" => "editpath", remote: true %>
+        </div>
       </div>
       <!-- 使用者區結束 -->
   </div>

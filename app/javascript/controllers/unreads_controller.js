@@ -35,6 +35,6 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log("_cableReceived");
-    this.element.classList.add("font-bold");
+    this.element.innerHTML = +this.element.innerHTML + 1;
   }
 }

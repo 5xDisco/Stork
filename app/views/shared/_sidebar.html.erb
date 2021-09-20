@@ -105,7 +105,8 @@
         <%# <ul> %>
           <% channels.each do |c| %>
           <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
-              <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white", data: { controller: "unreads", unreads_id: c.id } %>
+              <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
+              <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block" data-controller="unreads" data-unreads-id="<%= c.id %>">0</div>
           </div>
           <% end %>
           <div><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></div>

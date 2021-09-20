@@ -8,13 +8,13 @@
             </p>
             <br>
             <p>
-                <%= @channelName %>
+                <%= @channel_name %>
             </p>
         </td>
         <td class="spaces-step-content">
             第3步，共3步
             <div>
-                <span style="font-size:50px;">您最常向誰發送有關 <%= @channelName %> 的電子郵件?</span>
+                <span style="font-size:50px;">您最常向誰發送有關 <%= @channel_name %> 的電子郵件?</span>
             </div>
             <%= form_with url: invite_path, local: true do |f|%>
                 <div>

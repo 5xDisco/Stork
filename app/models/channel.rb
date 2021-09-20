@@ -10,6 +10,7 @@ class Channel < ApplicationRecord
 	scope :public_channels, -> { where(is_public: true, direct_message: false) }
 	scope :direct_messages, -> { where(direct_message: true) }
 
+	# def self.direct_message!(sender:, receiver:, space:)
 	def self.direct_message_for_users(users, space_id)
 		user_ids = users.map(&:id).sort
 		name = "DM:#{user_ids.join(":")}"

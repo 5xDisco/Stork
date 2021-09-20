@@ -100,7 +100,9 @@
     </div>
   <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
       <!-- 頻道開始 -->
-      <div data-controller="baritem" data-baritem-target="center">
+      <div data-controller="baritem" 
+           data-action="contextmenu->baritem#menu"
+           data-baritem-target="center">
         <!-- 頻道列表開始 -->
         <%# <ul> %>
           <% channels.each do |c| %>

@@ -7,7 +7,7 @@ module ApplicationCable
       logger.add_tags "ActionCable", "User #{current_user.id}"
     end
 
-    protected
+    private
 
       def find_verified_user
         if current_user = env['warden'].user

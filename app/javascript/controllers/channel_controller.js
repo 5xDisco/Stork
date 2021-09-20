@@ -3,7 +3,7 @@ import consumer from "../channels/consumer";
 import axios from "../lib/http/axios";
 
 export default class extends Controller {
-  static targets = ["messages"];
+  static targets = ["messages", "input"];
 
   connect() {
     console.log(
@@ -17,9 +17,9 @@ export default class extends Controller {
         channel_id: this.data.get("channelid"),
       },
       {
-        connected: this._cableConnected.bind(this),
-        disconnected: this._cableDisconnected.bind(this),
-        received: this._cableReceived.bind(this),
+        connected: this.cableConnected.bind(this),
+        disconnected: this.cableDisconnected.bind(this),
+        received: this.cableReceived.bind(this),
       }
     );
   }
@@ -28,15 +28,15 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {
+  cableConnected() {
     console.log("_cableConnected");
   }
 
-  _cableDisconnected() {
+  cableDisconnected() {
     console.log("_cableDisconnected");
   }
 
-  _cableReceived(data) {
+  cableReceived(data) {
     console.log("_cableReceived");
     console.log(data.message);
     if (data.message) {

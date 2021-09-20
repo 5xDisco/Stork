@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_space
 
   def list
@@ -9,17 +10,15 @@ class SpacesController < ApplicationController
     @space = current_user.spaces.new(space_params)
 
     if current_user.save
-        redirect_to stork_step2_path
+      redirect_to stork_step2_path
     else
-        flash[:notice] = "新增失敗"
-        redirect_to stork_step1_path
+      redirect_to stork_step1_path, notice: "新增失敗"
     end
   end
 
   def update
     if @space.update(space_params)
-      flash[:notice] = "編輯成功"
-      redirect_to root_path 
+      redirect_to root_path, notice: "編輯成功"
     else
       flash[:notice] = "編輯失敗"
       render :edit

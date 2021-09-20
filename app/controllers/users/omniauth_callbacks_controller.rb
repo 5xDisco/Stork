@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    # 新增此段第三方登入的方法
+
     def google_oauth2
       @user = User.create_from_provider_data(request.env["omniauth.auth"])
   
@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to new_user_registration_url
       end
     end
-    # 及這段第三方登入失敗的處理方法
+
     def failure
       redirect_to root_path
     end

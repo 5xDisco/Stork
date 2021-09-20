@@ -1,10 +1,10 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = [ "page" ]
+    static targets = ["page"];
 
-    close(){
+    close() {
         this.pageTarget.remove();
-        console.log(`destory self`)
+        console.log(`destory self`);
     }
 }

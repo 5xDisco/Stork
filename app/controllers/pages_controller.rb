@@ -1,17 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  # skip_before_action :authenticate_user!, only: [:home]
+  before_action :authenticate_user!
   before_action :find_space, only: [:show, :edit, :destory]
 
   def home
     if user_signed_in?
-      @spaces = current_user.spaces
-      spaces = []
-      @spaces.each do |s|
-          # s.channels.where(is_public: true)
-          spaces << s.channels.public_channels
+        @spaces = current_user.spaces
+        collections = []
+        @spaces.each do |s|
+          collections << s.channels.public_channels
       end
-      
-      @channels = spaces.flatten
+      @channels = collections.flatten
     end
   end
 
@@ -21,7 +20,7 @@ class PagesController < ApplicationController
 
   def step2
     @space = current_user.spaces.last
-    @channel = current_user.channels.new;
+    @channel = current_user.channels.new
     @channel.space_id = @space.id
     @channel.is_public = false
     public_space = Channel.create(name: "公開區", is_public: true, space_id: @space.id);
@@ -30,7 +29,7 @@ class PagesController < ApplicationController
   def step3
     @space = Space.last
     @channel = current_user.channels.create(channel_params);
-    @channelName = Channel.last[:name]
+    @channel_name = Channel.last[:name]
   end
 
 
@@ -45,11 +44,9 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @space = find_space
   end
 
   def destroy
-    @space = find_space
     @space.destroy
     flash[:notice] = "刪除了"
     redirect_to root_path 
@@ -61,7 +58,6 @@ class PagesController < ApplicationController
   end
 
   def find_space
-      # byebug
     @space = Space.find_by(id: params[:id])
   end
 

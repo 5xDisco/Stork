@@ -5,7 +5,7 @@ class Message < ApplicationRecord
   after_commit :broadcast_me
 
   def broadcast_me
-    ActionCable.server.broadcast "ChannelMessagesChannel:#{channel.id}", {
+    ActionCable.server.broadcast "MessageChannel:#{channel.id}", {
       message: MessagesController.render(partial: "messages/message", locals: { message: self })
     }
   end

@@ -1,39 +1,18 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_channel
 
-  def index
-  end
-  
   def create
-    @message = Message.new(message_params)
-    @message.user = current_user
-    @message.save
-    redirect_to space_channel_path(@message.channel.space_id, @message.channel_id)
-  end
-  
-  def edit
-  
-  end
-  
-  def update
-  
-  end
-  
-  def show
-  
-  end
-  
-  def destroy
-  
+    @message = @channel.messages.create(message_params)
+    # MessageChannel.broadcast_to @channel, message: render_to_string(@message)
   end
 
-  private 
+  private
+
+  def set_channel
+     @channel = current_user.channels.find(params[:channel_id])
+  end
 
   def message_params
-    params.require(:message).permit(:content, :channel_id, :user_id)
-  end
-
-  def set_message
-    @message = Message.find(params[:id])
+    params.require(:message).permit(:content).merge(user: current_user)
   end
 end

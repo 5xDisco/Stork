@@ -3,7 +3,7 @@
 
               <div class="stork-header text-white">
                   <div class="space-setting-group  ">
-                      <h1 class="space-title font-semibold mb-1 text-xl   text-center truncate">##spaceName##<i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                      <h1 class="space-title font-semibold mb-1 text-xl   text-center truncate"><%= @space.name %><i class="fa fa-caret-down" aria-hidden="true"></i></h1>
                       <div id="space-list-func" tabindex="0">
                           <div><span>新的工作空間</span></div>
                           <div><a href="#">邀請人員至新的工作空間</a></div>
@@ -105,7 +105,7 @@
         <%# <ul> %>
           <% channels.each do |c| %>
           <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
-              <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i,c["id"].to_i),"id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" , :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
+              <%= link_to "# #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
           </div>
           <% end %>
           <div><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></div>
@@ -128,7 +128,26 @@
       </div>
       <!-- 頻道結束 -->
   </div>
-
+      <!-- 使用者區 -->
+  <div class="mb-8">
+    <div class="stork-list-func px-4 mb-2 text-white flex justify-between items-center">
+      <div class="opacity-75"><i class="fa fa-caret-down" aria-hidden="true"></i><i class="fas fa-caret-right"></i>空間成員<i class="far fa-plus-square"></i></div>
+    </div>
+  <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
+      <!-- 頻道開始 -->
+      <div class="space-users-list">
+        <!-- 頻道列表開始 -->
+        <%# <ul> %>
+          <% @space.users.each do |user| %>
+          <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
+              <%= link_to "#{user.name}", space_direct_message_path(@space.id, user.id), class: "user-state-list bg-teal-dark py-1 px-4 text-white", data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
+          </div>
+          <% end %>
+        <%# </ul> %>
+        <!-- 頻道列表結束 -->
+      </div>
+      <!-- 使用者區結束 -->
+  </div>
 
 </div>
 <!-- 側邊欄結束 -->

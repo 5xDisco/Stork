@@ -109,10 +109,7 @@
 
               <% if c.has_unread_message?(current_user, @space)%>
                 <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"
-                  data-unreads-id="<%= c.id %>"></div>
-              <% else %>
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-controller="unreads"
-                  data-unreads-id="<%= c.id %>"></div>
+                  data-unreads-id="<%= c.id %>"><%= c.unread_message_count(current_user) %></div>
               <% end %>
               
           </div>

@@ -30,8 +30,15 @@ class Channel < ApplicationRecord
     user_channels.each do |channel|
     @unread_message[channel.id] = channel.messages.where("created_at > ? AND user_id != ?", 
       channel.user_channels.find_by(user_id: user.id).last_read_at, user.id)
-      .present?
+      .present?	
     end
 		@unread_message[id]
-	end	
+	end
+	
+	def unread_message_count(user)
+		messages.where("created_at > ? AND user_id != ?", 
+      user_channels.find_by(user_id: user.id)&.last_read_at, 
+			user.id)
+      .count
+	end
 end

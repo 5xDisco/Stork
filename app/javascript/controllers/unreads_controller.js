@@ -35,6 +35,8 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log("_cableReceived");
+    this.element.classList.remove("invisible");
+    this.element.classList.add("visible");
     this.element.innerHTML = +this.element.innerHTML + 1;
   }
 }

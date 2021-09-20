@@ -7,8 +7,11 @@ class ChannelsController < ApplicationController
   
   def show
     @spaces = current_user.spaces
-    @channels = @spaces.channels.public_channels.id
-    end
+    spaces = []
+      @spaces.each do |s|
+        spaces << s.channels.public_channels
+      end
+      @channels = spaces.flatten
   end
 
   def leave
@@ -106,4 +109,4 @@ class ChannelsController < ApplicationController
   def set_space
     @space = Space.find(params[:space_id])
   end
-
+end

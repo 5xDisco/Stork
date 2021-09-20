@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 2021_09_19_092845) do
     t.index ["space_id"], name: "index_channels_on_space_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.bigint "channel_id", null: false
+    t.string "invite_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_invitations_on_channel_id"
+    t.index ["space_id"], name: "index_invitations_on_space_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -81,6 +94,9 @@ ActiveRecord::Schema.define(version: 2021_09_19_092845) do
   end
 
   add_foreign_key "channels", "spaces"
+  add_foreign_key "invitations", "channels"
+  add_foreign_key "invitations", "spaces"
+  add_foreign_key "invitations", "users"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
   add_foreign_key "user_channels", "channels"

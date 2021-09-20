@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :channels, through: :user_channels
   #與 message 的關聯
   has_many :messages, dependent: :destroy
-  
+  has_many :invitation
   def name
     email.split('@')[0]
   end

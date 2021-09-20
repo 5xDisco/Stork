@@ -11,7 +11,7 @@
                     <%= link_to "查看頻道資料", setting_path(id: channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
                     <%= link_to "頻道會員", member_path(channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300" %>
                 </div>
-                <hr class="mb-2">         
+                <hr class="mb-2 font-bold">         
             </div>
             <div class="dialog-content max-h-100 overflow-auto">
                 <%= render "shared/setting", channel: channel %>

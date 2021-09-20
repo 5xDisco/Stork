@@ -92,23 +92,36 @@ class ChannelsController < ApplicationController
   end
 
   def member_doadd
-    invite_ids = params["user_channel"]["user_ids"]
+    invite_ids = params["user_channel"]["user_ids"].reject { |i| i.empty? }
     invite_ids.each do |id|
+      @invite = Invitation.new()
+      @invite.assign_attributes(
+        user_id: id,
+        space_id: params[:space_id],
+        channel_id: params[:id],
+        status: 0
+      )
+      @invite.save
+      @userchannel = UserChannel.new()
+      @userchannel.assign_attributes(
+        user_id: id,
+        channel_id: params[:id],
+      )
+      @userchannel.save
+      InviteMailer.invite(User.find(id)).deliver_now
     end
+    byebug
     redirect_to space_channel_path(params[:space_id], params[:id])
   end
 
   def member_accept
-    if user_signed_in?
-      content = Invitation.find_by!(user_id: current_user.id)
-      if(content)
-        space_id = content.space_id
-        channel_id = content.channel_id
-        Invitation.destroy(content.id)
-        redirect_to space_channel_path(space_id,channel_id)
-      else
-        redirect_to root_path
-      end
+    return redirect_to root_path unless user_signed_in?
+    invite_letter = Invitation.find_by!(user_id: current_user.id, status: 'channel')
+    if(invite_letter)
+      space_id = content.space_id
+      channel_id = content.channel_id
+      Invitation.destroy(content.id)
+      redirect_to space_channel_path(space_id,channel_id)
     else
       redirect_to root_path
     end

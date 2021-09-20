@@ -17,7 +17,7 @@ class DirectMessagesController < ApplicationController
   def find_space_user_channel
     space = Space.find(params[:space_id])
     @channels = []
-    public_channel = space.channels.find_by!(is_public: true)
+    public_channel = space.channels.find_by!(is_public: 'lobby_channel')
     @channels << public_channel
     all_channels = current_user.channels.where(space_id: space.id, direct_message: false)
     all_channels.each do |c|

@@ -8,6 +8,8 @@ class ChannelsController < ApplicationController
     @user_channel = current_user.user_channels.find_by(channel: @channel)
     @last_read_at = @user_channel&.last_read_at || @channel.created_at
     @user_channel&.touch(:last_read_at)
+
+    
   end
 
   def leave
@@ -101,7 +103,7 @@ class ChannelsController < ApplicationController
   end
 
   def set_space
-    @space = Space.find(params[:space_id])
+    @space = current_user.spaces.find(params[:space_id])
   end
 end
 

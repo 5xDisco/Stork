@@ -1,5 +1,5 @@
 class ChannelsController < ApplicationController
-  before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting]
+  before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting, :member_add]
   before_action :find_space_user_channel, only: [:show]
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
@@ -16,6 +16,8 @@ class ChannelsController < ApplicationController
   end
 
   def edit
+    channel = Channel.find(params[:id])
+    @members = channel.users
   end
 
   def setting
@@ -83,14 +85,33 @@ class ChannelsController < ApplicationController
     #UserChannel.where(channel_id: params[:id]).users
   end
 
-  def memberadd
+  def member_add
     @userchannel = UserChannel.new()
     # 這個空間底下的使用者
-    @spaceusers = Channel.find(params[:id]).space.users.where.not(id: current_user.id)
+    @spaceusers = Channel.find(params[:id]).space.users - [current_user]
   end
 
-  def memberdoadd
+  def member_doadd
+    invite_ids = params["user_channel"]["user_ids"]
+    invite_ids.each do |id|
+    end
+    redirect_to space_channel_path(params[:space_id], params[:id])
+  end
 
+  def member_accept
+    if user_signed_in?
+      content = Invitation.find_by!(user_id: current_user.id)
+      if(content)
+        space_id = content.space_id
+        channel_id = content.channel_id
+        Invitation.destroy(content.id)
+        redirect_to space_channel_path(space_id,channel_id)
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   private

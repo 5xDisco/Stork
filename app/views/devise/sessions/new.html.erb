@@ -1,5 +1,5 @@
 <div>
- <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
+  <%= form_for(resource, as: resource_name, url: user_session_path ) do |f| %>
   <div class="pt-8 flex justify-center">  
     <%= link_to root_path do %>
     <%= image_tag 'logo_index.png' %>
@@ -14,62 +14,56 @@
     <p class="py-2 text-xl text-center">
       建議使用你工作用的<span class="font-bold">電子郵件地址</span>。  
     </p>
+    
   </div>
   
- <div class="py-6 text-center  text-2xl blue-700  ">
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to " 使用Google登入 ", omniauth_authorize_path(resource_name, provider), method: :post , class: " px-4 py-2 border-solid border-4 border-blue-700  bg-red-200"  %>
-    <% end %>
-  </div>
-
-
-
-  <div class="mt-1">
-    <p class="text-center text-xl">
-      <%= f.label :帳號 %>
-    </p>
-
-    <p class="text-center text-3xl">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "輸入電子信箱", class: " text-xl px-4 py-2 border-solid border-4 border-blue-700 " %>
-    </p>
-  </div>
-
-  <div class="mt-8">
-    <p class="text-center text-xl">
-      <%= f.label :密碼 %>
-    </p>  
-
-    <p class="text-center text-3xl">
-      <%= f.password_field :password, autocomplete: "current-password",placeholder: "輸入密碼", class: "text-xl px-4 py-2 border-solid border-4 border-blue-700 " %>
-    </p>
-  
-    <div class="py-6 text-center  text-2xl text-purple-700 ">
-      <%= f.submit "登入" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="mt-10">
-
-    <p class="text-center text-xl">
-      第一次使用Stork嗎？
-    </p>
-  
-    <div class="mt-3 text-center text-2xl text-purple-600 actions">
-
-
+  <div>
+      <p class="text-right content-start text-xl">
+        第一次使用Stork嗎？
+      </p>
       
-    <div>
-
-
-    <div class="py-6 text-center  text-2xl text-purple-700 ">
       <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
         <%= link_to "註冊", new_registration_path(resource_name) , class: "bg-purple-300 p-15" %><br />
+      <% end %>f
+    </div>
+
+  
+  <div class="border-2 border-red-600 w-2/5 md:auto mx-auto">
+    <div class="pt-6 w-2/3  mx-auto">
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
+
+        <div class= "w-5 h-5 mr-4">
+          <%= image_tag 'google123', class: 'w-full h-full' %>
+        </div>
+        <p class='text-blue-600'>使用Google登入</p>
+        <% end%>
       <% end %>
     </div>
-      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= link_to "忘記密碼?", new_password_path(resource_name) %><br />
-      <% end %>
+
+
+    <div class="pt-8 mt-1">
+      <p class="w-2/3  mx-auto">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "請輸入電子信箱", class:"text-center text-xl border-2 rounded-md border-gray-500 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" %>
+      </p>
     </div>
-  </div>
+
+    <div class="pt- mt-8">
+      <p class="w-2/3  mx-auto">
+        <%= f.password_field :password, autocomplete: "current-password",placeholder: "請輸入密碼", class:"text-center text-xl border-2 rounded-md border-gray-500 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full"  %>
+      </p>
+    
+      <p class="pt-6 w-2/3  mx-auto">
+        <%= f.submit "登入", class:" bg-stork-blue text-white text-center text-xl  rounded-md  flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" %>
+      <% end %>
+    
+
+      <div class="pt-5 w-2/3 mx-auto text-right" >
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "忘記密碼?", new_password_path(resource_name), class: '' %><br />
+      <% end %>
+
+    </div>
+
+   </div>
 </div>

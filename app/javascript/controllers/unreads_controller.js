@@ -8,7 +8,9 @@ export default class extends Controller {
     this.username = document
       .querySelector("meta[name='nickname']")
       .getAttribute("content");
+
     console.log(this.username);
+
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
         this.data.get("id")
@@ -37,10 +39,12 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log(data);
-    let channelId = this.data.get("id");
-    let userId = this.data.get("userId");
 
-    if (data.channel_id == channelId && data.user_id != userId) {
+    let channelId = this.data.get("id");
+    let userId = this.data.get("userid");
+    console.log(userId);
+
+    if (data.channel_id === channelId) {
       let count = parseInt(this.unreadCountTarget.textContent);
 
       this.unreadCountTarget.classList.remove("invisible");
@@ -48,10 +52,7 @@ export default class extends Controller {
       this.unreadCountTarget.textContent = count + 1;
     }
 
-    if (
-      data.mentions &&
-      data.mentions.includes(data.mentions.includes(this.nickname))
-    ) {
+    if (data.mentions && data.mentions.includes(this.username)) {
       this.notify(data.content);
     }
   }
@@ -61,6 +62,8 @@ export default class extends Controller {
       console.error("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
       var notification = new Notification(message);
+    } else {
+      console.log("Can't call this mathod");
     }
   }
 }

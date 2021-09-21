@@ -103,23 +103,19 @@
       <div data-controller="baritem" data-baritem-target="center">
         <!-- 頻道列表開始 -->
         <%# <ul> %>
-          <% channels.each do |c| %>
-          <% icon = c.is_public == "private_channel" ? "&" : "#" %>
-          <% name = c["name"] %>
-          <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
-              <%= link_to "#{icon} #{name}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
+            <% channels.each do |c| %>
+            <% icon = c.is_public == "private_channel" ? "&" : "#" %>
+            <% name = c["name"] %>
+            <div class="user-state-list bg-teal-dark py-1 px-4 text-white" data-controller="unreads" data-unreads-id="<%= c.id %>" >
+                <%= link_to "#{icon} #{name}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white"%>
 
-              <% if c.has_unread_message?(current_user, @space)%>
-
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-unreads-target="unreadCount" data-unreads-userId="<%= current_user.id %>"><%= c.unread_message_count(current_user) %></div>
-
-              <% elsif %>
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount" data-unreads-userId="<%= current_user.id %>">0</div>
-
-              <% end %>
-              
-            </div>
-          <% end %>
+                <%#if c.unread_message_count(current_user).to_i > 0 %>
+                  <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount" data-unreads-userid="<%= current_user.id %>"><%= c.unread_message_count(current_user) %></div>
+                <%# elsif c.unread_message_count(current_user).to_i == 0 %>
+                  <!-- <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount" data-unreads-userId="<%= current_user.id %>">0</div> -->
+                <%# end %>
+              </div>
+            <% end %>
           <div><%= link_to "+ 新增頻道", new_space_channel_path, remote: true %></div>
         <%# </ul> %>
         <!-- 頻道列表結束 -->
@@ -145,7 +141,6 @@
     <div class="stork-list-func px-4 mb-2 text-white flex justify-between items-center">
       <div class="opacity-75"><i class="fa fa-caret-down" aria-hidden="true"></i><i class="fas fa-caret-right"></i>空間成員<i class="far fa-plus-square"></i></div>
     </div>
-  <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
       <!-- 頻道開始 -->
       <div class="space-users-list">
         <!-- 頻道列表開始 -->

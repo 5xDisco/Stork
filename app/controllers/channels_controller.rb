@@ -74,7 +74,6 @@ class ChannelsController < ApplicationController
       @errors = @channel.errors.full_messages
   end
 
-
   def member
     channel = Channel.find(params[:id])
     if (channel.is_public == true)
@@ -82,7 +81,6 @@ class ChannelsController < ApplicationController
     else
       @members = channel.users
     end
-
     #UserChannel.where(channel_id: params[:id]).users
   end
 
@@ -141,7 +139,7 @@ class ChannelsController < ApplicationController
   end
 
   private
-  #先準備好到時改
+  # TODO: 先準備好到時改
   def find_user_channel
     @channel = current_user.channels.find(params[:id])
   end
@@ -166,6 +164,13 @@ class ChannelsController < ApplicationController
   def find_lobby_channel
     @lobby_channel = Space.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
   end
+
+  def find_public_channel
+    spaces = current_user.spaces
+    space_public_channels = []
+      @spaces.each do |space|
+        space_public_channels << space.channels.public_channels
+      end
+    @space_public_channels = space_public_channels.flatten
+  end
 end
-
-

@@ -4,6 +4,7 @@ class ChannelsController < ApplicationController
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
   before_action :find_lobby_channel, only:[:show]
+  before_action :find_public_channel, only:[:show]
   
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
@@ -169,7 +170,7 @@ class ChannelsController < ApplicationController
     spaces = current_user.spaces
     space_public_channels = []
       @spaces.each do |space|
-        space_public_channels << space.channels.public_channels
+        space_public_channels << space.channels.lobby_channels
       end
     @space_public_channels = space_public_channels.flatten
   end

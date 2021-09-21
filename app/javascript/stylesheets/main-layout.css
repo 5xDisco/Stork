@@ -213,7 +213,8 @@ input.inp-space-search:focus {
 }
 
 .stork-list-group:hover,
-#space-channel-list div:hover,
+/*#space-channel-list div:hover,*/
+/*.channel-menu div:hover,*/
 #space-users-list div:hover {
 	background-color: #3e5367;
 }
@@ -223,7 +224,8 @@ input.inp-space-search:focus {
 }
 
 .stork-list-group a:hover,
-#space-channel-list div:hover,
+/*#space-channel-list div:hover,*/
+/*.channel-menu div:hover,*/
 #space-users-list div:hover,
 .channel-list a {
 	text-decoration: none;
@@ -251,12 +253,12 @@ input.inp-space-search:focus {
 	border-bottom: 1px solid #EDEDED;
 }
 
-div.user-profile-icon-group:hover,
+/*div.user-profile-icon-group:hover,
 div.user-profile-icon-group div:hover {
 	cursor: auto;
 background-color: #FFF;
 
-}
+}*/
 
 
 .current-space-info {

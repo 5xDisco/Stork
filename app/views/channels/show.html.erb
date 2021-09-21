@@ -22,96 +22,129 @@
             </span>
           </div>
           <!-- End of  space-search-group-->
-    <!-- ＴＯＰ 最右側的頭像 User Avatar -->
-    <div class="online-user">
-      <span tabindex="0" class="sp-user-avatar">
-        <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
-      </span> 
-      
-      <div id="user-profile-list" class="stork-dropdown-common " tabindex="0">
-        <div class="user-profile-icon-group flex ">
-          <span>
-            <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
-          </span>
-          <div class="user-status-group">
-            <span class="user-profile-name">##current_user##</span>
-            <span class="user-profile-status">##current_user_status##</span>
+          <!-- </div> -->
+
+          <!-- ＴＯＰ 最右側的頭像 User Avatar -->
+          <div class="online-user flex-grow flex justify-end items-center">
+            <span tabindex="0" class="sp-user-avatar">
+              <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
+            </span> 
+
+            <!-- hidden list - User profile list -->
+            <div id="user-profile-list" class="stork-dropdown-common" tabindex="0">
+              <div class="user-profile-icon-group flex justify-evenly items-center">
+                <div>
+                  <img src="http://fakeimg.pl/48x48/00CED1/FFF/?text=A">
+                </div>
+                <div class="user-status-group">
+                  <span class="user-profile-name block">##current_user##</span>
+                  <span class="user-profile-status block">##current_user_status##</span>
+                </div>
+              </div>
+              <div><span class="user-status-update">更新你的狀態</span></div>
+              <div><span>將你自己設定為##user_status_name##</span></div>
+              <div><span>編輯個人檔案</span></div>
+              <div><span>檢視個人檔案</span></div>
+              <div><span>偏好設定</span></div>
+              <div><span>登出##space_name##</span></div>
+            </div>
+            <!-- End of User profile list -->
+          </div>
+          <!-- End of User Avatar -->
+
+
+          <!-- </div>  -->
+          <!-- End of Stork wrapper -->
+        </div>
+        <!-- 0 TOP 最上層 搜尋 end -->
+
+
+        <!-- dialog 編輯個人檔案 -->
+<!--         <div class="wallpaper hidden" data-controller="channelbox" data-channelbox-target="page">
+          <div class="dialog-box">
+            <h2>編輯個人檔案</h2>
+            <button data-action="click->channelbox#close" class="close" >X</button>
+
+            <form action="POST" class="flex justify-center items-center outline-black">
+
+              <div class="current-user-name outline-black m-4">
+                <label for="inp-current-user-name" class="block my-2">全名
+                  <input type="text" id="inp-current-user-name" class="block border-grey-light border-2" placeholder="全名">
+                </label>
+                <label for="inp-current-user-nickname" class="block">顯示名稱
+                  <input type="text" id="inp-current-user-nickname" class="block border-black border-2" placeholder="顯示名稱">
+                </label>
+              </div>
+
+              <div class="current-user-avatar-group py-3">
+                <div class="outline-black p-2"><img src="http://fakeimg.pl/192x192/00CED1/FFF/?text=User"></div>
+                <div class="py-3">
+                  <button class="w-full py-1 my-2 border-2 border-gray-200">上傳影像</button>
+                  <button class="w-full py-1 my-2  border-2 border-gray-200">移除相片</button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div> -->
+        <!-- End of dialog 編輯個人檔案 -->
+
+
+
+
+
+
+        <!-- 公版開始 -->
+        <div class="outer-panel container font-sans antialiased h-screen">
+          <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+          <div class="space-icons-panel flex-none w-20 p-4 md:block">
+
+            <div class="space-icon-group cursor-pointer mb-4">
+              <div
+              class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+              <img src="#" alt="">
+              ST
+            </div>
+          </div>
+
+          <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
+          <div class="cursor-pointer">
+            <div
+            class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+            </svg>
           </div>
         </div>
-        <div><span class="user-status-update">更新你的狀態</span></div>
-        <div><span>將你自己設定為##user_status_name##</span></div>
-        <div><span>編輯個人檔案</span></div>
-        <div><span>檢視個人檔案</span></div>
-        <div><span>偏好設定</span></div>
-        <div><span>登出##space_name##</span></div>
-      </div>
-    </div>
-  </div>    
-</div>
-<!-- 0 TOP 最上層 搜尋 end -->
-
-
-<!-- 公版開始 -->
-<div class="outer-panel container font-sans antialiased h-screen">
-    <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
-    <div class="space-icons-panel flex-none w-24 p-6 md:block">
-
-        <div class="space-icon-group cursor-pointer mb-4">
-            <div
-                class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-                <img src="#" alt="">
-                ST
-            </div>
-        </div>
-
-        <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
-        <div class="cursor-pointer">
-            <div
-                class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-                <i class="fas fa-plus"></i>
-            </div>
-        </div>
         <!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
-    </div>
-  </div>
-  
-  <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
-  <div class="cursor-pointer">
-    <div
-    class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-      <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-    </svg>
-  </div>
-</div>
-<!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
-</div>
-<!-- 1 end -->
+      </div>
+      <!-- 1 end -->
 
-    <!-- 側邊欄部分開始 -->
-    <%= render "shared/sidebar", channels: @channels, lobby_channel: @lobby_channel %>
-    <!-- 側邊欄部分結束 -->
-<%# </div> %>
+      <!-- 側邊欄部分開始 -->
+      <%= render "shared/sidebar", channels: @channels, lobby_channel: @lobby_channel %>
+      <!-- 側邊欄部分結束 -->
+      <%# </div> %>
 
-<div class="stork-panel flex flex-col flex-1 bg-white overflow-hidden"  data-controller="channel" data-channel-channelid=<%= @channel.id %> data-channel-spaceid=<%= @space.id %>>
-  
-  <!-- 2 start -->
-  <!-- Top bar -->
-  <div class="space-target-title border-b items-center flex-none bg-gray">
-    
-    <div class="flex justify-between items-center">
-      <div class="flex flex-col">
-        <h3 class="mb-1 font-extrabold">
-          <% if @channel.direct_message %>
-          <%= @recipient.name %>
-          <% else %>
-          <%= @channel.name %>
-          <% end %>
-          <i class="fa fa-bell-o" aria-hidden="true"></i>
-          <!-- <i class="fa fa-bell-slash-o" aria-hidden="true"></i> -->
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
-        </h3>
+      <div class="stork-panel flex flex-col flex-1 bg-white overflow-hidden"  data-controller="channel" data-channel-channelid=<%= @channel.id %> data-channel-spaceid=<%= @space.id %>>
+
+        <!-- 2 start -->
+        <!-- Top bar -->
+        <div class="space-target-title border-b items-center flex-none bg-gray">
+
+          <div class="flex justify-between items-center">
+            <div class="flex flex-col">
+              <h3 class="mb-1 font-extrabold">
+                <% if @channel.direct_message %>
+                <%= @recipient.name %>
+                <% else %>
+                <%= @channel.name %>
+                <% end %>
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                <!-- <i class="fa fa-bell-slash-o" aria-hidden="true"></i> -->
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+              </h3>
         <!--      <div class="text-grey-dark text-sm truncate">
           Chit-chattin' about ugly HTML and mixing of concerns.
         </div> -->

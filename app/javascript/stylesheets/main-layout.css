@@ -158,7 +158,7 @@ input.inp-space-search:focus {
 	color: #EDEDED ;
 }
 
-.group-stork-func {
+.group-stork-func, .browse-channels, .browse-users {
 	color: #A1E2D9;
 }
 
@@ -201,18 +201,20 @@ input.inp-space-search:focus {
 
 #dropdown-stork-list {
 	/* border: 1px solid #DEDEDE; */
-	color:#FFF;
+	/*color:#FFF;*/
 	z-index: 10;
 	border-radius: 5px;
 	cursor: pointer;
 }
 
 /* 瀏覽 Stork 下拉列表 */
-.stork-list-group {
+.stork-list-group, #space-channel-list {
 	color: #dedede;
 }
 
-.stork-list-group:hover {
+.stork-list-group:hover,
+#space-channel-list div:hover,
+#space-users-list div:hover {
 	background-color: #3e5367;
 }
 
@@ -220,16 +222,17 @@ input.inp-space-search:focus {
 	padding: 6px 10px 2px;
 }
 
-.stork-list-group a:hover{
+.stork-list-group a:hover,
+#space-channel-list div:hover,
+#space-users-list div:hover,
+.channel-list a {
 	text-decoration: none;
 	color: #dedede;
 }
 
 
 
-.stork-dropdown-common div:hover,
-.stork-list-func:hover, 
-.user-state-list:hover {
+.stork-dropdown-common div:hover {
 	background-color: #DEDEDE;
 }
 
@@ -303,15 +306,13 @@ background-color: #FFF;
 	cursor: pointer;
 }
 
-.user-state-list a {
-  color: #2a3f54;
+.user-state-list a{
+  color: #fff;
 }
 
 
 
-.stork-list-func:hover, 
-.user-state-list:hover,
-.user-state-list a:hover {
+.stork-list-func:hover{
   color: #2a3f54;
 }
 

@@ -8,18 +8,18 @@ jQuery(function () {
 		toggleList("caret-browse-channel","space-channel-list");
 	});
 
-	$(".browse-messages").on("click", function(e){
-		toggleList("caret-browse-msg","users-state-list");
+	$(".browse-users").on("click", function(e){
+		toggleList("caret-browse-msg","space-users-list");
 	});
 
 	$("#open-all-channels").on("click", function(e){
-		alert(2);
+		// alert(2);
 	});
 
 	// TODO  私訊右邊＋號，跟點擊所有私訊 開啟同樣的畫面
   // TEST
 	$("#open-all-messages").on("click", function(e){
-		alert(1);
+		// alert(1);
 	});
 
 	$(".invite-user").on("click",function(e){

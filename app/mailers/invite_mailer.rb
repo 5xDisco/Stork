@@ -1,16 +1,11 @@
 class InviteMailer < ApplicationMailer
-    def invite(user)
-        @user = user
-        mail to:@user .email, subject:"邀請你加入Stork的行列"
-    end
-
-    def create
-        @user = User.new(user_params)
-        if @user.save
-            InviteMailer.invite(@user).deliver_now
-            redirect_to(@user), notice: '已邀請新User'
-        else 
-            render :new
+    def invite(user: nil, email: nil)
+        if user 
+        @user = user.email
+        mail to: @user.email.to_s, subject:"邀請你加入Stork的行列"
+        else
+        @user = email
+        mail to: email.to_s, subject:"邀請你加入Stork的行列"
         end
     end
 end

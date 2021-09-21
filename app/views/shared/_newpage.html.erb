@@ -1,35 +1,42 @@
-
-    <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
-        <div class="dialog-box">
-            <h2>建立頻道</h2>
-            <button data-action="click->channelbox#close" class="close" >X</button>
-            <h4>頻道是你的團隊進行通訊的地方。以主題來分類頻道最有效，舉例來說，#行銷。</h4>
-
-            <%= form_for channel, url: space_channels_path, method: "POST", remote: true do |f| %>
-            <p><%= f.hidden_field :space_id %></p>
-            <p><%= f.hidden_field :is_public %></p>
-            <p>
-                <%= f.label :name, "名稱", "id"=>"nameerror" %> 
-                <span class="error">頻道名稱為必填！！！</span> <br>
-                <%= f.text_field :name, "id"=>"nameerror" %>
-            </p>
-
-            <p>
-                <%= f.label :topic, "主題(選填)" %> <br>
-                <%= f.text_field :topic %>
-            </p>
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">	
+    <div class="dialog-box">	
+        <h2 class="text-3xl pt-4 pb-4">建立頻道</h2>	
+        <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl" >×</button>	
+        <h4 class="pb-4 text-gray-400">頻道是你的團隊進行通訊的地方。以主題來分類頻道最有效，舉例來說，#行銷。</h4>	
+        <%= form_for channel, url: space_channels_path, method: "POST", remote: true do |f| %>	
+        <p><%= f.hidden_field :space_id %></p>	
+        <p><%= f.hidden_field :is_public %></p>	
+        <p>	
+            <%= f.label :name, "名稱", "id"=>"nameerror", "class"=>"font-bold" %> 	
+            <span class="error font-bold">頻道名稱不可為空或是與已存在頻道同名</span> <br>	
+            <%= f.text_field :name, "id"=>"nameerror", "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4", "placeholder"=>"例如：方案預算"%>	
+        </p>	
+        <p>	
+            <%= f.label :topic, "主題(選填)", "class"=>"font-bold" %> <br>	
+            <%= f.text_field :topic, "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4"%>	
+        </p>	
     
-            <p>
-                <%= f.label :description, "說明(選填)" %> <br>
-                <%= f.text_area :description %>
-            </p>
+        <p>	
+            <%= f.label :description, "說明(選填)", "class"=>"font-bold" %> <br>	
+            <%= f.text_area :description,"class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4","rows"=>"4" %>	
+         </p>	
+        <p class="font-bold mb-2">頻道權限</p>
+        
 
-            <p>此頻道的內容是什麼？</p>
-    
-            <%= f.submit "送出" %>
-            
-            <% end %>
-            
-        </div>
-    </div>
+        <p>
+            <%= radio_button_tag(:is_public, "public", true) %>
+            <%= label_tag(:is_public_public, "公開頻道", class: "font-bold") %>
+            <%= radio_button_tag(:is_public, "private") %>
+            <%= label_tag(:is_public_private, "私人頻道", class: "font-bold") %>
+        </p>
 
+        
+
+        <p class="relative">
+            <%= f.submit "建立", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded absolute -top-10 right-0" %>	
+        </p>
+
+        <% end %>	
+            
+    </div>	
+</div>

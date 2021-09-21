@@ -8,4 +8,5 @@ ActiveStorage.start();
 import "../stylesheets/application";
 import "../channels";
 import "../spaces";
+import "../main";
 import "../controllers";

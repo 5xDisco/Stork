@@ -98,12 +98,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.org',
+    address:              ENV['smtp_address'],
     port:                  587,
-    domain:               'localhost:3000',
+    domain:               'http://storkapp.tw/',
     authentication:       'plain',
-    user_name:            '',
-    password:             '',
+    user_name:            ENV['smtp_username'],
+    password:             ENV['smtp_password'],
     enable_starttls_auto: true
   }
 

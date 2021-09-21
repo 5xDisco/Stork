@@ -14,7 +14,6 @@ export default class extends Controller {
         left: e.pageX,
         top: e.pageY,
       };
-
       if (e.target.id == "item") {
         changelinkid(e.target.dataset.chanid);
         setPosition(origin);
@@ -28,13 +27,12 @@ export default class extends Controller {
 
     const changelinkid = (id) => {
       let idAry = id.split(",");
-
       console.log("leave channel id" + id); // channel id 用於變更 linkpath 物件 hrer 網址
       this.deletepathTarget.href = `/spaces/${idAry[0]}/leave/${idAry[1]}`;
       this.editpathTarget.href = `/spaces/${idAry[0]}/channels/${idAry[1]}/edit`;
     };
 
-    window.addEventListener("click", (e) => {
+    menu.addEventListener("click", (e) => {
       hideMenu();
     });
 
@@ -46,7 +44,6 @@ export default class extends Controller {
     const setPosition = ({ top, left }) => {
       menu.style.left = `${left}px`;
       menu.style.top = `${top}px`;
-
       toggleMenu("show");
     };
 

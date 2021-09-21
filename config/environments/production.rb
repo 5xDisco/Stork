@@ -71,7 +71,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV["WEB_PATH"]} #production的絕對網址
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  config.action_mailer.smtp_settings = {
+  config_for(:email).symbolize_keys = {
     address: "smtp.gmail.com",
     port: 587,
     domain: "gmail.com",

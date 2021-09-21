@@ -35,10 +35,10 @@
   <div class="space-icons-panel flex-none w-24 p-6 md:block">
 
     <div class="space-icon-group cursor-pointer mb-4">
-      <% @channels.each do |channel| %>
+      <% @space_public_channels.each do |mall| %>
         <div
           class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-          <%= link_to channel.space.name, space_channel_path(space_id: channel.space_id, id: channel.id) %>
+          <%= link_to mall.space.name, space_channel_path(space_id: mall.space_id, id: mall.id) %>
         </div>
         <% end %>
     </div>

@@ -6,12 +6,12 @@ class ChannelsController < ApplicationController
   before_action :set_space, only:[:show]
   
   def show
-    @spaces = current_user.spaces
-    spaces = []
-      @spaces.each do |s|
-        spaces << s.channels.public_channels
+    spaces = current_user.spaces
+    space_public_channels = []
+      @spaces.each do |space|
+        space_public_channels << space.channels.public_channels
       end
-      @channels = spaces.flatten
+    @space_public_channels = space_public_channels.flatten
   end
 
   def leave

@@ -70,6 +70,7 @@ hr {
 .stork-nav > div {
 	margin: 0px 20px;
 	align-items: center;
+	/*flex-grow: 1;*/
 }
 
 

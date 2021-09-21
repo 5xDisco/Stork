@@ -45,19 +45,19 @@
 
 **陳曜東**
 >+ Email: cyd2258@gmail.com
->+ Github ID:Jimmy-Chen-2B
+>+ GitHub ID:Jimmy-Chen-2B
 
 **林琪芮**
 >+ Email: cclok922@gmail.com
->+ Github ID:linchiquei
+>+ GitHub ID:linchiquei
 
 **李徽典**
 >+ Email: nh@g-mail.nsysu.edu.tw
->+ Github ID: KtKeaton
+>+ GitHub ID: KtKeaton
 
 **王亭樺**
 >+ Email: 4000p049@gmail.com
->+ Github ID:Doreme2021
+>+ GitHub ID:Doreme2021
 
 **王安祺**
 >+ Email: contrary.ak@gmail.com

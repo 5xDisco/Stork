@@ -38,7 +38,7 @@
       <% @space_public_channels.each do |mall| %>
         <div
           class="bg-white h-12 w-12 flex items-center justify-center text-black text-sm font-semibold rounded-lg mb-1 overflow-hidden">
-          <%= link_to mall.space.name, space_channel_path(space_id: mall.space_id, id: mall.id) %>
+          <%= link_to  mall.space.name, space_channel_path(space_id: mall.space_id, id: mall.id) %>
         </div>
         <% end %>
     </div>
@@ -46,7 +46,7 @@
     <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
     <div class="cursor-pointer">
       <div
-        class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+        class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden hidden">
         <i class="fas fa-plus"></i>
       </div>
     </div>

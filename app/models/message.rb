@@ -5,7 +5,7 @@ class Message < ApplicationRecord
   after_create :process_mentions
 
   def process_mentions
-    UnreadsChannel.broadcast_to channel, { mentions: mentioned_nicknames, content: content }
+    UnreadsChannel.broadcast_to channel, { mentions: mentioned_nicknames, content: content, user_id: user_id }
   end
 
   def mentioned_users

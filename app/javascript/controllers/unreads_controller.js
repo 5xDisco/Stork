@@ -37,8 +37,10 @@ export default class extends Controller {
 
   _cableReceived(data) {
     console.log(data);
-    let channel_id = this.data.get("id");
-    if (data.channel_id == channel_id) {
+    let channelId = this.data.get("id");
+    let userId = this.data.get("userId");
+
+    if (data.channel_id == channelId && data.user_id != userId) {
       let count = parseInt(this.unreadCountTarget.textContent);
 
       this.unreadCountTarget.classList.remove("invisible");

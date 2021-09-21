@@ -110,10 +110,10 @@
 
               <% if c.has_unread_message?(current_user, @space)%>
 
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-unreads-target="unreadCount"><%= c.unread_message_count(current_user) %></div>
+                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-unreads-target="unreadCount" data-unreads-userId="<%= current_user.id %>"><%= c.unread_message_count(current_user) %></div>
 
-              <% else %>
-                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount">0</div>
+              <% elsif %>
+                <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block invisible" data-unreads-target="unreadCount" data-unreads-userId="<%= current_user.id %>">0</div>
 
               <% end %>
               
@@ -150,7 +150,7 @@
         <!-- 頻道列表開始 -->
           <% @space.users.each do |user| %>
           <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
-              <%= link_to "#{user.name}", space_direct_message_path(@space.id, user.id), class: "user-state-list bg-teal-dark py-1 px-4 text-white", data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
+              <%= link_to "#{user.nickname}", space_direct_message_path(@space.id, user.id), class: "user-state-list bg-teal-dark py-1 px-4 text-white", data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
               <% if user.online? %>
                 <div class="online-status w-3 h-3 inline-block rounded-full bg-green-500" , data-id="<%= user.id %>"></div>
               <% else %>

@@ -22,8 +22,9 @@ Rails.application.routes.draw do
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"
 
-  get "/member/add/:id", to: "channels#memberadd", as: "member_add"
-  post "/member/add/:id", to: "channels#memberdoadd", as: "member_add_post"
+  get "/member/:space_id/add/:id", to: "channels#member_add", as: "member_add"
+  post "/member/:space_id/add/:id", to: "channels#member_doadd", as: "member_add_post"
+  get "/welcome", to: "channels#member_accept", as: "member_accept"
 
   get "/spaces/:space_id/setting/:id", to: "channels#setting", as: "setting"
 

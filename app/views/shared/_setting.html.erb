@@ -2,24 +2,26 @@
 
     <%= form_for channel, url: space_channel_path, method: "PATCH", remote: true do |f| %>
 
-    <% if channel.is_public != 1 %>
+    <% if channel.is_public != 'lobby_channel' %>
     <p>
-        <%= f.label :name, "名稱", "id"=>"nameerror" %> 
-        <span class="error">頻道名稱為必填！！！</span> <br>
-        <%= f.text_field :name, "id"=>"nameerror" %>
+        <%= f.label :name, "名稱", "id"=>"nameerror", "class"=>"font-bold" %> 	
+        <span class="error font-bold">頻道名稱不可為空或是與已存在頻道同名</span> <br>
+        <%= f.text_field :name, "id"=>"nameerror", "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4"%>	
     </p>
     <% end %>
 
     <p>
-        <%= f.label :topic, "主題" %> <br>
-        <%= f.text_field :topic %>
+        <%= f.label :topic, "主題(選填)", "class"=>"font-bold" %> <br>	
+        <%= f.text_field :topic, "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4"%>	
     </p>
 
     <p>
-        <%= f.label :description, "說明" %> <br>
-        <%= f.text_area :description %>
+        <%= f.label :description, "說明(選填)", "class"=>"font-bold" %> <br>	
+        <%= f.text_area :description,"class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4","rows"=>"4" %>	
     </p>
 
-    <%= f.submit "送出" %>
+    <p class="flex justify-end">
+        <%= f.submit "更改", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded" %>	
+    </p>
     
     <% end %>

@@ -5,6 +5,11 @@ class ChannelsController < ApplicationController
   before_action :set_space, only:[:show]
   
   def show
+    @user_channel = current_user.user_channels.find_by(channel: @channel)
+    @last_read_at = @user_channel&.last_read_at || @channel.created_at
+    @user_channel&.touch(:last_read_at)
+
+    
   end
 
   def leave
@@ -44,13 +49,13 @@ class ChannelsController < ApplicationController
     if @channel.update(channel_params)
       redirect_to space_channel_path(id: @channel.id)
     end
-    @errors = @channel.errors.full_messages
+      @errors = @channel.errors.full_messages
   end
 
 
   def member
     channel = Channel.find(params[:id])
-    if(channel.is_public == true)
+    if (channel.is_public == true)
       @members = Space.find(channel.space_id).users 
     else
       @members = channel.users
@@ -98,7 +103,7 @@ class ChannelsController < ApplicationController
   end
 
   def set_space
-    @space = Space.find(params[:space_id])
+    @space = current_user.spaces.find(params[:space_id])
   end
 end
 

@@ -22,6 +22,7 @@ export default class extends Controller {
         received: this._cableReceived.bind(this),
       }
     );
+    this.scrollToBottom();
   }
 
   disconnect() {
@@ -37,10 +38,14 @@ export default class extends Controller {
   }
 
   _cableReceived(data) {
+    console.log(data);
     console.log("_cableReceived");
-    console.log(data.message);
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
+
+      if (!document.hidden) {
+        this.channel.perform("touch");
+      }
     }
     this.scrollToBottom();
   }

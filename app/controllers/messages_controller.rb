@@ -3,13 +3,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = @channel.messages.create(message_params)
-    # MessageChannel.broadcast_to @channel, message: render_to_string(@message)
+    MessageChannel.broadcast_to @channel, message: render_to_string(@message)
+    UnreadsChannel.broadcast_to @channel, {}
   end
 
   private
 
   def set_channel
-     @channel = current_user.channels.find(params[:channel_id])
+    @channel = current_user.channels.find(params[:channel_id])
   end
 
   def message_params

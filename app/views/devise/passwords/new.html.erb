@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <div class="pt-10 text-2xl"> 
+  <div class="pt-12 text-xl"> 
     忘記密碼?
   </div>
 
@@ -18,17 +18,24 @@
     <%= render "devise/shared/error_messages", resource: resource %>
   </div>
   
-  <div class="pt-10 field ">
-    <%= f.label :email ,class:"text-2xl text-purple-900"%><br>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "border-solid border-4 border-purple-700 border-light-purple-400 "%>
+   <div class="w-2/3 md:w-1/3 mx-auto py-4 text-center">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "請輸入電子信箱", class: "signupInput" %>
   </div>
 
-  <div class="pt-10 actions">
+
+  <div class="w-2/3 md:w-1/3 mx-auto py-8 text-center ">
     <p class="text-xl">發送重置密碼通知</p>
-    <div class="pt-10">
-      <%= f.submit "發送" ,class: "text-xl border-solid border-4 bg-purple-400 border-purple-700 border-light-purple-400" %>
+    <div class="pt-4">
+      <%= f.submit "發送" ,class: "text-white signupInput bg-stork-blue" %>
       <% end %>
     </div>
+
+    <div class="pt-5 text-right" >
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "登入", new_session_path(resource_name), class: '' %>
+        <% end %>
+    </div>
+
   </div>
 
 </div>

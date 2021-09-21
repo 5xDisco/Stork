@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :channels, through: :user_channels
   #與 message 的關聯
   has_many :messages, dependent: :destroy
-  
   def name
     email.split('@')[0]
   end
@@ -23,5 +22,14 @@ class User < ApplicationRecord
       user.provider = provider_data.provider
       user.uid = provider_data.uid
     end
+  end
+
+  def self.online
+    ids = ActionCable.server.pubsub.redis_connection_for_subscriptions.smembers "online"
+    where(id: ids)
+  end
+
+  def online?
+    User.online.ids.include?(id)
   end
 end

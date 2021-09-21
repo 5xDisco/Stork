@@ -1,0 +1,2 @@
+document.querySelector(".dialog-content").innerHTML = "";
+document.querySelector(".dialog-content").insertAdjacentHTML('beforeend','<%= j render(partial: "shared/memberadd",locals: { channel: @channel, userchannel: @userchannel, spaceusers: @spaceusers  } ) %>');

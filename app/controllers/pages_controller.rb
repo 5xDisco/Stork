@@ -4,14 +4,31 @@ class PagesController < ApplicationController
 
   def home
     if user_signed_in?
+      invites = Invitation.where(invite_email: current_user.email, status: 'space')
+      if invites 
+        invites.each do |con|
+          space = current_user.spaces.find_by(id: con.space_id)
+          unless space
+            UsersSpace.create(user_id: current_user.id, space_id: con.space_id)
+            c = current_user.spaces.find_by(id: con.space_id).channels.where(direct_message:false)
+            channels = c.where.not(is_public:'private_channel')
+            channels.each do |c|
+              unless current_user.channels.find_by(id: c.id, space_id: con.space_id)
+                UserChannel.create(user_id: current_user.id, channel_id: c.id)
+              end
+            end
+          end
+          Invitation.destroy(con.id)
+        end
+      end
+
       @spaces = current_user.spaces
       spaces = []
       @spaces.each do |s|
-          # s.channels.where(is_public: true)
-          spaces << s.channels.public_channels
+        spaces << s.channels.lobby_channels
       end
-      
       @channels = spaces.flatten
+      
     end
   end
 
@@ -21,10 +38,8 @@ class PagesController < ApplicationController
 
   def step2
     @space = current_user.spaces.last
-    @channel = current_user.channels.new;
-    @channel.space_id = @space.id
-    @channel.is_public = false
-    public_space = Channel.create(name: "公開區", is_public: true, space_id: @space.id);
+    @channel = current_user.channels.new(space_id: @space.id, is_public: 'private_channel')
+    lobby_channel = current_user.channels.create(name: "公開區", is_public: 'lobby_channel', space_id: @space.id);
   end
 
   def step3
@@ -39,9 +54,9 @@ class PagesController < ApplicationController
 
 
   def invite
-    # 觸發本方法，開始寄信
-    @invite = ContactMailer.invite(email_field).deliver_now
-    redirect_to channel_path(@channel.id), notice: '成功邀請'
+    # 為實作此
+    # @invite = ContactMailer.invite(email_field).deliver_now
+    # redirect_to channel_path(@channel.id), notice: '成功邀請'
   end
 
   def edit
@@ -61,7 +76,6 @@ class PagesController < ApplicationController
   end
 
   def find_space
-      # byebug
     @space = Space.find_by(id: params[:id])
   end
 

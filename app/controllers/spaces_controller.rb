@@ -11,7 +11,6 @@ class SpacesController < ApplicationController
     if current_user.save
         redirect_to stork_step2_path
     else
-        flash[:notice] = "新增失敗"
         redirect_to stork_step1_path
     end
   end

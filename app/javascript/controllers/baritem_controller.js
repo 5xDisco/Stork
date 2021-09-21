@@ -8,7 +8,7 @@ export default class extends Controller {
         const menu =  this.menuTarget;
         //const menuOption =  this.menuoptionsTarget;
         let menuVisible = false;
-        
+
         this.centerTarget.addEventListener("contextmenu", e => {
             
                 e.preventDefault();
@@ -37,7 +37,7 @@ export default class extends Controller {
             this.editpathTarget.href = `/spaces/${idAry[0]}/channels/${idAry[1]}/edit`;
           };
 
-          window.addEventListener("click", e => {
+          menu.addEventListener("click", e => {
             hideMenu();
           });
 

@@ -29,17 +29,11 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {
-    console.log("_cableConnected");
-  }
+  _cableConnected() {}
 
-  _cableDisconnected() {
-    console.log("_cableDisconnected");
-  }
+  _cableDisconnected() {}
 
   _cableReceived(data) {
-    console.log(data);
-    console.log("_cableReceived");
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
 

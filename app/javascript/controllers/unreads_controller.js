@@ -5,6 +5,10 @@ export default class extends Controller {
   static targets = ["unreadCount"];
 
   connect() {
+    this.username = document
+      .querySelector("meta[name='nickname']")
+      .getAttribute("content");
+    console.log(this.username);
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
         this.data.get("id")
@@ -27,16 +31,11 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {
-    console.log("_cableConnected");
-  }
+  _cableConnected() {}
 
-  _cableDisconnected() {
-    console.log("_cableDisconnected");
-  }
+  _cableDisconnected() {}
 
   _cableReceived(data) {
-    console.log("_cableReceived");
     console.log(data);
     let channel_id = this.data.get("id");
     if (data.channel_id == channel_id) {
@@ -47,7 +46,10 @@ export default class extends Controller {
       this.unreadCountTarget.textContent = count + 1;
     }
 
-    if (data.mentions) {
+    if (
+      data.mentions &&
+      data.mentions.includes(data.mentions.includes(this.nickname))
+    ) {
       this.notify(data.content);
     }
   }

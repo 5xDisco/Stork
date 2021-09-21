@@ -1,6 +1,9 @@
 <% if !@bar_shown && @last_read_at && @last_read_at < message.created_at && message.user_id != current_user.id %>
-  <% @bar_shown == true %>
-  <div class="border-b-2 border-red-500 mb-1"></div>
+  <% @bar_shown = true %>
+  <div class='flex text-right divide'>
+    <span class='pl-2 h-0 border-b-0 border-t-2 block flex-grow border-red-600 my-auto'></span>
+    <span class="pl-3 pr-3">您有未讀訊息</span>
+  </div>
 <% end %>
 
 <div class="flex items-start mb-4 text-sm">

@@ -96,12 +96,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  Rails.application.routes.default_url_options[:host] = 'https://storkstork.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'http://www.storkapp.tw'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              ENV['smtp_address'],
     port:                  587,
-    domain:               'storkstork.herokuapp.com',
+    domain:               'storkapp.tw',
     authentication:       'plain',
     user_name:            ENV['smtp_username'],
     password:             ENV['smtp_password'],

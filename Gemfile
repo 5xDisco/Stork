@@ -25,7 +25,7 @@ gem 'redis', '~> 4.0'
 gem "paranoia", "~> 2.2"
 # 新增登入系統套件
 gem 'devise', '~> 4.8'
-
+gem 'mailgun-ruby', '~> 1.2', '>= 1.2.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -35,6 +35,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'figaro'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

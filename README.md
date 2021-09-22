@@ -1,48 +1,67 @@
-**Stork**
 ===
 
->Demo 網址:  (TODO).    
->Stork 網站網頁示意圖 (TODO)
+- Demo 網址: http://storkapp.tw/
+
+- Stork 網站網頁示意圖 (TODO)
 
 ---
 
-## **目錄**
-
-- [專案初始化](https://github.com/5xDisco/Stork#專案初始化)
-- [使用技術](https://github.com/5xDisco/Stork#使用技術)
-- [開發團隊](https://github.com/5xDisco/Stork#開發團隊)
-
-
----
-
-
-## **專案初始化**
+## 專案初始化
 
 ### 專案使用版本
+
 - Ruby 2.7.3
 - Rails 6.1.4
-
+- PostgreSQL
 
 ### Install Project
->
-1. Fork **Stork** Repository
+
+1. Fork Stork Repository
 2. bundle 安裝相關後端套件
-3. yarn  安裝相關前端套件
+3. yarn 安裝相關前端套件
 4. Migration 資料庫遷移
-```console
-# $ 錢字號僅代表在Terminal中輸入指令，連同 $ 輸入會出現錯誤
+5. foreman 啟動專案
 
 $ bundle install
 $ yarn install
 $ rails db:migrate
-```
+$ foreman start
 
-
+---
 
 ## 使用技術
-### gem we use
-- foreman
 
-### database 
-- PostgreSQL
+- 前端：Tailwindcss / Webpack / Stimulus / jQuery
+- 後端：Ruby on Rails / AWS S3
+  - devise
+  - (TODO)
+- 部署：Heroku
 
+---
+
+## 開發團隊
+
+陳曜東
+
+> - Email: cyd2258@gmail.com
+> - GitHub ID:Jimmy-Chen-2B
+
+林琪芮
+
+> - Email: cclok922@gmail.com
+> - GitHub ID:linchiquei
+
+李徽典
+
+> - Email: nh@g-mail.nsysu.edu.tw
+> - GitHub ID: KtKeaton
+
+王亭樺
+
+> - Email: 4000p049@gmail.com
+> - GitHub ID:Doreme2021
+
+王安祺
+
+> - Email: contrary.ak@gmail.com
+> - Github ID: An-Chi

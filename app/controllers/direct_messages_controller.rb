@@ -2,11 +2,7 @@ class DirectMessagesController < ApplicationController
   before_action :find_space_user_channel
   before_action :set_space
   before_action :find_user_spaces
-<<<<<<< HEAD
-  before_action :find_lobby_channel, only:[:show]
-=======
   before_action :find_public_channel, only:[:show]
->>>>>>> develop
 
   def show
     users = [current_user, User.find(params[:id])]

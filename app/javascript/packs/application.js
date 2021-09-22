@@ -9,3 +9,4 @@ import "../stylesheets/application";
 import "../channels";
 import "../pages";
 import "../controllers";
+import "../main";

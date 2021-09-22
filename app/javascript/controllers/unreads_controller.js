@@ -44,7 +44,7 @@ export default class extends Controller {
     let userId = this.data.get("userid");
     console.log(userId);
 
-    if (data.channel_id === channelId) {
+    if (data.channel_id == channelId && data.user_id != userId) {
       let count = parseInt(this.unreadCountTarget.textContent);
 
       this.unreadCountTarget.classList.remove("invisible");

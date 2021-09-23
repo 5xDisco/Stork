@@ -96,16 +96,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
   Rails.application.routes.default_url_options[:host] = 'https://www.storkapp.tw'
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.smtp_settings = {
-    address:              ENV['smtp_address'],
-    port:                  587,
+    api_key: ENV["MAILGUN_API"],
+    #address:              ENV['smtp_address'],
+    #port:                  587,
     domain:               'storkapp.tw',
-    authentication:       'plain',
-    user_name:            ENV['smtp_username'],
-    password:             ENV['smtp_password'],
-    enable_starttls_auto: true
+    #authentication:       'plain',
+    #user_name:            ENV['smtp_username'],
+    #password:             ENV['smtp_password'],
+    #enable_starttls_auto: true
   }
 
   config.action_mailer.raise_delivery_errors = false

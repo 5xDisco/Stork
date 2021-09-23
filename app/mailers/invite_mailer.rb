@@ -1,11 +1,18 @@
 class InviteMailer < ApplicationMailer
+    require 'mailgun-ruby'
     def invite(user: nil, email: nil)
-        if user 
-        @user = user.email
-        mail to: @user.to_s, subject:"邀請你加入Stork的行列"
+        if Rails.env.production?
+            mg_client = Mailgun::Client.new(ENV["MAILGUN_API"])
+            # Define your message parameters
+            message_params =  { from: "serice@storkapp.tw",
+                                to:   "#{user ? user.email : email}",
+                                subject: "邀請你加入Stork的行列",
+                                html: (render "./invite_mailer/invite")
+                              }
+            # Send your message through the client
+            mg_client.send_message 'storkapp.tw', message_params
         else
-        @user = email
-        mail to: email.to_s, subject:"邀請你加入Stork的行列"
+            mail to: "#{user ? user.email : email}" , subject:"邀請你加入Stork的行列"
         end
     end
 end

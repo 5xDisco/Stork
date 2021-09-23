@@ -2,6 +2,8 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
+  has_many :replies
+
   after_create :process_mentions
 
   def process_mentions

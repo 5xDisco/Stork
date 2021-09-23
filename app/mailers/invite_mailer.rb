@@ -10,7 +10,8 @@ class InviteMailer < ApplicationMailer
                                 html: (render "./invite_mailer/invite")
                               }
             # Send your message through the client
-            mg_client.send_message 'storkapp.tw', message_params
+            result = mg_client.send_message('storkapp.tw', message_params).to_h!
+            p result
         else
             mail to: "#{user ? user.email : email}" , subject:"邀請你加入Stork的行列"
         end

@@ -20,7 +20,7 @@ class DirectMessagesController < ApplicationController
   def find_space_user_channel
     space = Space.find(params[:space_id])
     @channels = []
-    all_channels = current_user.channels.where(space_id: space.id, direct_message: false)
+    all_channels = current_user.channels.where(space_id: space.id, direct_message: false).order("ID ASC")
     all_channels.each do |c|
       @channels << c
     end

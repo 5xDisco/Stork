@@ -1,6 +1,9 @@
 class Channel < ApplicationRecord
 	acts_as_paranoid
 
+	extend FriendlyId
+  friendly_id :friendly_params, use: :slugged
+
 	validates :name, presence: true
 	belongs_to :space
 	has_many :user_channels, dependent: :destroy

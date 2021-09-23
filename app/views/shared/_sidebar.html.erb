@@ -107,7 +107,7 @@
           <% icon = c.is_public == "private_channel" ? "&" : "#" %>
           <% name = c["name"] %>
           <div class="user-state-list bg-teal-dark py-1 px-4 text-white">
-              <%= link_to "#{icon} #{name}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
+              <%= link_to "#{icon} #{name}", space_channel_path(c.space.slug, c.slug), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}", :class => "user-state-list bg-teal-dark py-1 px-4 text-white" %>
 
               <% if c.has_unread_message?(current_user, @space)%>
                 <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"

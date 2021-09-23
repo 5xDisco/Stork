@@ -38,7 +38,7 @@
       <% @space_public_channels.each do |mall| %>
         <div
           class="bg-white h-12 w-12 flex items-center justify-center text-black text-sm font-semibold rounded-lg mb-1 overflow-hidden">
-          <%= link_to  mall.space.name, space_channel_path(space_id: mall.space_id, id: mall.id) %>
+          <%= link_to  mall.space.name, space_channel_path(space_id: mall.space.slug, id: mall.slug) %>
         </div>
         <% end %>
     </div>

@@ -32,6 +32,6 @@ class SpacesController < ApplicationController
   end
 
   def find_space
-    @space = Space.find_by(id: params[:id])
+    @space = Space.friendly.find_by(id: params[:id])
   end
 end

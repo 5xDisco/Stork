@@ -64,11 +64,11 @@ Rails.application.configure do
   #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.delivery_method = :mailgun
   #config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.default_url_options = { host: "http://127.0.0.1:3000" }
   config.action_mailer.smtp_settings = {
     # address:              'smtp.mailgun.org',
     # port:                  587,
-    domain:               'localhost:3000',
+    domain:               '127.0.0.1:3000',
     # authentication:       'plain',
     # user_name:            '',
     # password:             '',

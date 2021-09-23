@@ -9,8 +9,6 @@ export default class extends Controller {
       .querySelector("meta[name='nickname']")
       .getAttribute("content");
 
-    console.log(this.username);
-
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
         this.data.get("id")

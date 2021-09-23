@@ -61,17 +61,19 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :mailgun
   #config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.org',
-    port:                  587,
+    # address:              'smtp.mailgun.org',
+    # port:                  587,
     domain:               'localhost:3000',
-    authentication:       'plain',
-    user_name:            '',
-    password:             '',
-    enable_starttls_auto: true
+    # authentication:       'plain',
+    # user_name:            '',
+    # password:             '',
+    # enable_starttls_auto: true
+    api_key:'key-0aff01fa06cf78120a636baadee62c74',
   }
   config.action_mailer.raise_delivery_errors = true
   # Raises error for missing translations.

@@ -53,8 +53,29 @@
           <!-- End of User Avatar -->
 
 
-          <!-- </div>  -->
-          <!-- End of Stork wrapper -->
+
+      <!-- ＴＯＰ 最右側的頭像 User Avatar -->
+      <div class="online-user">
+        <span tabindex="0" class="sp-user-avatar">
+          <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 0 TOP 最上層 搜尋 end -->
+
+
+<!-- 公版開始 -->
+<div class="outer-panel container font-sans antialiased h-screen">
+  <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+  <div class="space-icons-panel flex-none w-24 p-6 md:block">
+
+    <div class="space-icon-group cursor-pointer mb-4">
+      <% @space_public_channels.each do |mall| %>
+        <div
+          class="bg-white h-12 w-12 flex items-center justify-center text-black text-sm font-semibold rounded-lg mb-1 overflow-hidden">
+          <%= link_to  mall.space.name, space_channel_path(space_id: mall.space.slug, id: mall.slug) %>
         </div>
         <!-- 0 TOP 最上層 搜尋 end -->
 

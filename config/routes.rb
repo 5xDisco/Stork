@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   root to: "pages#home"
   
   resources :spaces do 
-    resources :channels do
+    resources :channels, except: [:index] do
       resource :user_channels
       resources :messages
     end
-  
+    
     resources :direct_messages
   end
 

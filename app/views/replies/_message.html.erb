@@ -3,18 +3,14 @@
   <div class="flex-1 overflow-hidden relative">
     <div>
       <span class="font-bold">
-        <%= message.user.nickname %>
+        <%= reply.user.nickname %>
       </span>
       <span class="text-grey text-xs">
-        <%= message.created_at.to_s(:db) %>
+        <%= reply.created_at.to_s(:db) %>
       </span>
     </div>
     <p class="text-black leading-normal">
-      <%= message.content %>
+      <%= reply.content %>
     </p>
-
-    <button class="reply-btn border-red-600 absolute bottom-0 right-0 invisible" data-message-target="replyBtn">
-      <%= link_to "reply" , reply_message_path(message.id), remote: true %>
-    </button>
   </div>
 </div>

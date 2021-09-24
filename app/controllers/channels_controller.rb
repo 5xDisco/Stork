@@ -18,7 +18,7 @@ class ChannelsController < ApplicationController
   end
 
   def edit
-    channel = Channel.find(params[:id])
+    channel = Channel.friendly.find(params[:id])
     @members = channel.users
   end
 
@@ -27,8 +27,7 @@ class ChannelsController < ApplicationController
 
   def create
       @channel = current_user.channels.new(channel_params)
-
-      unless Space.find(params[:space_id]).channels.find_by(name: @channel.name)
+      unless Space.friendly.find(params[:space_id]).channels.find_by(name: @channel.name)
         if(params[:is_public] == "public")
           @channel.is_public = 'public_channel'
         else
@@ -38,7 +37,7 @@ class ChannelsController < ApplicationController
 
         if current_user.save 
           if @channel.is_public == 'public_channel'
-            space_users = Space.find(params[:space_id]).users
+            space_users = Space.friendly.find(params[:space_id]).users
             space_users.each do |user|
               unless user.channels.find_by(space_id: params[:space_id], id: @channel.id)
                 UserChannel.create(user_id: user.id, channel_id: @channel.id)
@@ -48,13 +47,15 @@ class ChannelsController < ApplicationController
           redirect_to space_channel_path(id: @channel.id)
         end
         @errors = @channel.errors.full_messages 
+        p "====================="
       end
       @errors = "已有此頻道不能同名"
+       p "xxxxxxxxxxxxxxxxxxxxxxxxxx"
   end
 
   def new
-    @channel = current_user.channels.new 
-    @channel.space_id = params[:space_id]
+    @channel = current_user.channels.new
+    @channel.space_id = Space.friendly.find(params[:space_id]).id
   end
 
   def destroy
@@ -80,7 +81,7 @@ class ChannelsController < ApplicationController
   def member
     channel = Channel.friendly.find(params[:id])
     if (channel.is_public == true)
-      @members = Space.find(channel.space_id).users 
+      @members = Space.friendly.find(channel.space_id).users 
     else
       @members = channel.users
     end
@@ -149,6 +150,7 @@ class ChannelsController < ApplicationController
 
   def find_user_spaces
     @spaces = current_user.spaces
+    
   end
   
   def channel_params
@@ -156,7 +158,7 @@ class ChannelsController < ApplicationController
   end
 
   def find_space_user_channel
-    space = Space.find(params[:space_id])
+    space = Space.friendly.find(params[:space_id])
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 
@@ -165,7 +167,7 @@ class ChannelsController < ApplicationController
   end
 
   def find_lobby_channel
-    @lobby_channel = Space.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
+    @lobby_channel = Space.friendly.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
   end
 
   def find_public_channel

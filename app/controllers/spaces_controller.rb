@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
   before_action :find_space
 
+
   def list
     @spaces = current_user.spaces.order(id: :desc)
   end
@@ -28,7 +29,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :icon)
+    params.require(:space).permit(:name, :avatar, uploads: [])
   end
 
   def find_space

@@ -18,6 +18,8 @@
       <div class="step1-text-field-box">
         <%= f.text_field :name, class: "steps-text-field", placeholder: "例如：公司 A 或團隊 B" %>
       </div>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
       <div class="steps-submit-box">
         <%= f.submit "下一步", class: "steps-submit" %>
       </div>

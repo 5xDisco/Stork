@@ -186,7 +186,7 @@ input.inp-space-search:focus {
 #space-list-func
 ---------------------------------*/
 .stork-dropdown-common {
-	 display: none; 
+	 /*display: none; */
 	position: absolute;
 	background-color: #fff;
 	border: 1px solid #DEDEDE;

@@ -1,14 +1,3 @@
-body {
-	overflow: hidden;
-	width: 100vw;
-	height: calc(100vw * (9/16));
-}
-
-
-*, html {
-	/* outline:  1px solid pink; */
-}
-
 /* Style in common 共同樣式
 -----------------------------------*/
 a {

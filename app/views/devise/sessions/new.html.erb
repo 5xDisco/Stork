@@ -40,7 +40,7 @@
   </div>
 
 
-  <div class=" w-2/6 md:auto mx-auto">
+  <div class=" w-1/4 md:auto mx-auto">
     <div class="pt-6 w-full  mx-auto">
       <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
@@ -68,7 +68,7 @@
         <%= f.submit "登入", class:" bg-stork-blue text-white text-center text-xl  rounded-md  flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" %>
       <% end %>
     
-      <div class="pt-5 w-full mx-auto text-right" >
+      <div class="pt-2 w-full mx-auto text-right" >
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to "忘記密碼?", new_password_path(resource_name), class: '' %><br />
       <% end %>

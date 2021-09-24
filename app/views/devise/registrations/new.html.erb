@@ -40,15 +40,15 @@
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "輸入密碼", class: "signupInput" %>
       </div>
 
-      <div class="py-2 text-center">
+      <div class=" text-center">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
       </div>
 
-      <%= f.submit "註冊", class: "signupInput  bg-stork-blue text-white" %> 
+      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white my-3" %> 
       <% end %>
 
 
-      <div class="pt-2 text-right" >
+      <div class=" text-right" >
         <%- if controller_name != 'sessions' %>
           <%= link_to "登入", new_session_path(resource_name), class: '' %>
         <% end %>

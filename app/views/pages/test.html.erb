@@ -114,6 +114,42 @@
 
 
 
+        <!-- dialog 自訂工作空間 -->
+        <div class="wallpaper hidden" data-controller="channelbox" data-channelbox-target="page">
+          <div class="dialog-box">
+            <h2>自訂工作空間</h2>
+            <button data-action="click->channelbox#close" class="close" >X</button>
+
+            <form action="POST" class="flex justify-center items-center outline-black">
+
+              <div class="current-user-name outline-black m-4">
+                <label for="inp-current-user-name" class="block my-2">工作空間名稱
+                  <input type="text" id="inp-current-space-name" class="block border-grey-light border-2" placeholder="全名">
+                </label>
+              </div>
+
+              <div class="current-user-avatar-group py-3">
+                <div class="outline-black p-2"><img src="http://fakeimg.pl/192x192/AAEED1/FFF/?text=Space"></div>
+                <div class="py-3">
+                  <button class="w-full py-1 my-2 border-2 border-gray-200">上傳影像</button>
+                  <button class="w-full py-1 my-2  border-2 border-gray-200">移除相片</button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <!-- End of dialog 編輯個人檔案 -->
+
+
+
+
+
+
+
+
+
 			<!-- 0 Container  -->
 			<div class="outer-panel container font-sans antialiased h-screen">
 				

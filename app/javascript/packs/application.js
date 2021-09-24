@@ -10,3 +10,6 @@ import "../channels";
 import "../pages";
 import "../controllers";
 import "../main";
+
+require("trix")
+require("@rails/actiontext")

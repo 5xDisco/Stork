@@ -91,6 +91,35 @@
         <!-- End of dialog 編輯個人檔案 -->
 
 
+        <!-- dialog 自訂工作空間 -->
+        <div class="wallpaper hidden" data-controller="channelbox" data-channelbox-target="page">
+          <div class="dialog-box">
+            <h2>自訂工作空間</h2>
+            <button data-action="click->channelbox#close" class="close" >X</button>
+
+            <form action="POST" class="flex justify-center items-center outline-black">
+
+              <div class="current-user-name outline-black m-4">
+                <label for="inp-current-user-name" class="block my-2">工作空間名稱
+                  <input type="text" id="inp-current-space-name" class="block border-grey-light border-2" placeholder="全名">
+                </label>
+              </div>
+
+              <div class="current-user-avatar-group py-3">
+                <div class="outline-black p-2"><img src="http://fakeimg.pl/192x192/0AEED1/FFF/?text=User"></div>
+                <div class="py-3">
+                  <button class="w-full py-1 my-2 border-2 border-gray-200">上傳影像</button>
+                  <button class="w-full py-1 my-2  border-2 border-gray-200">移除相片</button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <!-- End of dialog 編輯個人檔案 -->
+
+
 
 
 
@@ -196,15 +225,15 @@
       <!-- 2 start -->
       <div class="message-editor-panel mb-8 pb-6 px-4 flex-none">
         <div class="message-editor flex rounded-lg border-2 border-grey overflow-hidden">
-          <span class="text-3xl text-grey border-r-2 border-grey py-2 px-4">
+   <!--        <span class="text-3xl text-grey border-r-2 border-grey py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-gray-400 bi bi-plus-lg" viewBox="0 0 16 16">
               <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
             </svg>
-          </span>
+          </span> -->
 
 
-          <%= form_with model: Message.new, url: space_channel_messages_path(@space, @channel), class: "flex w-full" , data: { action: "channel#sendMessage" } do |form| %>
-          <%= form.text_field :content, class: "w-full px-4" , placeholder: "Type your message" %>
+          <%= form_with model: Message.new, url: space_channel_messages_path(@space, @channel), class: "flex flex-wrap w-full" , data: { action: "channel#sendMessage" } do |form| %>
+          <%= form.rich_text_area :content, class: "w-full px-4" , placeholder: "Type your message" %>
           <span class="text-3xl text-grey border-l-2 border-grey py-2 px-4">
             <%= image_submit_tag 'cursor-fill.svg'%>
           </span>
@@ -213,7 +242,6 @@
           <%#= render "messages/form" , message: Message.new, channel: @channel %>
 
         </div>
-
       </div>
       <!-- 2 end -->
       <!-- 公版結束 -->

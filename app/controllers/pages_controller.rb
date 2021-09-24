@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  before_action :authenticate_user!, except: [:home]
   before_action :find_space, only: [:show, :edit, :destory]
 
   def home

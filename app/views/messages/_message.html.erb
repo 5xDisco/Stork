@@ -6,19 +6,20 @@
   </div>
 <% end %>
 
-<div class="flex items-start mb-4 text-sm" data-controller="replies" data-replies-id="<%= message.id %>" data-action="mouseover->replies#emerge
-   mouseout->replies#fade">
+<div class="flex items-start mb-4 text-sm" data-controller="message" data-message-id="<%= message.id %>" data-action="mouseover->message#emerge
+   mouseout->message#fade">
   <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
   <div class="flex-1 overflow-hidden relative">
     <div>
-      <span class="font-bold" data-username=""><%= message.user.nickname %></span>
-      <span class="text-grey text-xs" data-message-create-time=""><%= message.created_at.to_s(:db) %></span>
+      <span class="font-bold"><%= message.user.nickname %></span>
+      <span class="text-grey text-xs"><%= message.created_at.to_s(:db) %></span>
     </div>
     <p class="text-black leading-normal"><%= message.content %></p>
 
-    <button class="reply-btn border-red-600 absolute bottom-0 right-0 invisible" data-replies-target="replyBtn" data-action="replies#reply">reply</button>
+    <button class="reply-btn border-red-600 absolute bottom-0 right-0 invisible" data-message-target="replyBtn">
+      <%= link_to "reply", reply_message_path(message.id), remote: true %>
+    </button>
   </div>
-
 </div>
 
 

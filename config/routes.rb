@@ -12,6 +12,16 @@ Rails.application.routes.draw do
     resources :direct_messages
   end
 
+  resources :messages do
+    resources :replies, only: [:show, :create]
+  end
+
+  resources :messages do
+    member do
+      get :reply
+    end
+  end
+
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"
 

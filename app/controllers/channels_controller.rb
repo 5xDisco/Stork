@@ -1,4 +1,5 @@
 class ChannelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting, :member_add]
   before_action :find_space_user_channel, only: [:show]
   before_action :find_user_spaces, only: [:show]

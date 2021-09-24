@@ -1,4 +1,5 @@
 class DirectMessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_space_user_channel
   before_action :set_space
   before_action :find_user_spaces

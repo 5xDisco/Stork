@@ -188,15 +188,15 @@
 
 
 
-  <div class="message-editor-panel mb-8 py-4 px-4 flex-none">
+  <div class="message-editor-panel py-4 px-4 flex-none">
     <div class="message-editor flex rounded-lg border-2 border-grey overflow-hidden">
       <span class="text-3xl text-grey border-r-2 border-grey py-2 px-4">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-gray-400 bi bi-plus-lg" viewBox="0 0 16 16">
           <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
         </svg>
       </span>
-      <%= form_with model: Message.new, url: space_channel_messages_path(@space, @channel), class: "flex w-full" , data: {
-        action: "channel#sendMessage" } do |form| %>
+      <%= form_with model: Message.new, url: space_channel_messages_path(@space, @channel), class: "flex w-full", data: {
+        action: "channel#sendMessage" }, html: { autocomplete: "off" } do |form| %>
         <%= form.text_field :content, class: "w-full px-4" , placeholder: "Type your message" %>
         <span class="text-3xl text-grey border-l-2 border-grey py-2 px-4">
           <%= image_submit_tag 'cursor-fill.svg'%>

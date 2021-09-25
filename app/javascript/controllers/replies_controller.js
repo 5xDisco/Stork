@@ -33,8 +33,8 @@ export default class extends Controller {
   _cableDisconnected() {}
 
   _cableReceived(data) {
+    console.log(data);
     if (data.message) {
-      console.log(data);
       this.replyBoxTarget.insertAdjacentHTML("beforeend", data.message);
     }
   }

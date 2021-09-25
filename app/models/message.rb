@@ -11,7 +11,7 @@ class Message < ApplicationRecord
   end
 
   def mentioned_users
-    User.where(nickname: mentioned_usernames) - [user]
+    User.where(nickname: mentioned_nicknames) - [user]
   end
 
   def mentioned_nicknames

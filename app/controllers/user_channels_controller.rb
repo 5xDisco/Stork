@@ -8,7 +8,7 @@ class UesrChannelsController < ApplicationController
   end
 
   def destroy
-    @channel.user_channels.where(user: current_user).destroy_all
+    @channel.user_channels.where(user: current_user).destroy
     redirect_to @channel
   end
 

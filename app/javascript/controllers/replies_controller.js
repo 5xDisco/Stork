@@ -28,7 +28,9 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {}
+  _cableConnected() {
+    console.log("hi");
+  }
 
   _cableDisconnected() {}
 

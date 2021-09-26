@@ -1,7 +1,10 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
+
+  # trix editor
   has_rich_text :content
+  # has_many_attached :uploads  
   # after_commit :broadcast_me
 
   # def broadcast_me

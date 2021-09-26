@@ -75,10 +75,10 @@
                 <% if mall.space.avatar.attached? %>
                   <%= image_tag mall.space.avatar %>
                 <% else %>
-                  <%= mall.space.name%>
+                  <%= mall.space.name[0,2]%>
                 <% end %>
                 <% end %>
-                
+
             </div>
             <% end %>
           </div>

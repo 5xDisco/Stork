@@ -4,7 +4,6 @@ class RepliesController < ApplicationController
 
   def create
     @reply = @message.replies.create(reply_params)
-    # ReplyChannel.broadcast_to @message, reply: render_to_string(@reply)
   end
 
   private

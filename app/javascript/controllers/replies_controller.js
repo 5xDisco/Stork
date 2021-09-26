@@ -3,7 +3,7 @@ import consumer from "../channels/consumer";
 import axios from "../lib/http/axios";
 
 export default class extends Controller {
-  static targets = ["replyBox"];
+  static targets = ["replyBox", "replyCount", "replyNum"];
 
   connect() {
     console.log(
@@ -28,17 +28,28 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {
-    console.log("hi");
-  }
+  _cableConnected() {}
 
   _cableDisconnected() {}
 
   _cableReceived(data) {
-    console.log(data);
     if (data.message) {
       this.replyBoxTarget.insertAdjacentHTML("beforeend", data.message);
+
+      let count = parseInt(this.replyNumTarget.textContent);
+      this.replyCountTarget.classList.remove("invisible");
+      this.replyCountTarget.classList.add("visible");
+      this.replyNumTarget.textContent = count + 1;
+
+      let id = this.data.get("id");
+      const replyBox = document.querySelector(`div[value="${id}"]`);
+      let countReply = document.querySelector(`span[value="${id}"]`);
+      replyBox.classList.remove("invisible");
+      replyBox.classList.remove("visible");
+      let countNum = parseInt(countReply.textContent);
+      countReply.textContent = countNum + 1;
     }
+    this.scrollToBottom();
   }
 
   sendReply(e) {
@@ -48,6 +59,21 @@ export default class extends Controller {
       const params = { content: e.target[1].value };
       axios.post(`/messages/${messageId}/replies`, params);
       e.target[1].value = "";
+    }
+  }
+
+  closeReplyRoom() {
+    this.element.remove();
+
+    const storkPanel = document.querySelector(".stork-panel");
+    storkPanel.classList.remove("w-2/3");
+    storkPanel.classList.add("flex-1");
+  }
+
+  scrollToBottom() {
+    const { scrollHeight, clientHeight } = this.replyBoxTarget;
+    if (scrollHeight >= clientHeight) {
+      this.replyBoxTarget.scrollTop = scrollHeight - clientHeight;
     }
   }
 }

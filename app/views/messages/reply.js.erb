@@ -1,4 +1,11 @@
-document.querySelector(".stork-panel").classList.remove("flex-1");
-document.querySelector(".stork-panel").classList.add("w-2/3");
-document.querySelector(".stork-panel").insertAdjacentHTML('afterend', '<%= j render(partial: "reply_room" , locals: {
-  channel: @channel, message: @message }) %>');
+if (!document.querySelector(".message-replies")) {
+  document.querySelector(".stork-panel").classList.remove("flex-1");
+  document.querySelector(".stork-panel").classList.add("w-2/3");
+  document.querySelector(".stork-panel").insertAdjacentHTML('afterend', '<%= j render(partial: "reply_room" , locals: {
+    channel: @channel, message: @message }) %>');
+} else {
+  document.querySelector(".message-replies").remove()
+  document.querySelector(".stork-panel").insertAdjacentHTML('afterend', '<%= j render(partial: "reply_room" , locals: {
+    channel: @channel, message: @message }) %>');
+}
+

@@ -9,8 +9,6 @@ export default class extends Controller {
       .querySelector("meta[name='nickname']")
       .getAttribute("content");
 
-    console.log(this.username);
-
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
         this.data.get("id")
@@ -42,7 +40,6 @@ export default class extends Controller {
 
     let channelId = this.data.get("id");
     let userId = this.data.get("userid");
-    console.log(userId);
 
     if (data.channel_id == channelId && data.user_id != userId) {
       let count = parseInt(this.unreadCountTarget.textContent);

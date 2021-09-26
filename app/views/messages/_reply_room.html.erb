@@ -1,4 +1,4 @@
-<div class="message-replies flex flex-col w-1/3 overflow-hidden bg-red-200" data-controller="replies"  data-replies-id="<%= message.id %>">
+<div class="message-replies flex flex-col w-1/3 overflow-hidden border-l " data-controller="replies"  data-replies-id="<%= message.id %>">
 
   <div class="space-target-title border-b items-center flex-none bg-gray">
 
@@ -38,17 +38,14 @@
           </svg>
         </h3>
       </div>
-
-      <div class="online-users" data-user="<%= current_user.email %>">
         <div class="replies-closed">
-          <button class="replies-closed-btn">X</button>
+          <button class="replies-closed-btn" data-action="replies#closeReplyRoom">X</button>
         </div>
-      </div>
     </div>
   </div>
 
   <div class="reply-box flex-1 overflow-y-scroll px-6 pt-4" data-replies-target="replyBox">
-    <div class="flex items-start mb-4 text-sm">
+    <div class="flex items-start mb-2 text-sm">
       <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
       <div class="flex-1 overflow-hidden relative">
         <div>
@@ -64,13 +61,14 @@
         </p>
       </div>
     </div>
+    <div class="reply-count mb-2 <%= message.replies.present? ? "visible" : "invisible" %>" data-replies-target="replyCount">有<span data-replies-target="replyNum"><%= message.replies.count %></span>則回覆</div>
     <% message.replies.each do |reply| %>
       <%= render "replies/reply" , reply: reply %>
     <% end %>
   </div>
 
   <div class="flex-none">
-    <div class="message-editor-panel py-4 px-4 flex-none" data-replies-target="replyform">
+    <div class="message-editor-panel py-4 px-4 flex-none">
       <div class="message-editor flex rounded-lg border-2 border-grey overflow-hidden">
         <span class="text-3xl text-grey border-r-2 border-grey py-2 px-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"

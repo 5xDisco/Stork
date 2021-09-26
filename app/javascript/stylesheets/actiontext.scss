@@ -35,3 +35,35 @@
     }
   }
 }
+
+
+// override trix.css's toolbar
+#trix-toolbar-1 {
+  order: 2;
+}
+trix-editor#message_content {
+  order:3;
+}
+
+#trix-toolbar-1 .trix-button-group{
+  outline: 1px solid blue;
+  margin-bottom: 1px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

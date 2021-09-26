@@ -170,11 +170,12 @@
                 <% name = c["name"] %>
                 <div class="channel-list pl-4 py-1">
                   <%= link_to "#   #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
-                  <% if c.has_unread_message?(current_user, @space)%>
-                  <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"
-                  data-unreads-id="<%= c.id %>"><%= c.unread_message_count(current_user) %></div>
-                  <% end %>
+         
+                  <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block <%= c.has_unread_message?(current_user, @space) ? "visible" : "invisible" %>" data-controller="unreads"
+                  data-unreads-channelId="<%= c.id %>" data-unreads-userId="<%= current_user.id %>"><%= c.unread_message_count(current_user) %></div>
+                
                 </div>
+
                 <% end %>
                 <div class="channel-list  pl-4 py-1"><%= link_to "+   新增頻道", new_space_channel_path(@space.id), remote: true %></div>
                 <%# </ul> %>

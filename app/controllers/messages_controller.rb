@@ -12,6 +12,12 @@ class MessagesController < ApplicationController
 
   def reply
     @channel = @message.channel
+    if @channel.direct_message
+    recipient = @channel.name.split(":") - ["DM", "#{current_user.id}"]
+    recipient_id = recipient[0].to_i
+    @recipient = User.find(recipient_id)
+    @recipient
+    end
   end
 
   private

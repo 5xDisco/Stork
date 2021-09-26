@@ -11,10 +11,16 @@ class User < ApplicationRecord
   has_many :channels, through: :user_channels
   #與 message 的關聯
   has_many :messages, dependent: :destroy
+
+  # active storage
+  has_one_attached :avatar
+
+
   def name
     email.split('@')[0]
   end
 
+  
   def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|
       user.email = provider_data.info.email

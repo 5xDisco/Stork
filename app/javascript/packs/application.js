@@ -11,5 +11,6 @@ import "../pages";
 import "../controllers";
 import "../main";
 
+// enable action text.
 require("trix")
 require("@rails/actiontext")

@@ -127,6 +127,11 @@ input.inp-space-search:focus {
 	transition: background-color 0.5s ,color 0.5s;
 }
 
+.space-icon-group div img {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
 
 .space-icon-group div:hover {
 	background-color: #3e5367;

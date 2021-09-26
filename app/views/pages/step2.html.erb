@@ -15,15 +15,17 @@
       <p>建立你空間下的頻道，可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易。</p>
 
       <%= form_for @channel, url: space_channels_path(@channel.space), html: { method: 'post' } do |f| %>
-        <%= f.hidden_field :space_id %>
-        <div class="step1-text-field-box">
-          <%= f.text_field :name, class: "steps-text-field" , placeholder: "例如：夏季行銷活動" %>
-        </div>
-        <div class="steps-submit-box">
-          <%= f.submit "準備進入空間" , class: "steps-submit" %>
-        </div>
+      <%= f.hidden_field :space_id %>
+      <div class="step1-text-field-box">
+        <%= f.text_field :name, class: "steps-text-field" , placeholder: "例如：夏季行銷活動" %>
+      </div>
+      <div class="steps-submit-box">
+        <%= f.submit "準備進入空間" , class: "steps-submit" %>
+      </div>
       <% end %>
-        <%= image_tag @space.avatar%>
+      <div class="w-40 overflow-hidden">
+        <%= image_tag @space.avatar.variant(resize_to_limit: [100,100]), alt: "Space's Avatar", class: "rounded-lg" if @space.avatar.attached? %>
+      </div>
 
     </div>
   </div>

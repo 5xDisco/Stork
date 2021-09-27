@@ -38,7 +38,6 @@ zh-TW:
       failure: "無法從 %{kind} 驗證，因為「%{reason}」。"
       success: "成功從 %{kind} 驗證。"
     passwords:
-      Password: "密碼"
       no_token: "這是密碼重設頁面，僅能透過密碼重設信件進入。如果您是透過重設信件進入的，請確認您的網址是完整的。"
       send_instructions: "您將在幾分鐘後收到一封電子郵件，內有重新設定密碼的步驟說明。"
       send_paranoid_instructions: "如果我們有您的信箱，您將會收到一封內含可重新設定密碼連結的電子郵件。"
@@ -68,5 +67,6 @@ zh-TW:
       expired: "已經過期，請重新申請。"
       not_found: "找不到。"
       not_locked: "並未被鎖定。"
-      not_saved: "無法存取"
+      not_saved:
+        one: "有錯誤導致 %{resource} 不能被儲存："
         other: "有 %{count} 個錯誤導致 %{resource} 不能被儲存："

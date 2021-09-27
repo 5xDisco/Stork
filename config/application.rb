@@ -18,7 +18,7 @@ module Stork
     config.time_zone = "Taipei"
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.i18n.default_locale = "zh-TW"
-    config.i18n.default_locale = :sv
+    config.i18n.default_locale = :"zh-TW"
+  
   end
 end

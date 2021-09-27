@@ -2,11 +2,17 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
-  # after_commit :broadcast_me
+  after_create :process_mentions
 
-  # def broadcast_me
-  #   ActionCable.server.broadcast "MessageChannel:#{channel.id}", {
-  #     message: MessagesController.render(partial: "messages/message", locals: { message: self })
-  #   }
-  # end
+  def process_mentions
+    UnreadsChannel.broadcast_to channel, { mentions: mentioned_nicknames, content: content, channel_id: channel.id, user_id: user.id }
+  end
+
+  def mentioned_users
+    User.where(nickname: mentioned_usernames) - [user]
+  end
+
+  def mentioned_nicknames
+    content.scan(/@([\w-]+)/).flatten
+  end
 end

@@ -29,17 +29,11 @@ export default class extends Controller {
     consumer.subscriptions.remove(this.channel);
   }
 
-  _cableConnected() {
-    console.log("_cableConnected");
-  }
+  _cableConnected() {}
 
-  _cableDisconnected() {
-    console.log("_cableDisconnected");
-  }
+  _cableDisconnected() {}
 
   _cableReceived(data) {
-    console.log(data);
-    console.log("_cableReceived");
     if (data.message) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
 
@@ -56,7 +50,6 @@ export default class extends Controller {
     const spaceId = this.data.get("spaceid");
 
     if (e.target[1].value != "") {
-      console.log(e.target[1].value);
       const params = { content: e.target[1].value };
       axios.post(`/spaces/${spaceId}/channels/${channelId}/messages`, params);
 

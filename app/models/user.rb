@@ -12,6 +12,7 @@ class User < ApplicationRecord
   #與 message 的關聯
   has_many :messages, dependent: :destroy
   has_many :replies, dependent: :destroy
+  
   def name
     email.split('@')[0]
   end
@@ -32,5 +33,9 @@ class User < ApplicationRecord
 
   def online?
     User.online.ids.include?(id)
+  end
+
+  def direct_message_channel(user)
+    
   end
 end

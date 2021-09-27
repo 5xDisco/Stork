@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_channel, only: [:create]
-  before_action :set_message, only: [:reply]
+  before_action :reply_message, only: [:reply]
 
 
   def create
@@ -13,10 +13,10 @@ class MessagesController < ApplicationController
   def reply
     @channel = @message.channel
     if @channel.direct_message
-    recipient = @channel.name.split(":") - ["DM", "#{current_user.id}"]
-    recipient_id = recipient[0].to_i
-    @recipient = User.find(recipient_id)
-    @recipient
+    receiver = @channel.name.split(":") - ["DM", "#{current_user.id}"]
+    receiver_id = receiver[0].to_i
+    @receiver = User.find(receiver_id)
+    @receiver
     end
   end
 
@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     @channel = current_user.channels.find(params[:channel_id])
   end
 
-  def set_message
+  def reply_message
     @message = Message.find(params[:id])
   end
 

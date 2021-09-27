@@ -30,14 +30,14 @@
   
   <div class="py-3 focus:text-center w-2/3 md:w-1/2 mx-auto">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>  
-    <%= render "devise/shared/error_messages", resource: resource %>
-    
       <div class="py-1 text-center">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "輸入電子信箱", class: "signupInput" %>
+        <%= sanitize error_message(resource ,:email) %>
       </div>
 
       <div class="py-3 text-center">
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "輸入密碼", class: "signupInput" %>
+        <%= sanitize error_message(resource ,:password) %>
       </div>
 
       <div class="py-4 text-center">
@@ -46,7 +46,6 @@
 
       <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white" %> 
       <% end %>
-
 
       <div class="pt-5 text-right" >
         <%- if controller_name != 'sessions' %>
@@ -57,5 +56,5 @@
     </div>
 
   </div>
-
+  <%= render 'layouts/messages' %>
 </div>

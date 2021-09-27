@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def online?
     User.online.ids.include?(id)
   end
+
+  def direct_message_channel(user)
+    
+  end
 end

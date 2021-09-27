@@ -2,6 +2,8 @@ import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
 
 export default class extends Controller {
+  static targets = ["unreadsCount"];
+
   connect() {
     this.username = document
       .querySelector("meta[name='nickname']")

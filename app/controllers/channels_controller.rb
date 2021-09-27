@@ -10,7 +10,7 @@ class ChannelsController < ApplicationController
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
     @last_read_at = @user_channel&.last_read_at || @channel.created_at
-    @user_channel&.touch(:last_read_at)
+    @user_channel&.touch(:last_read_at) 
   end
 
   def leave
@@ -25,28 +25,28 @@ class ChannelsController < ApplicationController
   end
 
   def create
-      @channel = current_user.channels.new(channel_params);
+    @channel = current_user.channels.new(channel_params);
 
-      unless Space.find(params[:space_id]).channels.find_by(name: @channel.name)
-        if(params[:is_public] == "public")
-          @channel.is_public = 'public_channel'
-        else
-          @channel.is_public = 'private_channel'
-        end
-        if(current_user.save) 
-          if(@channel.is_public == 'public_channel')
-            space_users = Space.find(params[:space_id]).users
-            space_users.each do |u|
-              unless u.channels.find_by(space_id: params[:space_id], id: @channel.id)
-                UserChannel.create(user_id: u.id, channel_id: @channel.id)
-              end
+    unless Space.find(params[:space_id]).channels.find_by(name: @channel.name)
+      if(params[:is_public] == "public")
+        @channel.is_public = 'public_channel'
+      else
+        @channel.is_public = 'private_channel'
+      end
+      if(current_user.save) 
+        if(@channel.is_public == 'public_channel')
+          space_users = Space.find(params[:space_id]).users
+          space_users.each do |u|
+            unless u.channels.find_by(space_id: params[:space_id], id: @channel.id)
+              UserChannel.create(user_id: u.id, channel_id: @channel.id)
             end
           end
-          redirect_to space_channel_path(id: @channel.id)
         end
-        @errors = @channel.errors.full_messages 
+        redirect_to space_channel_path(id: @channel.id)
       end
-      @errors = "已有此頻道不能同名"
+      @errors = @channel.errors.full_messages 
+    end
+    @errors = "已有此頻道不能同名"
   end
 
   def new

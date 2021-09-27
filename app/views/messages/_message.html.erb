@@ -11,14 +11,14 @@
   <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
   <div class="flex-1 overflow-hidden relative">
     <div>
-      <span class="font-bold"><%= message.user.nickname %></span>
+      <span class="font-bold"><%= message.user.display_name %></span>
       <span class="text-grey text-xs"><%= message.created_at.strftime("%b %d %R") %></span>
     </div>
     <p class="text-black leading-normal"><%= message.content %></p>
 
     <div class="reply-count absolute bottom-0 right-0 <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
 
-    <button class="reply-btn absolute -top-10px right-0 invisible" data-message-target="replyBtn">
+    <button class="reply-btn absolute top-0 right-0 invisible" data-message-target="replyBtn">
       <%= link_to "reply", reply_message_path(message.id), remote: true %>
     </button>
   </div>

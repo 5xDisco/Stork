@@ -16,9 +16,9 @@
     </div>
     <p class="text-black leading-normal"><%= message.content %></p>
 
-    <div class="reply-count <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
+    <div class="reply-count absolute bottom-0 right-0 <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
 
-    <button class="reply-btn absolute bottom-0 right-0 invisible" data-message-target="replyBtn">
+    <button class="reply-btn absolute -top-10px right-0 invisible" data-message-target="replyBtn">
       <%= link_to "reply", reply_message_path(message.id), remote: true %>
     </button>
   </div>

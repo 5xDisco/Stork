@@ -40,7 +40,6 @@ export default class extends Controller {
 
     let channelId = this.data.get("id");
     let userId = this.data.get("userid");
-    console.log(userId);
 
     if (data.channel_id == channelId && data.user_id != userId) {
       let count = parseInt(this.unreadCountTarget.textContent);
@@ -57,7 +56,6 @@ export default class extends Controller {
 
   notify(message) {
     if (!("Notification" in window)) {
-      console.error("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
       var notification = new Notification(message);
     } else {

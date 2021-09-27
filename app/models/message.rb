@@ -2,6 +2,8 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
+  has_many :replies, dependent: :destroy
+
   after_create :process_mentions
 
   def process_mentions
@@ -9,7 +11,7 @@ class Message < ApplicationRecord
   end
 
   def mentioned_users
-    User.where(nickname: mentioned_usernames) - [user]
+    User.where(nickname: mentioned_nicknames) - [user]
   end
 
   def mentioned_nicknames

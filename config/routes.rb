@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
-# root to: "homes#index"
-  # namespace :user do
-  #   root :to => "spaces#list"
-  # end
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: "pages#home"
   
@@ -17,6 +11,19 @@ Rails.application.routes.draw do
   
     resources :direct_messages
   end
+
+  resources :messages do
+    member do
+      get :reply
+    end
+    resources :replies
+  end
+
+  # resources :messages do
+  #   member do
+  #     get :reply
+  #   end
+  # end
 
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"

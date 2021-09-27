@@ -14,10 +14,20 @@
       <div id="space-list-func" class="stork-dropdown-common" tabindex="0">
         <!-- Current Space Info -->
         <div class="current-space-info flex justify-center items-center">
-          <div class="current-space-icon"><img src="https://fakeimg.pl/48x48/#2a3f54"></div>
+          <div class="current-space-icon w-18 h-18 outline-black">
+
+          <% if @space.avatar.attached? %>
+             <%= image_tag @space.avatar.variant(resize_to_limit: [48,48]), alt: "Space's Avatar", class: "rounded-lg"%>
+          <!-- </div> -->
+          <% else %>
+          <!-- <div class="current-space-icon"> -->
+            <img src="https://fakeimg.pl/48x48/#2a3f54">
+          <% end %>
+            
+          </div>
           <div class="current-space-name flex flex-col">
             <span><%= @space.name %></span>
-            <span>##spaceHashCode##</span>
+            <span><%= @space.created_at%></span>
           </div>
 
         </div>
@@ -37,6 +47,8 @@
 
 
     <div class="group-stork-func mb-2">
+
+      
       <div class="browse-stork px-4 py-2 mb-2">
         <div class="opacity-75 flex justify-start items-center">
           <svg id="caret-browse-stork" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16">
@@ -134,14 +146,14 @@
                 
               </div>
             </div>
-              <!-- hidden end -->
+            <!-- hidden end -->
 
 
 
             <!-- 頻道列表顯示 -->
             <div class="mb-2">
               <div id="" class="stork-list-func px-4 py-2 mb-2">
-                
+
                 <div class="browse-channels opacity-75 flex justify-between items-center">
                   <div class="flex justify-start items-center">
                     <svg id="caret-browse-channel" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16">
@@ -150,15 +162,6 @@
                     </svg>
                     <span class="ml-3 mr-6 title-emphasize">頻道</span>
                   </div>
-              <!--     <svg id="open-all-channels" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class=" bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                  </svg> -->
-                </div>
-                
-                <div id="channel-list-func" class="stork-dropdown-common">
-                  <div><a href="#">建立新頻道</a></div>
-                  <div><a href="#">瀏覽所有頻道</a></div>
                 </div>
               </div>
 
@@ -167,55 +170,55 @@
 
 
 
-            <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
-            <!-- 頻道開始 -->
-            <div data-controller="baritem" data-baritem-target="center" id="space-channel-list" class="pl-4">
-              <!-- 頻道列表開始 -->
+              <!-- <div class="user-state-list bg-teal-dark py-1 px-4 text-white"># general</div> -->
+              <!-- 頻道開始 -->
+              <div data-controller="baritem" data-baritem-target="center" id="space-channel-list" class="pl-4">
+                <!-- 頻道列表開始 -->
 
-              <%# <ul> %>
-                <% channels.each do |c| %>
-                <% icon = c.is_public == "private_channel" ? "&" : "#" %>
-                <% name = c["name"] %>
-                <div class="channel-list pl-4 py-1">
-                  <%= link_to "#   #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
-                  <% if c.has_unread_message?(current_user, @space)%>
-                  <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"
-                  data-unreads-id="<%= c.id %>"><%= c.unread_message_count(current_user) %></div>
+                <%# <ul> %>
+                  <% channels.each do |c| %>
+                  <% icon = c.is_public == "private_channel" ? "&" : "#" %>
+                  <% name = c["name"] %>
+                  <div class="channel-list pl-4 py-1">
+                    <%= link_to "#   #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
+                    <% if c.has_unread_message?(current_user, @space)%>
+                    <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block visible" data-controller="unreads"
+                    data-unreads-id="<%= c.id %>"><%= c.unread_message_count(current_user) %></div>
+                    <% end %>
+                  </div>
                   <% end %>
-                </div>
-                <% end %>
-                <div class="channel-list  pl-4 py-1"><%= link_to "+   新增頻道", new_space_channel_path, remote: true %></div>
-                <%# </ul> %>
-                <!-- 頻道列表結束 -->
+                  <div class="channel-list  pl-4 py-1"><%= link_to "+   新增頻道", new_space_channel_path, remote: true %></div>
+                  <%# </ul> %>
+                  <!-- 頻道列表結束 -->
 
 
 
-                <!-- 按右鍵視窗 class="menu" 及 ul li 改掉-->
-                <div class="stork-dropdown-common" data-baritem-target="menu" id="channel-menu">
+                  <!-- 按右鍵視窗 class="menu" 及 ul li 改掉-->
+                  <div class="stork-dropdown-common" data-baritem-target="menu" id="channel-menu">
                     <div>
                       <%= link_to "離開頻道", leave_path, "data-baritem-target" => "deletepath", remote: true %>
                     </div>
                     <div>
                       <%= link_to "查看頻道資料", edit_space_channel_path, "data-baritem-target" => "editpath", remote: true %>
                     </div>
-                </div>
-                <!-- 按右鍵視窗結束 -->
-
-              </div>
-              <!-- 頻道結束 -->
-            </div>
-            <!-- 使用者區 -->
-            <div class="mb-2">
-              <div class="stork-list-func px-4 mb-2">
-                <div class="browse-users opacity-75 flex justify-between items-center">
-                  <div class="flex justify-start items-center">
-                    
-                    <svg id="caret-browse-msg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16">
-                      <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/>
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/>
-                    </svg>
-                    <span class="ml-3 mr-6 title-emphasize">空間成員</span>
                   </div>
+                  <!-- 按右鍵視窗結束 -->
+
+                </div>
+                <!-- 頻道結束 -->
+              </div>
+              <!-- 使用者區 -->
+              <div class="mb-2">
+                <div class="stork-list-func px-4 mb-2">
+                  <div class="browse-users opacity-75 flex justify-between items-center">
+                    <div class="flex justify-start items-center">
+
+                      <svg id="caret-browse-msg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16">
+                        <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/>
+                      </svg>
+                      <span class="ml-3 mr-6 title-emphasize">空間成員</span>
+                    </div>
                  <!--  <svg id="open-all-messages" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="cretbi bi-plus-square" viewBox="0 0 16 16">
                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/> -->

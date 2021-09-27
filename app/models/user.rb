@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   # active storage
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
+  validates :avatar, content_type: [:png, :jpg, :jpeg]
 
 
   def name

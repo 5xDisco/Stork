@@ -35,19 +35,22 @@
             <div id="user-profile-list" class="stork-dropdown-common" tabindex="0">
               <div class="user-profile-icon-group flex justify-evenly items-center">
                 <div>
+                  <% if @space.avatar.attached? %>
+                  <%= image_tag @space.avatar %>
+                  <% else %>
                   <img src="http://fakeimg.pl/48x48/00CED1/FFF/?text=A">
+                  <% end %>
                 </div>
                 <div class="user-status-group">
-                  <span class="user-profile-name block">##current_user##</span>
-                  <span class="user-profile-status block">##current_user_status##</span>
+                  <span class="user-profile-name block"><%=current_user.email%></span>
                 </div>
               </div>
-              <div><span class="user-status-update">更新你的狀態</span></div>
-              <div><span>將你自己設定為##user_status_name##</span></div>
+              <!-- <div><span class="user-status-update">更新你的狀態</span></div> -->
+              <!-- <div><span>將你自己設定為##user_status_name##</span></div> -->
               <div><span>編輯個人檔案</span></div>
               <div><span>檢視個人檔案</span></div>
-              <div><span>偏好設定</span></div>
-              <div><span>登出##space_name##</span></div>
+              <!-- <div><span>偏好設定</span></div> -->
+              <div><span>登出<%= @space.name%></span></div>
             </div>
             <!-- End of User profile list -->
           </div>
@@ -68,12 +71,11 @@
 
             <div class="space-icon-group cursor-pointer mb-4">
               <% @space_public_channels.each do |mall| %>
-
               <div
-              class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-              <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id) do %>
+              class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
+              <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id), class:"" do %>
                 <% if mall.space.avatar.attached? %>
-                  <%= image_tag mall.space.avatar %>
+                  <%= image_tag url_for(mall.space.avatar) %>
                 <% else %>
                   <%= mall.space.name[0,2]%>
                 <% end %>
@@ -179,8 +181,9 @@
 
 
           <%= form_with model: Message.new, url: space_channel_messages_path(@space, @channel), class: "flex flex-wrap w-full" , data: { action: "channel#sendMessage" } do |form| %>
-          <%= form.text_field :content, id: "message-content", class: "w-full px-4" , placeholder: "Type your message" %>
-          <trix-editor input="message-content" class="w-full"></trix-editor>
+
+          <%= form.rich_text_area :content, id: "message-content", class: "w-full px-4" , placeholder: "Type your message" %>
+         <!--  <trix-editor input="message-content" class="w-full"></trix-editor> -->
           <span class="order-1 text-3xl text-grey border-l-2 border-grey py-2 px-4">
             <%= image_submit_tag 'cursor-fill.svg'%>
           </span>

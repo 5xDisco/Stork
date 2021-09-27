@@ -1,16 +1,16 @@
 <div class='w-full md:w-2/3 mx-auto'>
-  <div class="py-8 pt-12 flex justify-center">  
+  <div class="py-8 pt-8 flex justify-center">  
     <%= link_to root_path do %>
     <%= image_tag 'logo_index.png' %>
     <% end %>
   </div>
 
   <div>
-    <p class="py-8 text-center text-3xl ">首先, 輸入你的電子郵件</p>
+    <p class=" text-center text-3xl ">首先, 輸入你的電子郵件</p>
     <p class="py-3 text-center text-l">我們建議使用你的工作電子郵件地址。</p>
   </div>
 
-  <div class="pt-6 w-2/3 md:w-1/2 mx-auto">
+  <div class= "py-3 w-2/6 md:auto mx-auto">
     <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
 
@@ -22,17 +22,17 @@
     <% end %>
   </div>
 
-  <div class="py-8 text-xl flex justify-center items-center">
+  <div class="py-2 text-xl flex justify-center items-center  w-2/6 md:auto mx-auto">
     <div class='border-t-2 w-60 border-gray-400'></div>
     <p class="px-3 block "> 或 </p>
     <div class='border-t-2 w-60 border-gray-400'></div>
   </div>
   
-  <div class="py-3 focus:text-center w-2/3 md:w-1/2 mx-auto">
+  <div class=" focus:text-center  w-2/6 md:auto mx-auto">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>  
     <%= render "devise/shared/error_messages", resource: resource %>
     
-      <div class="py-1 text-center">
+      <div class=" text-center">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "輸入電子信箱", class: "signupInput" %>
       </div>
 
@@ -40,17 +40,17 @@
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "輸入密碼", class: "signupInput" %>
       </div>
 
-      <div class="py-4 text-center">
+      <div class=" text-center">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
       </div>
 
-      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white" %> 
+      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white my-3" %> 
       <% end %>
 
 
-      <div class="pt-5 text-right" >
+      <div class=" text-right" >
         <%- if controller_name != 'sessions' %>
-          <%= link_to "登入", new_session_path(resource_name), class: '' %>
+          <%= link_to "登入", new_session_path(resource_name)%>
         <% end %>
       </div>
 

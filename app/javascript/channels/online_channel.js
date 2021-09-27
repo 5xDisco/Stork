@@ -6,9 +6,7 @@ consumer.subscriptions.create("OnlineChannel", {
   },
 
   received(data) {
-    console.log(data);
     let el = document.querySelector(`[data-id='${data.id}']`);
-    console.log(el);
     if (data.status == "online") {
       el.classList.remove("bg-gray-300");
       el.classList.add("bg-green-500");

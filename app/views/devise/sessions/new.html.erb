@@ -35,7 +35,7 @@
       <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
 
         <div class= "w-5 h-5 mr-4">
-          <%= image_tag 'google123', class: 'w-full h-full' %>
+          <%= image_tag 'google123.png', class: 'w-full h-full' %>
         </div>
         <p class='text-blue-600'>使用Google登入</p>
         <% end%>
@@ -48,9 +48,9 @@
       </p>
     </div>
 
-    <div class="pt-3 mt-1">
-      <p class="w-full  mx-auto">
-        <%= f.password_field :password, autocomplete: "current-password",placeholder: "請輸入密碼", class:"text-center text-xl border-2 rounded-md border-gray-500 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full"  %>
+    <input>
+      <p class="w-full">
+        <%= f.password_field :password, autocomplete: " current-password",placeholder: "請輸入密碼", class:"text-center text-xl border-2 rounded-md border-gray-500 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" %>
       </p>
     
       <button class="pt-3 w-full  mx-auto">
@@ -60,7 +60,9 @@
       <div class="pt-2 w-full mx-auto text-right" >
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to "忘記密碼?", new_password_path(resource_name), class: '' %><br />
-      <% end %>
+        <% end %>
+      </div>
+      
 
     </div>
    </div>

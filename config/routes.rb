@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :direct_messages
   end
 
+
   resources :messages do
     member do
       get :reply
@@ -24,6 +25,14 @@ Rails.application.routes.draw do
   #     get :reply
   #   end
   # end
+
+  get ':space_id/:id/redirect', to: 'tasks#redirect', as: 'redirect'
+  get '/callback', to: 'tasks#callback', as: 'callback'
+  get '/calendars', to: 'tasks#calendars', as: 'calendars'
+  get '/events.json', to: 'tasks#calendear_events', as: 'events'
+  get '/new_event', to: 'tasks#new_event', as: 'new_event'
+  post '/create_event', to: 'tasks#create_event', as: 'create_event'
+
 
 	get "/spaces/:space_id/leave/:id", to: "channels#leave", as: "leave"
   get "/member/:id", to: "channels#member", as: "member"

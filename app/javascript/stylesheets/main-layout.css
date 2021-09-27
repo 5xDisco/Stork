@@ -147,6 +147,10 @@ input.inp-space-search:focus {
   color: #a1e2d9;
 }
 
+.group-stork-func, .browse-apps {
+	color: #A1E2D9;
+}
+
 .group-stork-func:hover {
   cursor: pointer;
   color: #ededed;

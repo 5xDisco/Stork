@@ -96,8 +96,8 @@ class TasksController < ApplicationController
     private
     def client_options
     {
-        client_id: "664329070303-27q9vff3edkn1otqkhdqe2gbvpnne3bd.apps.googleusercontent.com",
-        client_secret: "WUrncHuKQSTs_HDibCi8Za33",
+        client_id: ENV['google_client_id'],
+        client_secret: ENV['google_client_secret'],
         authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
         token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
         scope: Google::Apis::CalendarV3::AUTH_CALENDAR,

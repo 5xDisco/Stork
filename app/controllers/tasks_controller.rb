@@ -27,6 +27,13 @@ class TasksController < ApplicationController
       @channels = current_user.channels.where(space_id: @space.id, direct_message: false)
       @lobby_channel = Space.find(@space.id).channels.find_by(is_public: 'lobby_channel')
 
+      spaces = current_user.spaces
+      space_public_channels = []
+        spaces.each do |space|
+          space_public_channels << space.channels.lobby_channels
+        end
+      @space_public_channels = space_public_channels.flatten
+
       rescue Google::Apis::AuthorizationError
         response = client.refresh!
         session[:authorization] = session[:authorization].merge(response)

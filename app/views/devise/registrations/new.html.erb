@@ -15,7 +15,7 @@
     <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
 
       <div class= "w-5 h-5 mr-4">
-        <%= image_tag 'google123', class: 'w-full h-full' %>
+        <%= image_tag 'google123.png', class: 'w-full h-full' %>
       </div>
       <p class='text-blue-600'>使用Google登入</p>
       <% end%>
@@ -44,7 +44,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
       </div>
 
-      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white" %> 
+      <%= f.submit "註冊", class: "cursor-pointer signupInput bg-stork-blue text-white" %> 
       <% end %>
 
       <div class="pt-5 text-right" >

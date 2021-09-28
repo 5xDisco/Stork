@@ -1,16 +1,26 @@
-<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at %>
-  <% @bar_shown == true %>
-  <div class="border-b-2 border-red-500"></div>
+<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at && message.user_id != current_user.id %>
+  <% @bar_shown = true %>
+  <div class='flex text-right divide'>
+    <span class='pl-2 h-0 border-b-0 border-t-2 block flex-grow border-red-600 my-auto'></span>
+    <span class="pl-3 pr-3">您有未讀訊息</span>
+  </div>
 <% end %>
 
-<div class="flex items-start mb-4 text-sm">
+<div class="flex items-start mb-4 text-sm" data-controller="message" data-action="mouseover->message#emerge
+   mouseout->message#fade">
   <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
-  <div class="flex-1 overflow-hidden">
+  <div class="flex-1 overflow-hidden relative">
     <div>
-      <span class="font-bold" data-username=""><%= message.user.name %></span>
-      <span class="text-grey text-xs" data-message-create-time=""><%= message.created_at %></span>
+      <span class="font-bold"><%= message.user.nickname %></span>
+      <span class="text-grey text-xs"><%= message.created_at.strftime("%b %d %R") %></span>
     </div>
     <p class="text-black leading-normal"><%= message.content %></p>
+
+    <div class="reply-count <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
+
+    <button class="reply-btn absolute bottom-0 right-0 invisible" data-message-target="replyBtn">
+      <%= link_to "reply", reply_message_path(message.id), remote: true %>
+    </button>
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting, :member_add]
-  before_action :find_space_user_channel, only: [:show]
+  before_action :find_space_user_channels, only: [:show]
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
   before_action :find_lobby_channel, only:[:show]
@@ -10,8 +11,6 @@ class ChannelsController < ApplicationController
     @user_channel = current_user.user_channels.find_by(channel: @channel)
     @last_read_at = @user_channel&.last_read_at || @channel.created_at
     @user_channel&.touch(:last_read_at)
-
-    
   end
 
   def leave
@@ -153,7 +152,7 @@ class ChannelsController < ApplicationController
     params.require(:channel).permit(:name, :description, :topic, :space_id, :direct_message)
   end
 
-  def find_space_user_channel
+  def find_space_user_channels
     space = Space.find(params[:space_id])
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end

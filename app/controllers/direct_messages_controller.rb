@@ -1,5 +1,4 @@
 class DirectMessagesController < ApplicationController
-  before_action :find_user_channel
   before_action :find_space_user_channels
   before_action :find_user_spaces
   before_action :set_space
@@ -11,17 +10,15 @@ class DirectMessagesController < ApplicationController
     @recipient = User.find(params[:id])
     @channel = Channel.direct_message_for_users(users, @space.id)
     @messages = @channel.messages
-    @user_channel = current_user.user_channels.find_by(channel_id: @channel.id)
-    @lobby_channel = Space.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
+    
+    @user_channel = current_user.user_channels.find_by(channel: @channel)
+    @last_read_at = @user_channel&.last_read_at || @channel.created_at
+    @user_channel&.touch(:last_read_at) 
 
     render "channels/show"
   end
 
   private
-
-  def find_user_channel
-    @channel = current_user.channels.find(params[:id])
-  end
 
   def find_user_spaces
     @spaces = current_user.spaces

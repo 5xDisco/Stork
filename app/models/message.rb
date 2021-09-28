@@ -15,6 +15,6 @@ class Message < ApplicationRecord
   end
 
   def mentioned_nicknames
-    content.scan(/@([\w-]+)/).flatten
+    content.scan(/@([\w-]+|[\u4E00-\u9FFF-]+)/).flatten
   end
 end

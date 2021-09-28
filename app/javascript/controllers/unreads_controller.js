@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
 
 export default class extends Controller {
-  static targets = ["unreadCount"];
+  static targets = ["unreadsCount"];
 
   connect() {
     this.username = document
@@ -11,13 +11,13 @@ export default class extends Controller {
 
     console.log(
       'Will create subscription to: channel: "UnreadsChannel" channel_id: ' +
-        this.data.get("id")
+        this.data.get("channelid")
     );
 
     this.channel = consumer.subscriptions.create(
       {
         channel: "UnreadsChannel",
-        channel_id: this.data.get("id"),
+        channel_id: this.data.get("channelid"),
       },
       {
         connected: this._cableConnected.bind(this),
@@ -38,15 +38,14 @@ export default class extends Controller {
   _cableReceived(data) {
     console.log(data);
 
-    let channelId = this.data.get("id");
+    let channelId = this.data.get("channelid");
     let userId = this.data.get("userid");
 
     if (data.channel_id == channelId && data.user_id != userId) {
-      let count = parseInt(this.unreadCountTarget.textContent);
-
-      this.unreadCountTarget.classList.remove("invisible");
-      this.unreadCountTarget.classList.add("visible");
-      this.unreadCountTarget.textContent = count + 1;
+      let count = parseInt(this.element.textContent);
+      this.element.classList.remove("invisible");
+      this.element.classList.add("visible");
+      this.element.textContent = count + 1;
     }
 
     if (data.mentions && data.mentions.includes(this.username)) {

@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def online?
     User.online.ids.include?(id)
   end
+
+  def display_name
+    nickname || name
+  end
 end

@@ -1,4 +1,4 @@
-class UesrChannelsController < ApplicationController
+class UserChannelsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_channel
 

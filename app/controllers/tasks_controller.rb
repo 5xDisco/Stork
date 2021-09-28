@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    skip_before_action :authenticate_user!
+    before_action :authenticate_user!, only:[:new_event, :create_event]
     protect_from_forgery except: :calendear_event
 
     def redirect

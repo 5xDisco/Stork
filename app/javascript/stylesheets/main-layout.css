@@ -277,8 +277,6 @@ background-color: #FFF;
 
 .stork-list-func,
 .user-state-list {
-  padding: 5px 16px;
-  /*border-bottom: 1px solid #DDDAAD;*/
   color: #dedede;
   cursor: pointer;
 }

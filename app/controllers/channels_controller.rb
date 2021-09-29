@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user_channel, only: [:show, :leave, :update, :edit, :setting, :member_add]
-  before_action :find_space_user_channel, only: [:show]
+  before_action :find_space_user_channels, only: [:show]
   before_action :find_user_spaces, only: [:show]
   before_action :set_space, only:[:show]
   before_action :find_lobby_channel, only:[:show]
@@ -9,9 +10,7 @@ class ChannelsController < ApplicationController
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
     @last_read_at = @user_channel&.last_read_at || @channel.created_at
-    @user_channel&.touch(:last_read_at)
-
-    
+    @user_channel&.touch(:last_read_at) 
   end
 
   def leave
@@ -26,33 +25,29 @@ class ChannelsController < ApplicationController
   end
 
   def create
-      @channel = current_user.channels.new(channel_params)
-      unless Space.friendly.find(params[:space_id]).channels.find_by(name: @channel.name)
-        if(params[:is_public] == "public")
-          @channel.is_public = 'public_channel'
-        else
-          @channel.is_public = 'private_channel'
-        end
+    @channel = current_user.channels.new(channel_params);
 
-
-        if current_user.save 
-          if @channel.is_public == 'public_channel'
-            space_users = Space.friendly.find(params[:space_id]).users
-            space_users.each do |user|
-              unless user.channels.find_by(space_id: params[:space_id], id: @channel.id)
-                UserChannel.create(user_id: user.id, channel_id: @channel.id)
-              end
+    unless Space.friendly.find(params[:space_id]).channels.find_by(name: @channel.name)
+      if(params[:is_public] == "public")
+        @channel.is_public = 'public_channel'
+      else
+        @channel.is_public = 'private_channel'
+      end
+      if(current_user.save) 
+        if(@channel.is_public == 'public_channel')
+          space_users = Space.friendly.find(params[:space_id]).users
+          space_users.each do |u|
+            unless u.channels.find_by(space_id: params[:space_id], id: @channel.id)
+              UserChannel.create(user_id: u.id, channel_id: @channel.id)
             end
           end
-          redirect_to space_channel_path(id: @channel.id)
         end
-        @errors = @channel.errors.full_messages 
-        p "====================="
+        redirect_to space_channel_path(id: @channel.id)
       end
-      @errors = "已有此頻道不能同名"
-       p "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      @errors = @channel.errors.full_messages 
+    end
+    @errors = "已有此頻道不能同名"
   end
-
   def new
     @channel = current_user.channels.new
     @channel.space_id = Space.friendly.find(params[:space_id]).id
@@ -157,8 +152,13 @@ class ChannelsController < ApplicationController
     params.require(:channel).permit(:name, :description, :topic, :space_id, :direct_message, :is_public)
   end
 
+<<<<<<< HEAD
   def find_space_user_channel
     space = Space.friendly.find(params[:space_id])
+=======
+  def find_space_user_channels
+    space = Space.find(params[:space_id])
+>>>>>>> develop
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 

@@ -1,17 +1,42 @@
-<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at %>
-  <% @bar_shown == true %>
-  <div class="border-b-2 border-red-500"></div>
+<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at && message.user_id != current_user.id %>
+  <% @bar_shown = true %>
+  <div class='flex text-right divide'>
+    <span class='pl-2 h-0 border-b-0 border-t-2 block flex-grow border-red-600 my-auto'></span>
+    <span class="pl-3 pr-3">您有未讀訊息</span>
+  </div>
 <% end %>
 
-<div class="flex items-start mb-4 text-sm">
+<div class="flex items-start mb-4 text-sm" data-controller="message" data-action="mouseover->message#emerge
+   mouseout->message#fade">
   <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
-  <div class="flex-1 overflow-hidden">
+  <div class="flex-1 overflow-hidden relative">
     <div>
-      <span class="font-bold" data-username=""><%= message.user.name %></span>
-      <span class="text-grey text-xs" data-message-create-time=""><%= message.created_at %></span>
+      <span class="font-bold"><%= message.user.display_name %></span>
+      <span class="text-grey text-xs"><%= message.created_at.strftime("%b %d %R") %></span>
     </div>
     <p class="text-black leading-normal"><%= message.content %></p>
+
+    <div class="reply-count absolute bottom-0 right-0 <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
+
+    <button class="reply-btn absolute top-0 right-0 invisible" data-message-target="replyBtn">
+      <%= link_to "reply", reply_message_path(message.id), remote: true %>
+    </button>
   </div>
 </div>
 
-
+<!-- <div class="message-notice-group">
+  <div class="message-notice flex justify-center mb-4 text-sm">
+      <span class="">##msg_date##
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="message-date-dropdown ml-2 bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+          </svg>
+      </span>
+  </div>
+  <div id="message-notice-list" class="stork-dropdown-common">
+      <div><span class="text-grey">跳至.......</span></div>
+      <div><a href="#">最近</a></div>
+      <div><a href="#">上週</a></div>
+      <div><a href="#">上個月</a></div>
+      <div><a href="#">跳到特定日期</a></div>
+  </div> 
+  </div> -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_084834) do
+ActiveRecord::Schema.define(version: 2021_09_27_044829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2021_09_23_084834) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.bigint "message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
+    t.bigint "user_id"
+    t.index ["message_id"], name: "index_replies_on_message_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "icon"
@@ -69,6 +79,18 @@ ActiveRecord::Schema.define(version: 2021_09_23_084834) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.index ["slug"], name: "index_spaces_on_slug", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.string "location"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "user_channels", force: :cascade do |t|
@@ -95,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_084834) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -111,6 +134,9 @@ ActiveRecord::Schema.define(version: 2021_09_23_084834) do
   add_foreign_key "channels", "spaces"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
+  add_foreign_key "replies", "messages"
+  add_foreign_key "replies", "users"
+  add_foreign_key "tasks", "users"
   add_foreign_key "user_channels", "channels"
   add_foreign_key "user_channels", "users"
   add_foreign_key "users_spaces", "spaces"

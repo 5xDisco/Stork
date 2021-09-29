@@ -6,8 +6,8 @@
   </div>
 
   <div>
-    <p class="py-8 text-center text-3xl ">首先, 輸入你的電子郵件</p>
-    <p class="py-3 text-center text-l">我們建議使用你的工作電子郵件地址。</p>
+    <p class=" text-center text-3xl ">首先, 輸入你的電子郵件</p>
+    <p class=" text-center text-l">我們建議使用你的工作電子郵件地址。</p>
   </div>
 
   <div class="pt-6 w-2/3 md:w-1/2 mx-auto">
@@ -15,38 +15,37 @@
     <%= link_to omniauth_authorize_path(resource_name, provider), method: :post , class:"text-center text-xl border-2 rounded-md border-blue-600 flex items-center justify-center hover:no-underline hover:shadow-md py-2 px-2 w-full" do%>
 
       <div class= "w-5 h-5 mr-4">
-        <%= image_tag 'google123', class: 'w-full h-full' %>
+        <%= image_tag 'google123.png', class: 'w-full h-full' %>
       </div>
       <p class='text-blue-600'>使用Google登入</p>
       <% end%>
     <% end %>
   </div>
 
-  <div class="py-8 text-xl flex justify-center items-center">
+  <div class="py-3 text-xl flex justify-center items-center">
     <div class='border-t-2 w-60 border-gray-400'></div>
     <p class="px-3 block "> 或 </p>
     <div class='border-t-2 w-60 border-gray-400'></div>
   </div>
   
-  <div class="py-3 focus:text-center w-2/3 md:w-1/2 mx-auto">
+  <div class=" focus:text-center w-2/3 md:w-1/2 mx-auto">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>  
-    <%= render "devise/shared/error_messages", resource: resource %>
-    
       <div class="py-1 text-center">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "輸入電子信箱", class: "signupInput" %>
+        <%= sanitize error_message(resource ,:email) %>
       </div>
 
       <div class="py-3 text-center">
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "輸入密碼", class: "signupInput" %>
+        <%= sanitize error_message(resource ,:password) %>
       </div>
 
       <div class="py-4 text-center">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class: "signupInput" %>
       </div>
 
-      <%= f.submit "註冊", class: "signupInput bg-stork-blue text-white" %> 
+      <%= f.submit "註冊", class: "cursor-pointer signupInput bg-stork-blue text-white" %> 
       <% end %>
-
 
       <div class="pt-5 text-right" >
         <%- if controller_name != 'sessions' %>
@@ -57,5 +56,5 @@
     </div>
 
   </div>
-
+  <%= render 'layouts/messages' %>
 </div>

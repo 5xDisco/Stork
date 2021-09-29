@@ -1,0 +1,89 @@
+<div class="message-replies flex flex-col w-1/3 overflow-hidden border-l " data-controller="replies"  data-replies-id="<%= message.id %>">
+
+  <div class="space-target-title border-b items-center flex-none bg-gray">
+
+    <div class="flex justify-between items-center">
+      <div class="flex flex-col">
+        <h3 class="title-emphasize mb-1 font-extrabold">
+          <span>對話串 #</span>
+          <span>
+            <% if channel.direct_message %>
+              <%= receiver.display_name %>
+            <% else %>
+              <%= channel.name %>
+            <% end %>
+          </span>
+
+          <svg id="channel-mute-off" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="hidden bi bi-bell-slash" viewBox="0 0 16 16">
+            <path
+              d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6 0-.264-.02-.523-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164l-1 1zm5.581-9.91a3.986 3.986 0 0 0-1.948-1.01L8 2.917l-.797.161A4.002 4.002 0 0 0 4 7c0 .628-.134 2.197-.459 3.742-.05.238-.105.479-.166.718l-1.653 1.653c.02-.037.04-.074.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284l-.707.707zM10 15a2 2 0 1 1-4 0h4zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75L.625 15.625z" />
+          </svg>
+
+          <svg id="channel-mute-on" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="hidden bi bi-bell" viewBox="0 0 16 16">
+            <path
+              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+          </svg>
+
+          <svg id="channel-hightlight" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="hidden bi bi-star" viewBox="0 0 16 16">
+            <path
+              d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+          </svg>
+          <svg id="channel-highlighted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="hidden bi bi-star-fill" viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+        </h3>
+      </div>
+        <div class="replies-closed">
+          <button class="replies-closed-btn" data-action="replies#closeReplyRoom">X</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="reply-box flex-1 overflow-y-scroll px-6 pt-4" data-replies-target="replyBox">
+    <div class="flex items-start mb-2 text-sm">
+      <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
+      <div class="flex-1 overflow-hidden relative">
+        <div>
+          <span class="font-bold">
+            <%= message.user.display_name %>
+          </span>
+          <span class="text-grey text-xs">
+            <%= message.created_at.strftime("%b %d %R") %>
+          </span>
+        </div>
+        <p class="text-black leading-normal">
+          <%= message.content %>
+        </p>
+      </div>
+    </div>
+    <div class="reply-count mb-2 <%= message.replies.present? ? "visible" : "invisible" %>" data-replies-target="replyCount">有<span data-replies-target="replyNum"><%= message.replies.count %></span>則回覆</div>
+    <% message.replies.each do |reply| %>
+      <%= render "replies/reply" , reply: reply %>
+    <% end %>
+  </div>
+
+  <div class="flex-none">
+    <div class="message-editor-panel py-4 px-4 flex-none">
+      <div class="message-editor flex rounded-lg border-2 border-grey overflow-hidden">
+        <span class="text-3xl text-grey border-r-2 border-grey py-2 px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="text-gray-400 bi bi-plus-lg" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+          </svg>
+        </span>
+        <%= form_with model: Reply.new, url: message_replies_path(message), class: "flex w-full" , data: {
+          action: "replies#sendReply" }, html: { autocomplete: "off" } do |form| %>
+          <%= form.text_field :content, class: "w-full px-4" , placeholder: "Reply..." %>
+            <span class="text-3xl text-grey border-l-2 border-grey py-2 px-4">
+              <%= image_submit_tag 'cursor-fill.svg' %>
+            </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

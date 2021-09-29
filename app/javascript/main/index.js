@@ -11,6 +11,11 @@ jQuery(function () {
 	$(".browse-users").on("click", function(e){
 		toggleList("caret-browse-msg","space-users-list");
 	});
+
+	
+	$(".browse-apps").on("click", function(e){
+		toggleList("caret-browse-app","app-list");
+	});
 });
 
 

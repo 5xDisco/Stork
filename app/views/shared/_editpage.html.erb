@@ -1,21 +1,21 @@
 <div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
-    <div class="dialog-box">
-            <div class="head">
-                <h2 class="text-3xl pt-4 pb-4">
-                    <%= channel.is_public == "private_channel" ? "&" : "#" %>
-                    <%= channel.name %>
-                </h2>
-                <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl" >×</button>	
+  <div class="dialog-box">
+    <div class="head">
+      <h2 class="text-3xl pt-4 pb-4">
+        <%= channel.is_public == "private_channel" ? "&" : "#" %>
+        <%= channel.name %>
+      </h2>
+      <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl" >×</button>	
 
-                <div class="flex flex-wrap mb-2">
-                    <%= link_to "頻道會員", member_path(channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
-                    <%= link_to "加成員", member_add_path(channel.space_id, channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
-                    <%= link_to "查看頻道資料", setting_path(id: channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
-                </div>
-                <hr class="mb-2 font-bold">         
-            </div>
-            <div class="dialog-content">
-                <%= render "shared/member", members: members %>
-            </div>
+      <div class="flex flex-wrap mb-2">
+        <%= link_to "頻道會員", member_path(channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
+        <%= link_to "加成員", member_add_path(channel.space_id, channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
+        <%= link_to "查看頻道資料", setting_path(id: channel.id), remote: true, class: "px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring transition text-gray-600 hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 mr-4" %>
+      </div>
+      <hr class="mb-2 font-bold">         
     </div>
+    <div class="dialog-content">
+      <%= render "shared/member", members: members %>
+    </div>
+  </div>
 </div>

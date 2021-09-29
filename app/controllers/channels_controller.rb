@@ -168,7 +168,7 @@ class ChannelsController < ApplicationController
   def find_public_channel
     spaces = current_user.spaces
     space_public_channels = []
-      @spaces.each do |space|
+      spaces.each do |space|
         space_public_channels << space.channels.lobby_channels
       end
     @space_public_channels = space_public_channels.flatten

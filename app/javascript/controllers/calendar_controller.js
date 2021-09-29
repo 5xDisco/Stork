@@ -42,7 +42,14 @@ export default class extends Controller {
                   window.open(info.event.url);
                 }
               },
-              
+              eventMouseEnter: function (info) {
+                info.el.style = "background-color: #3e5367; border-color:#3e5367;";
+                //info.event.setProp('backgroundColor', '#00CCFF');
+              },
+              eventMouseLeave: function (info) {
+                info.el.style = "background-color: #3788d8; border-color:#3788d8;";
+                //info.event.setProp('backgroundColor', '#00CCFF');
+              }
             },
 
             );

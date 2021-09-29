@@ -25,16 +25,16 @@ class DirectMessagesController < ApplicationController
   end
 
   def find_space_user_channels
-    space = Space.find(params[:space_id])
+    space = Space.friendly.find(params[:space_id])
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 
   def set_space
-    @space = current_user.spaces.find(params[:space_id])
+    @space = current_user.spaces.friendly.find(params[:space_id])
   end
 
   def find_lobby_channel
-    @lobby_channel = Space.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
+    @lobby_channel = Space.friendly.find(params[:space_id]).channels.find_by(is_public: 'lobby_channel')
   end
 
   def find_public_channel

@@ -3,6 +3,9 @@ class Message < ApplicationRecord
   belongs_to :channel
 
   has_many :replies, dependent: :destroy
+  
+	extend FriendlyId
+  friendly_id :friendly_params, use: :slugged
 
   after_create :process_mentions
 

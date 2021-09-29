@@ -154,7 +154,7 @@ class ChannelsController < ApplicationController
 
   def find_space_user_channels
     space = Space.find(params[:space_id])
-    @channels = current_user.channels.where(space_id: space.id, direct_message: false)
+    @channels = current_user.channels.where(space_id: space.id, direct_message: false).order("ID ASC")
   end
 
   def set_space

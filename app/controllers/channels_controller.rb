@@ -127,7 +127,7 @@ class ChannelsController < ApplicationController
 
   def member_accept
     return redirect_to root_path unless user_signed_in?
-    invite_letter = Invitation.find_by!(user_id: current_user.id, status: 'channel')
+    invite_letter = Invitation.find_by(user_id: current_user.id, status: 'channel')
     if(invite_letter)
       space_id = content.space_id
       channel_id = content.channel_id

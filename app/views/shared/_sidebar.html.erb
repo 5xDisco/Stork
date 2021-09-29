@@ -196,7 +196,7 @@
           <% icon=c.is_public=="private_channel" ? "&" : "#" %>
             <% name=c["name"] %>
               <div class="channel-list pl-4 py-1">
-                <%= link_to "#   #{c[" name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id"=> "item",
+                <%= link_to "#   #{c["name"]}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id"=> "item",
                   "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
 
                   <div

@@ -7,7 +7,7 @@ class DirectMessagesController < ApplicationController
 
   def show
     users = [current_user, User.find(params[:id])]
-    @recipient = User.friendly.find(params[:id])
+    @recipient = User.find(params[:id])
     @channel = Channel.direct_message_for_users(users, @space.id)
     @messages = @channel.messages
     
@@ -25,12 +25,12 @@ class DirectMessagesController < ApplicationController
   end
 
   def find_space_user_channels
-    space = Space.friendly.find(params[:space_id])
+    space = Space.find(params[:space_id])
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 
   def set_space
-    @space = current_user.spaces.friendly.find(params[:space_id])
+    @space = current_user.spaces.find(params[:space_id])
   end
 
   def find_lobby_channel

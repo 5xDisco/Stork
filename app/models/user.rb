@@ -19,10 +19,6 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :friendly_params, use: :slugged
 
-  def slug
-    
-  end
-
   def name
     email.split('@')[0]
   end

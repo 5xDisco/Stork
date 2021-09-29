@@ -26,7 +26,6 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = current_user.channels.new(channel_params);
-
     unless Space.friendly.find(params[:space_id]).channels.find_by(name: @channel.name)
       if(params[:is_public] == "public")
         @channel.is_public = 'public_channel'
@@ -145,20 +144,14 @@ class ChannelsController < ApplicationController
 
   def find_user_spaces
     @spaces = current_user.spaces
-    
   end
   
   def channel_params
     params.require(:channel).permit(:name, :description, :topic, :space_id, :direct_message, :is_public)
   end
 
-<<<<<<< HEAD
-  def find_space_user_channel
-    space = Space.friendly.find(params[:space_id])
-=======
   def find_space_user_channels
-    space = Space.find(params[:space_id])
->>>>>>> develop
+    space = Space.friendly.find(params[:space_id])
     @channels = current_user.channels.where(space_id: space.id, direct_message: false)
   end
 

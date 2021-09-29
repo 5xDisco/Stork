@@ -1,12 +1,16 @@
 class TasksController < ApplicationController
-    before_action :authenticate_user!, only:[:new_event, :create_event]
-    protect_from_forgery except: :calendear_event
+    #before_action :authenticate_user!, only:[:new_event, :create_event]
 
     def redirect
+      session[:space_id] = params[:space_id]
+      session[:id] = params[:id]
+      
+      if session[:authorization] != nil && session[:authorization]["access_token"]
+        redirect_to calendars_path
+      else
         client = Signet::OAuth2::Client.new(client_options)
-        session[:space_id] = params[:space_id]
-        session[:id] = params[:id]
         redirect_to client.authorization_uri.to_s
+      end
     end
 
     def callback
@@ -24,7 +28,7 @@ class TasksController < ApplicationController
       service.authorization = client
       # @calendar = service.get_calendar('primary')
       @space = Space.find(session[:space_id])
-      @channels = current_user.channels.where(space_id: @space.id, direct_message: false)
+      @channels = current_user.channels.where(space_id: @space.id, direct_message: false).order("ID ASC")
       @lobby_channel = Space.find(@space.id).channels.find_by(is_public: 'lobby_channel')
 
       spaces = current_user.spaces
@@ -46,7 +50,7 @@ class TasksController < ApplicationController
       service = Google::Apis::CalendarV3::CalendarService.new
       service.authorization = client
       response = service.list_events('primary',
-        max_results: 10,
+        max_results: 15,
         single_events: true,
         order_by: 'startTime',
         time_min: Time.now.iso8601)
@@ -69,22 +73,6 @@ class TasksController < ApplicationController
   
       service = Google::Apis::CalendarV3::CalendarService.new
       service.authorization = client
-    
-        # event = Google::Apis::CalendarV3::Event.new({
-        #   summary: @task.title,
-        #   description: @task.description,
-        #   location: @task.location,
-        #   start: {
-        #     date: params["task"]["start_date"].to_datetime.rfc3339,
-        #     timeZone: 'Asia/Taipei'
-        #   },
-        #   end: {
-        #     date: params["task"]["end_date"].to_datetime.rfc3339,
-        #     timeZone: 'Asia/Taipei'
-        #   },
-        # })
-    
-        # result = service.insert_event('primary', event)
 
         event = Google::Apis::CalendarV3::Event.new({
           start: Google::Apis::CalendarV3::EventDateTime.new(date: params["task"]["start_date"].to_date),

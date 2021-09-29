@@ -1,4 +1,5 @@
-jQuery(function () {
+document.addEventListener("turbolinks:load", function() {
+	// ...jQuery(function () {
 	// 瀏覽Stork 列表收合
 	$(".browse-stork").on("click", function (e) {
 		toggleList("caret-browse-stork","dropdown-stork-list");
@@ -16,7 +17,9 @@ jQuery(function () {
 	$(".browse-apps").on("click", function(e){
 		toggleList("caret-browse-app","app-list");
 	});
-});
+  })
+
+
 
 
 function toggleList(caret,targetList){

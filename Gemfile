@@ -38,6 +38,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'figaro'
 gem 'google-api-client', '~> 0.53.0', require: 'google/apis/calendar_v3'
 gem 'google_calendar', '~> 0.6.4'
+gem 'sendgrid-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

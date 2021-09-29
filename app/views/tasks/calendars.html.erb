@@ -95,31 +95,34 @@
 
 
 
-        <!-- 公版開始 -->
-<div class="outer-panel container font-sans antialiased h-screen">
-          <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
-          <div class="space-icons-panel flex-none w-20 p-4 md:block">
+    <!-- 公版開始 -->
+    <div class="outer-panel container font-sans antialiased h-screen">
+      <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+      <div class="space-icons-panel flex-none w-20 p-4 md:block">
 
-            <div class="space-icon-group cursor-pointer mb-4">
-              <div
-              class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-              <img src="#" alt="">
-              ST
-            </div>
-          </div>
-
-          <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
-          <div class="cursor-pointer">
-            <div
-            class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-              <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-            </svg>
-          </div>
+        <div class="space-icon-group cursor-pointer mb-4">
+          <% @space_public_channels.each do |mall| %>
+          <div
+          class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
+          <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id), class:"" do %>
+                <%= mall.space.name[0,2]%>
+            <% end %>
         </div>
-        <!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
+        <% end %>
       </div>
-      <!-- 1 end -->
+
+      <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
+      <div class="cursor-pointer hidden">
+        <div
+        class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+          <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+        </svg>
+      </div>
+    </div>
+    <!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
+  </div>
+  <!-- 1 end -->
 
       <!-- 側邊欄部分開始 -->
       <%= render "shared/sidebar", channels: @channels, lobby_channel: @lobby_channel %>

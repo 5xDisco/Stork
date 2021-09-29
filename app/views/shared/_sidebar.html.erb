@@ -1,5 +1,5 @@
 <!-- 側邊欄開始 -->
-<div class="space-channels-panel flex-none  w-64  overflow-y-scroll md:block">
+<div class="space-channels-panel flex-none w-64 overflow-y-scroll md:block">
 
   <div class="stork-header text-white">
 
@@ -176,7 +176,7 @@
                 </div>
 
                 <% end %>
-                <div class="channel-list  pl-4 py-1"><%= link_to "+   新增頻道", new_space_channel_path(@space.id), remote: true %></div>
+                <div class="channel-list pl-4 py-1"><%= link_to "+   新增頻道", new_space_channel_path(@space.id), remote: true %></div>
                 <%# </ul> %>
                 <!-- 頻道列表結束 -->
 
@@ -221,7 +221,7 @@
               <div id="space-users-list" class="pl-4">
                 <!-- 使用者列表開始 -->
                 <% @space.users.each do |user| %>
-                <div class="user-state-list bg-teal-dark text-white flex items-center pl-4 py-1">
+                <div class="user-state-list bg-teal-dark flex items-center pl-4 py-1">
                   <%= link_to "#{user.display_name}", space_direct_message_path(@space.id, user.id), data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
                   <span class="online-status w-3 h-3 ml-2 inline-block rounded-full <%= user.online? ? "bg-green-500" : "bg-gray-300" %>", data-id="<%= user.id %>"></span>
                   <%= directmsg_exist(current_user, user, @space) %>                  

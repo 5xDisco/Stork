@@ -16,7 +16,6 @@ class MessagesController < ApplicationController
     receiver = @channel.name.split(":") - ["DM", "#{current_user.id}"]
     receiver_id = receiver[0].to_i
     @receiver = User.find(receiver_id)
-    @receiver
     end
   end
 

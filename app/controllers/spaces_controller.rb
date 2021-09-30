@@ -29,7 +29,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :icon)
+    params.require(:space).permit(:name, :avatar, uploads: [])
   end
 
   def find_space

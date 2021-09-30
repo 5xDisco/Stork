@@ -191,7 +191,7 @@
           action: "channel#sendMessage" }, html: { autocomplete: "off" } do |form| %>
 
           <div class="relative flex flex-col">
-          <%= form.rich_text_area :content, class: "relative w-full px-4" , placeholder: "Type your message" %>
+          <%= form.rich_text_area :content, class: "relative w-full px-4", data: {"channel-target": "input" }, placeholder: "Type your message" %>
           <span class="msg-txtarea-submit flex">
             <%= image_submit_tag 'cursor-fill.svg', class: "bg-white"%>
           </span>

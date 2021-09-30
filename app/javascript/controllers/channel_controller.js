@@ -3,7 +3,7 @@ import consumer from "../channels/consumer";
 import axios from "../lib/http/axios";
 
 export default class extends Controller {
-  static targets = ["messages"];
+  static targets = ["messages", "input"];
 
   connect() {
     console.log(
@@ -48,12 +48,12 @@ export default class extends Controller {
     e.preventDefault();
     const channelId = this.data.get("channelid");
     const spaceId = this.data.get("spaceid");
-    console.log(e.target[1].value);
-
     if (e.target[1].value != "") {
       const params = { content: e.target[1].value };
       axios.post(`/spaces/${spaceId}/channels/${channelId}/messages`, params);
-      e.target[1].value = "";
+
+      console.log(this.inputTarget.value)
+      this.inputTarget.value = "";
     }
   }
 

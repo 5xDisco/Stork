@@ -12,16 +12,18 @@ class User < ApplicationRecord
   #與 message 的關聯
   has_many :messages, dependent: :destroy
 
-  # active storage
+  has_many :replies, dependent: :destroy
+
+  has_many :tasks, dependent: :destroy
+
   has_one_attached :avatar, dependent: :destroy
   validates :avatar, content_type: [:png, :jpg, :jpeg]
-
 
   def name
     email.split('@')[0]
   end
 
-  
+
   def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|
       user.email = provider_data.info.email
@@ -38,5 +40,9 @@ class User < ApplicationRecord
 
   def online?
     User.online.ids.include?(id)
+  end
+
+  def display_name
+    nickname || name
   end
 end

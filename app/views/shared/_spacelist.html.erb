@@ -1,23 +1,22 @@
 <div class="font-sans antialiased h-screen flex">
     
     <!-- Sidebar / Space list 目前不要更動-->
-    <div id="wspace-icons-lists" class="
-    bg-blue-900 text-white outline-[color:#abc] flex-none w-20 p-2 hidden md:block">
+  <div id="wspace-icons-lists" class="bg-blue-900 text-white outline-[color:#abc] flex-none w-20 p-2 hidden md:block">
     
-    <% spaces.each do |space| %>
-    <!-- Space icon 切換工作空間按鈕 -->
-    <div data-tip="<%= space.name%>" class="cursor-pointer mb-4 tooltip  tooltip-right z-10" >
-        <!-- 先移除透明度 opacity-25 -->
-        <div class="active:ring-4 bg-red-900 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 hover:bg-red  h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-        <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=<%= space.name%>">
-        </div>
-    </div>			
-    <% end %>
-    
-    <!-- Space icon 新增工作空間 -->
-    <div class="cursor-pointer">
-        <div class="bg-white hover:opacity-50 opacity-25 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
-            <svg class="fill-current h-10 w-10 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M16 10c0 .553-.048 1-.601 1H11v4.399c0 .552-.447.601-1 .601-.553 0-1-.049-1-.601V11H4.601C4.049 11 4 10.553 4 10c0-.553.049-1 .601-1H9V4.601C9 4.048 9.447 4 10 4c.553 0 1 .048 1 .601V9h4.399c.553 0 .601.447.601 1z"/></svg>
-        </div>
+  <% spaces.each do |space| %>
+  <!-- Space icon 切換工作空間按鈕 -->
+  <div data-tip="<%= space.name %>" class="cursor-pointer mb-4 tooltip  tooltip-right z-10" >
+      <!-- 先移除透明度 opacity-25 -->
+      <div class="active:ring-4 bg-red-900 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 hover:bg-red  h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+      <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=<%= space.name %>">
+      </div>
+  </div>			
+  <% end %>
+  
+  <!-- Space icon 新增工作空間 -->
+  <div class="cursor-pointer">
+    <div class="bg-white hover:opacity-50 opacity-25 transition duration-150 ease-in-out transform motion-safe:hover:scale-110 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+      <svg class="fill-current h-10 w-10 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M16 10c0 .553-.048 1-.601 1H11v4.399c0 .552-.447.601-1 .601-.553 0-1-.049-1-.601V11H4.601C4.049 11 4 10.553 4 10c0-.553.049-1 .601-1H9V4.601C9 4.048 9.447 4 10 4c.553 0 1 .048 1 .601V9h4.399c.553 0 .601.447.601 1z"/></svg>
     </div>
+  </div>
 </div>

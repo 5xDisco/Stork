@@ -1,0 +1,3 @@
+google_client_id: "" #請輸入新帳號
+google_client_secret: "" #請輸入新密碼 
+sendgrid_key: ""

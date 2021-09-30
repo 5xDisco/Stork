@@ -19,12 +19,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
-# Use Active Mode  l has_secure_password
+# Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# 新增假刪除套件
+
 gem "paranoia", "~> 2.2"
-# 新增登入系統套件
+
 gem 'devise', '~> 4.8'
+
+gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -37,6 +40,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'figaro'
+gem 'google-api-client', '~> 0.53.0', require: 'google/apis/calendar_v3'
+gem 'google_calendar', '~> 0.6.4'
+gem 'sendgrid-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

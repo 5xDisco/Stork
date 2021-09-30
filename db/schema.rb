@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 2021_09_24_100200) do
     t.index ["space_id"], name: "index_channels_on_space_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "invitations", force: :cascade do |t|
     t.integer "status", default: 0
     t.integer "user_id"
@@ -87,11 +98,33 @@ ActiveRecord::Schema.define(version: 2021_09_24_100200) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.bigint "message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
+    t.bigint "user_id"
+    t.index ["message_id"], name: "index_replies_on_message_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.string "location"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "user_channels", force: :cascade do |t|
@@ -115,6 +148,7 @@ ActiveRecord::Schema.define(version: 2021_09_24_100200) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -133,6 +167,9 @@ ActiveRecord::Schema.define(version: 2021_09_24_100200) do
   add_foreign_key "channels", "spaces"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
+  add_foreign_key "replies", "messages"
+  add_foreign_key "replies", "users"
+  add_foreign_key "tasks", "users"
   add_foreign_key "user_channels", "channels"
   add_foreign_key "user_channels", "users"
   add_foreign_key "users_spaces", "spaces"

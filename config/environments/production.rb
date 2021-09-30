@@ -99,15 +99,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.smtp_settings = {
-    address:              ENV['smtp_address'],
-    port:                  587,
-    domain:               'http://storkapp.tw/',
-    authentication:       'plain',
-    user_name:            ENV['smtp_username'],
-    password:             ENV['smtp_password'],
-    enable_starttls_auto: true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "https://storkapp.tw" }
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    :password => ENV["sendgrid_key"], # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'heroku.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true,
   }
 
   config.action_mailer.raise_delivery_errors = false

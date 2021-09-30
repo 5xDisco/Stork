@@ -8,5 +8,5 @@ class Space < ApplicationRecord
     has_one_attached :avatar, dependent: :destroy
     validates :avatar, content_type: [:png, :jpg, :jpeg]
 
-    has_many_attached :uploads   
+    has_many_attached :uploads
 end

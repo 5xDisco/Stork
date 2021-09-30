@@ -40,30 +40,61 @@
 // override trix.css's toolbar
 #trix-toolbar-1 {
   order: 2;
-}
-trix-editor#message_content {
-  order:3;
+  border: 1px solid #ededed;
 }
 
-#trix-toolbar-1 .trix-button-group{
-  outline: 1px solid blue;
-  margin-bottom: 1px;
+// #message_content {
+//  order: 1;
+// }
 
+
+#message_content figure {
+}
+
+
+.msg-txtarea-submit {
+  position: absolute;
+  bottom: 40%;
+  right: 1%;
+  padding: 10px;
+  border: 1px solid #ededed;
+  background-color: #FFF;
+}
+
+.msg-txtarea-submit img {
+  width: 100%;
+  height: 100%;
+}
+
+
+// .trix-button-row {
+//   order:2;
+// }
+// trix-button trix-button--icon trix-button--icon-bold
+
+
+span.trix-button-group {
+  margin-bottom: 0px;
+}
+
+ul { 
+  list-style-type: disc !important;
+  padding-left: 10px;
 }
 
 
 
+trix-editor {
+  min-height: 4rem;
+}
 
 
+.attachment.attachment--preview img {
+  max-width: 120px; 
+}
 
-
-
-
-
-
-
-
-
-
+figcaption.attachment__caption {
+  max-width: 120px;
+}
 
 

@@ -42,7 +42,7 @@ class ChannelsController < ApplicationController
             end
           end
         end
-        redirect_to space_channel_path(id: @channel.id)
+        redirect_to space_channel_path(id: @channel.slug)
       end
       @errors = @channel.errors.full_messages 
     end

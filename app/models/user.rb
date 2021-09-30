@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  has_one_attached :avatar, dependent: :destroy
+  validates :avatar, content_type: [:png, :jpg, :jpeg]
+
   def name
     email.split('@')[0]
   end

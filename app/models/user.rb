@@ -23,6 +23,10 @@ class User < ApplicationRecord
     email.split('@')[0]
   end
 
+  def avatar_url
+    avatar.url ? avatar.url : 'usericon.jpeg'
+  end
+
 
   def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|

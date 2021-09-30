@@ -1,7 +1,7 @@
 <ul id='member-list'>
   <% members.each do |men| %>
     <li class='friend'>
-      <img src="https://picsum.photos/id/100/100/100" alt="">
+      <%= image_tag men.avatar_url %>
       <div class="name">
         <%= men.email %>
       </div>

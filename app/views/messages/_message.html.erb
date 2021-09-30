@@ -7,7 +7,9 @@
 
 <div class="flex items-start mb-4 text-sm" data-controller="message" data-action="mouseover->message#emerge
    mouseout->message#fade">
-  <img class="w-10 h-10 rounded mr-3" src="http://fakeimg.pl/24x24/AACED1/FFF/?text=A" data-img-src="##img-src##">
+   <div class='w-10 h-10 rounded-sm'>
+     <%= image_tag message.user.avatar_url , class: 'sp-user-avatar'%>
+   </div>
   <div class="flex-1 overflow-hidden relative">
     <div>
       <span class="font-bold"><%= message.user.display_name %></span>

@@ -2,6 +2,10 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
+  # trix editor
+  has_rich_text :content
+  # has_many_attached :uploads
+  # after_commit :broadcast_me
   has_many :replies, dependent: :destroy
 
   after_create :process_mentions
@@ -15,6 +19,6 @@ class Message < ApplicationRecord
   end
 
   def mentioned_nicknames
-    content.scan(/@([\w-]+|[\u4E00-\u9FFF-]+)/).flatten
+    content.to_plain_text.scan(/@([\w-]+|[\u4E00-\u9FFF-]+)/).flatten
   end
 end

@@ -2,6 +2,7 @@ class SpacesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_space
 
+
   def list
     @spaces = current_user.spaces.order(id: :desc)
   end

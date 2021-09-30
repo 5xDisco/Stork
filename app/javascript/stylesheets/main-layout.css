@@ -1,3 +1,5 @@
+/* Style in common 共同樣式
+-----------------------------------*/
 a {
   text-decoration: none;
 }
@@ -113,6 +115,12 @@ input.inp-space-search:focus {
 .space-icon-group div {
   background-color: #79c7c5;
   transition: background-color 0.5s, color 0.5s;
+}
+
+.space-icon-group div img {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
 }
 
 .space-icon-group div:hover {

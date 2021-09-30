@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  extend FriendlyId
+  friendly_id :friendly_params, use: :slugged
+
   def name
     email.split('@')[0]
   end

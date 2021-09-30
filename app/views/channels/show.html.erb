@@ -92,7 +92,7 @@
                 <% @space_public_channels.each do |mall| %>
                 <div
                 class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
-                <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id), class:"" do %>
+                <%= link_to space_channel_path(space_id: mall.space.slug, id: mall.slug), class:"" do %>
                       <%= mall.space.name[0,2]%>
                   <% end %>
               </div>

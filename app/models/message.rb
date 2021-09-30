@@ -3,7 +3,7 @@ class Message < ApplicationRecord
   belongs_to :channel
 
   # trix editor
-  has_rich_text :content
+  # has_rich_text :content
   # has_many_attached :uploads
   # after_commit :broadcast_me
   has_many :replies, dependent: :destroy

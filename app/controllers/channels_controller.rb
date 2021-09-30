@@ -6,6 +6,7 @@ class ChannelsController < ApplicationController
   before_action :set_space, only:[:show]
   before_action :find_lobby_channel, only:[:show]
   before_action :find_public_channel, only:[:show]
+  before_action :find_members, only:[:edit,:member]
   
   def show
     @user_channel = current_user.user_channels.find_by(channel: @channel)
@@ -17,8 +18,6 @@ class ChannelsController < ApplicationController
   end
 
   def edit
-    channel = Channel.find(params[:id])
-    @members = channel.users
   end
 
   def setting
@@ -75,13 +74,7 @@ class ChannelsController < ApplicationController
   end
 
   def member
-    channel = Channel.find(params[:id])
-    if (channel.is_public == true)
-      @members = Space.find(channel.space_id).users 
-    else
-      @members = channel.users
-    end
-    #UserChannel.where(channel_id: params[:id]).users
+
   end
 
   def member_add
@@ -93,6 +86,7 @@ class ChannelsController < ApplicationController
   def member_doadd
     invite_ids = params["user_channel"]["user_ids"].reject { |i| i.empty? }
     if invite_ids 
+      
     invite_ids.each do |id|
       @invite = Invitation.new()
            if id.include?('@')
@@ -172,5 +166,14 @@ class ChannelsController < ApplicationController
         space_public_channels << space.channels.lobby_channels
       end
     @space_public_channels = space_public_channels.flatten
+  end
+
+  def find_members
+    channel = Channel.find(params[:id])
+    if (channel.is_public != 'private_channel')
+      @members = Space.find(channel.space_id).users 
+    else
+      @members = channel.users.to_a.uniq
+    end
   end
 end

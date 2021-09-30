@@ -97,19 +97,23 @@
 
     <!-- 公版開始 -->
     <div class="outer-panel container font-sans antialiased h-screen">
-      <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
-      <div class="space-icons-panel flex-none w-20 p-4 md:block">
+     <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+     <div class="space-icons-panel flex-none w-20 p-4 md:block">
 
-        <div class="space-icon-group cursor-pointer mb-4">
-          <% @space_public_channels.each do |mall| %>
-          <div
-          class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
-          <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id), class:"" do %>
-                <%= mall.space.name[0,2]%>
-            <% end %>
-        </div>
-        <% end %>
+      <div class="space-icon-group cursor-pointer mb-4">
+        <% @space_public_channels.each do |mall| %>
+        <div
+        class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
+        <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id) do %>
+          <% if mall.space.avatar.attached? %>
+            <%= image_tag mall.space.space_url, alt: "Space's Avatar" %>
+          <% else %>
+            <%= mall.space.name[0,2]%>
+          <% end %>
+          <% end %>
       </div>
+      <% end %>
+    </div>
 
       <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
       <div class="cursor-pointer hidden">

@@ -65,7 +65,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    # root_path
+    request.referrer
     # current page
   end
 

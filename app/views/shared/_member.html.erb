@@ -1,7 +1,7 @@
 <ul id='member-list'>
   <% members.each do |men| %>
     <li class='friend'>
-      <%= image_tag men.avatar.variant(resize_to_limit: [48, 48]) %>
+      <%= image_tag men.avatar_url %>
       <div class="name">
         <%= men.email %>
       </div>

@@ -28,9 +28,7 @@
         <%= f.submit "準備進入空間" , class: "steps-submit" %>
       </div>
       <% end %>
-      <div class="w-40 overflow-hidden">
-        <%= image_tag @space.avatar.variant(resize_to_limit: [100,100]), alt: "Space's Avatar", class: "rounded-lg" if @space.avatar.attached? %>
-      </div>
+    
 
     </div>
   </div>

@@ -9,4 +9,8 @@ class Space < ApplicationRecord
     validates :avatar, content_type: [:png, :jpg, :jpeg]
 
     has_many_attached :uploads
+
+    def space_url
+        avatar.url ? avatar.url : 'ava_0012-88.png'
+      end
 end

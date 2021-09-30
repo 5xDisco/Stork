@@ -7,7 +7,9 @@
 
 <div class="flex items-start mb-4 text-sm" data-controller="message" data-action="mouseover->message#emerge
    mouseout->message#fade">
-   <%= image_tag message.user.avatar.variant(resize_to_limit: [48, 48])%>
+   <div class='w-10 h-10 rounded-sm'>
+     <%= image_tag message.user.avatar_url , class: 'sp-user-avatar'%>
+   </div>
   <div class="flex-1 overflow-hidden relative">
     <div>
       <span class="font-bold"><%= message.user.display_name %></span>

@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
   devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root to: "pages#home"
-  
-  resources :spaces do 
+  devise_scope :user do
+    get '/profile', to: 'users/profiles#edit'
+  end
+
+  resources :spaces do
     resources :channels do
       resource :user_channels
       resources :messages
     end
-  
+
     resources :direct_messages
   end
 

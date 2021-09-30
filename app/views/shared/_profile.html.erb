@@ -1,0 +1,47 @@
+
+<div class="wallpaper hidden" data-controller="channelbox" data-channelbox-target="page">
+  <div class="dialog-box">
+    <h2>編輯個人檔案</h2>
+    <button data-action="click->channelbox#close" class="close" >X</button>
+
+    <%= form_for(user, url: registration_path(user), class: "flex justify-center items-center outline-black" , html: { method: :put }) do |f| %>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nickname %>
+          <%= f.text_field :nickname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update" %>
+        </div>
+    <% end %>
+
+    <%# <form action="POST" >
+      <div class="current-user-name outline-black m-4">
+        <label for="inp-current-user-name" class="block my-2">全名
+          <input type="text" id="inp-current-user-name" class="block border-grey-light border-2" placeholder="全名">
+        </label>
+        <label for="inp-current-user-nickname" class="block">顯示名稱
+          <input type="text" id="inp-current-user-nickname" class="block border-black border-2" placeholder="顯示名稱">
+        </label>
+      </div>
+      <div class="current-user-avatar-group py-3">
+        <div class="outline-black p-2"><img src="http://fakeimg.pl/192x192/00CED1/FFF/?text=User"></div>
+        <div class="py-3">
+          <button class="w-full py-1 my-2 border-2 border-gray-200">上傳影像</button>
+          <button class="w-full py-1 my-2  border-2 border-gray-200">移除相片</button>
+        </div>
+      </div>
+    </form> %>
+
+  </div>
+</div>

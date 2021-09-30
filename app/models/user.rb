@@ -19,6 +19,10 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :friendly_params, use: :slugged
 
+  has_one_attached :avatar, dependent: :destroy
+  validates :avatar, content_type: [:png, :jpg, :jpeg]
+  
+
   def name
     email.split('@')[0]
   end

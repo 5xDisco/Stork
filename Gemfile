@@ -26,6 +26,8 @@ gem "paranoia", "~> 2.2"
 
 gem 'devise', '~> 4.8'
 
+gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

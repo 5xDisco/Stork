@@ -2,6 +2,8 @@ class Reply < ApplicationRecord
   belongs_to :message
   belongs_to :user
 
+  # trix editor
+  has_rich_text :content
   after_commit :broadcast_me
 
   def broadcast_me

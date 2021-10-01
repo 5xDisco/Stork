@@ -173,10 +173,9 @@
                   </svg>
                   <% end %>
                   <%= link_to "#{name}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
-
-                  <div class="ml-auto text-white w-8 bg-red-600 rounded-full text-center inline-block <%= c.has_unread_message?(current_user, @space) ? "visible" : "invisible" %>" data-controller="unreads"
-                  data-unreads-channelid="<%= c.id %>" data-unreads-userid="<%= current_user.id %>"><%= c.unread_message_count(current_user) %></div>
-
+                
+                  <div class="ml-1 text-white w-4 h-4 text-xs bg-red-600 rounded-full text-center inline-block <%= c.has_unread_message?(current_user, @space) ? "visible" : "invisible" %>" data-controller="unreads"
+                    data-unreads-channelid="<%= c.id %>" data-unreads-userid="<%= current_user.id %>" data-unreads-id="<%= current_user.id %>" data-unreads-currentchannel="<%= @channel.id %>"><p><%= c.unread_message_count(current_user) %></p></div>
 
                 </div>
 

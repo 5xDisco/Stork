@@ -27,6 +27,13 @@ class User < ApplicationRecord
     avatar.url ? avatar.url : 'usericon.jpeg'
   end
 
+  def name_with_email
+    if nickname != nil
+      "#{nickname} #{email}"
+    else
+      "#{email}"
+    end
+  end
 
   def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|

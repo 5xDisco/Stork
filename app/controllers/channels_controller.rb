@@ -170,7 +170,7 @@ class ChannelsController < ApplicationController
 
   def find_members
     channel = Channel.find(params[:id])
-    if (channel.is_public != 'private_channel')
+    if (channel.is_public == 'lobby_channel')
       @members = Space.find(channel.space_id).users 
     else
       @members = channel.users.to_a.uniq

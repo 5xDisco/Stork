@@ -12,5 +12,5 @@ class Space < ApplicationRecord
 
     def space_url
         avatar.url ? avatar.url : 'ava_0012-88.png'
-      end
+    end
 end

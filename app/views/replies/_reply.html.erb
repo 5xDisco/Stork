@@ -1,5 +1,7 @@
 <div class="flex items-start mb-4 text-sm">
-  <%= image_tag reply.user.avatar_url , class: 'sp-user-avatar'%>
+  <div class='w-10 h-10 rounded-sm'>
+    <%= image_tag reply.user.avatar_url , class: 'sp-user-avatar'%>
+  </div>
   <div class="flex-1 overflow-hidden relative">
     <div>
       <span class="font-bold">

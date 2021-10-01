@@ -1,6 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-	// ...jQuery(function () {
-	// 瀏覽Stork 列表收合
+	// Stork 列表收合
 	$(".browse-stork").on("click", function (e) {
 		toggleList("caret-browse-stork","dropdown-stork-list");
 	});
@@ -17,9 +16,15 @@ document.addEventListener("turbolinks:load", function() {
 	$(".browse-apps").on("click", function(e){
 		toggleList("caret-browse-app","app-list");
 	});
-  })
 
 
+	$("#btn-toggle-sidebar").on("click", function(e){
+		e.stopPropagation();
+		$(".space-channels-panel").toggle();
+		$(".space-icons-panel").toggle();
+	});
+
+})
 
 
 function toggleList(caret,targetList){
@@ -31,3 +36,7 @@ function toggleList(caret,targetList){
 	}  
 	$(`#${targetList}`).slideToggle();
 }
+
+
+
+

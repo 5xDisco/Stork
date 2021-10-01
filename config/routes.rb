@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   #     get :reply
   #   end
   # end
-
+  match '*a', :to => 'errors#routing', via: :get
+  
   get ':space_id/:id/redirect', to: 'tasks#redirect', as: 'redirect'
   get '/callback', to: 'tasks#callback', as: 'callback'
   get '/calendars', to: 'tasks#calendars', as: 'calendars'

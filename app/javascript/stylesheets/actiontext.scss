@@ -40,19 +40,11 @@
 // override trix.css's toolbar
 
 
-// #message_content {
-//  order: 1;
-// }
-
-
-#message_content figure {
-}
-
 
 .msg-txtarea-submit {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1%;
+  right: 1%;
   padding: 10px;
   border: 1px solid #ededed;
   background-color: #FFF;
@@ -65,11 +57,11 @@
 }
 
 
-// .trix-button-row {
-//   order:2;
-// }
-// trix-button trix-button--icon trix-button--icon-bold
-
+.trix-button-row {
+  padding: 0px !important;
+  margin: 0px !important;
+  border:0px;
+}
 
 span.trix-button-group {
   margin-bottom: 0px;
@@ -80,19 +72,26 @@ ul {
   padding-left: 10px;
 }
 
-
-
 trix-editor {
   min-height: 4rem;
 }
 
+div.trix-content a {
+  color: #ED473B;
+}
+
+div.trix-content a:hover {
+  color: #2a3f54;
+}
+
+
 
 .attachment.attachment--preview img {
-  max-width: 120px; 
+  max-width: 35%; 
 }
 
 figcaption.attachment__caption {
-  max-width: 120px;
+  max-width: 35%;
 }
 
 

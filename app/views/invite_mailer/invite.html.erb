@@ -2,21 +2,22 @@
   <div>
     <img src="https://i.imgur.com/JpriwAG.png" alt="Stork">
     <div>
-      Hi <%= @user %>
-        <h1>在 Stork 加入你的團隊吧！</h1>
-        <div>我們已邀請你在 Stork 空間，一起打造自己的聊天空間、即時通訊互動、結合Google行事曆功能。
-        </div>
+    Hi <%= @user %> <h1>在 Stork 加入你的團隊吧！</h1>
+    <div>我們已邀請你在 Stork 空間，一起打造自己的聊天空間、即時通訊互動、結合Google行事曆功能。
+    </div>
     </div>
 
-    <div style="width: 100px; padding: 10px 30px; background-color: #79c7c5; text-align: center;     text-decoration: none; border-radius: 5px; box-shadow: inset 0px -0px #a1e2d9; transition: box-shadow 0.5s;
+    <div style="width: 200px; padding: 10px 30px; background-color: #a1e2d9; text-align: center;     text-decoration: none; border-radius: 5px; box-shadow: inset 0px -0px #3e5367; transition: box-shadow 0.5s;
     margin-left: 5px; margin-top: 20px; vertical-align: bottom; border: 1px solid #cdcdcd;">
-      <%= link_to "立即加入" , member_accept_url, {:style=>'color:#FFFFFF;'} %>
+     <div class:"text-white">
+      <%= link_to "立即加入" , member_accept_url, remote: false, style:"color:#fff;" %>
+    </div>
     </div>
 
     <div>
       <h2>什麼是 Stork</h2>
       <div>Stork 是專為團隊打造的通訊應用程式，您可以透過這個平台合作進行專案並整理對話，因此無論身在何處，都可以與他人一起工作。</div>
-      <p></p>
+        <p></p>
       <div class="invite_box">
         <div>發起人: Team Stork</div>
         <div>(C)2021 5xRuby 8th Astro Camp.</div>

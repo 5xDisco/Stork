@@ -5,7 +5,6 @@ a {
 }
 
 a:hover {
-  /* background-color: rgba(253, 230, 138, var(--tw-bg-opacity)); */
   text-decoration-line: none;
   color: #2a3f54;
 }
@@ -41,11 +40,11 @@ hr {
 -----------------------------------*/
 .stork-nav {
   width: 100%;
+  height: 35px;
   margin: 0 auto;
-  padding: 2px;
   display: flex;
   size: 16px;
-  justify-content: center;
+  justify-content: flex-end;
   border-bottom: 1px solid #3e5367;
   background-color: #2a3f54;
   color: #ededed;
@@ -54,7 +53,6 @@ hr {
 .stork-nav > div {
   margin: 0px 20px;
   align-items: center;
-  /*flex-grow: 1;*/
 }
 
 .sp-search-icon {
@@ -78,11 +76,10 @@ input.inp-space-search:focus {
 .sp-user-avatar {
   margin: 1px;
   display: block;
-  height: 32px;
-  width: 32px;
+  height: 36px;
+  width: 36px;
   border-radius: 2px;
   overflow: hidden;
-  border: 1px solid #3f3e3f;
 }
 
 .sp-user-avatar img {
@@ -90,10 +87,7 @@ input.inp-space-search:focus {
   height: 100%;
   object-fit: cover;
 }
-.sp-user-avatar:hover {
-  /*transform:rotate(45deg);*/
-  border: 1px solid #ededed;
-}
+
 
 /* Sidebar Left 最左側的 Icon List
 ---------------------------------------*/
@@ -104,10 +98,9 @@ input.inp-space-search:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
+  width: 0;
+  background: transparent;
 }
-/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
   background: transparent;
 }
@@ -132,7 +125,6 @@ input.inp-space-search:focus {
 -------------------------------------------*/
 
 .stork-header {
-  /*position: relative;*/
   border-bottom: 1px solid #3e5367;
   padding: 7px;
 }
@@ -187,8 +179,6 @@ input.inp-space-search:focus {
 }
 
 #dropdown-stork-list {
-  /* border: 1px solid #DEDEDE; */
-  /*color:#FFF;*/
   z-index: 10;
   border-radius: 5px;
   cursor: pointer;
@@ -201,8 +191,6 @@ input.inp-space-search:focus {
 }
 
 .stork-list-group:hover,
-/*#space-channel-list div:hover,*/
-/*.channel-menu div:hover,*/
 #space-users-list div:hover {
   background-color: #3e5367;
 }
@@ -216,8 +204,6 @@ input.inp-space-search:focus {
 }
 
 .stork-list-group a:hover,
-/*#space-channel-list div:hover,*/
-/*.channel-menu div:hover,*/
 #space-users-list div:hover,
 .channel-list a {
   text-decoration: none;
@@ -242,13 +228,6 @@ input.inp-space-search:focus {
   border-bottom: 1px solid #ededed;
 }
 
-/*div.user-profile-icon-group:hover,
-div.user-profile-icon-group div:hover {
-	cursor: auto;
-background-color: #FFF;
-
-}*/
-
 .current-space-info {
   border-bottom: 1px solid #dedede;
 }
@@ -272,8 +251,6 @@ background-color: #FFF;
 
 #message-notice-list {
   display: none;
-  /*top: 100%;
-	left: 40%;*/
 }
 
 #message-notice-list div {
@@ -294,14 +271,6 @@ background-color: #FFF;
   color: #2a3f54;
 }
 
-/* 測試。看下拉列表的樣子 start ------------------- */
-
-#user-profile-list {
-  top: 0%;
-  right: 12%;
-  z-index: 15;
-}
-/* -------------------測試 end */
 
 .title-emphasize {
   text-overflow: ellipsis;
@@ -313,7 +282,6 @@ background-color: #FFF;
 /* 根據左側欄列表切換右邊 Content 的 title
 --------------------------------------*/
 .space-target-title {
-  /* background-color: #EDEDED; */
   border-bottom: 1px solid #ededed;
   padding: 9px;
 }

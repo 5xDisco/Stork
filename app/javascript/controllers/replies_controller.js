@@ -3,7 +3,7 @@ import consumer from "../channels/consumer";
 import axios from "../lib/http/axios";
 
 export default class extends Controller {
-  static targets = ["replyBox", "replyCount", "replyNum"];
+  static targets = ["replyBox", "replyCount", "replyNum", "input"];
 
   connect() {
     console.log(
@@ -58,7 +58,7 @@ export default class extends Controller {
     if (e.target[1].value != "") {
       const params = { content: e.target[1].value };
       axios.post(`/messages/${messageId}/replies`, params);
-      e.target[1].value = "";
+      this.inputTarget.value = "";
     }
   }
 

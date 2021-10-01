@@ -38,10 +38,7 @@
 
 
 // override trix.css's toolbar
-#trix-toolbar-1 {
-  order: 2;
-  border: 1px solid #ededed;
-}
+
 
 // #message_content {
 //  order: 1;
@@ -54,11 +51,12 @@
 
 .msg-txtarea-submit {
   position: absolute;
-  bottom: 40%;
-  right: 1%;
+  bottom: 0;
+  right: 0;
   padding: 10px;
   border: 1px solid #ededed;
   background-color: #FFF;
+  padding-bottom: 10px;
 }
 
 .msg-txtarea-submit img {

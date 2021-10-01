@@ -40,8 +40,11 @@ export default class extends Controller {
 
     let channelId = this.data.get("channelid");
     let userId = this.data.get("userid");
+    let currentChannel = this.data.get("currentchannel")
 
-    if (data.channel_id == channelId && data.user_id != userId) {
+    console.log(currentChannel)
+
+    if (data.channel_id == channelId && data.user_id != userId && currentChannel != data.channel_id) {
       let count = parseInt(this.element.textContent);
       this.element.classList.remove("invisible");
       this.element.classList.add("visible");

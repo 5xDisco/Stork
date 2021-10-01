@@ -4,16 +4,15 @@ namespace :demo do
 
   task initial: :environment do
 
-    # 建立空間：韓琛幫 和 我是警察
-    s1 = Space.create(name: "韓琛幫")
-    s2 = Space.create(name: "我是警察")
+    # 建立空間
+    s1 = Space.create(name: "Astro 公司")
+    s2 = Space.create(name: "烏賊遊戲")
     
     # 建立 韓琛幫 所屬頻道：
 
     s1.channels.create([
                         { name: "公開區", is_public: 2 },
-                        { name: "龍鼓灘貿易公司", is_public: 1 },
-                        { name: "蔡琴同好會", is_public: 1 }
+                        { name: "RD 小隊", is_public: 1 },
                       ])
 
     # 建立 我是警察 所屬頻道：  

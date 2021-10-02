@@ -1,0 +1,38 @@
+<% if channel.is_public == 'private_channel' %>
+  <div data-controller="select">
+    <p class="pb-4 font-bold">新增頻道成員</p>
+    <%= form_for userchannel, url: member_add_post_path, method: "POST" do |f| %>
+        <%#= f.collection_check_boxes(:user_ids, User.all, :id, :email) %>
+      <%= f.select :user_ids, spaceusers.map{ |u| [u.name_with_email, u.id] }, {}, multiple: true, class: "form_control" ,
+      id: "user_select" , style: "width: 100%" %>
+      <p class="flex justify-end mt-4">
+        <%= f.submit "增加成員", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded" %>	
+      </p>
+    <% end %>
+  </div>
+  
+<% else %>
+
+  <div data-controller="space">
+    <p class="pb-4 font-bold">新增空間成員</p>
+      <%= form_for userchannel, url: member_add_post_path, method: "POST" do |f| %>
+        <%#= f.collection_check_boxes(:user_ids, User.all, :id, :email) %>
+        <%= f.select :user_ids, spaceusers.map{ |u| [u.email, u.id] }, {}, multiple: true, class: "form_control" ,
+        id: "user_select" , style: "width: 100%" %>
+        <p class="flex justify-end mt-4">
+          <%= f.submit "增加成員", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded" %>	
+        </p>
+      <% end %>
+  </div>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+

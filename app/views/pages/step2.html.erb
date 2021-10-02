@@ -1,0 +1,33 @@
+<div class="steps-container">
+  <div class="top-nav"></div>
+
+  <div class="steps-layout">
+
+    <div class="steps-sidebar">
+      <div class="new-name-box">
+        <%= @space.name %>
+      </div>
+    </div>
+
+    <div class="step-form-content">
+      <div class="steps-text">步驟 2 之 2</div>
+      <h2>你的團隊現在在做什麼？</h2>
+      <p>建立你空間下的頻道，可以是任何形式：項目、市場營銷活動、活動或者即將達成的交易。</p>
+      <div class="flex flex-wrap">
+        <p>圖片：</p>
+        <p class="w-40 overflow-hidden">
+          <%= image_tag @space.avatar.variant(resize_to_limit: [100,100]), alt: "Space's Avatar", class: "rounded-lg" if @space.avatar.attached? %>
+         </p>
+      </div>
+      <%= form_for @channel, url: space_channels_path(@channel.space), html: { method: 'post' } do |f| %>
+      <%= f.hidden_field :space_id %>
+      <div class="step1-text-field-box">
+        <%= f.text_field :name, class: "steps-text-field" , placeholder: "例如：夏季行銷活動" %>
+      </div>
+      <div class="steps-submit-box">
+        <%= f.submit "準備進入空間" , class: "steps-submit" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

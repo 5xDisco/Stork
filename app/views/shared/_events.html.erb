@@ -1,0 +1,54 @@
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+    <div class="dialog-box">
+        <h2 class="text-3xl pt-4 pb-4">建立事件</h2>	
+        <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl" >×</button>	
+
+                <%= form_for task, url: create_event_path, method: "POST", remote: true do |f| %>	
+                <p><%= f.hidden_field :user_id %></p>	
+                <p>	
+                    <%= f.label :title, "名稱", "id"=>"nameerror", "class"=>"font-bold" %> 	
+                    <br>	
+                    <%= f.text_field :title, "id"=>"nameerror", "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4", "placeholder"=>"例如：新居落成"%>	
+                </p>
+
+                   <div class="flex flex-start justify-start mb-4">
+                       <p class="pr-8">
+                        <%= f.label :start_date, "開始時間", "class"=>"font-bold" %> <br>
+                        <input type="date" id="date" name="task[start_date]" placeholder="date" 
+                                      class="flex-1 py-2 border-b-2 border-gray-400 focus:border-blue-400
+                          text-gray-600 placeholder-gray-400
+                          outline-none">
+                                         </p>
+                                       
+                                         <p>
+                        <%= f.label :end_date, "結束時間", "class"=>"font-bold" %> <br>
+                        <input type="date" id="date" name="task[end_date]" placeholder="date" 
+                                      class="flex-1 py-2 border-b-2 border-gray-400 focus:border-blue-400
+                          text-gray-600 placeholder-gray-400
+                          outline-none">
+                                         </p>
+                   </div>
+                
+        <p>	
+            <%= f.label :description, "說明(選填)", "class"=>"font-bold" %> <br>	
+            <%= f.text_area :description,"class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4","rows"=>"2" %>	
+         </p>	
+                
+               
+                
+        <p>	
+            <%= f.label :location, "地點", "class"=>"font-bold" %> <br>	
+            <%= f.text_field :location, "class"=>"w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none mb-4"%>	
+        </p>
+        
+                
+        
+                <p class="relative mt-12">
+                    <%= f.submit "建立", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded absolute -top-10 right-0" %>	
+                </p>
+        
+                <% end %>	
+                   
+    </div>
+</div>
+

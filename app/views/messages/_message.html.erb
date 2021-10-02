@@ -1,0 +1,27 @@
+<% if !@bar_shown && @last_read_at && @last_read_at < message.created_at && message.user_id != current_user.id %>
+  <% @bar_shown = true %>
+  <div class="message-notice flex justify-center mb-4 text-sm">
+    <span>您有未讀訊息</span>
+  </div>
+<% end %>
+
+<div class="flex items-start mb-4 text-sm" data-controller="message" data-action="mouseover->message#emerge
+   mouseout->message#fade">
+   <div class='w-10 h-10 rounded mr-3'>
+     <%= image_tag message.user.avatar_url , class: 'sp-user-avatar'%>
+   </div>
+  <div class="flex-1 flex-col overflow-hidden relative">
+    <div>
+      <span class="font-bold"><%= message.user.display_name %></span>
+      <span class="text-grey ml-3 text-xs"><%= message.created_at.strftime("%b %d %R") %></span>
+    </div>
+
+    <p class="text-black leading-normal"><%= message.content %></p>
+
+    <div class="reply-count absolute bottom-0 right-0 <%= message.replies.present? ? " visible" : "invisible" %>" value="<%= message.id %>"><span value="<%= message.id %>"><%= message.replies.count %></span>則回覆</div>
+
+    <button class="reply-btn absolute p-1 top-0 right-0 invisible" data-message-target="replyBtn">
+      <%= link_to "reply", reply_message_path(message.id), remote: true %>
+    </button>
+  </div>
+</div>

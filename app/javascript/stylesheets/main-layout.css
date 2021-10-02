@@ -1,0 +1,336 @@
+/* Style in common 共同樣式
+-----------------------------------*/
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration-line: none;
+  color: #2a3f54;
+}
+
+svg {
+  display: inline;
+}
+
+hr {
+  border: 1px solid white;
+}
+
+.space-icons-panel,
+.space-channels-panel {
+  display: none;
+  background-color: #2a3f54;
+  border-right: 1px solid #3e5367;
+}
+
+/* Container 最外層
+-----------------------------------*/
+.container {
+  max-width: 100vw;
+  height: calc(100vh - 39px);
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  background-color: transparent;
+  flex-grow: 1;
+}
+
+/*  Top 搜尋新的工作空間
+-----------------------------------*/
+.stork-nav {
+  width: 100%;
+  height: 35px;
+  margin: 0 auto;
+  display: flex;
+  size: 16px;
+  justify-content: flex-end;
+  border-bottom: 1px solid #3e5367;
+  background-color: #2a3f54;
+  color: #ededed;
+}
+
+.stork-nav > div {
+  margin: 0px 20px;
+  align-items: center;
+}
+
+.sp-search-icon {
+  background: #fff;
+  color: #2a3f54;
+  border-radius: 5px;
+}
+
+.inp-space-search {
+  padding: 1px 30px;
+  height: 30px;
+  width: 400px;
+  color: #000;
+  border-radius: 5px;
+}
+
+input.inp-space-search:focus {
+  outline: none;
+}
+
+.sp-user-avatar {
+  margin: 1px;
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sp-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Sidebar Left 最左側的 Icon List
+---------------------------------------*/
+.space-icons-panel {
+  overflow-y: scroll;
+  padding-right: 1px;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.space-icon-group div {
+  background-color: #79c7c5;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.space-icon-group div img {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
+
+.space-icon-group div:hover {
+  background-color: #3e5367;
+  color: #ededed;
+}
+
+/* Sidebar 工作空間 瀏覽 Stork 選單
+-------------------------------------------*/
+
+.stork-header {
+  border-bottom: 1px solid #3e5367;
+  padding: 7px;
+}
+
+.stork-header:hover {
+  background-color: #3e5367;
+  color: #ededed;
+}
+
+.group-stork-func,
+.browse-channels,
+.browse-users {
+  color: #a1e2d9;
+}
+
+.group-stork-func, .browse-apps {
+	color: #A1E2D9;
+}
+
+.group-stork-func:hover {
+  cursor: pointer;
+  color: #ededed;
+}
+
+#stork-list-func {
+  position: relative;
+}
+
+.online-user {
+  position: relative;
+}
+
+/*  下拉選單 區塊
+#dropdown-stork-list
+#channel-list-func
+#message-notice-list
+#user-profile-list
+#space-list-func
+---------------------------------*/
+.stork-dropdown-common {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  z-index: 10;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stork-dropdown-common div {
+  padding: 10px 20px;
+}
+
+#dropdown-stork-list {
+  z-index: 10;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 瀏覽 Stork 下拉列表 */
+.stork-list-group,
+#space-channel-list {
+  color: #dedede;
+}
+
+.stork-list-group:hover,
+#space-users-list div:hover {
+  background-color: #3e5367;
+}
+
+.channel-last:hover {
+  background-color: #A1E2D9;
+}
+
+.stork-list-group a {
+  padding: 6px 10px 2px;
+}
+
+.stork-list-group a:hover,
+#space-users-list div:hover,
+.channel-list a {
+  text-decoration: none;
+  color: #dedede;
+}
+
+.stork-dropdown-common div:hover {
+  background-color: #dedede;
+}
+
+.stork-dropdown-common div,
+#stork-list-func div {
+  color: #2a3f54;
+  padding: 8px;
+}
+
+.stork-dropdown-common a {
+  color: #2a3f54;
+}
+
+.user-profile-icon-group {
+  border-bottom: 1px solid #ededed;
+}
+
+.current-space-info {
+  border-bottom: 1px solid #dedede;
+}
+
+#channel-list-func,
+#dropdown-stork-list {
+  top: 52%;
+  left: 21%;
+}
+
+#space-list-func {
+  left: 6%;
+  top: 12%;
+}
+
+#space-list-func a:hover,
+#channel-list-func a:hover {
+  color: #2a3f54;
+  text-decoration: none;
+}
+
+#message-notice-list {
+  display: none;
+}
+
+#message-notice-list div {
+  padding: 15px 30px;
+}
+
+.stork-list-func,
+.user-state-list {
+  color: #dedede;
+  cursor: pointer;
+}
+
+.user-state-list a {
+  color: #dedede;
+}
+
+.stork-list-func:hover {
+  color: #2a3f54;
+}
+
+
+.title-emphasize {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
+/* 根據左側欄列表切換右邊 Content 的 title
+--------------------------------------*/
+.space-target-title {
+  border-bottom: 1px solid #ededed;
+  padding: 9px;
+}
+
+/* Message 訊息日期標示  ---( msg_date )---
+------------------------------------------*/
+.message-notice-group,
+.message-notice {
+  position: relative;
+}
+
+.message-notice span {
+  display: block;
+  color: #2a3f54;
+  width: 20%;
+  text-align: center;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.message-notice span:before,
+.message-notice span:after {
+  position: absolute;
+  bottom: 0px;
+  content: "";
+  width: 40%;
+  height: 1px;
+  background-color: #ededed;
+  top: 50%;
+}
+
+.message-notice span:before {
+  left: 0;
+}
+.message-notice span:after {
+  right: 0;
+}
+
+.select2-selection__rendered {
+  line-height: 31px !important;
+}
+.select2-container .select2-selection--single {
+  height: 35px !important;
+}
+.select2-selection__arrow {
+  height: 34px !important;
+}
+
+.select2-search__field{
+  height: 34px !important; 
+}

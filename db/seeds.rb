@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create(email: '123@example.com', password: '123456789', password_confirmation: '123456789')
+user2 = User.create(email: '456@example.com', password: '123456789', password_confirmation: '123456789')
+space = Space.create(name: "aaa")
+channel = Channel.create(name: "123")
+space.channels = [channel]
+channel.users = [user1, user2]
+space.users = [user1, user2]

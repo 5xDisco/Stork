@@ -34,3 +34,14 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore .DS_Store
+/**/.DS_Store
+
+# Ignore redis binary dump (dump.rdb) files
+*.rdb
+
+# Ignore application configuration
+/config/application.yml
+
+/config/master.key

@@ -1,0 +1,99 @@
+//
+// Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
+// the trix-editor content (whether displayed or under editing). Feel free to incorporate this
+// inclusion directly in any other asset bundle and remove this file.
+//
+//= require trix/dist/trix
+
+// We need to override trix.css’s image gallery styles to accommodate the
+// <action-text-attachment> element we wrap around attachments. Otherwise,
+// images in galleries will be squished by the max-width: 33%; rule.
+@import "trix/dist/trix";
+.trix-content {
+  .attachment-gallery {
+    > action-text-attachment,
+    > .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%;
+    }
+
+    &.attachment-gallery--2,
+    &.attachment-gallery--4 {
+      > action-text-attachment,
+      > .attachment {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  action-text-attachment {
+    .attachment {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+
+// override trix.css's toolbar
+
+
+
+.msg-txtarea-submit {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  padding: 10px;
+  border: 1px solid #ededed;
+  background-color: #FFF;
+  padding-bottom: 10px;
+}
+
+.msg-txtarea-submit img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.trix-button-row {
+  padding: 0px !important;
+  margin: 0px !important;
+  border:0px;
+}
+
+span.trix-button-group {
+  margin-bottom: 0px;
+}
+
+ul { 
+  list-style-type: disc !important;
+  padding-left: 10px;
+}
+
+trix-editor {
+  min-height: 4rem;
+}
+
+div.trix-content a {
+  color: #ED473B;
+}
+
+div.trix-content a:hover {
+  color: #2a3f54;
+}
+
+
+
+.attachment.attachment--preview img {
+  max-width: 34%; 
+}
+
+figcaption.attachment__caption {
+  max-width: 34%;
+}
+
+
+
+

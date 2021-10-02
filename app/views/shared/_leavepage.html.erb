@@ -1,0 +1,34 @@
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+  <div class="dialog-box">
+      
+    <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl" >×</button>	
+
+    <%= form_for channel, url: space_channel_path, method: "DELETE" do |f| %>
+      <h2 class="text-3xl pt-4 pb-4">
+        <% if channel.is_public == "private_channel" %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+        </svg>
+        <% else %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+          <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+        </svg>
+        <% end %>
+          <%= channel.name %>
+      </h2>
+      <p class="pb-4 font-bold"> 
+        <% if channel.is_public == 'lobby_channel' %>
+        <%= "每個工作區都有一個頻道，包含此工作區中的所有成員，這就是你的頻道。" %>
+        <% else %>
+        <%= "頻道成員不會收到你退出的通知。你可以隨時重新加入。" %>
+        <% end %>
+      </p>
+      <button data-action="click->channelbox#close" class="bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded">取消</button>
+      <% if channel.is_public != 'lobby_channel' %>
+
+        <%= f.submit "退出", "class"=>"bg-gray-300 hover:bg-gray-400 text-block font-bold py-2 px-4 rounded" %>	
+
+      <% end %>
+    <% end %>
+  </div>
+</div>

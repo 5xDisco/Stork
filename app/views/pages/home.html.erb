@@ -1,0 +1,188 @@
+<div class="home h-auto w-screen">
+    <div class="home w-10/12 mx-auto h-auto">
+        
+        <!-- nav start -->
+        <nav class="flex items-center justify-start flex-wrap bg-teal p-14">
+            <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+                <div class="home_header_logo">
+                    <%= link_to image_tag('stork_banner_150px_index.png'), root_path, class: "relative -top-5" %>
+                </div>
+                <a href="#" class="ml-4 no-underline mt-4 sm:inline-block sm:mt-0 mr-4">
+                    <span class="text-lg font-bold hover:text-white hover:underline">產品</span>
+                </a>
+                <a href="#" class="no-underline mt-4 sm:inline-block sm:mt-0 mr-4">
+                    <span class="text-lg font-bold hover:text-white hover:underline">企業</span>
+                </a>
+                <a href="#" class="no-underline mt-4 sm:inline-block sm:mt-0">
+                    <span class="text-lg font-bold hover:text-white hover:underline">定價</span>
+                </a>
+            </div>
+            <div class="flex flex-start relative -top-3">
+                <% if user_signed_in? %>
+                <div class="home_header_btn_session">
+                <%= link_to "登出" , destroy_user_session_path, method: :delete %>
+                </div>
+                <% else %>
+                <div class="home_header_btn_session">
+                <%= link_to "登入" , new_user_session_path %>
+                </div>
+                <% end %>
+                <div class="home_header_btn_business">
+                <%= link_to "與業務團隊交談" %>
+                </div>
+                <div class="home_header_btn_regist">
+                <% if user_signed_in? %>
+                <%= link_to "建立新的工作空間" , stork_step1_path, class: "hover:text-white" %>
+                <% else %>
+                <%= link_to "免費試用" , new_user_registration_path , class: "hover:text-white"%>
+                <% end %>
+                </div>
+            </div>
+        </nav>
+        <!-- nav end -->
+        <!-- content start -->
+        <% if user_signed_in? %>
+        <section class="flex flex-col w-2/3 m-auto" data-controller="home">
+            <div class="flex flex-wrap">
+                <div class="fill-current mr-4 pb-8">
+                    <%= image_tag 'waving-hand.gif' %>
+                </div>
+                <h2 class="text sm:inline-block">歡迎回來</h2>
+            </div>
+
+            <div class="flex flex-col">
+
+                <div class="deepcolor p-4 rounded-t-lg text-white">
+                    <%= current_user.email %> 的工作空間
+                </div>
+
+
+
+
+
+
+<% if @channels.size > 0 %>
+
+                <% @channels.each_with_index do |channel, index| %>
+
+                                        <% if index <= 1 %>
+
+                                        <div class="space-item flex items-center justify-center bg-white w-100 h-100 overflow-hidden p-4 flex flex-wrap">
+                                            <%= image_tag channel.space.space_url, alt: "Space's Avatar",style:"height:75px; width:75px; object-fit: contain;" %>
+                                                <div class="flex-grow pl-4 ">
+                                                    <div class="flex flex-col pt-4">
+                                                        <p class="font-bold">
+                                                            <%= channel.space.name %>
+                                                        </p>
+                                                        <p class="text-gray-400">
+                                                            <%= channel.space.users.size %> 成員
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <%= link_to "啟動STORK" ,
+                                                        space_channel_path(channel.space.id,channel.id),class: "mx-1 border font-bold rounded text-center p-4 hover:text-white deep-blue"
+                                                        %>
+                                                </div>
+                                        </div>
+
+                                        <% end %>
+                <% end %>
+
+                <div data-home-target="lessmore"></div>
+                <div id="more" data-home-target="more"> 
+
+                <% @channels.each_with_index do |channel, index| %>
+
+                                        <% if index > 1 %>
+
+                                        <div class="space-item bg-white p-4 flex flex-wrap">
+                                            <%= image_tag channel.space.space_url, alt: "Space's Avatar",style:"height:75px; width:75px; object-fit: contain;" %>
+                                                <div class="flex-grow pl-4 ">
+                                                    <div class="flex flex-col pt-4">
+                                                        <p class="font-bold">
+                                                            <%= channel.space.name %>
+                                                        </p>
+                                                        <p class="text-gray-400">
+                                                            <%= channel.space.users.size %> 成員
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <%= link_to "啟動STORK" ,space_channel_path(channel.space.id,channel.id),class: "mx-1 border font-bold rounded text-center p-4 hover:text-white deep-blue"%>
+                                                </div>
+                                        </div>
+
+                                        <% end %>
+                <% end %>
+
+                </div>
+
+
+
+<% elsif  %>
+<div class="bg-white p-4 rounded-b-lg">你還沒有任何新空間喔！來創建一個吧</div>
+<% end %>
+
+
+
+
+
+            </div>
+             
+<% if @channels.size > 2 %>
+
+<div class="mb-16 bg-white p-4 rounded-b-lg text-center">  
+<button data-action="home#click" class="text-sm" href="#">查看更多</button>
+</div>
+
+
+<% end %>
+
+
+        </section>
+        <!-- doll start -->
+        <div class="pt-16 pb-32 w-2/3 m-auto">
+            <div class="relative left-0 top-0">
+                <%= image_tag ("woman-with-laptop-color-background.png"), class: "absolute top-0 left-0 z-10 fill-current hidden md:block"%>
+            </div>
+            <div class="doll-content bg-white flex items-center justify-center lg:justify-between">
+                <p class="doll-text font-bold flow-grow hidden lg:block">
+                    想要和不同的團隊使用 Slack 嗎？
+                </p>
+                <button href="#"
+                    class="item-2 mx-1 inline-block text-sm px-6 py-4 leading-none border-2 rounded mt-4 sm:mt-0 mr-4 block ">
+                    <%= link_to "建立新的工作空間" , stork_step1_path, class:"hover:text-gray-300
+                        hover:bg-white" %>
+                </button>
+            </div>
+        </div>
+        <!-- doll end -->
+        <% else %>
+        <!-- loginout start -->
+        <div class="home_welcome">
+            Stork 即為你的虛擬總部。瞭解我們的全新功能，讓團隊成員不論在何處辦公，都能始終保持連線。
+        </div>
+        <div class="home_welcome_inner">
+            <div class="home_welcome_inner_helf">
+                <div class="home_title">
+                    Stork 即是未來工作型態
+                </div>
+                <div class="mb-16">
+                    徹底改造你的工作方式，將完成工作所需的一切人員和要素都集中於同一空間。
+                </div>
+                <div class="home_header_btn_regist">
+                    <%= link_to "免費試用" , new_user_registration_path %>
+                </div>
+            </div>
+            <div class="home_welcome_inner_helf">
+                <%= image_tag 'img-campaign-hero.zh-TW.png' %>
+            </div>
+        </div>
+        <!-- loginout end -->
+        <% end %>
+        <!-- contetn end-->
+    </div>
+    <div class="h-40 p-4 bg-gray-50  text-center">©2021 Stork Technologies</div>
+</div>
+

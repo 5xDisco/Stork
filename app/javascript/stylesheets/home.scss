@@ -1,0 +1,139 @@
+.home{
+  background-color: #EDEDED;
+
+  .item-1{
+      color: white !important;
+      font-weight: 700;
+  }
+  .item-2{
+      border: 2px solid #EDEDED;
+      font-weight: 700;
+      background-color: #ffffff;
+      color: black; 
+  }
+  .text{
+      font-size: 44px;
+  }
+  .deepcolor{
+      background-color: #3e5367;
+  }
+  .border-need .space-item:not(:last-child) { 
+      border-bottom: 1px solid #eeeeee;
+  } 
+  .space-item:hover{
+      background-color: #f7f6f6;
+  }
+  .doll-content{
+      height: 90px;
+  }
+  
+  .doll-text{
+      margin-left: 220px;
+  }
+  .deep-blue:hover{
+      background-color: #79c7c5;
+  }
+
+  #more{
+      display: none;
+  }
+
+  .home_header_btn_session {
+    padding: 10px 30px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 20px;
+    vertical-align: bottom;
+    font-weight: 700;
+  }
+  
+  .home_header_btn_business {
+    padding: 10px 30px;
+    color: #000000;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    border-radius: 5px;
+    box-shadow: inset 0px -0px #3e5367;
+    transition: box-shadow 0.5s;
+    margin-left: 5px;
+    margin-top: 20px;
+    vertical-align: bottom;
+    font-weight: 700;
+  }
+  
+  .home_header_btn_business:hover {
+    box-shadow: inset 0px -5px #ededed;
+    text-decoration: none;
+  }
+  
+  .home_header_btn_regist {
+    width: auto;
+    padding: 10px 30px;
+    background-color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: inset 0px -0px #3e5367;
+    transition: box-shadow 0.5s;
+    margin-left: 5px;
+    margin-top: 20px;
+    vertical-align: bottom;
+    border: 1px solid #cdcdcd;
+    font-weight: 700;
+  }
+  
+  .home_header_btn_regist:hover {
+    color: white;
+    background-color: #79c7c5;
+    box-shadow: inset 0px -5px #ededed;
+    text-decoration: none;
+  }
+  
+  .home_welcome {
+    background-color: #3e5367;
+    text-align: left;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .home_welcome_inner {
+    display: flex;
+  }
+  
+  .home_welcome_inner_helf {
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-bottom: 170px;
+  }
+  
+  .home_header_logo :hover {
+    animation: scr 1s linear;
+  }
+  
+  @keyframes scr {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .home_title {
+    font-size: 60px;
+    font-weight: bolder;
+  }
+  
+}
+
+
+
+

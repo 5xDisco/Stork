@@ -1,0 +1,144 @@
+    <!-- 0 -->
+    <!-- TOP 最上層 搜尋 新的工作空間 -->
+    <div class="border-b stork-nav px-6 py-2 flex items-center justify-end">
+      <!-- <div class="stork-wrapper flex justify-between"> -->
+        <!-- <div class="flex justify-start items-center"> -->
+          <div class="mb-1 font-extrabold flex-grow flex justify-end items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+              <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+              <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+              <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+          </div>
+
+          <!-- 放大鏡  space-search-group-->
+          <div class="space-search-group mx-3 mb-1 font-extrabold flex-grow-0">
+            <span class="sp-search-icon flex justify-center items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ml-2 bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+              <!-- 搜尋框 -->
+              <input class="inp-space-search ml-1" placeholder="搜尋 新的工作空間 # select2">   
+            </span>
+          </div>
+          <!-- End of  space-search-group-->
+          <!-- </div> -->
+
+          <!-- ＴＯＰ 最右側的頭像 User Avatar -->
+          <div class="online-user flex-grow flex justify-end items-center">
+            <span tabindex="0" class="sp-user-avatar">
+              <img src="http://fakeimg.pl/24x24/00CED1/FFF/?text=A">
+            </span> 
+
+            <!-- hidden list - User profile list -->
+            <div id="user-profile-list" class="stork-dropdown-common" tabindex="0">
+              <div class="user-profile-icon-group flex justify-evenly items-center">
+                <div>
+                  <img src="http://fakeimg.pl/48x48/00CED1/FFF/?text=A">
+                </div>
+                <div class="user-status-group">
+                  <span class="user-profile-name block">##current_user##</span>
+                  <span class="user-profile-status block">##current_user_status##</span>
+                </div>
+              </div>
+              <div><span class="user-status-update">更新你的狀態</span></div>
+              <div><span>將你自己設定為##user_status_name##</span></div>
+              <div><span>編輯個人檔案</span></div>
+              <div><span>檢視個人檔案</span></div>
+              <div><span>偏好設定</span></div>
+              <div><span>登出##space_name##</span></div>
+            </div>
+            <!-- End of User profile list -->
+          </div>
+          <!-- End of User Avatar -->
+
+
+          <!-- </div>  -->
+          <!-- End of Stork wrapper -->
+        </div>
+        <!-- 0 TOP 最上層 搜尋 end -->
+
+
+        <!-- dialog 編輯個人檔案 -->
+<!--         <div class="wallpaper hidden" data-controller="channelbox" data-channelbox-target="page">
+          <div class="dialog-box">
+            <h2>編輯個人檔案</h2>
+            <button data-action="click->channelbox#close" class="close" >X</button>
+
+            <form action="POST" class="flex justify-center items-center outline-black">
+
+              <div class="current-user-name outline-black m-4">
+                <label for="inp-current-user-name" class="block my-2">全名
+                  <input type="text" id="inp-current-user-name" class="block border-grey-light border-2" placeholder="全名">
+                </label>
+                <label for="inp-current-user-nickname" class="block">顯示名稱
+                  <input type="text" id="inp-current-user-nickname" class="block border-black border-2" placeholder="顯示名稱">
+                </label>
+              </div>
+
+              <div class="current-user-avatar-group py-3">
+                <div class="outline-black p-2"><img src="http://fakeimg.pl/192x192/00CED1/FFF/?text=User"></div>
+                <div class="py-3">
+                  <button class="w-full py-1 my-2 border-2 border-gray-200">上傳影像</button>
+                  <button class="w-full py-1 my-2  border-2 border-gray-200">移除相片</button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div> -->
+        <!-- End of dialog 編輯個人檔案 -->
+
+
+
+
+
+
+    <!-- 公版開始 -->
+    <div class="outer-panel container font-sans antialiased h-screen">
+     <!-- 1 最左側的 ＩＣＯＮ ＬＩＳＴ -->
+     <div class="space-icons-panel flex-none w-20 p-4 md:block">
+
+      <div class="space-icon-group cursor-pointer mb-4">
+        <% @space_public_channels.each do |mall| %>
+        <div
+        class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden relative">
+        <%= link_to space_channel_path(space_id: mall.space_id, id: mall.id) do %>
+          <% if mall.space.avatar.attached? %>
+            <%= image_tag mall.space.space_url, alt: "Space's Avatar" %>
+          <% else %>
+            <%= mall.space.name[0,2]%>
+          <% end %>
+          <% end %>
+      </div>
+      <% end %>
+    </div>
+
+      <!-- ＳＰＡＣＥ ＩＣＯＮ - 新增 Space -->
+      <div class="cursor-pointer hidden">
+        <div
+        class="bg-white sticky top-0 left-0 opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+          <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+        </svg>
+      </div>
+    </div>
+    <!-- ＳＰＡＣＥ ＩＣＯＮ - end -->
+  </div>
+  <!-- 1 end -->
+
+      <!-- 側邊欄部分開始 -->
+      <%= render "shared/sidebar", channels: @channels, lobby_channel: @lobby_channel %>
+      <!-- 側邊欄部分結束 -->
+
+      <div data-controller="calendar" id='calendar' class="z-0 flex-grow"></div>
+      
+      <div class="relative flex flex-wrap">
+        <%= link_to "新增事件", new_event_path, remote: true, class: "absolute top-1 right-44 z-index-10 focus:outline-none text-white bg-blue-500 py-1.5 px-2 rounded w-20" %>
+      </div>
+        
+
+
+
+

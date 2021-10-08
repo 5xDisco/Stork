@@ -17,12 +17,23 @@ class SpacesController < ApplicationController
     end
   end
 
+  def destroy
+    @space = find_space
+    if @space.present?
+      @space.destroy
+    end   
+    redirect_to root_path 
+  end
+
+  def edit
+    @space = find_space
+  end
+
   def update
+    @space = Space.find(params[:id])
     if @space.update(space_params)
-      flash[:notice] = "編輯成功"
       redirect_to root_path 
     else
-      flash[:notice] = "編輯失敗"
       render :edit
     end
   end

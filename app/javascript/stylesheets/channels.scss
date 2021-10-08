@@ -53,5 +53,12 @@
     font-weight: 700;
     display: none;
   }
+}
 
+#space-menu {
+  display: none;
+}
+
+:focus-within #space-menu {
+  display: block;
 }

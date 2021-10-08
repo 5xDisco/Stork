@@ -6,9 +6,17 @@
     <div class="space-setting-group">
       <h1 class="title-emphasize font-semibold mb-1 text-xl flex justify-even items-center truncate">
         <span class="overflow-ellipsis overflow-hidden"><%= @space.name %></span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down mx-3" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-        </svg>
+        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down mx-3" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg></button>
+        <div id="space-menu">
+          <div class="mt-2 py-2 w-48 bg-white rounded-lg shadow-xl text-base">
+            <div class="flex block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"><img src="./img/icon-user.svg"
+                alt=""><%= link_to "編輯空間" , edit_space_path(id: @space.id) %></div>
+            <div class="flex block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"><img src="./img/icon-film.svg"
+                alt=""><%= link_to "刪除空間", space_path(id: @space.id), method: "delete", :data => {:confirm => '確定刪除空間？'} %></div>
+          </div>
+        </div>
       </h1>
 
       <div id="space-list-func" class="stork-dropdown-common" tabindex="0">

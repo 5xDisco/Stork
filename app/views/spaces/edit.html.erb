@@ -1,0 +1,20 @@
+<div class="wallpaper" data-controller="channelbox" data-channelbox-target="page">
+  <div class="flex flex-wrap mb-2">
+    <div class="dialog-box">
+      <div class="head">
+        <h2 class="text-3xl pt-4 pb-4 flex justify-start items-center">
+          <h1>編輯 <%= @space.name %> 工作空間</h1>
+        </h2>
+              <button data-action="click->channelbox#close" class="close hover:bg-gray-100 py-2 px-4 rounded text-xl">×</button>
+        <%= form_for(@space) do |f|%>
+          <div>
+            <%= f.label :name, "新名稱：" %>
+              <%= f.text_field :name %>
+          </div>
+
+          <%= f.submit %>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>

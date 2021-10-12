@@ -10,6 +10,10 @@ class Channel < ApplicationRecord
 	scope :lobby_channels, -> { where(is_public: 'lobby_channel', direct_message: false) }
 	scope :direct_messages, -> { where(direct_message: true) }
 
+	#網址遮蔽
+	extend FriendlyId
+  friendly_id :friendly_params, use: :slugged
+
 	def self.direct_message_for_users(users, space_id)
 		user_ids = users.map(&:id).sort
 		name = "DM:#{user_ids.join(":")}"

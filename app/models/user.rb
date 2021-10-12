@@ -19,6 +19,10 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :destroy
   validates :avatar, content_type: [:png, :jpg, :jpeg]
 
+  #網址遮蔽
+  extend FriendlyId
+  friendly_id :friendly_params, use: :slugged
+
   def name
     email.split('@')[0]
   end

@@ -172,7 +172,7 @@
                     <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
                   </svg>
                   <% end %>
-                  <%= link_to "#{name}", space_channel_path(c["space_id"].to_i, c["id"].to_i), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
+                  <%= link_to "#{name}", space_channel_path(space_id: c.space.slug, id: c.slug), "id" => "item", "data-chanid" => "#{c["space_id"].to_i},#{c["id"].to_i}" %>
                 
                   <div class="ml-1 text-white w-4 h-4 text-xs bg-red-600 rounded-full text-center inline-block <%= c.has_unread_message?(current_user, @space) ? "visible" : "invisible" %>" data-controller="unreads"
                     data-unreads-channelid="<%= c.id %>" data-unreads-userid="<%= current_user.id %>" data-unreads-id="<%= current_user.id %>" data-unreads-currentchannel="<%= @channel.id %>"><p><%= c.unread_message_count(current_user) %></p></div>
@@ -229,7 +229,7 @@
                   <div class='w-10 h-10 rounded-md'>
                     <%= image_tag user.avatar_url , class: 'sp-user-avatar align-middle '%>
                   </div>
-                  <%= link_to "#{user.display_name}", space_direct_message_path(@space.id, user.id), data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
+                  <%= link_to "#{user.display_name}", space_direct_message_path(@space.slug, user.slug), data: { channel_id: Channel.direct_message_for_users([current_user, user], @space.id).id } %>
                   <span class="online-status w-3 h-3 ml-2 inline-block rounded-full <%= user.online? ? "bg-green-500" : "bg-gray-300" %>", data-id="<%= user.id %>"></span>
                   <%= directmsg_exist(current_user, user, @space) %>
                 </div>

@@ -1,4 +1,9 @@
 class Space < ApplicationRecord
+
+    #網址遮蔽
+    extend FriendlyId
+    friendly_id :friendly_params, use: :slugged
+
     validates :name, presence: true
     #和 user 的關聯
     has_many :users_spaces, dependent: :destroy

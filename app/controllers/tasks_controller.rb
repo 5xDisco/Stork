@@ -30,7 +30,7 @@ class TasksController < ApplicationController
       @space = Space.find(session[:space_id])
       @channels = current_user.channels.where(space_id: @space.id, direct_message: false).order("ID ASC")
       @lobby_channel = Space.find(@space.id).channels.find_by(is_public: 'lobby_channel')
-
+      @channel = current_user.channels.find(session[:id]) 
       spaces = current_user.spaces
       space_public_channels = []
         spaces.each do |space|

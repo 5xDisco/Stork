@@ -173,14 +173,14 @@ ActiveRecord::Schema.define(version: 2021_10_07_065101) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "channels", "spaces"
+  add_foreign_key "channels", "spaces", on_delete: :cascade
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
   add_foreign_key "replies", "messages"
-  add_foreign_key "replies", "users"
-  add_foreign_key "tasks", "users"
-  add_foreign_key "user_channels", "channels"
-  add_foreign_key "user_channels", "users"
-  add_foreign_key "users_spaces", "spaces"
-  add_foreign_key "users_spaces", "users"
+  add_foreign_key "replies", "users", on_delete: :cascade
+  add_foreign_key "tasks", "users", on_delete: :cascade
+  add_foreign_key "user_channels", "channels", on_delete: :cascade
+  add_foreign_key "user_channels", "users", on_delete: :cascade
+  add_foreign_key "users_spaces", "spaces", on_delete: :cascade
+  add_foreign_key "users_spaces", "users", on_delete: :cascade
 end

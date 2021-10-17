@@ -197,7 +197,8 @@
                 <!-- 按右鍵視窗 class="menu" 及 ul li 改掉-->
                 <div class="stork-dropdown-common" data-baritem-target="menu" id="channel-menu">
                     <div>
-                      <%= link_to "離開頻道", leave_path(@space.id, lobby_channel.id), "data-baritem-target" => "deletepath", remote: true %>
+                      <%= link_to "
+                      頻道", leave_path(@space.id, lobby_channel.id), "data-baritem-target" => "deletepath", remote: true %>
                     </div>
                     <div>
                       <%= link_to "查看頻道資料", edit_space_channel_path(@space.id, lobby_channel.id), "data-baritem-target" => "editpath", remote: true %>

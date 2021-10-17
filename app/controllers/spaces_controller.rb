@@ -20,7 +20,7 @@ class SpacesController < ApplicationController
   def destroy
     @space = find_space
     if @space.present?
-      UsersSpace.where("space_id = ?", @space).delete_all
+      UsersSpace.delete(@space)
     end
     redirect_to root_path 
   end

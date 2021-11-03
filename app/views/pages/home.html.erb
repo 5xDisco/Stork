@@ -56,19 +56,13 @@
                     <%= current_user.email %> 的工作空間
                 </div>
 
-
-
-
-
-
 <% if @channels.size > 0 %>
-
-                <% @channels.each_with_index do |channel, index| %>
+    <% @channels.each_with_index do |channel, index| %>
 
                                         <% if index <= 1 %>
 
-                                        <div class="space-item flex items-center justify-center bg-white w-100 h-100 overflow-hidden p-4 flex flex-wrap">
-                                            <%= image_tag channel.space.space_url, alt: "Space's Avatar",style:"height:75px; width:75px; object-fit: contain;" %>
+                               <div class="space-item flex items-center justify-center bg-white w-100 h-100 overflow-hidden p-4 flex flex-wrap">
+                                         <%= image_tag channel.space.space_url, alt: "Space's Avatar",style:"height:75px; width:75px; object-fit: contain;" %>
                                                 <div class="flex-grow pl-4 ">
                                                     <div class="flex flex-col pt-4">
                                                         <p class="font-bold">
@@ -148,7 +142,7 @@
             </div>
             <div class="doll-content bg-white flex items-center justify-center lg:justify-between">
                 <p class="doll-text font-bold flow-grow hidden lg:block">
-                    想要和不同的團隊使用 Slack 嗎？
+                    想要和不同的團隊使用 Stork 嗎？
                 </p>
                 <button href="#"
                     class="item-2 mx-1 inline-block text-sm px-6 py-4 leading-none border-2 rounded mt-4 sm:mt-0 mr-4 block ">
